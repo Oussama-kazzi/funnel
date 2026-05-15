@@ -23,10 +23,10 @@ export default function Process() {
   }, [])
 
   return (
-    <section ref={ref} id="process" style={{ padding: '120px 32px' }}>
+    <section ref={ref} id="process" style={{ padding: '80px 32px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{
-          marginBottom: 80,
+          marginBottom: 56,
           opacity: visible ? 1 : 0,
           transform: visible ? 'translateY(0)' : 'translateY(24px)',
           transition: `opacity 1s ${EASE}, transform 1s ${EASE}`,
@@ -96,10 +96,18 @@ export default function Process() {
 
       <style>{`
         @media (max-width: 768px) {
+          #process { padding: 56px 20px 48px !important; }
+          #process > div > div:first-child { margin-bottom: 48px !important; }
           #process > div > div:last-child {
             grid-template-columns: 1fr !important;
-            gap: 40px !important;
+            gap: 36px !important;
           }
+          #process > div > div:last-child > div:first-child {
+            display: none !important;
+          }
+        }
+        @media (max-width: 480px) {
+          #process { padding: 48px 16px 40px !important; }
         }
       `}</style>
     </section>

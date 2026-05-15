@@ -55,6 +55,7 @@ export default function Navbar({ onCTA }) {
           <img
             src="/futura.png"
             alt="FUTURA"
+            className="nav-logo"
             style={{
               height: scrolled ? 56 : 64,
               width: 'auto',
@@ -120,7 +121,7 @@ export default function Navbar({ onCTA }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <button
             onClick={onCTA}
-            className="lime-cta-pill"
+            className="lime-cta-pill nav-cta"
             style={{
               background: 'linear-gradient(135deg, #A8D830 0%, #C7F751 100%)',
               color: '#050816',
@@ -148,6 +149,10 @@ export default function Navbar({ onCTA }) {
       <style>{`
         @media (max-width: 768px) {
           .hidden-mobile { display: none !important; }
+        }
+        @media (max-width: 480px) {
+          .nav-logo { height: 48px !important; }
+          .nav-cta { font-size: 12px !important; padding: 8px 14px !important; }
         }
       `}</style>
     </header>

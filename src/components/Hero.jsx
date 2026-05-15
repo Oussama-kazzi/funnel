@@ -183,7 +183,6 @@ export default function Hero({ onCTA }) {
     <section
       id="hero"
       style={{
-        minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
         paddingTop: 48,
@@ -322,6 +321,7 @@ export default function Hero({ onCTA }) {
 
             <a
               href="#work"
+              className="hero-see-work"
               style={{
                 fontFamily: "'Inter', sans-serif", fontSize: 15, fontWeight: 500,
                 color: 'rgba(255,255,255,0.5)', textDecoration: 'none',
@@ -543,7 +543,7 @@ export default function Hero({ onCTA }) {
           .hero-grid {
             grid-template-columns: 1fr;
             gap: 32px;
-            padding: 48px 24px 64px;
+            padding: 48px 24px 56px;
           }
           .hero-text {
             align-items: center;
@@ -551,14 +551,28 @@ export default function Hero({ onCTA }) {
           }
           .hero-text p { margin-left: auto; margin-right: auto; }
           .hero-text > div:last-child { justify-content: center; }
-          .hero-orbit { max-width: 420px; }
+          .hero-orbit { max-width: 400px; }
         }
         @media (max-width: 768px) {
-          #hero h1 { font-size: clamp(36px, 9vw, 54px) !important; }
+          #hero { min-height: 0 !important; }
+          #hero h1 { font-size: clamp(34px, 9vw, 52px) !important; }
+          .hero-grid { padding: 40px 20px 40px !important; }
+          .hero-orbit { max-width: 340px !important; }
+          .hero-see-work { display: none !important; }
         }
         @media (max-width: 480px) {
-          .hero-orbit { max-width: 320px; }
+          .hero-grid { padding: 32px 16px 36px !important; }
+          .hero-orbit { max-width: 300px !important; }
           .orbit-tag { font-size: 11px; padding: 6px 12px; }
+          .lime-cta-circle { display: none !important; }
+          .lime-cta { justify-content: center; }
+          .lime-cta-pill {
+            font-size: 15px !important;
+            padding: 14px 32px !important;
+          }
+          .hero-text > div:last-child { justify-content: center !important; }
+          .orbit-center-num { font-size: 30px !important; }
+          .orbit-center-label { font-size: 10px !important; }
         }
       `}</style>
     </section>

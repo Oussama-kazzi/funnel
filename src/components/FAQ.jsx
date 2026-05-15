@@ -210,7 +210,7 @@ export default function FAQ() {
   const current = categories[activeTab]
 
   return (
-    <section id="faq" style={{ padding: '120px 32px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+    <section id="faq" className="faq-section" style={{ padding: '80px 32px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
       <div style={{ maxWidth: 860, margin: '0 auto' }}>
 
         {/* Header */}
@@ -321,6 +321,15 @@ export default function FAQ() {
         </p>
 
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .faq-section { padding: 56px 20px 48px !important; }
+        }
+        @media (max-width: 480px) {
+          .faq-section { padding: 48px 16px 40px !important; }
+        }
+      `}</style>
     </section>
   )
 }

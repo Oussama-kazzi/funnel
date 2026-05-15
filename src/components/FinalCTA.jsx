@@ -32,8 +32,9 @@ export default function FinalCTA({ onCTA }) {
     <section
       ref={sectionRef}
       id="cta"
+      className="finalcta-section"
       style={{
-        padding: '140px 32px 100px',
+        padding: '96px 32px 80px',
         background: 'transparent',
         textAlign: 'center',
         position: 'relative',
@@ -224,8 +225,12 @@ export default function FinalCTA({ onCTA }) {
           from { opacity: 0; transform: translateY(28px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        @media (max-width: 600px) {
-          .lime-cta { flex-direction: column; }
+        @media (max-width: 768px) {
+          .finalcta-section { padding: 72px 20px 56px !important; }
+          .lime-cta { flex-direction: column; align-items: center; }
+        }
+        @media (max-width: 480px) {
+          .finalcta-section { padding: 56px 16px 48px !important; }
         }
       `}</style>
     </section>

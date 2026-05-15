@@ -253,8 +253,9 @@ export default function Testimonials() {
   return (
     <section
       ref={ref}
+      className="testi-section"
       style={{
-        padding: '120px 0 100px',
+        padding: '80px 0 64px',
         borderTop: '1px solid rgba(255,255,255,0.06)',
         overflow: 'hidden',
         position: 'relative',
@@ -337,10 +338,22 @@ export default function Testimonials() {
 
       </div>
 
+      <style>{`
+        @media (max-width: 768px) {
+          .testi-section { padding: 56px 0 48px !important; }
+          .testi-section > div:first-child { padding: 0 20px !important; margin-bottom: 36px !important; }
+          .testi-section > div:first-child p:last-child { display: none !important; }
+        }
+        @media (max-width: 480px) {
+          .testi-section { padding: 48px 0 40px !important; }
+          .testi-section > div:first-child { padding: 0 16px !important; }
+        }
+      `}</style>
+
       {/* Dot indicators */}
       <div style={{
         display: 'flex', justifyContent: 'center', gap: 8,
-        marginTop: 36,
+        marginTop: isMobile ? 20 : 36,
         opacity: visible ? 1 : 0,
         transition: 'opacity 0.8s ease 0.3s',
       }}>

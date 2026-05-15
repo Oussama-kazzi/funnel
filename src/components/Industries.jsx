@@ -208,10 +208,11 @@ export default function Industries() {
   const inView = useInView(ref, { once: true, amount: 0.12 })
 
   return (
-    <section style={{
-      padding: '120px 32px',
+    <section className="ind-section" style={{
+      padding: '80px 32px',
       borderTop: '1px solid rgba(255,255,255,0.06)',
       borderBottom: '1px solid rgba(255,255,255,0.06)',
+      overflow: 'hidden',
     }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
@@ -259,7 +260,7 @@ export default function Industries() {
         </div>
 
         {/* Grid */}
-        <div style={{
+        <div className="ind-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
           gap: 20,
@@ -278,7 +279,17 @@ export default function Industries() {
           to   { opacity: 1; transform: translateY(0); }
         }
         @media (max-width: 860px) {
-          #industries-grid { grid-template-columns: 1fr !important; }
+          .ind-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .ind-section { padding: 56px 20px 48px !important; }
+        }
+        @media (max-width: 480px) {
+          .ind-section { padding: 48px 16px 40px !important; }
+          .ind-grid { gap: 16px !important; }
         }
       `}</style>
     </section>

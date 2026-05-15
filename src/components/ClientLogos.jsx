@@ -77,7 +77,7 @@ export default function ClientLogos() {
       <style>{`
         .cl-section {
           position: relative;
-          padding: 96px 0 88px;
+          padding: 64px 0 56px;
           overflow: hidden;
         }
 
@@ -99,7 +99,7 @@ export default function ClientLogos() {
           align-items: center;
           justify-content: center;
           gap: 16px;
-          margin: 52px 0 48px;
+          margin: 36px 0 32px;
           transition: opacity 0.6s ease, transform 0.6s ease;
         }
         .cl-label-text {
@@ -187,6 +187,20 @@ export default function ClientLogos() {
         @keyframes cl-scroll {
           0%   { transform: translateX(0); }
           100% { transform: translateX(calc(-100% / 3)); }
+        }
+
+        @media (max-width: 768px) {
+          .cl-section { padding: 52px 0 44px !important; }
+          .cl-label-wrap { margin: 32px 0 28px !important; }
+        }
+        @media (max-width: 480px) {
+          .cl-section { padding: 44px 0 36px !important; }
+          .cl-label-wrap { margin: 24px 0 20px !important; }
+          .cl-logo-slot {
+            width: 160px !important;
+            height: 56px !important;
+            padding: 8px 20px !important;
+          }
         }
       `}</style>
     </section>

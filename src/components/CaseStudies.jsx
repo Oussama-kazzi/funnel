@@ -310,13 +310,13 @@ function CaseCard({ item, index }) {
 
 export default function CaseStudies() {
   return (
-    <section id="work" style={{ padding: '120px 32px' }}>
+    <section id="work" className="cs-section" style={{ padding: '80px 32px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
         {/* Header */}
         <div style={{
           display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between',
-          flexWrap: 'wrap', gap: 32, marginBottom: 64,
+          flexWrap: 'wrap', gap: 32, marginBottom: 44,
         }}>
           <div>
             <p style={{
@@ -359,9 +359,19 @@ export default function CaseStudies() {
           to   { opacity: 1; transform: translateY(0); }
         }
         @media (max-width: 768px) {
-          #work > div > div:last-child {
+          .cs-section { padding: 56px 20px 48px !important; }
+          .cs-section > div > div:last-child {
             grid-template-columns: 1fr !important;
           }
+          .cs-section > div > div:first-child {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 16px !important;
+            margin-bottom: 36px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .cs-section { padding: 48px 16px 40px !important; }
         }
       `}</style>
     </section>

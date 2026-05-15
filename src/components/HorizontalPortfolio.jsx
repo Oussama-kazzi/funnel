@@ -238,23 +238,66 @@ function SectionHeading() {
   )
 }
 
-/* ── Mobile / Tablet grid layout ── */
-function StackedLayout({ columns }) {
-  const pad = columns === 1 ? '80px 20px 60px' : '80px 40px 60px'
+/* ── Mobile snap-scroll layout ── */
+function MobileSnapScroll() {
   return (
-    <section style={{ padding: pad }}>
+    <section style={{ padding: '48px 0 40px', overflow: 'hidden' }}>
+      <div style={{ padding: '0 20px', marginBottom: 28 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)' }}>※</span>
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)' }}>Featured Work</span>
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)' }}>※</span>
+          </div>
+          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: 'rgba(255,255,255,0.2)' }}>{projects.length} projects</span>
+        </div>
+      </div>
+      <div className="hp-snap-track">
+        {projects.map((p) => (
+          <div key={p.id} className="hp-snap-item">
+            <PortfolioCard project={p} />
+          </div>
+        ))}
+      </div>
+      <style>{`
+        .hp-snap-track {
+          display: flex;
+          gap: 14px;
+          overflow-x: auto;
+          overflow-y: hidden;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          padding: 8px 20px 16px;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .hp-snap-track::-webkit-scrollbar { display: none; }
+        .hp-snap-item {
+          scroll-snap-align: start;
+          flex-shrink: 0;
+          width: 88vw;
+          max-width: ${CARD_W}px;
+        }
+      `}</style>
+    </section>
+  )
+}
+
+/* ── Tablet 2-column grid ── */
+function StackedLayout({ columns }) {
+  return (
+    <section style={{ padding: '72px 32px 56px' }}>
       <SectionHeading />
       <div style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
         gap: CARD_GAP,
-        maxWidth: columns === 1 ? 400 : 860,
+        maxWidth: 860,
         margin: '0 auto',
+        justifyItems: 'center',
       }}>
         {projects.map((p) => (
-          <div key={p.id} style={{ display: 'flex', justifyContent: 'center' }}>
-            <PortfolioCard project={p} />
-          </div>
+          <PortfolioCard key={p.id} project={p} />
         ))}
       </div>
     </section>
@@ -293,9 +336,13 @@ export default function HorizontalPortfolio() {
       if (next !== 'desktop' || !trackRef.current || !containerRef.current) return
 
       const trackW     = trackRef.current.scrollWidth
-      const scrollable = Math.max(0, trackW - w + 80)
-      maxXRef.current  = scrollable
-      containerRef.current.style.height = `calc(100vh + ${scrollable}px)`
+      const horizontal = Math.max(0, trackW - w)
+      maxXRef.current  = horizontal
+      // Compress the vertical scroll distance so the sticky section releases
+      // right after the last card lands. Horizontal travel is preserved —
+      // scrolling just moves cards through faster per pixel.
+      const vertical = Math.min(horizontal * 0.4, 100)
+      containerRef.current.style.height = `calc(100vh + ${vertical}px)`
     }
 
     const id = requestAnimationFrame(() => requestAnimationFrame(measure))
@@ -310,13 +357,13 @@ export default function HorizontalPortfolio() {
     })
   }, [scrollYProgress]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (layout === 'mobile')  return <StackedLayout columns={1} />
+  if (layout === 'mobile')  return <MobileSnapScroll />
   if (layout === 'tablet')  return <StackedLayout columns={2} />
 
   return (
     <div
       ref={containerRef}
-      style={{ position: 'relative', height: `calc(100vh + ${(projects.length - 1) * (CARD_W + CARD_GAP)}px)` }}
+      style={{ position: 'relative', height: `calc(100vh + 100px)` }}
     >
       <div style={{
         position: 'sticky', top: 0, height: '100vh',

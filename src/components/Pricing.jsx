@@ -246,7 +246,7 @@ export default function Pricing({ onCTA }) {
   const inView = useInView(ref, { once: true, amount: 0.15 })
 
   return (
-    <section id="pricing" ref={ref} style={{ padding: '120px 32px' }}>
+    <section id="pricing" className="pricing-section" ref={ref} style={{ padding: '80px 32px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
         {/* ── Header ── */}
@@ -318,9 +318,20 @@ export default function Pricing({ onCTA }) {
           to   { opacity: 1; transform: translateY(0); }
         }
         @media (max-width: 900px) {
-          #pricing > div > div:last-child {
+          .pricing-section > div > div:last-child {
             grid-template-columns: 1fr !important;
+            max-width: 520px !important;
+            margin: 0 auto !important;
           }
+        }
+        @media (max-width: 768px) {
+          .pricing-section { padding: 56px 20px 48px !important; }
+          .pricing-section > div > div:first-child {
+            margin-bottom: 40px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .pricing-section { padding: 48px 16px 40px !important; }
         }
       `}</style>
     </section>
