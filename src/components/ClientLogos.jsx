@@ -214,7 +214,6 @@ export default function ClientLogos() {
         display: 'flex', flexDirection: 'column', gap: 14,
       }}>
         <MarqueeRow reverse={false} speed={38} />
-        <MarqueeRow reverse={true}  speed={50} />
       </div>
 
       {/* Bottom separator */}

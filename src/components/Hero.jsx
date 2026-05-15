@@ -4,62 +4,6 @@ import TextType from './TextType'
 const EASE = 'cubic-bezier(0.16, 1, 0.3, 1)'
 const SPRING = 'cubic-bezier(0.34, 1.56, 0.64, 1)'
 
-const marqueeItems = [
-  'Strategy to delivery, in-house',
-  'Design + code, one team',
-  'Trusted by 50+ product teams',
-  'Available for new projects',
-  '50+ products shipped',
-  '6-week average delivery',
-  'Senior team — no juniors',
-  'React & Next.js specialists',
-  'Figma to production, end-to-end',
-  'Awwwards-level design quality',
-]
-
-function MarqueeTrack({ reverse, bright }) {
-  const items = [
-    ...marqueeItems, ...marqueeItems, ...marqueeItems,
-    ...marqueeItems, ...marqueeItems, ...marqueeItems,
-  ]
-  return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      animation: `${reverse ? 'marquee-right' : 'marquee-left'} ${reverse ? 38 : 30}s linear infinite`,
-      willChange: 'transform',
-    }}>
-      {items.map((text, i) => (
-        <span
-          key={i}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 14,
-            padding: '0 48px',
-            whiteSpace: 'nowrap',
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 13,
-            fontWeight: 500,
-            letterSpacing: '0.02em',
-            color: bright ? 'rgba(255,255,255,0.62)' : 'rgba(255,255,255,0.25)',
-          }}
-        >
-          <span style={{
-            display: 'inline-block',
-            width: 6, height: 6,
-            borderRadius: '50%',
-            background: bright ? '#00FF87' : 'rgba(0,255,135,0.45)',
-            flexShrink: 0,
-            boxShadow: bright ? '0 0 10px rgba(0,255,135,0.7)' : 'none',
-          }} />
-          {text}
-        </span>
-      ))}
-    </div>
-  )
-}
-
 export default function Hero({ onCTA }) {
   const [visible, setVisible] = useState(false)
 
@@ -106,7 +50,7 @@ export default function Hero({ onCTA }) {
       {/* Main content */}
       <div style={{
         maxWidth: 900, margin: '0 auto',
-        padding: '60px 32px 320px',
+        padding: '60px 32px 80px',
         position: 'relative', zIndex: 1, width: '100%',
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         textAlign: 'center',
@@ -243,66 +187,7 @@ export default function Hero({ onCTA }) {
         </div>
       </div>
 
-      {/* Diagonal ticker zone */}
-      <div className="ticker-zone" style={{
-        position: 'absolute',
-        bottom: 0, left: 0, right: 0,
-        height: 300,
-        zIndex: 2,
-        pointerEvents: 'none',
-        overflow: 'hidden',
-        maskImage: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)',
-        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)',
-      }}>
-
-        {/* Strip 1 — rotated -9°, scrolls left, dim */}
-        <div style={{
-          position: 'absolute',
-          top: '50%', left: '50%',
-          width: '260vw',
-          transform: 'translate(-50%, -50%) rotate(-9deg)',
-          background: 'linear-gradient(180deg, rgba(3,7,4,0.97) 0%, rgba(5,12,7,0.97) 100%)',
-          borderTop: '1px solid rgba(0,255,135,0.1)',
-          borderBottom: '1px solid rgba(0,255,135,0.1)',
-          boxShadow:
-            'inset 0 1px 0 rgba(0,255,135,0.04),' +
-            'inset 0 -1px 0 rgba(0,255,135,0.04)',
-          padding: '22px 0',
-          overflow: 'hidden',
-        }}>
-          <MarqueeTrack reverse={false} bright={false} />
-        </div>
-
-        {/* Strip 2 — rotated +9°, scrolls right, bright */}
-        <div style={{
-          position: 'absolute',
-          top: '50%', left: '50%',
-          width: '260vw',
-          transform: 'translate(-50%, -50%) rotate(9deg)',
-          background: 'linear-gradient(180deg, rgba(0,14,7,0.94) 0%, rgba(0,18,9,0.94) 100%)',
-          borderTop: '1px solid rgba(0,255,135,0.22)',
-          borderBottom: '1px solid rgba(0,255,135,0.22)',
-          boxShadow:
-            '0 0 60px rgba(0,255,135,0.04),' +
-            'inset 0 1px 0 rgba(0,255,135,0.1),' +
-            'inset 0 -1px 0 rgba(0,255,135,0.1)',
-          padding: '22px 0',
-          overflow: 'hidden',
-        }}>
-          <MarqueeTrack reverse={true} bright={true} />
-        </div>
-
-      </div>
-
       <style>{`
-        @keyframes marquee-left {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        @keyframes marquee-right {
-          0%   { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
-        }
         .hero-cursor {
           color: #00FF87;
           opacity: 1;
@@ -310,9 +195,6 @@ export default function Hero({ onCTA }) {
         }
         @media (max-width: 768px) {
           #hero h1 { font-size: clamp(36px, 9vw, 54px) !important; }
-          #hero .ticker-zone { height: 200px !important; }
-          #hero .ticker-zone > div { padding: 14px 0 !important; }
-          #hero .ticker-zone span[style] { font-size: 11px !important; padding: 0 28px !important; }
         }
       `}</style>
     </section>

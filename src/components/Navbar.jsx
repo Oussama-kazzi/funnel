@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react'
 
+const EASE = 'cubic-bezier(0.16, 1, 0.3, 1)'
+const SPRING = 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+
 export default function Navbar({ onCTA }) {
   const [scrolled, setScrolled] = useState(false)
+  const [hoveredLink, setHoveredLink] = useState(null)
+  const [ctaHovered, setCtaHovered] = useState(false)
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20)
@@ -17,89 +22,132 @@ export default function Navbar({ onCTA }) {
     { label: 'FAQ', href: '#faq' },
   ]
 
-  // Adapt colours for dark hero (unscrolled) vs light sections (scrolled)
-  const linkColor = scrolled ? '#6B7280'          : 'rgba(255,255,255,0.55)'
-  const linkHover = scrolled ? '#0A0A0A'          : '#FFFFFF'
-
   return (
     <header
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        transition: 'all 0.55s cubic-bezier(0.16, 1, 0.3, 1)',
-        background: scrolled ? 'rgba(255,255,255,0.96)' : 'rgba(5,8,22,0.3)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderBottom: scrolled ? '1px solid #E5E5E5' : '1px solid rgba(255,255,255,0.06)',
+        transition: `background 0.5s ${EASE}, border-color 0.5s ${EASE}, box-shadow 0.5s ${EASE}`,
+        background: scrolled ? 'rgba(5,8,22,0.72)' : 'rgba(5,8,22,0.25)',
+        backdropFilter: 'blur(20px) saturate(160%)',
+        WebkitBackdropFilter: 'blur(20px) saturate(160%)',
+        borderBottom: scrolled
+          ? '1px solid rgba(255,255,255,0.08)'
+          : '1px solid rgba(255,255,255,0.04)',
+        boxShadow: scrolled ? '0 8px 32px rgba(0,0,0,0.35)' : 'none',
       }}
     >
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 68 }}>
+      <div style={{
+        maxWidth: 1280, margin: '0 auto',
+        padding: '0 clamp(20px, 3vw, 32px)',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        height: scrolled ? 64 : 72,
+        transition: `height 0.45s ${EASE}`,
+      }}>
 
         {/* Logo */}
-        <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+        <a
+          href="#"
+          style={{
+            textDecoration: 'none', display: 'flex', alignItems: 'center',
+            transition: `opacity 0.3s ${EASE}`,
+          }}
+          onMouseEnter={e => e.currentTarget.style.opacity = '0.8'}
+          onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+        >
           <img
             src="/futura.png"
             alt="FUTURA"
             style={{
-              height: 72,
+              height: scrolled ? 56 : 64,
               width: 'auto',
               display: 'block',
-              filter: scrolled ? 'brightness(0)' : 'none',
-              transition: 'filter 0.35s ease, opacity 0.35s ease',
-              opacity: scrolled ? 0.85 : 1,
+              transition: `height 0.45s ${EASE}`,
             }}
           />
         </a>
 
         {/* Desktop nav links */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: 36 }} className="hidden-mobile">
-          {links.map(l => (
-            <a
-              key={l.href}
-              href={l.href}
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 14, fontWeight: 500,
-                color: linkColor,
-                textDecoration: 'none',
-                transition: 'color 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-              }}
-              onMouseEnter={e => e.currentTarget.style.color = linkHover}
-              onMouseLeave={e => e.currentTarget.style.color = linkColor}
-            >
-              {l.label}
-            </a>
-          ))}
+        <nav
+          className="hidden-mobile"
+          style={{
+            display: 'flex', alignItems: 'center',
+            gap: 4,
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid rgba(255,255,255,0.06)',
+            borderRadius: 100,
+            padding: '6px',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+          }}
+        >
+          {links.map(l => {
+            const isHovered = hoveredLink === l.href
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                onMouseEnter={() => setHoveredLink(l.href)}
+                onMouseLeave={() => setHoveredLink(null)}
+                style={{
+                  position: 'relative',
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: 13, fontWeight: 500,
+                  color: isHovered ? '#FFFFFF' : 'rgba(255,255,255,0.6)',
+                  textDecoration: 'none',
+                  padding: '8px 16px',
+                  borderRadius: 100,
+                  background: isHovered ? 'rgba(0,255,135,0.08)' : 'transparent',
+                  letterSpacing: '-0.005em',
+                  transition: `color 0.3s ${EASE}, background 0.3s ${EASE}`,
+                  display: 'inline-flex', alignItems: 'center', gap: 6,
+                }}
+              >
+                <span
+                  style={{
+                    width: 4, height: 4, borderRadius: '50%',
+                    background: '#00FF87',
+                    opacity: isHovered ? 1 : 0,
+                    transform: isHovered ? 'scale(1)' : 'scale(0)',
+                    transition: `opacity 0.3s ${EASE}, transform 0.45s ${SPRING}`,
+                    boxShadow: isHovered ? '0 0 8px rgba(0,255,135,0.6)' : 'none',
+                  }}
+                />
+                {l.label}
+              </a>
+            )
+          })}
         </nav>
 
         {/* CTA */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <button
             onClick={onCTA}
+            onMouseEnter={() => setCtaHovered(true)}
+            onMouseLeave={() => setCtaHovered(false)}
             style={{
-              background: scrolled ? '#0A0A0A' : 'rgba(0,255,135,0.12)',
-              color: scrolled ? '#FFFFFF' : '#00FF87',
+              background: 'linear-gradient(135deg, #00CC6E 0%, #00FF87 100%)',
+              color: '#050816',
               fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontWeight: 600, fontSize: 14,
-              padding: '10px 22px',
-              border: scrolled ? 'none' : '1px solid rgba(0,255,135,0.35)',
-              borderRadius: 8, cursor: 'pointer',
-              transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
-              letterSpacing: '-0.01em',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = '#00CC6E'
-              e.currentTarget.style.color = '#050816'
-              e.currentTarget.style.border = '1px solid #00CC6E'
-              e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,255,135,0.35)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = scrolled ? '#0A0A0A' : 'rgba(0,255,135,0.12)'
-              e.currentTarget.style.color = scrolled ? '#FFFFFF' : '#00FF87'
-              e.currentTarget.style.border = scrolled ? 'none' : '1px solid rgba(0,255,135,0.35)'
-              e.currentTarget.style.boxShadow = 'none'
+              fontWeight: 700, fontSize: 13,
+              padding: '10px 20px',
+              border: 'none',
+              borderRadius: 100,
+              cursor: 'pointer',
+              display: 'inline-flex', alignItems: 'center', gap: 6,
+              letterSpacing: '-0.005em',
+              transition: `transform 0.5s ${SPRING}, box-shadow 0.4s ${EASE}`,
+              transform: ctaHovered ? 'translateY(-2px) scale(1.02)' : 'translateY(0) scale(1)',
+              boxShadow: ctaHovered
+                ? '0 12px 32px rgba(0,255,135,0.45), 0 0 0 1px rgba(0,255,135,0.3)'
+                : '0 2px 16px rgba(0,255,135,0.25)',
             }}
           >
-            Start a project →
+            Start a project
+            <span style={{
+              display: 'inline-block',
+              transform: ctaHovered ? 'translateX(3px)' : 'translateX(0)',
+              transition: `transform 0.4s ${SPRING}`,
+            }}>→</span>
           </button>
         </div>
       </div>
