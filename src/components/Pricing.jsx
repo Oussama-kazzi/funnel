@@ -1,150 +1,116 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useRef, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
 
-const fixedPlans = [
+const stacks = [
   {
-    name: 'Foundation',
-    capacity: 1,
-    desc: 'Best for early validation and focused design sprints',
-    price: '$8,000',
-    priceSuffix: '– $14,000',
-    timeline: '3–4 weeks delivery',
-    cta: 'Start a project',
-    popular: false,
-    features: [
-      'Product strategy session',
-      'Up to 5 designed screens',
-      'Figma design system',
-      'React or Next.js build',
-      'Responsive across all devices',
-      'Analytics & tracking setup',
-      '30-day post-launch support',
+    id: 'wordpress',
+    name: 'WordPress',
+    sub: 'The Veteran Heavyweight',
+    featured: false,
+    desc: 'Open-source CMS that powers ~43% of the web. Massive plugin ecosystem, infinite flexibility, and the only real option if you need WooCommerce, deep SEO control, or membership functionality at scale.',
+    cost:    '$$',
+    speed:   'Med',
+    flex:    'High',
+    pros: [
+      'Unmatched plugin ecosystem — anything you can imagine exists',
+      'Best-in-class for blogs, content sites, SEO',
+      'WooCommerce for serious e-commerce',
+      'You actually own everything — code, data, hosting',
     ],
+    cons: [
+      'Requires ongoing security updates and maintenance',
+      'Plugin conflicts can break things at midnight',
+      'Performance depends heavily on hosting + setup',
+    ],
+    bestFor: 'Content-heavy brands, blogs with serious SEO ambitions, membership sites, and e-commerce with 500+ SKUs.',
   },
   {
-    name: 'Studio',
-    capacity: 2,
-    desc: 'For growing teams needing consistent design and build delivery',
-    price: '$18,000',
-    priceSuffix: '– $32,000',
-    timeline: '5–7 weeks delivery',
-    cta: 'Start your project',
-    popular: true,
-    features: [
-      'Full discovery & strategy sprint',
-      'Up to 16 designed screens',
-      'Complete Figma design system',
-      'React / Next.js production build',
-      'Auth, API & CMS integration',
-      'Animations & micro-interactions',
-      'Performance & Core Web Vitals',
-      '60-day post-launch support',
+    id: 'webflow',
+    name: 'Webflow',
+    sub: "The Visual Designer's CMS",
+    featured: true,
+    desc: "Visual development platform with hosted infrastructure. Pixel-perfect design control without writing code, beautiful animations out of the box, and zero plugin maintenance. The fastest way to ship a premium-looking marketing site.",
+    cost:    '$$$',
+    speed:   'Fast',
+    flex:    'Med',
+    pros: [
+      'Stunning animations and interactions without code',
+      'Fast, secure hosting baked in — no plugins to update',
+      'Clean code output, great Core Web Vitals',
+      'Your client can edit text without breaking anything',
+      'Built-in CMS perfect for case studies, blogs, careers',
     ],
+    cons: [
+      "Monthly Webflow hosting fees (you don't own hosting)",
+      'E-commerce is limited compared to Shopify/Woo',
+      "No real plugin ecosystem — it's whatever Webflow ships",
+    ],
+    bestFor: 'Marketing sites, agencies, SaaS landing pages, premium personal brands, and design-led companies under 200 pages.',
   },
   {
-    name: 'Enterprise',
-    capacity: 3,
-    desc: 'For companies that scale fast or build complex products',
-    price: '$40,000',
-    priceSuffix: '+',
-    timeline: 'Scoped per engagement',
-    cta: 'Talk to us',
-    popular: false,
-    features: [
-      'Multi-product strategy',
-      'Unlimited screens & flows',
-      'Full design system + tokens',
-      'Next.js or custom architecture',
-      'Backend & infrastructure design',
-      'Team onboarding & documentation',
-      'Dedicated senior team',
-      '6-month support retainer option',
+    id: 'custom',
+    name: 'Custom code',
+    sub: 'Built From the Metal Up',
+    featured: false,
+    desc: 'React, Next.js, Astro — a hand-built application tailored to your exact requirements. Maximum performance, maximum flexibility, maximum control. Also: maximum investment and the longest timeline.',
+    cost:    '$$$$',
+    speed:   'Slow',
+    flex:    'Max',
+    pros: [
+      'Perfect Lighthouse scores, sub-second load times',
+      'Complete control over every pixel, every interaction',
+      'Custom logic — calculators, dashboards, dynamic pricing',
+      'Scales to millions of users without re-architecture',
+      'No platform fees, no vendor lock-in, ever',
     ],
+    cons: [
+      'Highest upfront investment',
+      'Requires a developer to make changes',
+      'Longest timeline — typically 8–16 weeks',
+    ],
+    bestFor: 'Funded SaaS products, ambitious e-commerce, high-traffic publishers, or anything with complex custom logic.',
   },
 ]
 
-const retainerPlans = [
-  {
-    name: 'Part-Time',
-    capacity: 1,
-    desc: 'Ongoing senior design support for focused recurring tasks',
-    price: '$4,500',
-    priceSuffix: '/mo',
-    timeline: 'Month-to-month · pause anytime',
-    cta: 'Start now',
-    popular: false,
-    features: [
-      'Dedicated designer at half-time capacity',
-      'Head of Design oversight',
-      'Support for ongoing product tasks',
-      'Unlimited tasks within monthly hours',
-      '3-day free trial included',
-      'Pause or cancel anytime',
-      'Weekly sync call',
-    ],
-  },
-  {
-    name: 'Full-Time',
-    capacity: 2,
-    desc: 'For growing teams needing consistent delivery at full capacity',
-    price: '$8,500',
-    priceSuffix: '/mo',
-    timeline: 'Month-to-month · pause anytime',
-    cta: 'Start now',
-    popular: true,
-    features: [
-      'Dedicated designer at full capacity',
-      'Head of Design oversight',
-      'Unlimited tasks within monthly hours',
-      'Faster turnaround for complex tasks',
-      '3-day free trial included',
-      'Pause or cancel anytime',
-      'Priority Slack support',
-    ],
-  },
-  {
-    name: 'Design Team',
-    capacity: 3,
-    desc: 'For companies that scale fast or build complex products',
-    price: '$15,000',
-    priceSuffix: '/mo',
-    timeline: 'Month-to-month · pause anytime',
-    cta: 'Talk to us',
-    popular: false,
-    features: [
-      'Two or more dedicated designers',
-      'End-to-end design ownership',
-      'Head of Design oversight and direction',
-      'Parallel delivery across workstreams',
-      '3-day free trial included',
-      'Pause or cancel anytime',
-      'Dedicated Slack channel',
-    ],
-  },
-]
-
-function PersonIcon({ active }) {
+function PlusIcon() {
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="7" r="4" fill={active ? '#FFFFFF' : 'rgba(255,255,255,0.15)'} />
-      <path
-        d="M4 21c0-4.418 3.582-8 8-8s8 3.582 8 8"
-        stroke={active ? '#FFFFFF' : 'rgba(255,255,255,0.15)'}
-        strokeWidth="1.5" strokeLinecap="round" fill="none"
-      />
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
+      <circle cx="7" cy="7" r="6.5" stroke="#C7F751" strokeWidth="1"/>
+      <path d="M7 4v6M4 7h6" stroke="#C7F751" strokeWidth="1.4" strokeLinecap="round"/>
     </svg>
   )
 }
 
-function CheckIcon() {
+function MinusIcon() {
   return (
-    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
-      <path d="M3 8l3.5 3.5L13 4.5" stroke="#C7F751" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
+      <circle cx="7" cy="7" r="6.5" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
+      <path d="M4 7h6" stroke="rgba(255,255,255,0.25)" strokeWidth="1.4" strokeLinecap="round"/>
     </svg>
   )
 }
 
-function PricingCard({ plan, onCTA, isLast }) {
+function StatBlock({ value, label, highlight }) {
+  return (
+    <div>
+      <div style={{
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
+        fontSize: 22, fontWeight: 800,
+        color: highlight ? '#C7F751' : '#FFFFFF',
+        letterSpacing: '-0.02em', lineHeight: 1,
+        marginBottom: 4,
+      }}>{value}</div>
+      <div style={{
+        fontFamily: "'Inter', sans-serif",
+        fontSize: 9, fontWeight: 600,
+        color: 'rgba(255,255,255,0.28)',
+        textTransform: 'uppercase', letterSpacing: '0.14em',
+      }}>{label}</div>
+    </div>
+  )
+}
+
+function StackCard({ stack, index }) {
   const [hovered, setHovered] = useState(false)
 
   return (
@@ -152,258 +118,211 @@ function PricingCard({ plan, onCTA, isLast }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        padding: '40px 32px',
+        position: 'relative',
+        background: stack.featured
+          ? 'rgba(255,255,255,0.05)'
+          : hovered ? 'rgba(255,255,255,0.025)' : 'rgba(255,255,255,0.015)',
+        border: `1px solid ${stack.featured ? 'rgba(199,247,81,0.18)' : 'rgba(255,255,255,0.07)'}`,
+        borderRadius: 16,
+        padding: '36px 32px 28px',
         display: 'flex',
         flexDirection: 'column',
-        borderRight: !isLast ? '1px solid rgba(255,255,255,0.07)' : 'none',
-        background: hovered ? 'rgba(255,255,255,0.025)' : 'transparent',
-        transition: 'background 0.35s cubic-bezier(0.4,0,0.2,1)',
-        position: 'relative',
+        gap: 0,
+        transition: 'background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
+        boxShadow: stack.featured
+          ? '0 0 0 1px rgba(199,247,81,0.06), 0 24px 48px rgba(0,0,0,0.35)'
+          : hovered ? '0 16px 40px rgba(0,0,0,0.3)' : '0 4px 16px rgba(0,0,0,0.15)',
+        opacity: 0,
+        animation: `pr-fadein 0.55s ease forwards ${index * 0.13 + 0.15}s`,
       }}
     >
-      {plan.popular && (
+      {/* Featured badge */}
+      {stack.featured && (
         <div style={{
-          position: 'absolute', top: 20, right: 20,
-          background: '#A8D830', color: '#050816',
-          fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 700,
-          letterSpacing: '0.1em', textTransform: 'uppercase',
-          padding: '4px 12px', borderRadius: 100, whiteSpace: 'nowrap',
-        }}>
-          Most popular
-        </div>
+          position: 'absolute', top: -1, left: '50%',
+          transform: 'translateX(-50%)',
+          background: '#C7F751',
+          color: '#0A0A0A',
+          fontFamily: "'Inter', sans-serif",
+          fontSize: 9, fontWeight: 800,
+          letterSpacing: '0.14em', textTransform: 'uppercase',
+          padding: '5px 14px',
+          borderRadius: '0 0 8px 8px',
+          whiteSpace: 'nowrap',
+        }}>Our pick for most</div>
       )}
 
-      {/* Plan name */}
+      {/* Name */}
       <h3 style={{
         fontFamily: "'Plus Jakarta Sans', sans-serif",
-        fontSize: 26, fontWeight: 800,
-        color: '#FFFFFF', letterSpacing: '-0.02em',
-        lineHeight: 1.15, marginBottom: 22,
-        paddingRight: plan.popular ? 100 : 0,
-      }}>
-        {plan.name}
-      </h3>
+        fontSize: 28, fontWeight: 800,
+        color: '#FFFFFF', letterSpacing: '-0.03em',
+        lineHeight: 1.1, marginBottom: 8,
+        marginTop: stack.featured ? 10 : 0,
+      }}>{stack.name}</h3>
 
-      {/* Capacity icons */}
-      <div style={{ display: 'flex', gap: 6, marginBottom: 18 }}>
-        {Array.from({ length: 3 }).map((_, i) => (
-          <PersonIcon key={i} active={i < plan.capacity} />
-        ))}
-      </div>
+      {/* Sub */}
+      <div style={{
+        fontFamily: "'Inter', sans-serif",
+        fontSize: 10, fontWeight: 600,
+        color: stack.featured ? 'rgba(199,247,81,0.65)' : 'rgba(255,255,255,0.28)',
+        textTransform: 'uppercase', letterSpacing: '0.15em',
+        marginBottom: 20,
+      }}>{stack.sub}</div>
 
       {/* Description */}
       <p style={{
         fontFamily: "'Inter', sans-serif",
-        fontSize: 14, color: 'rgba(255,255,255,0.5)',
-        lineHeight: 1.65, marginBottom: 28,
+        fontSize: 13.5, color: 'rgba(255,255,255,0.5)',
+        lineHeight: 1.7, marginBottom: 24,
+      }}>{stack.desc}</p>
+
+      {/* Stats row */}
+      <div style={{
+        display: 'flex', gap: 28, alignItems: 'flex-start',
+        paddingBottom: 24,
+        borderBottom: '1px solid rgba(255,255,255,0.07)',
+        marginBottom: 24,
       }}>
-        {plan.desc}
-      </p>
-
-      {/* Price */}
-      <div style={{ marginBottom: 28 }}>
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
-          <span style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontSize: 32, fontWeight: 800,
-            color: '#FFFFFF', letterSpacing: '-0.04em', lineHeight: 1,
-          }}>
-            {plan.price}
-          </span>
-          <span style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 15, color: 'rgba(255,255,255,0.4)',
-          }}>
-            {plan.priceSuffix}
-          </span>
-        </div>
-        <div style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: 12, color: 'rgba(255,255,255,0.3)',
-          marginTop: 5,
-        }}>
-          {plan.timeline}
-        </div>
+        <StatBlock value={stack.cost}  label="Cost"          highlight={true} />
+        <StatBlock value={stack.speed} label="Speed to ship" highlight={false} />
+        <StatBlock value={stack.flex}  label="Flexibility"   highlight={false} />
       </div>
 
-      {/* CTA — lime pill + circle arrow */}
-      <div
-        className="lime-cta"
-        style={{ alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 32 }}
-      >
-        <button
-          onClick={onCTA}
-          aria-label={plan.cta}
-          className="lime-cta-circle"
-          style={{
-            width: 44, height: 44, borderRadius: '50%',
-            background: '#C7F751', border: 'none', cursor: 'pointer',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            transition: 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1)',
-            boxShadow: '0 3px 18px rgba(199,247,81,0.45)',
-            flexShrink: 0,
-          }}
-        >
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0A2622" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="17" y1="7" x2="7" y2="17" />
-            <polyline points="17 17 7 17 7 7" />
-          </svg>
-        </button>
-        <button
-          onClick={onCTA}
-          className="lime-cta-pill"
-          style={{
-            background: '#C7F751', color: '#0A2622',
-            border: 'none', borderRadius: 100,
-            padding: '12px 26px',
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontSize: 14, fontWeight: 700,
-            cursor: 'pointer',
-            letterSpacing: '-0.005em',
-            transition: 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1)',
-            boxShadow: '0 3px 22px rgba(199,247,81,0.45)',
-          }}
-        >
-          {plan.cta}
-        </button>
-      </div>
-
-      {/* Divider */}
-      <div style={{ height: 1, background: 'rgba(255,255,255,0.08)', marginBottom: 28 }} />
-
-      {/* Feature list */}
-      <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 13 }}>
-        {plan.features.map((f, i) => (
-          <li key={i} style={{
-            display: 'flex', alignItems: 'flex-start', gap: 10,
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 13.5, color: 'rgba(255,255,255,0.6)',
-            lineHeight: 1.45,
-          }}>
-            <CheckIcon />
-            {f}
+      {/* Pros */}
+      <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 11, marginBottom: 14 }}>
+        {stack.pros.map((p, i) => (
+          <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 9 }}>
+            <PlusIcon />
+            <span style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: 13, color: 'rgba(255,255,255,0.65)', lineHeight: 1.5,
+            }}>{p}</span>
           </li>
         ))}
       </ul>
+
+      {/* Cons */}
+      <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 11, marginBottom: 28 }}>
+        {stack.cons.map((c, i) => (
+          <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 9 }}>
+            <MinusIcon />
+            <span style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: 13, color: 'rgba(255,255,255,0.32)', lineHeight: 1.5,
+            }}>{c}</span>
+          </li>
+        ))}
+      </ul>
+
+      {/* Best for */}
+      <div style={{
+        marginTop: 'auto',
+        padding: '16px 18px',
+        background: stack.featured ? 'rgba(199,247,81,0.06)' : 'rgba(255,255,255,0.03)',
+        border: `1px solid ${stack.featured ? 'rgba(199,247,81,0.18)' : 'rgba(255,255,255,0.07)'}`,
+        borderRadius: 10,
+      }}>
+        <div style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: 9, fontWeight: 700,
+          color: stack.featured ? '#C7F751' : 'rgba(255,255,255,0.3)',
+          textTransform: 'uppercase', letterSpacing: '0.18em',
+          marginBottom: 8,
+        }}>Best for</div>
+        <p style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: 13, fontStyle: 'italic',
+          color: 'rgba(255,255,255,0.6)', lineHeight: 1.6,
+          margin: 0,
+        }}>{stack.bestFor}</p>
+      </div>
     </div>
   )
 }
 
-const headerVariants = {
-  offscreen: { y: 24, opacity: 0 },
-  onscreen: { y: 0, opacity: 1, transition: { type: 'spring', bounce: 0.15, duration: 0.9 } },
-}
-
 export default function Pricing({ onCTA }) {
-  const [tab, setTab] = useState('fixed')
-  const plans = tab === 'fixed' ? fixedPlans : retainerPlans
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, amount: 0.15 })
 
   return (
-    <section id="pricing" style={{ padding: '120px 32px' }}>
-      <style>{`
-        .lime-cta:hover .lime-cta-circle {
-          transform: translateY(-2px) rotate(-12deg);
-          box-shadow: 0 8px 28px rgba(199,247,81,0.65) !important;
-        }
-        .lime-cta:hover .lime-cta-pill {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 32px rgba(199,247,81,0.65) !important;
-        }
-      `}</style>
+    <section id="pricing" ref={ref} style={{ padding: '120px 32px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
-        {/* Header */}
-        <motion.div
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={headerVariants}
-          style={{ textAlign: 'center', marginBottom: 48 }}
-        >
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#C7F751', marginBottom: 16 }}>
-            Investment
+        {/* ── Header ── */}
+        <div style={{
+          maxWidth: 680,
+          marginBottom: 72,
+          opacity: inView ? 1 : 0,
+          transform: inView ? 'translateY(0)' : 'translateY(24px)',
+          transition: 'opacity 0.8s ease, transform 0.8s ease',
+        }}>
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: 10, fontWeight: 700,
+            textTransform: 'uppercase', letterSpacing: '0.2em',
+            color: '#C7F751', marginBottom: 20,
+            display: 'flex', alignItems: 'center', gap: 10,
+          }}>
+            <span style={{ width: 28, height: 1, background: '#C7F751', display: 'inline-block' }} />
+            The Stack Question
           </p>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#FFFFFF', lineHeight: 1.05, marginBottom: 36 }}>
-            Straightforward engagements.
+
+          <h2 style={{
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontSize: 'clamp(36px, 5vw, 64px)',
+            fontWeight: 800,
+            letterSpacing: '-0.04em',
+            color: '#FFFFFF',
+            lineHeight: 1.06,
+            marginBottom: 28,
+          }}>
+            WordPress, Webflow,{' '}
+            or custom code —{' '}
+            <em style={{
+              fontStyle: 'italic',
+              color: '#C7F751',
+              fontWeight: 700,
+              textShadow: '0 0 40px rgba(199,247,81,0.35)',
+            }}>
+              which one is right for you?
+            </em>
           </h2>
 
-          {/* Toggle — Design/Development style from the screenshot */}
-          <div style={{
-            display: 'inline-flex',
-            padding: '4px',
-            background: 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(255,255,255,0.1)',
-            borderRadius: 100,
-          }}>
-            {[['fixed', 'Fixed Price'], ['retainer', 'Retainer']].map(([val, label]) => (
-              <button
-                key={val}
-                onClick={() => setTab(val)}
-                style={{
-                  padding: '10px 28px',
-                  borderRadius: 100,
-                  border: 'none',
-                  background: tab === val ? '#FFFFFF' : 'transparent',
-                  color: tab === val ? '#0A0A0A' : 'rgba(255,255,255,0.45)',
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: 14, fontWeight: 600,
-                  cursor: 'pointer',
-                  transition: 'background 0.3s cubic-bezier(0.4,0,0.2,1), color 0.3s cubic-bezier(0.4,0,0.2,1)',
-                }}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Cards — unified container with column dividers, matching the screenshot */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={tab}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              background: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: 20,
-              overflow: 'hidden',
-            }}
-          >
-            {plans.map((plan, i) => (
-              <PricingCard
-                key={plan.name}
-                plan={plan}
-                onCTA={onCTA}
-                isLast={i === plans.length - 1}
-              />
-            ))}
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Footer note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          style={{
+          <p style={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: 14, color: 'rgba(255,255,255,0.3)',
-            textAlign: 'center', marginTop: 32,
-          }}
-        >
-          All engagements include delivery milestones and a structured revision process.{' '}
-          <strong style={{ color: 'rgba(255,255,255,0.6)', fontWeight: 600 }}>
-            Payment: 50% on kickoff, 50% on handover.
-          </strong>
-        </motion.p>
+            fontSize: 16, color: 'rgba(255,255,255,0.45)',
+            lineHeight: 1.75, margin: 0,
+          }}>
+            Most agencies push you toward whatever they happen to build with. We've shipped on all three, and the honest answer depends entirely on what you sell, how fast you ship, and who maintains it after launch.
+          </p>
+        </div>
+
+        {/* ── Stack cards ── */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: 20,
+          alignItems: 'start',
+        }}>
+          {stacks.map((stack, i) => (
+            <StackCard key={stack.id} stack={stack} index={i} />
+          ))}
+        </div>
 
       </div>
+
+      <style>{`
+        @keyframes pr-fadein {
+          from { opacity: 0; transform: translateY(18px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 900px) {
+          #pricing > div > div:last-child {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }

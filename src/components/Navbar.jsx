@@ -26,9 +26,12 @@ export default function Navbar({ onCTA }) {
     <header
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        transition: `background 0.5s ${EASE}, border-color 0.5s ${EASE}, box-shadow 0.5s ${EASE}`,
-        background: 'transparent',
-        borderBottom: '1px solid transparent',
+        transition: `background 0.5s ${EASE}, border-color 0.5s ${EASE}, box-shadow 0.5s ${EASE}, backdrop-filter 0.5s ${EASE}`,
+        background: scrolled ? 'rgba(5, 8, 22, 0.72)' : 'transparent',
+        borderBottom: `1px solid ${scrolled ? 'rgba(255,255,255,0.07)' : 'transparent'}`,
+        backdropFilter: scrolled ? 'blur(18px) saturate(160%)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(18px) saturate(160%)' : 'none',
+        boxShadow: scrolled ? '0 1px 40px rgba(0,0,0,0.35)' : 'none',
       }}
     >
       <div style={{

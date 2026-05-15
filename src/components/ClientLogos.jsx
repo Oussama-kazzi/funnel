@@ -77,7 +77,7 @@ export default function ClientLogos() {
       <style>{`
         .cl-section {
           position: relative;
-          padding: 64px 0 56px;
+          padding: 96px 0 88px;
           overflow: hidden;
         }
 
@@ -99,7 +99,7 @@ export default function ClientLogos() {
           align-items: center;
           justify-content: center;
           gap: 16px;
-          margin: 40px 0 36px;
+          margin: 52px 0 48px;
           transition: opacity 0.6s ease, transform 0.6s ease;
         }
         .cl-label-text {
@@ -124,19 +124,18 @@ export default function ClientLogos() {
         }
         .cl-mask {
           overflow: hidden;
-          /* fade edges */
           -webkit-mask-image: linear-gradient(
             to right,
             transparent 0%,
-            #000 7%,
-            #000 93%,
+            #000 4%,
+            #000 96%,
             transparent 100%
           );
           mask-image: linear-gradient(
             to right,
             transparent 0%,
-            #000 7%,
-            #000 93%,
+            #000 4%,
+            #000 96%,
             transparent 100%
           );
         }
@@ -145,7 +144,7 @@ export default function ClientLogos() {
           align-items: center;
           width: max-content;
           animation: cl-scroll 38s linear infinite;
-          padding: 12px 0;
+          padding: 20px 0;
         }
         .cl-mask:hover .cl-track {
           animation-play-state: paused;
@@ -153,27 +152,24 @@ export default function ClientLogos() {
 
         /* ── each logo slot — fixed, identical box ── */
         .cl-logo-slot {
-          /* every slot is the same rectangle */
-          width: 160px;
-          height: 44px;
+          width: 220px;
+          height: 72px;
           flex-shrink: 0;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 0 28px;
+          padding: 12px 40px;
           box-sizing: border-box;
-          /* thin right divider */
           border-right: 1px solid rgba(255,255,255,0.06);
           transition: filter 0.3s ease, opacity 0.3s ease;
-          /* resting: clearly visible, slight warm tint removed */
-          filter: brightness(1.15) contrast(1.08) grayscale(0.15);
-          opacity: 0.72;
+          filter: brightness(1.15) contrast(1.08) saturate(1.1);
+          opacity: 1;
         }
         .cl-logo-slot:last-child {
           border-right: none;
         }
         .cl-mask:hover .cl-logo-slot:hover {
-          filter: brightness(1.3) contrast(1.1) grayscale(0);
+          filter: brightness(1.3) contrast(1.12) saturate(1.2);
           opacity: 1;
         }
 
