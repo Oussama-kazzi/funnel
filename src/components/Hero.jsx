@@ -49,6 +49,23 @@ const ToolIcons = {
       <path d="M6 14h6v6z" fill="#0055FF" />
     </svg>
   ),
+  NextJS: (
+    <svg viewBox="0 0 24 24" width="60%" height="60%" aria-hidden="true">
+      <circle cx="12" cy="12" r="10.5" fill="#000"/>
+      <path d="M7.5 17V7l9 10V7" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
+  Tailwind: (
+    <svg viewBox="0 0 24 24" width="64%" height="64%" aria-hidden="true">
+      <path d="M12 6c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.31.74 1.91 1.35.98 1 2.09 2.15 4.59 2.15 2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.31-.74-1.91-1.35C15.61 7.15 14.5 6 12 6zM7 12c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.31.74 1.91 1.35C8.39 16.85 9.5 18 12 18c2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.31-.74-1.91-1.35C10.61 13.15 9.5 12 7 12z" fill="#38BDF8"/>
+    </svg>
+  ),
+  NodeJS: (
+    <svg viewBox="0 0 24 24" width="58%" height="58%" aria-hidden="true">
+      <path d="M12 2.5L3.5 7.5v9L12 21.5l8.5-5v-9L12 2.5z" fill="#539E43"/>
+      <path d="M8.5 17V7l7 10V7" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
 }
 
 /* ---------------- Orbit visual ---------------- */
@@ -62,10 +79,13 @@ function OrbitVisual() {
   */
   const icons = [
     { key: 'Figma',     r: 30, angle:  20, dur: 38, size: 56, color: '#FF7262' },
-    { key: 'React',     r: 42, angle: 110, dur: 46, size: 60, color: '#61DAFB' },
+    { key: 'NextJS',    r: 42, angle:  65, dur: 44, size: 58, color: '#ffffff' },
+    { key: 'React',     r: 30, angle: 110, dur: 46, size: 56, color: '#61DAFB' },
+    { key: 'Tailwind',  r: 42, angle: 158, dur: 40, size: 56, color: '#38BDF8' },
     { key: 'WordPress', r: 30, angle: 200, dur: 38, size: 56, color: '#21759B' },
-    { key: 'Webflow',   r: 42, angle: 290, dur: 46, size: 60, color: '#4353FF' },
-    { key: 'Framer',    r: 36, angle: 340, dur: 42, size: 54, color: '#0099FF' },
+    { key: 'NodeJS',    r: 42, angle: 248, dur: 44, size: 58, color: '#539E43' },
+    { key: 'Webflow',   r: 30, angle: 290, dur: 38, size: 56, color: '#4353FF' },
+    { key: 'Framer',    r: 42, angle: 338, dur: 42, size: 56, color: '#0099FF' },
   ]
 
   return (
@@ -102,7 +122,7 @@ function OrbitVisual() {
 
       {/* Center label */}
       <div className="orbit-center">
-        <div className="orbit-center-num">5+</div>
+        <div className="orbit-center-num">8+</div>
         <div className="orbit-center-label">Stacks We Master</div>
       </div>
 
@@ -459,7 +479,7 @@ export default function Hero({ onCTA }) {
           height: 100%;
           animation: orbit-counter linear infinite;
           will-change: transform;
-          filter: drop-shadow(0 0 14px var(--icon-glow, rgba(199,247,81,0.4)));
+          filter: drop-shadow(0 0 6px var(--icon-glow, rgba(199,247,81,0.18)));
         }
         .orbit-icon-tile {
           width: 100%;
@@ -468,8 +488,8 @@ export default function Hero({ onCTA }) {
           background: linear-gradient(135deg, #0E1020 0%, #0A0B16 100%);
           border: 1px solid rgba(255,255,255,0.08);
           box-shadow:
-            inset 0 1px 0 rgba(255,255,255,0.06),
-            0 8px 24px rgba(0,0,0,0.5);
+            inset 0 1px 0 rgba(255,255,255,0.05),
+            0 4px 12px rgba(0,0,0,0.4);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -499,7 +519,7 @@ export default function Hero({ onCTA }) {
           font-size: 12px;
           font-weight: 600;
           border-radius: 100px;
-          box-shadow: 0 8px 24px rgba(139,92,246,0.45), 0 0 0 1px rgba(255,255,255,0.08);
+          box-shadow: 0 4px 14px rgba(139,92,246,0.25), 0 0 0 1px rgba(255,255,255,0.08);
         }
         .orbit-tag-dot {
           width: 6px;
