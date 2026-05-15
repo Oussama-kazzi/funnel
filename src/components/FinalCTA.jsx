@@ -132,7 +132,7 @@ export default function FinalCTA({ onCTA }) {
                 boxShadow: '0 6px 36px rgba(199,247,81,0.5)',
               }}
             >
-              Book a strategy call
+              Start a project
             </button>
           </div>
         )}
