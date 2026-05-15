@@ -11,7 +11,7 @@ const services = [
 ]
 
 function Icon({ tag }) {
-  const shared = { width: 22, height: 22, fill: 'none', stroke: '#00FF87', strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round' }
+  const shared = { width: 22, height: 22, fill: 'none', stroke: '#C7F751', strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round' }
   switch (tag) {
     case 'Strategy':
       return <svg viewBox="0 0 24 24" {...shared}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="22"/><line x1="2" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="22" y2="12"/></svg>
@@ -31,7 +31,7 @@ function Icon({ tag }) {
 
 function ArrowUpRight() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00FF87" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C7F751" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
       <line x1="7" y1="17" x2="17" y2="7"/>
       <polyline points="7 7 17 7 17 17"/>
     </svg>
@@ -69,13 +69,13 @@ function ServiceCard({ num, title, desc, tag }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? 'rgba(0,255,135,0.04)' : '#0A0A0A',
-        border: `2px solid ${hovered ? 'rgba(0,255,135,0.3)' : 'rgba(255,255,255,0.08)'}`,
+        background: hovered ? 'rgba(199,247,81,0.04)' : '#0A0A0A',
+        border: `2px solid ${hovered ? 'rgba(199,247,81,0.3)' : 'rgba(255,255,255,0.08)'}`,
         borderRadius: 8,
         padding: '36px 32px',
         position: 'relative',
         // Offset shadow collapses on hover — the core neobrutalist interaction
-        boxShadow: hovered ? 'none' : '6px 6px 0px 0px rgba(0,255,135,0.22)',
+        boxShadow: hovered ? 'none' : '6px 6px 0px 0px rgba(199,247,81,0.22)',
         transition: 'background 0.3s cubic-bezier(0.4,0,0.2,1), border-color 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1)',
         cursor: 'default',
       }}
@@ -88,8 +88,8 @@ function ServiceCard({ num, title, desc, tag }) {
         <span style={{
           fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 700,
           letterSpacing: '0.1em', textTransform: 'uppercase',
-          color: '#00FF87', background: 'rgba(0,255,135,0.08)',
-          border: '1px solid rgba(0,255,135,0.18)',
+          color: '#C7F751', background: 'rgba(199,247,81,0.08)',
+          border: '1px solid rgba(199,247,81,0.18)',
           padding: '3px 10px', borderRadius: 100,
         }}>
           {tag}
@@ -99,11 +99,11 @@ function ServiceCard({ num, title, desc, tag }) {
       {/* Icon — neobrutalist circle from the reference */}
       <div style={{
         width: 56, height: 56, borderRadius: '50%',
-        background: 'rgba(0,255,135,0.07)',
-        border: '2px solid rgba(0,255,135,0.22)',
+        background: 'rgba(199,247,81,0.07)',
+        border: '2px solid rgba(199,247,81,0.22)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         marginBottom: 24,
-        boxShadow: hovered ? '3px 3px 0px 0px rgba(0,255,135,0.28)' : 'none',
+        boxShadow: hovered ? '3px 3px 0px 0px rgba(199,247,81,0.28)' : 'none',
         transition: 'box-shadow 0.3s cubic-bezier(0.4,0,0.2,1)',
       }}>
         <Icon tag={tag} />
@@ -154,7 +154,7 @@ export default function Services() {
           }}
         >
           <div>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#00FF87', marginBottom: 16 }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#C7F751', marginBottom: 16 }}>
               What we do
             </p>
             <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#FFFFFF', lineHeight: 1.05, margin: 0, maxWidth: 560 }}>

@@ -139,7 +139,7 @@ function PersonIcon({ active }) {
 function CheckIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
-      <path d="M3 8l3.5 3.5L13 4.5" stroke="#00FF87" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M3 8l3.5 3.5L13 4.5" stroke="#C7F751" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
@@ -164,7 +164,7 @@ function PricingCard({ plan, onCTA, isLast }) {
       {plan.popular && (
         <div style={{
           position: 'absolute', top: 20, right: 20,
-          background: '#00CC6E', color: '#050816',
+          background: '#A8D830', color: '#050816',
           fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 700,
           letterSpacing: '0.1em', textTransform: 'uppercase',
           padding: '4px 12px', borderRadius: 100, whiteSpace: 'nowrap',
@@ -226,27 +226,47 @@ function PricingCard({ plan, onCTA, isLast }) {
         </div>
       </div>
 
-      {/* CTA — pill button matching the screenshot */}
-      <button
-        onClick={onCTA}
-        style={{
-          alignSelf: 'flex-start',
-          background: '#FFFFFF',
-          color: '#0A0A0A',
-          border: 'none',
-          borderRadius: 100,
-          padding: '13px 30px',
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontSize: 14, fontWeight: 700,
-          cursor: 'pointer',
-          marginBottom: 32,
-          transition: 'background 0.25s, color 0.25s',
-        }}
-        onMouseEnter={e => { e.currentTarget.style.background = '#00FF87' }}
-        onMouseLeave={e => { e.currentTarget.style.background = '#FFFFFF' }}
+      {/* CTA — lime pill + circle arrow */}
+      <div
+        className="lime-cta"
+        style={{ alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 32 }}
       >
-        {plan.cta}
-      </button>
+        <button
+          onClick={onCTA}
+          aria-label={plan.cta}
+          className="lime-cta-circle"
+          style={{
+            width: 44, height: 44, borderRadius: '50%',
+            background: '#C7F751', border: 'none', cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            transition: 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1)',
+            boxShadow: '0 3px 18px rgba(199,247,81,0.45)',
+            flexShrink: 0,
+          }}
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0A2622" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="17" y1="7" x2="7" y2="17" />
+            <polyline points="17 17 7 17 7 7" />
+          </svg>
+        </button>
+        <button
+          onClick={onCTA}
+          className="lime-cta-pill"
+          style={{
+            background: '#C7F751', color: '#0A2622',
+            border: 'none', borderRadius: 100,
+            padding: '12px 26px',
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontSize: 14, fontWeight: 700,
+            cursor: 'pointer',
+            letterSpacing: '-0.005em',
+            transition: 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1)',
+            boxShadow: '0 3px 22px rgba(199,247,81,0.45)',
+          }}
+        >
+          {plan.cta}
+        </button>
+      </div>
 
       {/* Divider */}
       <div style={{ height: 1, background: 'rgba(255,255,255,0.08)', marginBottom: 28 }} />
@@ -280,6 +300,16 @@ export default function Pricing({ onCTA }) {
 
   return (
     <section id="pricing" style={{ padding: '120px 32px' }}>
+      <style>{`
+        .lime-cta:hover .lime-cta-circle {
+          transform: translateY(-2px) rotate(-12deg);
+          box-shadow: 0 8px 28px rgba(199,247,81,0.65) !important;
+        }
+        .lime-cta:hover .lime-cta-pill {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 32px rgba(199,247,81,0.65) !important;
+        }
+      `}</style>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
         {/* Header */}
@@ -290,7 +320,7 @@ export default function Pricing({ onCTA }) {
           variants={headerVariants}
           style={{ textAlign: 'center', marginBottom: 48 }}
         >
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#00FF87', marginBottom: 16 }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#C7F751', marginBottom: 16 }}>
             Investment
           </p>
           <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#FFFFFF', lineHeight: 1.05, marginBottom: 36 }}>

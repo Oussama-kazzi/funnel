@@ -43,8 +43,8 @@ function FAQItem({ q, a, open, onToggle }) {
         </span>
         <span style={{
           width: 32, height: 32, borderRadius: '50%',
-          background: open ? '#00CC6E' : 'rgba(255,255,255,0.06)',
-          border: `1px solid ${open ? '#00CC6E' : 'rgba(255,255,255,0.1)'}`,
+          background: open ? '#A8D830' : 'rgba(255,255,255,0.06)',
+          border: `1px solid ${open ? '#A8D830' : 'rgba(255,255,255,0.1)'}`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           flexShrink: 0, transition: 'background 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
           color: '#FFFFFF',

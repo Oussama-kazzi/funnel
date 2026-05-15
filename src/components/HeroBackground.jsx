@@ -67,7 +67,7 @@ export default function HeroBackground() {
         width: '110vw',
         height: '85vh',
         background:
-          'radial-gradient(ellipse at center, rgba(0,255,135,0.28) 0%, rgba(0,204,110,0.12) 28%, rgba(0,128,70,0.04) 58%, transparent 72%)',
+          'radial-gradient(ellipse at center, rgba(199,247,81,0.28) 0%, rgba(168,216,48,0.12) 28%, rgba(0,128,70,0.04) 58%, transparent 72%)',
         filter: 'blur(90px)',
         willChange: 'transform',
         animation: 'blob1 30s ease-in-out infinite',
@@ -95,7 +95,7 @@ export default function HeroBackground() {
         width: '65vw',
         height: '80vh',
         background:
-          'radial-gradient(ellipse at center, rgba(0,255,135,0.18) 0%, rgba(0,204,110,0.07) 42%, transparent 68%)',
+          'radial-gradient(ellipse at center, rgba(199,247,81,0.18) 0%, rgba(168,216,48,0.07) 42%, transparent 68%)',
         filter: 'blur(120px)',
         willChange: 'transform',
         animation: 'blob3 42s ease-in-out infinite',
@@ -109,7 +109,7 @@ export default function HeroBackground() {
         width: '45vw',
         height: '45vh',
         background:
-          'radial-gradient(ellipse at center, rgba(0,255,135,0.15) 0%, transparent 62%)',
+          'radial-gradient(ellipse at center, rgba(199,247,81,0.15) 0%, transparent 62%)',
         filter: 'blur(80px)',
         willChange: 'transform',
         animation: 'blob4 24s ease-in-out infinite',
@@ -137,7 +137,7 @@ export default function HeroBackground() {
         width: '42vw',
         height: '42vh',
         background:
-          'radial-gradient(ellipse at center, rgba(0,255,135,0.08) 0%, transparent 58%)',
+          'radial-gradient(ellipse at center, rgba(199,247,81,0.08) 0%, transparent 58%)',
         filter: 'blur(60px)',
         animation: 'leakPulse 18s ease-in-out infinite',
         pointerEvents: 'none',

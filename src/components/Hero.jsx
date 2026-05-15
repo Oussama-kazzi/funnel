@@ -29,14 +29,14 @@ export default function Hero({ onCTA }) {
           'inset 0 1px 0 rgba(255,255,255,0.07)',
           '0 0 0 1px rgba(255,255,255,0.03)',
           '0 40px 100px rgba(0,0,0,0.75)',
-          '0 0 140px rgba(0,255,135,0.05)',
+          '0 0 140px rgba(199,247,81,0.05)',
         ].join(', '),
       }}
     >
       {/* Green radial glow */}
       <div style={{
         position: 'absolute', inset: 0, zIndex: 0,
-        background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,255,135,0.08), transparent 70%)',
+        background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(199,247,81,0.08), transparent 70%)',
         pointerEvents: 'none',
       }} />
       {/* Grid */}
@@ -59,8 +59,8 @@ export default function Hero({ onCTA }) {
         {/* Eyebrow */}
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: 8,
-          background: 'rgba(0,255,135,0.06)',
-          border: '1px solid rgba(0,255,135,0.18)',
+          background: 'rgba(199,247,81,0.06)',
+          border: '1px solid rgba(199,247,81,0.18)',
           borderRadius: 100, padding: '6px 14px 6px 10px',
           marginBottom: 40,
           opacity: visible ? 1 : 0,
@@ -68,7 +68,7 @@ export default function Hero({ onCTA }) {
           transition: `opacity 1.1s ${EASE}, transform 1.1s ${EASE}`,
           willChange: 'transform, opacity',
         }}>
-          <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#00FF87', flexShrink: 0, boxShadow: '0 0 0 3px rgba(0,255,135,0.25)' }} />
+          <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#C7F751', flexShrink: 0, boxShadow: '0 0 0 3px rgba(199,247,81,0.25)' }} />
           <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 500, color: 'rgba(255,255,255,0.6)' }}>
             Available for new projects · 2 spots open
           </span>
@@ -94,8 +94,8 @@ export default function Hero({ onCTA }) {
 
           <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 14, verticalAlign: 'middle', lineHeight: 1.1 }}>
             <span style={{
-              color: '#00FF87',
-              textShadow: '0 0 60px rgba(0,255,135,0.5)',
+              color: '#C7F751',
+              textShadow: '0 0 60px rgba(199,247,81,0.5)',
             }}>
               <TextType
                 text={['digital products', 'SaaS platforms', 'AI experiences', 'design systems']}
@@ -145,31 +145,45 @@ export default function Hero({ onCTA }) {
             willChange: 'transform, opacity',
           }}
         >
-          <button
-            onClick={onCTA}
-            style={{
-              background: 'linear-gradient(135deg, #00CC6E 0%, #00FF87 100%)',
-              color: '#050816',
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontWeight: 700, fontSize: 16,
-              padding: '16px 36px',
-              border: 'none', borderRadius: 100, cursor: 'pointer',
-              display: 'flex', alignItems: 'center', gap: 8,
-              transition: `transform 0.5s ${SPRING}, box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1)`,
-              boxShadow: '0 4px 32px rgba(0,255,135,0.35)',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)'
-              e.currentTarget.style.boxShadow = '0 16px 48px rgba(0,255,135,0.55)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.transform = 'translateY(0) scale(1)'
-              e.currentTarget.style.boxShadow = '0 4px 32px rgba(0,255,135,0.35)'
-            }}
+          <div
+            className="lime-cta"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}
           >
-            Start a project
-            <span>→</span>
-          </button>
+            <button
+              onClick={onCTA}
+              aria-label="Start a project"
+              className="lime-cta-circle"
+              style={{
+                width: 56, height: 56, borderRadius: '50%',
+                background: '#C7F751', border: 'none', cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                transition: `transform 0.5s ${SPRING}, box-shadow 0.35s ${EASE}`,
+                boxShadow: '0 4px 22px rgba(199,247,81,0.5)',
+                flexShrink: 0,
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A2622" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="17" y1="7" x2="7" y2="17" />
+                <polyline points="17 17 7 17 7 7" />
+              </svg>
+            </button>
+            <button
+              onClick={onCTA}
+              className="lime-cta-pill"
+              style={{
+                background: '#C7F751', color: '#0A2622',
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontWeight: 700, fontSize: 16,
+                padding: '16px 36px',
+                border: 'none', borderRadius: 100, cursor: 'pointer',
+                letterSpacing: '-0.005em',
+                transition: `transform 0.5s ${SPRING}, box-shadow 0.35s ${EASE}`,
+                boxShadow: '0 4px 28px rgba(199,247,81,0.5)',
+              }}
+            >
+              Start a project
+            </button>
+          </div>
 
           <a
             href="#work"
@@ -189,9 +203,17 @@ export default function Hero({ onCTA }) {
 
       <style>{`
         .hero-cursor {
-          color: #00FF87;
+          color: #C7F751;
           opacity: 1;
           font-weight: 300;
+        }
+        .lime-cta:hover .lime-cta-circle {
+          transform: translateY(-3px) rotate(-12deg);
+          box-shadow: 0 12px 36px rgba(199,247,81,0.7);
+        }
+        .lime-cta:hover .lime-cta-pill {
+          transform: translateY(-3px);
+          box-shadow: 0 14px 40px rgba(199,247,81,0.7);
         }
         @media (max-width: 768px) {
           #hero h1 { font-size: clamp(36px, 9vw, 54px) !important; }

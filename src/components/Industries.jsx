@@ -81,24 +81,24 @@ function IndustryCard({ icon, title, desc, stat, featured }) {
       onMouseLeave={() => setHovered(false)}
       style={{
         background: hovered
-          ? 'rgba(0,255,135,0.06)'
-          : featured ? 'rgba(0,255,135,0.04)' : 'rgba(255,255,255,0.04)',
+          ? 'rgba(199,247,81,0.06)'
+          : featured ? 'rgba(199,247,81,0.04)' : 'rgba(255,255,255,0.04)',
         border: featured
-          ? '1px solid rgba(0,255,135,0.4)'
+          ? '1px solid rgba(199,247,81,0.4)'
           : '1px solid rgba(255,255,255,0.08)',
         borderRadius: 16,
         padding: '36px 32px',
         position: 'relative',
         transition: 'transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
         transform: hovered ? 'translateY(-6px)' : 'translateY(0)',
-        boxShadow: hovered ? '0 16px 40px rgba(0,255,135,0.1)' : '0 0 0 transparent',
+        boxShadow: hovered ? '0 16px 40px rgba(199,247,81,0.1)' : '0 0 0 transparent',
         cursor: 'default',
       }}
     >
       {featured && (
         <div style={{
           position: 'absolute', top: -12, left: 24,
-          background: '#00CC6E', color: '#050816',
+          background: '#C7F751', color: '#050816',
           fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600,
           letterSpacing: '0.08em', textTransform: 'uppercase',
           padding: '4px 12px', borderRadius: 100,
@@ -112,15 +112,15 @@ function IndustryCard({ icon, title, desc, stat, featured }) {
         width: 52, height: 52,
         borderRadius: 14,
         background: hovered
-          ? 'linear-gradient(135deg, rgba(0,255,135,0.18) 0%, rgba(0,204,110,0.12) 100%)'
-          : 'linear-gradient(135deg, rgba(0,255,135,0.1) 0%, rgba(0,204,110,0.06) 100%)',
-        border: '1px solid rgba(0,255,135,0.2)',
+          ? 'linear-gradient(135deg, rgba(199,247,81,0.18) 0%, rgba(168,216,48,0.12) 100%)'
+          : 'linear-gradient(135deg, rgba(199,247,81,0.1) 0%, rgba(168,216,48,0.06) 100%)',
+        border: '1px solid rgba(199,247,81,0.2)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         marginBottom: 24,
-        color: '#00FF87',
+        color: '#C7F751',
         transition: 'background 0.25s ease, box-shadow 0.25s ease',
         boxShadow: hovered
-          ? '0 0 24px rgba(0,255,135,0.18)'
+          ? '0 0 24px rgba(199,247,81,0.18)'
           : '0 0 0 transparent',
       }}>
         {icon}
@@ -142,7 +142,7 @@ function IndustryCard({ icon, title, desc, stat, featured }) {
       </p>
       <span style={{
         fontFamily: "'Inter', sans-serif",
-        fontSize: 13, fontWeight: 600, color: '#00FF87',
+        fontSize: 13, fontWeight: 600, color: '#C7F751',
       }}>
         {stat}
       </span>
@@ -163,7 +163,7 @@ export default function Industries() {
             fontFamily: "'Inter', sans-serif",
             fontSize: 12, fontWeight: 600,
             textTransform: 'uppercase', letterSpacing: '0.14em',
-            color: '#00FF87', marginBottom: 16,
+            color: '#C7F751', marginBottom: 16,
           }}>
             Who we build for
           </p>

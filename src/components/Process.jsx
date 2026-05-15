@@ -32,7 +32,7 @@ export default function Process() {
           transition: `opacity 1s ${EASE}, transform 1s ${EASE}`,
           willChange: 'transform, opacity',
         }}>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#00FF87', marginBottom: 16 }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#C7F751', marginBottom: 16 }}>
             How it works
           </p>
           <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#FFFFFF', lineHeight: 1.05, margin: '0 0 16px 0', maxWidth: 700 }}>
@@ -78,7 +78,7 @@ export default function Process() {
               </div>
               <div style={{
                 fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600,
-                textTransform: 'uppercase', letterSpacing: '0.1em', color: '#00FF87',
+                textTransform: 'uppercase', letterSpacing: '0.1em', color: '#C7F751',
                 marginBottom: 10,
               }}>
                 {s.time}

@@ -33,14 +33,14 @@ export default function FinalCTA({ onCTA }) {
           'inset 0 1px 0 rgba(255,255,255,0.07)',
           '0 0 0 1px rgba(255,255,255,0.03)',
           '0 40px 100px rgba(0,0,0,0.75)',
-          '0 0 140px rgba(0,255,135,0.05)',
+          '0 0 140px rgba(199,247,81,0.05)',
         ].join(', '),
       }}
     >
       {/* Green radial glow */}
       <div style={{
         position: 'absolute', inset: 0, zIndex: 0,
-        background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,255,135,0.08), transparent 70%)',
+        background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(199,247,81,0.08), transparent 70%)',
         pointerEvents: 'none',
       }} />
       {/* Grid */}
@@ -58,10 +58,10 @@ export default function FinalCTA({ onCTA }) {
       }}>
         <div style={{
           display: 'inline-block',
-          background: 'rgba(0,255,135,0.08)', border: '1px solid rgba(0,255,135,0.25)',
+          background: 'rgba(199,247,81,0.08)', border: '1px solid rgba(199,247,81,0.25)',
           borderRadius: 100, padding: '6px 16px',
           fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600,
-          letterSpacing: '0.1em', textTransform: 'uppercase', color: '#00FF87',
+          letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C7F751',
           marginBottom: 32,
         }}>
           Strategy call · No commitment
@@ -81,8 +81,8 @@ export default function FinalCTA({ onCTA }) {
         }}>
           Ready to build something{' '}
           <span style={{
-            color: '#00FF87',
-            textShadow: '0 0 24px rgba(0,255,135,0.35)',
+            color: '#C7F751',
+            textShadow: '0 0 24px rgba(199,247,81,0.35)',
             display: 'inline-block',
             transform: 'translate3d(0,0,0)',
             backfaceVisibility: 'hidden',
@@ -112,26 +112,57 @@ export default function FinalCTA({ onCTA }) {
           Book a 30-minute strategy call. We'll review your product, your goals, and tell you exactly how we'd approach it — before any agreement is signed.
         </p>
 
-        <button
-          onClick={onCTA}
-          style={{
-            display: 'inline-flex', alignItems: 'center', gap: 10,
-            background: 'linear-gradient(135deg, #00CC6E 0%, #00FF87 100%)', color: '#050816',
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontWeight: 700, fontSize: 18,
-            padding: '20px 44px',
-            border: 'none', borderRadius: 12, cursor: 'pointer',
-            boxShadow: '0 8px 40px rgba(0,255,135,0.35)',
-            transition: `transform 0.5s ${SPRING}, box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1)`,
-          }}
-          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px) scale(1.02)'; e.currentTarget.style.boxShadow = '0 20px 60px rgba(0,255,135,0.55)' }}
-          onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0) scale(1)'; e.currentTarget.style.boxShadow = '0 8px 40px rgba(0,255,135,0.35)' }}
+        <div
+          className="lime-cta"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 12 }}
         >
-          Book a strategy call
-          <span>→</span>
-        </button>
+          <button
+            onClick={onCTA}
+            aria-label="Book a strategy call"
+            className="lime-cta-circle"
+            style={{
+              width: 64, height: 64, borderRadius: '50%',
+              background: '#C7F751', border: 'none', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              transition: `transform 0.5s ${SPRING}, box-shadow 0.35s cubic-bezier(0.4,0,0.2,1)`,
+              boxShadow: '0 6px 28px rgba(199,247,81,0.5)',
+              flexShrink: 0,
+            }}
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A2622" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="17" y1="7" x2="7" y2="17" />
+              <polyline points="17 17 7 17 7 7" />
+            </svg>
+          </button>
+          <button
+            onClick={onCTA}
+            className="lime-cta-pill"
+            style={{
+              background: '#C7F751', color: '#0A2622',
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontWeight: 700, fontSize: 18,
+              padding: '20px 44px',
+              border: 'none', borderRadius: 100, cursor: 'pointer',
+              letterSpacing: '-0.005em',
+              transition: `transform 0.5s ${SPRING}, box-shadow 0.35s cubic-bezier(0.4,0,0.2,1)`,
+              boxShadow: '0 6px 36px rgba(199,247,81,0.5)',
+            }}
+          >
+            Book a strategy call
+          </button>
+        </div>
 
-        <style>{`.finalcta-cursor { color: #00FF87; font-weight: 300; }`}</style>
+        <style>{`
+          .finalcta-cursor { color: #C7F751; font-weight: 300; }
+          .lime-cta:hover .lime-cta-circle {
+            transform: translateY(-4px) rotate(-12deg);
+            box-shadow: 0 14px 44px rgba(199,247,81,0.7);
+          }
+          .lime-cta:hover .lime-cta-pill {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 50px rgba(199,247,81,0.7);
+          }
+        `}</style>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(255,255,255,0.3)', marginTop: 24 }}>
           No pitch. No hard sell. Just an honest conversation about your product.
         </p>

@@ -96,7 +96,7 @@ export default function Navbar({ onCTA }) {
                   textDecoration: 'none',
                   padding: '8px 16px',
                   borderRadius: 100,
-                  background: isHovered ? 'rgba(0,255,135,0.08)' : 'transparent',
+                  background: isHovered ? 'rgba(199,247,81,0.08)' : 'transparent',
                   letterSpacing: '-0.005em',
                   transition: `color 0.3s ${EASE}, background 0.3s ${EASE}`,
                   display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -105,11 +105,11 @@ export default function Navbar({ onCTA }) {
                 <span
                   style={{
                     width: 4, height: 4, borderRadius: '50%',
-                    background: '#00FF87',
+                    background: '#C7F751',
                     opacity: isHovered ? 1 : 0,
                     transform: isHovered ? 'scale(1)' : 'scale(0)',
                     transition: `opacity 0.3s ${EASE}, transform 0.45s ${SPRING}`,
-                    boxShadow: isHovered ? '0 0 8px rgba(0,255,135,0.6)' : 'none',
+                    boxShadow: isHovered ? '0 0 8px rgba(199,247,81,0.6)' : 'none',
                   }}
                 />
                 {l.label}
@@ -125,7 +125,7 @@ export default function Navbar({ onCTA }) {
             onMouseEnter={() => setCtaHovered(true)}
             onMouseLeave={() => setCtaHovered(false)}
             style={{
-              background: 'linear-gradient(135deg, #00CC6E 0%, #00FF87 100%)',
+              background: 'linear-gradient(135deg, #A8D830 0%, #C7F751 100%)',
               color: '#050816',
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontWeight: 700, fontSize: 13,
@@ -138,8 +138,8 @@ export default function Navbar({ onCTA }) {
               transition: `transform 0.5s ${SPRING}, box-shadow 0.4s ${EASE}`,
               transform: ctaHovered ? 'translateY(-2px) scale(1.02)' : 'translateY(0) scale(1)',
               boxShadow: ctaHovered
-                ? '0 12px 32px rgba(0,255,135,0.45), 0 0 0 1px rgba(0,255,135,0.3)'
-                : '0 2px 16px rgba(0,255,135,0.25)',
+                ? '0 12px 32px rgba(199,247,81,0.45), 0 0 0 1px rgba(199,247,81,0.3)'
+                : '0 2px 16px rgba(199,247,81,0.25)',
             }}
           >
             Start a project

@@ -37,12 +37,12 @@ function StatCard({ num, label, desc }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? 'rgba(0,255,135,0.04)' : '#0A0A0A',
-        border: `2px solid ${hovered ? 'rgba(0,255,135,0.3)' : 'rgba(255,255,255,0.08)'}`,
+        background: hovered ? 'rgba(199,247,81,0.04)' : '#0A0A0A',
+        border: `2px solid ${hovered ? 'rgba(199,247,81,0.3)' : 'rgba(255,255,255,0.08)'}`,
         borderRadius: 8,
         padding: '44px 36px',
         position: 'relative',
-        boxShadow: hovered ? 'none' : '6px 6px 0px 0px rgba(0,255,135,0.22)',
+        boxShadow: hovered ? 'none' : '6px 6px 0px 0px rgba(199,247,81,0.22)',
         transition: 'background 0.3s cubic-bezier(0.4,0,0.2,1), border-color 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1)',
         cursor: 'default',
       }}
@@ -51,7 +51,7 @@ function StatCard({ num, label, desc }) {
         fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: 'clamp(36px, 4vw, 56px)',
         fontWeight: 800,
-        color: '#00FF87',
+        color: '#C7F751',
         letterSpacing: '-0.04em',
         lineHeight: 1,
         marginBottom: 14,
@@ -78,7 +78,7 @@ function StatCard({ num, label, desc }) {
       <div style={{
         position: 'absolute', bottom: 16, right: 16,
         width: 8, height: 8, borderRadius: '50%',
-        background: '#00FF87',
+        background: '#C7F751',
         opacity: hovered ? 1 : 0,
         transform: hovered ? 'scale(1)' : 'scale(0)',
         transition: 'opacity 0.25s, transform 0.35s cubic-bezier(0.34,1.56,0.64,1)',
@@ -99,7 +99,7 @@ export default function Results() {
           variants={headerVariants}
           style={{ textAlign: 'center', marginBottom: 64 }}
         >
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#00FF87', marginBottom: 16 }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#C7F751', marginBottom: 16 }}>
             Studio impact
           </p>
           <h2 style={{

@@ -96,10 +96,10 @@ function TestimonialCard({ t, isActive }) {
   return (
     <div style={{
       background: isActive
-        ? 'linear-gradient(160deg, rgba(255,255,255,0.07) 0%, rgba(0,255,135,0.05) 100%)'
+        ? 'linear-gradient(160deg, rgba(255,255,255,0.07) 0%, rgba(199,247,81,0.05) 100%)'
         : 'linear-gradient(160deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 100%)',
       border: isActive
-        ? '1px solid rgba(0,255,135,0.22)'
+        ? '1px solid rgba(199,247,81,0.22)'
         : '1px solid rgba(255,255,255,0.07)',
       borderRadius: 20,
       padding: '32px 28px 26px',
@@ -113,14 +113,14 @@ function TestimonialCard({ t, isActive }) {
       overflow: 'hidden',
       transition: 'background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease',
       boxShadow: isActive
-        ? '0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,255,135,0.08), 0 0 60px rgba(0,255,135,0.06)'
+        ? '0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(199,247,81,0.08), 0 0 60px rgba(199,247,81,0.06)'
         : '0 8px 32px rgba(0,0,0,0.3)',
     }}>
       {/* Shimmer line on top edge (active only) */}
       <div style={{
         position: 'absolute', top: 0, left: '15%', right: '15%', height: 1,
         background: isActive
-          ? 'linear-gradient(90deg, transparent, rgba(0,255,135,0.45), transparent)'
+          ? 'linear-gradient(90deg, transparent, rgba(199,247,81,0.45), transparent)'
           : 'transparent',
         transition: 'background 0.4s ease',
         pointerEvents: 'none',
@@ -130,7 +130,7 @@ function TestimonialCard({ t, isActive }) {
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, height: '45%',
         background: isActive
-          ? 'radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0,255,135,0.06), transparent 80%)'
+          ? 'radial-gradient(ellipse 70% 60% at 50% 0%, rgba(199,247,81,0.06), transparent 80%)'
           : 'transparent',
         transition: 'background 0.5s ease',
         pointerEvents: 'none',
@@ -146,8 +146,8 @@ function TestimonialCard({ t, isActive }) {
         <span style={{
           fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 34, fontWeight: 800,
-          color: '#00FF87', letterSpacing: '-0.04em', lineHeight: 1,
-          textShadow: isActive ? '0 0 28px rgba(0,255,135,0.4)' : 'none',
+          color: '#C7F751', letterSpacing: '-0.04em', lineHeight: 1,
+          textShadow: isActive ? '0 0 28px rgba(199,247,81,0.4)' : 'none',
           transition: 'text-shadow 0.4s ease',
         }}>
           {t.metric}
@@ -180,14 +180,14 @@ function TestimonialCard({ t, isActive }) {
       }}>
         <div style={{
           width: 40, height: 40, borderRadius: '50%',
-          background: 'linear-gradient(135deg, #00CC6E, #00FF87)',
+          background: 'linear-gradient(135deg, #A8D830, #C7F751)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 12, fontWeight: 700, color: '#050816',
           flexShrink: 0,
           boxShadow: isActive
-            ? '0 0 0 3px rgba(0,255,135,0.18), 0 0 20px rgba(0,255,135,0.2)'
-            : '0 0 0 2px rgba(0,255,135,0.08)',
+            ? '0 0 0 3px rgba(199,247,81,0.18), 0 0 20px rgba(199,247,81,0.2)'
+            : '0 0 0 2px rgba(199,247,81,0.08)',
           transition: 'box-shadow 0.4s ease',
         }}>
           {t.initials}
@@ -273,7 +273,7 @@ export default function Testimonials() {
           fontFamily: "'Inter', sans-serif",
           fontSize: 12, fontWeight: 600,
           textTransform: 'uppercase', letterSpacing: '0.14em',
-          color: '#00FF87', marginBottom: 16,
+          color: '#C7F751', marginBottom: 16,
         }}>
           Client voices
         </p>
@@ -350,8 +350,8 @@ export default function Testimonials() {
             onClick={() => setActive(i)}
             animate={{
               width: i === active ? 26 : 8,
-              background: i === active ? '#00FF87' : 'rgba(0,255,135,0.22)',
-              boxShadow: i === active ? '0 0 10px rgba(0,255,135,0.45)' : '0 0 0px transparent',
+              background: i === active ? '#C7F751' : 'rgba(199,247,81,0.22)',
+              boxShadow: i === active ? '0 0 10px rgba(199,247,81,0.45)' : '0 0 0px transparent',
             }}
             transition={{ duration: 0.3 }}
             style={{
