@@ -77,7 +77,7 @@ export default function FAQ() {
     }}>
       <div style={{ maxWidth: 800, margin: '0 auto' }}>
         <div style={{ marginBottom: 56 }}>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#00FF87', marginBottom: 16 }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#C7F751', marginBottom: 16 }}>
             FAQ
           </p>
           <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#FFFFFF', lineHeight: 1.05, marginBottom: 16 }}>

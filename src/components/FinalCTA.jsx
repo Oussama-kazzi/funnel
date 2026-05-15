@@ -27,14 +27,6 @@ export default function FinalCTA({ onCTA }) {
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
-        borderRadius: 'clamp(16px, 2vw, 26px)',
-        border: '1px solid rgba(255,255,255,0.09)',
-        boxShadow: [
-          'inset 0 1px 0 rgba(255,255,255,0.07)',
-          '0 0 0 1px rgba(255,255,255,0.03)',
-          '0 40px 100px rgba(0,0,0,0.75)',
-          '0 0 140px rgba(199,247,81,0.05)',
-        ].join(', '),
       }}
     >
       {/* Green radial glow */}
@@ -154,14 +146,6 @@ export default function FinalCTA({ onCTA }) {
 
         <style>{`
           .finalcta-cursor { color: #C7F751; font-weight: 300; }
-          .lime-cta:hover .lime-cta-circle {
-            transform: translateY(-4px) rotate(-12deg);
-            box-shadow: 0 14px 44px rgba(199,247,81,0.7);
-          }
-          .lime-cta:hover .lime-cta-pill {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 50px rgba(199,247,81,0.7);
-          }
         `}</style>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(255,255,255,0.3)', marginTop: 24 }}>
           No pitch. No hard sell. Just an honest conversation about your product.

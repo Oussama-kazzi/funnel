@@ -27,13 +27,8 @@ export default function Navbar({ onCTA }) {
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         transition: `background 0.5s ${EASE}, border-color 0.5s ${EASE}, box-shadow 0.5s ${EASE}`,
-        background: scrolled ? 'rgba(5,8,22,0.72)' : 'rgba(5,8,22,0.25)',
-        backdropFilter: 'blur(20px) saturate(160%)',
-        WebkitBackdropFilter: 'blur(20px) saturate(160%)',
-        borderBottom: scrolled
-          ? '1px solid rgba(255,255,255,0.08)'
-          : '1px solid rgba(255,255,255,0.04)',
-        boxShadow: scrolled ? '0 8px 32px rgba(0,0,0,0.35)' : 'none',
+        background: 'transparent',
+        borderBottom: '1px solid transparent',
       }}
     >
       <div style={{
@@ -122,8 +117,7 @@ export default function Navbar({ onCTA }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <button
             onClick={onCTA}
-            onMouseEnter={() => setCtaHovered(true)}
-            onMouseLeave={() => setCtaHovered(false)}
+            className="lime-cta-pill"
             style={{
               background: 'linear-gradient(135deg, #A8D830 0%, #C7F751 100%)',
               color: '#050816',
@@ -136,16 +130,12 @@ export default function Navbar({ onCTA }) {
               display: 'inline-flex', alignItems: 'center', gap: 6,
               letterSpacing: '-0.005em',
               transition: `transform 0.5s ${SPRING}, box-shadow 0.4s ${EASE}`,
-              transform: ctaHovered ? 'translateY(-2px) scale(1.02)' : 'translateY(0) scale(1)',
-              boxShadow: ctaHovered
-                ? '0 12px 32px rgba(199,247,81,0.45), 0 0 0 1px rgba(199,247,81,0.3)'
-                : '0 2px 16px rgba(199,247,81,0.25)',
+              boxShadow: '0 2px 16px rgba(199,247,81,0.25)',
             }}
           >
             Start a project
             <span style={{
               display: 'inline-block',
-              transform: ctaHovered ? 'translateX(3px)' : 'translateX(0)',
               transition: `transform 0.4s ${SPRING}`,
             }}>→</span>
           </button>

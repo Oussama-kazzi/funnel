@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react'
 import Lenis from 'lenis'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import HorizontalPortfolio from './components/HorizontalPortfolio'
 import ClientLogos from './components/ClientLogos'
-import Results from './components/Results'
-import Services from './components/Services'
 import CaseStudies from './components/CaseStudies'
 import Testimonials from './components/Testimonials'
 import Process from './components/Process'
@@ -57,21 +56,16 @@ export default function App() {
 
       <Navbar onCTA={() => setModalOpen(true)} />
       <main style={{ background: 'transparent' }}>
-        <div style={{ padding: 'clamp(84px, 8vw, 100px) clamp(10px, 1.4vw, 20px) clamp(32px, 3vw, 48px)' }}>
-          <Hero onCTA={() => setModalOpen(true)} />
-        </div>
+        <Hero onCTA={() => setModalOpen(true)} />
+        <HorizontalPortfolio />
         <ClientLogos />
-        <Results />
-        <Services />
         <CaseStudies />
         <Testimonials />
         <Process />
         <Industries />
         <Pricing onCTA={() => setModalOpen(true)} />
         <FAQ />
-        <div style={{ padding: 'clamp(32px, 3vw, 48px) clamp(10px, 1.4vw, 20px) clamp(32px, 3vw, 48px)' }}>
-          <FinalCTA onCTA={() => setModalOpen(true)} />
-        </div>
+        <FinalCTA onCTA={() => setModalOpen(true)} />
       </main>
       <Footer />
       <Modal open={modalOpen} onClose={() => setModalOpen(false)} />

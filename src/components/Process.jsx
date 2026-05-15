@@ -66,8 +66,8 @@ export default function Process() {
             >
               <div style={{
                 width: 44, height: 44, borderRadius: '50%',
-                background: i === 0 ? '#00CC6E' : 'rgba(255,255,255,0.05)',
-                border: `1px solid ${i === 0 ? '#00CC6E' : 'rgba(255,255,255,0.12)'}`,
+                background: i === 0 ? '#C7F751' : 'rgba(255,255,255,0.05)',
+                border: `1px solid ${i === 0 ? '#C7F751' : 'rgba(255,255,255,0.12)'}`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: 14, fontWeight: 700,
