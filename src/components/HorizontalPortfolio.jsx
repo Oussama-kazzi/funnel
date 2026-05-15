@@ -1,6 +1,17 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, useScroll, useMotionValue, useSpring } from 'framer-motion'
 
+import img1  from '../assets/projet-3-webflow.png'
+import img2  from '../assets/projet-2-webflow.png'
+import img3  from '../assets/projet-1-webflow.png'
+import img4  from '../assets/projet-4-webflow.png'
+import img5  from '../assets/projet-5-webflow.png'
+import img6  from '../assets/projet-6-webflow.png'
+import img7  from '../assets/projet-7-webflow.png'
+import img8  from '../assets/projet-1-wordpress.png'
+import img9  from '../assets/projet-2-wordpress.png'
+import img10 from '../assets/projet-1-code.png'
+
 const CARD_W    = 320
 const CARD_H    = 400
 const PREVIEW_H = 200
@@ -13,69 +24,96 @@ const projects = [
     desc: 'Full Webflow build for a pan-European logistics operator — from brand system to live production site.',
     accent:    '#F59E0B',
     accentAlt: '#FCD34D',
-    previewBg: 'linear-gradient(145deg, #100800 0%, #1E1200 55%, #2A1A00 100%)',
-    href: '#',
+    image: img1,
+    href: 'https://slavalogistics.webflow.io/',
   },
   {
     id: '02',
-    name: 'GamFi',
-    desc: 'Metaverse Web 3.0 gaming launchpad and IGO platform with wallet-first UX and NFT marketplace.',
-    accent:    '#8B5CF6',
-    accentAlt: '#C4B5FD',
-    previewBg: 'linear-gradient(145deg, #06020F 0%, #100620 55%, #180A32 100%)',
-    href: '#',
-  },
-  {
-    id: '03',
     name: 'Payplus',
     desc: 'Next-generation mobile finance app — 10M+ projected users, 98% satisfaction, $250M in transactions.',
     accent:    '#EC4899',
     accentAlt: '#F9A8D4',
-    previewBg: 'linear-gradient(145deg, #0D0215 0%, #1A0525 55%, #230A35 100%)',
-    href: '#',
+    image: img2,
+    href: 'https://payplus.webflow.io/',
   },
   {
-    id: '04',
+    id: '03',
     name: 'Montagna',
     desc: 'Ski school & outdoor adventure brand — Webflow build with booking, ecommerce, and motion design.',
     accent:    '#10B981',
     accentAlt: '#6EE7B7',
-    previewBg: 'linear-gradient(145deg, #001409 0%, #002615 55%, #003320 100%)',
-    href: '#',
+    image: img3,
+    href: 'https://montagna.webflow.io/',
+  },
+  {
+    id: '04',
+    name: 'Midlane',
+    desc: 'Premium Webflow site with clean UI, custom animations, and a conversion-focused layout.',
+    accent:    '#06B6D4',
+    accentAlt: '#67E8F9',
+    image: img4,
+    href: 'https://www.midlane.com/',
   },
   {
     id: '05',
-    name: 'Orbit',
-    desc: 'Product analytics SaaS for B2B teams — custom dashboard system with real-time event pipeline.',
-    accent:    '#06B6D4',
-    accentAlt: '#67E8F9',
-    previewBg: 'linear-gradient(145deg, #000C0F 0%, #001B22 55%, #002633 100%)',
-    href: '#',
+    name: 'Sunsurf Maroc',
+    desc: 'Surf camp & adventure travel brand — full web presence with booking system and immersive visual design.',
+    accent:    '#F97316',
+    accentAlt: '#FDBA74',
+    image: img5,
+    href: 'https://sunsurfmaroc.com/',
   },
   {
     id: '06',
-    name: 'Stratum',
-    desc: 'Real estate investment platform — end-to-end Framer site with property search, filters, and CMS.',
-    accent:    '#6366F1',
-    accentAlt: '#A5B4FC',
-    previewBg: 'linear-gradient(145deg, #03030F 0%, #080820 55%, #0D0D30 100%)',
-    href: '#',
+    name: 'Dar Surfana Morocco',
+    desc: 'Boutique surf lodge — room booking, gallery, and cultural storytelling in a bespoke Webflow build.',
+    accent:    '#EAB308',
+    accentAlt: '#FDE047',
+    image: img6,
+    href: 'https://darsurfanamorocco.com/',
   },
   {
     id: '07',
-    name: 'Arca',
-    desc: 'DeFi portfolio tracker and wallet UI — high-performance Next.js build with live chain data.',
+    name: 'Salt House Morocco',
+    desc: 'Coastal surf retreat — bespoke design, booking flows, and lifestyle photography integration.',
     accent:    '#14B8A6',
     accentAlt: '#5EEAD4',
-    previewBg: 'linear-gradient(145deg, #000F0E 0%, #001F1C 55%, #002B28 100%)',
-    href: '#',
+    image: img7,
+    href: 'https://salthousemorocco.com/',
+  },
+  {
+    id: '08',
+    name: 'Souk2Surf',
+    desc: 'Surf travel platform blending Moroccan culture with wave hunting — tours, coaching, and immersive stays.',
+    accent:    '#8B5CF6',
+    accentAlt: '#C4B5FD',
+    image: img8,
+    href: 'https://souk2surf.com/',
+  },
+  {
+    id: '09',
+    name: 'Surfana Tours',
+    desc: 'Premium surf tour operator — multi-destination packages, guided experiences, and community-driven brand.',
+    accent:    '#6366F1',
+    accentAlt: '#A5B4FC',
+    image: img9,
+    href: 'https://surfanatours.com/',
+  },
+  {
+    id: '10',
+    name: 'Adsolution',
+    desc: 'Digital marketing agency — performance-first design with lead capture, case studies, and CMS.',
+    accent:    '#A855F7',
+    accentAlt: '#D8B4FE',
+    image: img10,
+    href: 'https://adsolution.ma/',
   },
 ]
 
 /* ── Card ── */
 function PortfolioCard({ project }) {
   const [hovered, setHovered] = useState(false)
-  const { accent, accentAlt, previewBg } = project
+  const { accent, accentAlt, image } = project
 
   return (
     <div
@@ -103,39 +141,27 @@ function PortfolioCard({ project }) {
       <div style={{
         height: PREVIEW_H,
         flexShrink: 0,
-        background: previewBg,
+        background: '#0a0912',
         position: 'relative',
         overflow: 'hidden',
       }}>
-        {/* Grid */}
+        {/* Project image */}
+        <img
+          src={image}
+          alt={project.name}
+          style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%',
+            objectFit: 'cover', objectPosition: 'center top',
+            display: 'block',
+          }}
+        />
+        {/* Accent glow on hover */}
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: `linear-gradient(${accent}07 1px, transparent 1px), linear-gradient(90deg, ${accent}07 1px, transparent 1px)`,
-          backgroundSize: '28px 28px',
-        }} />
-        {/* Glow */}
-        <div style={{
-          position: 'absolute',
-          top: '50%', left: '50%',
-          transform: 'translate(-50%, -52%)',
-          width: 140, height: 140,
-          borderRadius: '50%',
-          background: `radial-gradient(circle, ${accent}28 0%, ${accentAlt}10 55%, transparent 72%)`,
-          filter: 'blur(22px)',
-          opacity: hovered ? 1 : 0.55,
+          background: `radial-gradient(ellipse at center, ${accent}20 0%, transparent 70%)`,
+          opacity: hovered ? 1 : 0,
           transition: 'opacity 0.35s ease',
-        }} />
-        {/* Ring */}
-        <div style={{
-          position: 'absolute',
-          top: '50%', left: '50%',
-          transform: 'translate(-50%, -52%)',
-          width: 58, height: 58,
-          borderRadius: '50%',
-          border: `1px solid ${accent}28`,
-          boxShadow: `0 0 18px ${accent}18`,
-          transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
-          ...(hovered ? { borderColor: `${accent}55`, boxShadow: `0 0 28px ${accent}30` } : {}),
         }} />
         {/* Bottom fade into card bg */}
         <div style={{
@@ -179,6 +205,8 @@ function PortfolioCard({ project }) {
         <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: 12, flexShrink: 0 }}>
           <a
             href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               width: 32, height: 32, borderRadius: '50%',
               background: hovered ? accent : 'rgba(255,255,255,0.05)',

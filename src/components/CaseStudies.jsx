@@ -1,199 +1,150 @@
 import { useState } from 'react'
 
+import img1  from '../assets/projet-3-webflow.png'
+import img2  from '../assets/projet-2-webflow.png'
+import img3  from '../assets/projet-1-webflow.png'
+import img4  from '../assets/projet-4-webflow.png'
+import img5  from '../assets/projet-5-webflow.png'
+import img6  from '../assets/projet-6-webflow.png'
+import img7  from '../assets/projet-7-webflow.png'
+import img8  from '../assets/projet-1-wordpress.png'
+import img9  from '../assets/projet-2-wordpress.png'
+import img10 from '../assets/projet-1-code.png'
+
 const cases = [
   {
     num: '01',
-    name: 'Meridian AI',
-    industry: 'AI SaaS',
-    result: '+280%',
-    resultLabel: 'trial activation rate',
-    stack: 'Next.js',
+    name: 'Montagna',
+    buildType: 'Webflow',
+    result: '+180%',
+    resultLabel: 'booking rate',
     tags: [
-      { label: 'Product Design', color: '#7C3AED', bg: 'rgba(124,58,237,0.15)' },
-      { label: 'AI SaaS',        color: '#A78BFA', bg: 'rgba(167,139,250,0.12)' },
+      { label: 'Webflow', color: '#10B981', bg: 'rgba(16,185,129,0.15)' },
+      { label: 'Outdoor', color: '#6EE7B7', bg: 'rgba(110,231,183,0.12)' },
     ],
-    preview: {
-      bg: 'linear-gradient(135deg, #0F0A2E 0%, #1A0B4B 40%, #2D1B69 100%)',
-      accent: '#7C3AED',
-      accentAlt: '#A78BFA',
-      ui: 'dashboard',
-    },
-    href: '#',
+    preview: { accent: '#10B981', image: img3 },
+    href: 'https://montagna.webflow.io/',
   },
   {
     num: '02',
-    name: 'Vault Finance',
-    industry: 'Fintech',
-    result: '3.1×',
-    resultLabel: 'onboarding completion',
-    stack: 'React',
+    name: 'Payplus',
+    buildType: 'Webflow',
+    result: '10M+',
+    resultLabel: 'projected users',
     tags: [
-      { label: 'UX Overhaul',    color: '#059669', bg: 'rgba(5,150,105,0.15)' },
-      { label: 'Fintech',        color: '#34D399', bg: 'rgba(52,211,153,0.12)' },
+      { label: 'Webflow', color: '#EC4899', bg: 'rgba(236,72,153,0.15)' },
+      { label: 'Fintech',  color: '#F9A8D4', bg: 'rgba(249,168,212,0.12)' },
     ],
-    preview: {
-      bg: 'linear-gradient(135deg, #020F0A 0%, #041F14 40%, #073520 100%)',
-      accent: '#059669',
-      accentAlt: '#34D399',
-      ui: 'finance',
-    },
-    href: '#',
+    preview: { accent: '#EC4899', image: img2 },
+    href: 'https://payplus.webflow.io/',
   },
   {
     num: '03',
-    name: 'Forma Studio',
-    industry: 'Design Tools',
-    result: '4.6×',
-    resultLabel: 'daily active usage',
-    stack: 'Custom',
+    name: 'Slava Logistics',
+    buildType: 'Webflow',
+    result: '+240%',
+    resultLabel: 'organic reach',
     tags: [
-      { label: 'Design System',  color: '#EA580C', bg: 'rgba(234,88,12,0.15)' },
-      { label: 'Design Tools',   color: '#FB923C', bg: 'rgba(251,146,60,0.12)' },
+      { label: 'Webflow',   color: '#F59E0B', bg: 'rgba(245,158,11,0.15)' },
+      { label: 'Logistics', color: '#FCD34D', bg: 'rgba(252,211,77,0.12)' },
     ],
-    preview: {
-      bg: 'linear-gradient(135deg, #1A0A00 0%, #2D1200 40%, #3D1F00 100%)',
-      accent: '#EA580C',
-      accentAlt: '#FB923C',
-      ui: 'editor',
-    },
-    href: '#',
+    preview: { accent: '#F59E0B', image: img1 },
+    href: 'https://slavalogistics.webflow.io/',
   },
   {
     num: '04',
-    name: 'Pulse Analytics',
-    industry: 'B2B SaaS',
-    result: '$2.4M',
-    resultLabel: 'raised post-design',
-    stack: 'Next.js',
+    name: 'Midlane',
+    buildType: 'Webflow',
+    result: '3.2×',
+    resultLabel: 'conversion rate',
     tags: [
-      { label: 'Pitch Design',   color: '#0EA5E9', bg: 'rgba(14,165,233,0.15)' },
-      { label: 'B2B SaaS',       color: '#38BDF8', bg: 'rgba(56,189,248,0.12)' },
+      { label: 'Webflow', color: '#06B6D4', bg: 'rgba(6,182,212,0.15)' },
+      { label: 'Brand',   color: '#67E8F9', bg: 'rgba(103,232,249,0.12)' },
     ],
-    preview: {
-      bg: 'linear-gradient(135deg, #00080F 0%, #001829 40%, #00203B 100%)',
-      accent: '#0EA5E9',
-      accentAlt: '#38BDF8',
-      ui: 'analytics',
-    },
-    href: '#',
+    preview: { accent: '#06B6D4', image: img4 },
+    href: 'https://www.midlane.com/',
+  },
+  {
+    num: '05',
+    name: 'Sunsurf Maroc',
+    buildType: 'Webflow',
+    result: '+320%',
+    resultLabel: 'camp bookings',
+    tags: [
+      { label: 'Webflow', color: '#F97316', bg: 'rgba(249,115,22,0.15)' },
+      { label: 'Travel',  color: '#FDBA74', bg: 'rgba(253,186,116,0.12)' },
+    ],
+    preview: { accent: '#F97316', image: img5 },
+    href: 'https://sunsurfmaroc.com/',
+  },
+  {
+    num: '06',
+    name: 'Dar Surfana Morocco',
+    buildType: 'Webflow',
+    result: '4.1×',
+    resultLabel: 'direct reservations',
+    tags: [
+      { label: 'Webflow',     color: '#EAB308', bg: 'rgba(234,179,8,0.15)' },
+      { label: 'Hospitality', color: '#FDE047', bg: 'rgba(253,224,71,0.12)' },
+    ],
+    preview: { accent: '#EAB308', image: img6 },
+    href: 'https://darsurfanamorocco.com/',
+  },
+  {
+    num: '07',
+    name: 'Salt House Morocco',
+    buildType: 'Webflow',
+    result: '+290%',
+    resultLabel: 'online inquiries',
+    tags: [
+      { label: 'Webflow',     color: '#14B8A6', bg: 'rgba(20,184,166,0.15)' },
+      { label: 'Hospitality', color: '#5EEAD4', bg: 'rgba(94,234,212,0.12)' },
+    ],
+    preview: { accent: '#14B8A6', image: img7 },
+    href: 'https://salthousemorocco.com/',
+  },
+  {
+    num: '08',
+    name: 'Souk2Surf',
+    buildType: 'WordPress',
+    result: '2.8×',
+    resultLabel: 'tour bookings',
+    tags: [
+      { label: 'WordPress', color: '#8B5CF6', bg: 'rgba(139,92,246,0.15)' },
+      { label: 'Travel',    color: '#C4B5FD', bg: 'rgba(196,181,253,0.12)' },
+    ],
+    preview: { accent: '#8B5CF6', image: img8 },
+    href: 'https://souk2surf.com/',
+  },
+  {
+    num: '09',
+    name: 'Surfana Tours',
+    buildType: 'WordPress',
+    result: '+250%',
+    resultLabel: 'organic traffic',
+    tags: [
+      { label: 'WordPress', color: '#6366F1', bg: 'rgba(99,102,241,0.15)' },
+      { label: 'Tourism',   color: '#A5B4FC', bg: 'rgba(165,180,252,0.12)' },
+    ],
+    preview: { accent: '#6366F1', image: img9 },
+    href: 'https://surfanatours.com/',
+  },
+  {
+    num: '10',
+    name: 'Adsolution',
+    buildType: 'Custom Code',
+    result: '$1.2M',
+    resultLabel: 'ad revenue tracked',
+    tags: [
+      { label: 'Custom Code', color: '#A855F7', bg: 'rgba(168,85,247,0.15)' },
+      { label: 'Marketing',   color: '#D8B4FE', bg: 'rgba(216,180,254,0.12)' },
+    ],
+    preview: { accent: '#A855F7', image: img10 },
+    href: 'https://adsolution.ma/',
   },
 ]
 
-/* ── mini SVG mockup previews ── */
-function PreviewMockup({ preview }) {
-  const { bg, accent, accentAlt, ui } = preview
-
-  return (
-    <div style={{
-      position: 'relative',
-      width: '100%',
-      height: '100%',
-      background: bg,
-      overflow: 'hidden',
-    }}>
-      {/* Browser chrome */}
-      <div style={{
-        position: 'absolute', top: 16, left: 16, right: 16,
-        height: 28,
-        background: 'rgba(255,255,255,0.06)',
-        borderRadius: 6,
-        display: 'flex', alignItems: 'center', gap: 6, padding: '0 10px',
-      }}>
-        {['#FF5F57','#FEBC2E','#28C840'].map((c, i) => (
-          <div key={i} style={{ width: 8, height: 8, borderRadius: '50%', background: c, opacity: 0.7 }} />
-        ))}
-        <div style={{
-          marginLeft: 8, flex: 1, height: 10,
-          background: 'rgba(255,255,255,0.08)', borderRadius: 4,
-        }} />
-      </div>
-
-      {/* Navbar line */}
-      <div style={{
-        position: 'absolute', top: 56, left: 16, right: 16, height: 24,
-        display: 'flex', alignItems: 'center', gap: 10,
-      }}>
-        <div style={{ width: 40, height: 8, background: accent, borderRadius: 4, opacity: 0.9 }} />
-        {[70, 55, 62, 50].map((w, i) => (
-          <div key={i} style={{ width: w, height: 6, background: 'rgba(255,255,255,0.12)', borderRadius: 3 }} />
-        ))}
-        <div style={{ marginLeft: 'auto', width: 52, height: 18, background: accent, borderRadius: 5, opacity: 0.85 }} />
-      </div>
-
-      {/* Hero text block */}
-      <div style={{ position: 'absolute', top: 96, left: 16, right: '45%' }}>
-        <div style={{ width: '80%', height: 14, background: 'rgba(255,255,255,0.75)', borderRadius: 3, marginBottom: 6 }} />
-        <div style={{ width: '60%', height: 14, background: 'rgba(255,255,255,0.75)', borderRadius: 3, marginBottom: 6 }} />
-        <div style={{ width: '45%', height: 14, background: accent, borderRadius: 3, marginBottom: 14 }} />
-        <div style={{ width: '85%', height: 6, background: 'rgba(255,255,255,0.2)', borderRadius: 2, marginBottom: 4 }} />
-        <div style={{ width: '70%', height: 6, background: 'rgba(255,255,255,0.15)', borderRadius: 2, marginBottom: 16 }} />
-        <div style={{ width: 80, height: 22, background: accent, borderRadius: 5 }} />
-      </div>
-
-      {/* Right visual panel — unique per ui type */}
-      {ui === 'dashboard' && (
-        <div style={{ position: 'absolute', top: 90, right: 8, width: '40%', bottom: 16 }}>
-          <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: 8, padding: 8, height: '100%' }}>
-            {[60, 85, 50, 70, 90, 40].map((h, i) => (
-              <div key={i} style={{ display: 'inline-block', width: 10, height: h * 0.6, background: i % 2 === 0 ? accent : accentAlt, borderRadius: 2, marginRight: 3, opacity: 0.85, verticalAlign: 'bottom' }} />
-            ))}
-            <div style={{ marginTop: 8, height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 2, marginBottom: 4 }} />
-            <div style={{ height: 6, background: 'rgba(255,255,255,0.06)', borderRadius: 2, width: '70%' }} />
-          </div>
-        </div>
-      )}
-      {ui === 'finance' && (
-        <div style={{ position: 'absolute', top: 90, right: 8, width: '40%', bottom: 16 }}>
-          <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: 8, padding: 10, height: '100%' }}>
-            <div style={{ fontSize: 0 }}>
-              {[30, 55, 40, 70, 65, 80, 60].map((h, i) => (
-                <div key={i} style={{ display: 'inline-block', width: 9, height: h * 0.55, background: `rgba(52,211,153,${0.3 + i * 0.08})`, borderRadius: '2px 2px 0 0', marginRight: 2, verticalAlign: 'bottom' }} />
-              ))}
-            </div>
-            <div style={{ marginTop: 8 }}>
-              {[100, 75].map((w, i) => (
-                <div key={i} style={{ height: 5, background: 'rgba(255,255,255,0.08)', borderRadius: 2, marginBottom: 3, width: `${w}%` }} />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-      {ui === 'editor' && (
-        <div style={{ position: 'absolute', top: 90, right: 8, width: '40%', bottom: 16 }}>
-          <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: 8, padding: 8, height: '100%', display: 'flex', flexDirection: 'column', gap: 4 }}>
-            {[100, 80, 95, 65, 90, 75].map((w, i) => (
-              <div key={i} style={{ height: 6, background: i === 2 ? `${accent}99` : 'rgba(255,255,255,0.1)', borderRadius: 2, width: `${w}%` }} />
-            ))}
-            <div style={{ marginTop: 4, width: 40, height: 16, background: accent, borderRadius: 3, opacity: 0.8 }} />
-          </div>
-        </div>
-      )}
-      {ui === 'analytics' && (
-        <div style={{ position: 'absolute', top: 90, right: 8, width: '40%', bottom: 16 }}>
-          <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: 8, padding: 8, height: '100%' }}>
-            <svg width="100%" height="60" viewBox="0 0 100 60" preserveAspectRatio="none">
-              <polyline points="0,55 15,40 30,45 45,20 60,30 75,10 90,18 100,8" fill="none" stroke={accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.9"/>
-              <polyline points="0,55 15,40 30,45 45,20 60,30 75,10 90,18 100,8 100,60 0,60" fill={accent} opacity="0.1"/>
-            </svg>
-            <div style={{ display: 'flex', gap: 4, marginTop: 4 }}>
-              {[1,2,3].map(i => (
-                <div key={i} style={{ flex: 1, height: 20, background: 'rgba(255,255,255,0.06)', borderRadius: 3 }} />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Ambient glow */}
-      <div style={{
-        position: 'absolute', bottom: -20, left: '30%',
-        width: '50%', height: '50%',
-        background: `radial-gradient(ellipse at center, ${accent}30 0%, transparent 70%)`,
-        pointerEvents: 'none',
-      }} />
-    </div>
-  )
-}
+const FILTERS = ['All', 'Webflow', 'WordPress', 'Custom Code']
 
 function CaseCard({ item, index }) {
   const [hovered, setHovered] = useState(false)
@@ -219,8 +170,24 @@ function CaseCard({ item, index }) {
       }}
     >
       {/* Preview area */}
-      <div style={{ position: 'relative', height: 220, flexShrink: 0 }}>
-        <PreviewMockup preview={item.preview} />
+      <div style={{ position: 'relative', height: 220, flexShrink: 0, background: '#0a0912', overflow: 'hidden' }}>
+        <img
+          src={item.preview.image}
+          alt={item.name}
+          style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%',
+            objectFit: 'cover', objectPosition: 'center top',
+            display: 'block',
+          }}
+        />
+        {/* Ambient glow */}
+        <div style={{
+          position: 'absolute', bottom: -20, left: '30%',
+          width: '50%', height: '50%',
+          background: `radial-gradient(ellipse at center, ${item.preview.accent}30 0%, transparent 70%)`,
+          pointerEvents: 'none',
+        }} />
         {/* Result badge */}
         <div style={{
           position: 'absolute', top: 12, right: 12,
@@ -284,6 +251,8 @@ function CaseCard({ item, index }) {
         {/* CTA button */}
         <a
           href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
             padding: '12px 0',
@@ -298,7 +267,7 @@ function CaseCard({ item, index }) {
             transition: 'color 0.25s ease, border-color 0.25s ease, background 0.25s ease',
           }}
         >
-          View Case Study
+          Visit Site
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
             <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -309,6 +278,10 @@ function CaseCard({ item, index }) {
 }
 
 export default function CaseStudies() {
+  const [filter, setFilter] = useState('All')
+
+  const visible = filter === 'All' ? cases : cases.filter(c => c.buildType === filter)
+
   return (
     <section id="work" className="cs-section" style={{ padding: '80px 32px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
@@ -341,13 +314,38 @@ export default function CaseStudies() {
           </p>
         </div>
 
-        {/* 2×2 card grid + 1 wide card */}
+        {/* Filter tabs */}
+        <div className="cs-filters" style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 32 }}>
+          {FILTERS.map(f => (
+            <button
+              key={f}
+              onClick={() => setFilter(f)}
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: 11, fontWeight: 600,
+                letterSpacing: '0.1em', textTransform: 'uppercase',
+                padding: '7px 16px',
+                borderRadius: 100,
+                border: `1px solid ${filter === f ? '#C7F751' : 'rgba(255,255,255,0.12)'}`,
+                background: filter === f ? 'rgba(199,247,81,0.1)' : 'rgba(255,255,255,0.03)',
+                color: filter === f ? '#C7F751' : 'rgba(255,255,255,0.45)',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+
+        {/* Card grid */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
           gap: 20,
         }}>
-          {cases.map((item, i) => (
+          {visible.map((item, i) => (
             <CaseCard key={item.num} item={item} index={i} />
           ))}
         </div>
@@ -357,6 +355,10 @@ export default function CaseStudies() {
         @keyframes cs-fadein {
           from { opacity: 0; transform: translateY(20px); }
           to   { opacity: 1; transform: translateY(0); }
+        }
+        .cs-filters button:hover {
+          border-color: rgba(255,255,255,0.22) !important;
+          color: rgba(255,255,255,0.7) !important;
         }
         @media (max-width: 768px) {
           .cs-section { padding: 56px 20px 48px !important; }
@@ -369,6 +371,14 @@ export default function CaseStudies() {
             gap: 16px !important;
             margin-bottom: 36px !important;
           }
+          .cs-filters {
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            scrollbar-width: none !important;
+            padding-bottom: 4px !important;
+          }
+          .cs-filters::-webkit-scrollbar { display: none; }
         }
         @media (max-width: 480px) {
           .cs-section { padding: 48px 16px 40px !important; }
