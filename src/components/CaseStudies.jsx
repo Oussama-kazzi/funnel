@@ -17,7 +17,7 @@ const cases = [
     name: 'Montagna',
     buildType: 'Webflow',
     result: '+180%',
-    resultLabel: 'booking rate',
+    resultLabel: 'de réservations',
     tags: [
       { label: 'Webflow', color: '#10B981', bg: 'rgba(16,185,129,0.15)' },
       { label: 'Outdoor', color: '#6EE7B7', bg: 'rgba(110,231,183,0.12)' },
@@ -30,7 +30,7 @@ const cases = [
     name: 'Payplus',
     buildType: 'Webflow',
     result: '10M+',
-    resultLabel: 'projected users',
+    resultLabel: 'utilisateurs projetés',
     tags: [
       { label: 'Webflow', color: '#EC4899', bg: 'rgba(236,72,153,0.15)' },
       { label: 'Fintech',  color: '#F9A8D4', bg: 'rgba(249,168,212,0.12)' },
@@ -43,7 +43,7 @@ const cases = [
     name: 'Slava Logistics',
     buildType: 'Webflow',
     result: '+240%',
-    resultLabel: 'organic reach',
+    resultLabel: 'de portée organique',
     tags: [
       { label: 'Webflow',   color: '#F59E0B', bg: 'rgba(245,158,11,0.15)' },
       { label: 'Logistics', color: '#FCD34D', bg: 'rgba(252,211,77,0.12)' },
@@ -56,7 +56,7 @@ const cases = [
     name: 'Midlane',
     buildType: 'Webflow',
     result: '3.2×',
-    resultLabel: 'conversion rate',
+    resultLabel: 'de conversion',
     tags: [
       { label: 'Webflow', color: '#06B6D4', bg: 'rgba(6,182,212,0.15)' },
       { label: 'Brand',   color: '#67E8F9', bg: 'rgba(103,232,249,0.12)' },
@@ -69,7 +69,7 @@ const cases = [
     name: 'Sunsurf Maroc',
     buildType: 'Webflow',
     result: '+320%',
-    resultLabel: 'camp bookings',
+    resultLabel: 'de réservations camp',
     tags: [
       { label: 'Webflow', color: '#F97316', bg: 'rgba(249,115,22,0.15)' },
       { label: 'Travel',  color: '#FDBA74', bg: 'rgba(253,186,116,0.12)' },
@@ -82,7 +82,7 @@ const cases = [
     name: 'Dar Surfana Morocco',
     buildType: 'Webflow',
     result: '4.1×',
-    resultLabel: 'direct reservations',
+    resultLabel: 'de réservations directes',
     tags: [
       { label: 'Webflow',     color: '#EAB308', bg: 'rgba(234,179,8,0.15)' },
       { label: 'Hospitality', color: '#FDE047', bg: 'rgba(253,224,71,0.12)' },
@@ -95,7 +95,7 @@ const cases = [
     name: 'Salt House Morocco',
     buildType: 'Webflow',
     result: '+290%',
-    resultLabel: 'online inquiries',
+    resultLabel: 'de demandes en ligne',
     tags: [
       { label: 'Webflow',     color: '#14B8A6', bg: 'rgba(20,184,166,0.15)' },
       { label: 'Hospitality', color: '#5EEAD4', bg: 'rgba(94,234,212,0.12)' },
@@ -108,7 +108,7 @@ const cases = [
     name: 'Souk2Surf',
     buildType: 'WordPress',
     result: '2.8×',
-    resultLabel: 'tour bookings',
+    resultLabel: 'de réservations de tours',
     tags: [
       { label: 'WordPress', color: '#8B5CF6', bg: 'rgba(139,92,246,0.15)' },
       { label: 'Travel',    color: '#C4B5FD', bg: 'rgba(196,181,253,0.12)' },
@@ -121,7 +121,7 @@ const cases = [
     name: 'Surfana Tours',
     buildType: 'WordPress',
     result: '+250%',
-    resultLabel: 'organic traffic',
+    resultLabel: 'de trafic organique',
     tags: [
       { label: 'WordPress', color: '#6366F1', bg: 'rgba(99,102,241,0.15)' },
       { label: 'Tourism',   color: '#A5B4FC', bg: 'rgba(165,180,252,0.12)' },
@@ -134,7 +134,7 @@ const cases = [
     name: 'Adsolution',
     buildType: 'Custom Code',
     result: '$1.2M',
-    resultLabel: 'ad revenue tracked',
+    resultLabel: 'de revenus publicitaires suivis',
     tags: [
       { label: 'Custom Code', color: '#A855F7', bg: 'rgba(168,85,247,0.15)' },
       { label: 'Marketing',   color: '#D8B4FE', bg: 'rgba(216,180,254,0.12)' },
@@ -144,7 +144,7 @@ const cases = [
   },
 ]
 
-const FILTERS = ['All', 'Webflow', 'WordPress', 'Custom Code']
+const FILTERS = ['Tous', 'Webflow', 'WordPress', 'Custom Code']
 
 function CaseCard({ item, index }) {
   const [hovered, setHovered] = useState(false)
@@ -267,7 +267,7 @@ function CaseCard({ item, index }) {
             transition: 'color 0.25s ease, border-color 0.25s ease, background 0.25s ease',
           }}
         >
-          Visit Site
+          Visiter le site
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
             <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -278,12 +278,12 @@ function CaseCard({ item, index }) {
 }
 
 export default function CaseStudies() {
-  const [filter, setFilter] = useState('All')
+  const [filter, setFilter] = useState('Tous')
 
-  const visible = filter === 'All' ? cases : cases.filter(c => c.buildType === filter)
+  const visible = filter === 'Tous' ? cases : cases.filter(c => c.buildType === filter)
 
   return (
-    <section id="work" className="cs-section" style={{ padding: '80px 32px' }}>
+    <section id="work" className="cs-section" style={{ padding: '104px 32px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
         {/* Header */}
@@ -295,22 +295,22 @@ export default function CaseStudies() {
             <p style={{
               fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600,
               textTransform: 'uppercase', letterSpacing: '0.18em',
-              color: '#C7F751', marginBottom: 16,
-            }}>Selected work</p>
+              color: '#8B5CF6', marginBottom: 16,
+            }}>Réalisations récentes</p>
             <h2 style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 800,
               letterSpacing: '-0.04em', color: '#FFFFFF',
               lineHeight: 1.05, margin: 0,
             }}>
-              Products that ship<br />and scale.
+              Des projets dont<br />nous sommes fiers.
             </h2>
           </div>
           <p style={{
             fontFamily: "'Inter', sans-serif", fontSize: 16,
             color: 'rgba(255,255,255,0.4)', maxWidth: 380, lineHeight: 1.7,
           }}>
-            Five teams that came to FUTURA with a vision and launched with a product that performs.
+            Des entreprises qui nous ont fait confiance et ont lancé un site qui performe.
           </p>
         </div>
 
@@ -326,9 +326,9 @@ export default function CaseStudies() {
                 letterSpacing: '0.1em', textTransform: 'uppercase',
                 padding: '7px 16px',
                 borderRadius: 100,
-                border: `1px solid ${filter === f ? '#C7F751' : 'rgba(255,255,255,0.12)'}`,
-                background: filter === f ? 'rgba(199,247,81,0.1)' : 'rgba(255,255,255,0.03)',
-                color: filter === f ? '#C7F751' : 'rgba(255,255,255,0.45)',
+                border: `1px solid ${filter === f ? '#8B5CF6' : 'rgba(255,255,255,0.12)'}`,
+                background: filter === f ? 'rgba(139,92,246,0.1)' : 'rgba(255,255,255,0.03)',
+                color: filter === f ? '#8B5CF6' : 'rgba(255,255,255,0.45)',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
                 whiteSpace: 'nowrap',

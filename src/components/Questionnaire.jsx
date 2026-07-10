@@ -1,130 +1,73 @@
 import { useState, useRef, useEffect } from 'react'
 
-const LIME = '#C7F751'
+const LIME = '#8B5CF6'
 const LETTERS = 'ABCDEFG'
 
 export const questions = [
   {
     id: 1, type: 'text-pair',
-    text: "What's your name and company?",
+    text: "Votre nom et votre entreprise ?",
     fields: [
-      { key: 'name',    label: 'First name',    placeholder: 'First name' },
-      { key: 'company', label: 'Company name',  placeholder: 'Company name' },
+      { key: 'name',    label: 'Nom complet',       placeholder: 'Nom complet' },
+      { key: 'company', label: 'Nom de l’entreprise', placeholder: 'Nom de l’entreprise' },
     ],
   },
   {
-    id: 2, type: 'textarea',
-    text: 'What does your company do?',
-    subtitle: '1–3 sentences, plain language',
-    placeholder: 'Type your answer here…',
+    id: 2, type: 'text-pair',
+    text: "Comment vous joindre ?",
+    fields: [
+      { key: 'whatsapp', label: 'Numéro WhatsApp', placeholder: '+212 6 00 00 00 00' },
+      { key: 'email',    label: 'Adresse e-mail',  placeholder: 'vous@exemple.com' },
+    ],
   },
   {
     id: 3, type: 'single',
-    text: 'What industry best describes you?',
+    text: 'Quel type de projet souhaitez-vous ?',
     options: [
-      'SaaS / Software product',
-      'Startup (pre-revenue or early stage)',
-      'Hospitality (hostel, hotel, boutique accommodation)',
-      'E-commerce',
-      'Fintech / Web3',
-      'Agency or studio',
-      'Other (please specify)',
+      'Site vitrine',
+      'Landing page',
+      'Site e-commerce',
+      'Application web / plateforme sur mesure',
+      'Refonte de site existant',
+      'Automatisation / IA',
+      'Autre (précisez)',
     ],
-    conditional: { triggerValue: 'Other (please specify)', placeholder: 'Describe your industry…' },
+    conditional: { triggerValue: 'Autre (précisez)', placeholder: 'Décrivez votre projet…' },
   },
   {
     id: 4, type: 'single',
-    text: 'What stage is your business at right now?',
+    text: 'Quel est votre budget estimé ?',
     options: [
-      'Idea / pre-launch — no revenue yet',
-      'Early stage — making money but less than $10k/month',
-      'Growth stage — $10k–$100k/month',
-      'Scaling — $100k+/month or funded',
-      'Established brand looking to redesign',
+      'Moins de 5 000 MAD',
+      '5 000 – 10 000 MAD',
+      '10 000 – 25 000 MAD',
+      '25 000 – 50 000 MAD',
+      '50 000 MAD et plus',
+      'Je ne sais pas encore',
     ],
   },
   {
-    id: 5, type: 'multi', max: 2,
-    text: "What's the primary goal of this project?",
-    subtitle: 'Pick up to 2',
+    id: 5, type: 'single',
+    text: 'Pour quand souhaitez-vous lancer ?',
     options: [
-      'Launch a new product or brand online',
-      'Increase conversions / trial signups / bookings',
-      "Redesign an existing site that isn't working",
-      'Build a design system for our product team',
-      'Rebrand and refresh the visual identity',
-      'Replace a Squarespace / Wix / Webflow template',
-      "Build something custom that off-the-shelf can't handle",
+      'Le plus tôt possible',
+      'Dans les 4 semaines',
+      'Dans 1 à 2 mois',
+      'Dans 3 mois ou plus',
+      'Pas de date fixe',
     ],
   },
   {
     id: 6, type: 'single',
-    text: 'Do you have an existing website?',
-    options: ['Yes', 'No — this is a new build'],
-    conditional: { triggerValue: 'Yes', placeholder: 'https://…', label: 'Your website URL' },
+    text: 'Avez-vous déjà un site web ?',
+    options: ['Oui', 'Non — c’est un nouveau projet'],
+    conditional: { triggerValue: 'Oui', placeholder: 'https://…', label: 'L’adresse de votre site' },
   },
   {
-    id: 7, type: 'single',
-    text: "What's your budget range for this project?",
-    options: [
-      'Under $3,000',
-      '$3,000 – $5,000',
-      '$5,000 – $10,000',
-      '$10,000 – $20,000',
-      '$20,000 – $50,000',
-      '$50,000+',
-    ],
-  },
-  {
-    id: 8, type: 'single',
-    text: "What's your ideal launch timeline?",
-    options: [
-      'ASAP — I needed this yesterday',
-      'Within 4 weeks',
-      'Within 6–8 weeks',
-      '2–3 months',
-      'No fixed deadline — quality over speed',
-    ],
-  },
-  {
-    id: 9, type: 'single',
-    text: 'Have you worked with a web design agency or freelancer before?',
-    options: [
-      'No — this is our first time',
-      "Yes — it went well and we're looking for something better",
-      'Yes — it was a bad experience',
-      "Yes — we've worked with many agencies",
-    ],
-  },
-  {
-    id: 10, type: 'single',
-    text: 'Who will be the main decision-maker on this project?',
-    options: [
-      'Me — I have full authority to approve and move forward',
-      'Me plus one other person (co-founder, partner)',
-      "I'll need approval from a team or board",
-      "I'm researching on behalf of someone else",
-    ],
-  },
-  {
-    id: 11, type: 'single',
-    text: 'How did you hear about Futura?',
-    options: [
-      'Google search',
-      'Referral from someone I know',
-      'LinkedIn',
-      'Twitter / X',
-      'Saw your work on a site I like',
-      'Clutch / agency directory',
-      'Other',
-    ],
-    conditional: { triggerValue: 'Other', placeholder: 'Please tell us more…' },
-  },
-  {
-    id: 12, type: 'textarea',
-    text: 'Anything else you want us to know before we talk?',
-    subtitle: 'Optional — but the clients who write here are usually the best ones to work with.',
-    placeholder: 'Type your answer here…',
+    id: 7, type: 'textarea',
+    text: 'Un message ou des précisions à ajouter ?',
+    subtitle: 'Optionnel — mais ça nous aide à mieux vous répondre.',
+    placeholder: 'Écrivez votre message ici…',
     optional: true,
   },
 ]
@@ -132,7 +75,7 @@ export const questions = [
 /* ─── CSS shared by modal and inline variants ─────────────────────── */
 const css = `
   .q-prog-track { height: 2px; background: rgba(255,255,255,0.07); }
-  .q-prog-fill  { height: 100%; background: ${LIME}; transition: width 0.5s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 0 8px rgba(199,247,81,0.45); }
+  .q-prog-fill  { height: 100%; background: ${LIME}; transition: width 0.5s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 0 8px rgba(139,92,246,0.45); }
   .q-body { overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.1) transparent; }
   .q-body::-webkit-scrollbar { width: 4px; }
   .q-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
@@ -147,7 +90,7 @@ const css = `
     transition:background .18s ease, border-color .18s ease, color .18s ease;
   }
   .q-opt:hover { background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.16); color:rgba(255,255,255,0.9); }
-  .q-opt.q-sel  { background:rgba(199,247,81,0.08); border-color:rgba(199,247,81,0.35); color:#FFF; }
+  .q-opt.q-sel  { background:rgba(139,92,246,0.08); border-color:rgba(139,92,246,0.35); color:#FFF; }
   .q-ltr {
     display:inline-flex; align-items:center; justify-content:center;
     width:24px; height:24px; min-width:24px;
@@ -156,14 +99,14 @@ const css = `
     color:rgba(255,255,255,0.45); background:rgba(255,255,255,0.05); flex-shrink:0;
     transition:all .18s ease;
   }
-  .q-opt.q-sel .q-ltr { background:rgba(199,247,81,0.18); border-color:rgba(199,247,81,0.5); color:${LIME}; }
+  .q-opt.q-sel .q-ltr { background:rgba(139,92,246,0.18); border-color:rgba(139,92,246,0.5); color:${LIME}; }
   .q-input {
     width:100%; background:transparent; border:none;
     border-bottom:1.5px solid rgba(255,255,255,0.18); padding:10px 0;
     font-family:'Inter',sans-serif; font-size:16px; color:#FFF;
     outline:none; resize:none; display:block; transition:border-color .2s ease;
   }
-  .q-input:focus { border-bottom-color:rgba(199,247,81,0.65); }
+  .q-input:focus { border-bottom-color:rgba(139,92,246,0.65); }
   .q-input::placeholder { color:rgba(255,255,255,0.22); }
   .q-input-sm {
     width:100%; background:transparent; border:none;
@@ -171,24 +114,24 @@ const css = `
     font-family:'Inter',sans-serif; font-size:15px; color:#FFF;
     outline:none; display:block; transition:border-color .2s ease;
   }
-  .q-input-sm:focus { border-bottom-color:rgba(199,247,81,0.65); }
+  .q-input-sm:focus { border-bottom-color:rgba(139,92,246,0.65); }
   .q-input-sm::placeholder { color:rgba(255,255,255,0.22); }
   .q-ok {
     display:inline-flex; align-items:center; gap:8px;
-    background:${LIME}; color:#0A2622; border:none; border-radius:100px;
+    background:${LIME}; color:#FFFFFF; border:none; border-radius:100px;
     padding:11px 26px; font-family:'Plus Jakarta Sans',sans-serif;
     font-size:15px; font-weight:800; cursor:pointer; letter-spacing:-0.01em;
     transition:transform .35s cubic-bezier(0.34,1.56,0.64,1), box-shadow .25s ease;
-    box-shadow:0 4px 20px rgba(199,247,81,0.3);
+    box-shadow:0 4px 20px rgba(139,92,246,0.3);
   }
-  .q-ok:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(199,247,81,0.5); }
+  .q-ok:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(139,92,246,0.5); }
   .q-nav {
     display:flex; align-items:center; justify-content:center;
     width:38px; height:38px; border:none; border-radius:8px;
     cursor:pointer; transition:background .18s ease, transform .25s ease;
   }
-  .q-nav.qon  { background:rgba(199,247,81,0.12); }
-  .q-nav.qon:hover { background:rgba(199,247,81,0.2); transform:translateY(-1px); }
+  .q-nav.qon  { background:rgba(139,92,246,0.12); }
+  .q-nav.qon:hover { background:rgba(139,92,246,0.2); transform:translateY(-1px); }
   .q-nav.qoff { background:rgba(255,255,255,0.04); cursor:default; opacity:0.35; }
   .q-cond-enter { animation: qCondIn 0.3s cubic-bezier(0.16,1,0.3,1) forwards; }
   @keyframes qCondIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
@@ -273,10 +216,10 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
             {step + 1} / {total}
           </span>
           <div style={{ display: 'flex', gap: 4 }}>
-            <button className={`q-nav ${step === 0 ? 'qoff' : 'qon'}`} onClick={goPrev} disabled={step === 0} aria-label="Previous">
+            <button className={`q-nav ${step === 0 ? 'qoff' : 'qon'}`} onClick={goPrev} disabled={step === 0} aria-label="Précédent">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={LIME} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15" /></svg>
             </button>
-            <button className="q-nav qon" onClick={goNext} aria-label="Next">
+            <button className="q-nav qon" onClick={goNext} aria-label="Suivant">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={LIME} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
             </button>
           </div>
@@ -294,22 +237,22 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
           <div style={{ textAlign: 'center', padding: '24px 0 8px' }}>
             <div style={{
               width: 60, height: 60, borderRadius: '50%',
-              background: 'rgba(199,247,81,0.12)', border: '1px solid rgba(199,247,81,0.3)',
+              background: 'rgba(139,92,246,0.12)', border: '1px solid rgba(139,92,246,0.3)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              margin: '0 auto 20px', boxShadow: '0 0 32px rgba(199,247,81,0.12)',
+              margin: '0 auto 20px', boxShadow: '0 0 32px rgba(139,92,246,0.12)',
             }}>
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={LIME} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
             <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 24, fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em', marginBottom: 12 }}>
-              We've got it. Give us 24 hours.
+              Bien reçu. Nous vous répondons sous 24h.
             </h3>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, maxWidth: 380, margin: '0 auto' }}>
-              We read every submission personally. If it looks like a strong fit, you'll get a calendar link to book a free 30-minute call. If we're not the right fit, we'll tell you honestly and point you somewhere better.
+              Nous lisons chaque demande personnellement. Si votre projet correspond, nous vous proposons un appel gratuit pour en discuter et vous recommander la meilleure approche.
             </p>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: 'rgba(255,255,255,0.25)', lineHeight: 1.6, maxWidth: 340, margin: '16px auto 0' }}>
-              No automated pitch emails. No newsletter signup you didn't ask for. Just a real response.
+              Pas d’emails automatiques, pas de newsletter non sollicitée. Juste une vraie réponse.
             </p>
           </div>
 
@@ -322,7 +265,7 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
               <div style={{
                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                 width: 28, height: 28, borderRadius: 6,
-                background: 'rgba(199,247,81,0.12)', border: '1px solid rgba(199,247,81,0.25)',
+                background: 'rgba(139,92,246,0.12)', border: '1px solid rgba(139,92,246,0.25)',
                 flexShrink: 0, marginTop: 2,
               }}>
                 <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 800, color: LIME, lineHeight: 1 }}>
@@ -332,7 +275,7 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
               <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(17px, 2vw, 21px)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.4, margin: 0 }}>
                 {current.text}
                 {!current.optional && <span style={{ color: LIME }}> *</span>}
-                {current.optional && <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 400, color: 'rgba(255,255,255,0.3)', marginLeft: 8 }}>optional</span>}
+                {current.optional && <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 400, color: 'rgba(255,255,255,0.3)', marginLeft: 8 }}>optionnel</span>}
               </h3>
             </div>
 
@@ -346,7 +289,7 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
             {/* Multi-select counter */}
             {current.type === 'multi' && current.max && (
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', color: multiCount >= current.max ? LIME : 'rgba(255,255,255,0.22)', margin: '0 0 12px 40px', transition: 'color 0.2s ease' }}>
-                {multiCount} / {current.max} selected
+                {multiCount} / {current.max} sélectionné(s)
               </p>
             )}
 
@@ -418,7 +361,7 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
                     onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); goNext() } }}
                   />
                   <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: 'rgba(255,255,255,0.25)', margin: '6px 0 0' }}>
-                    <strong>Shift ⇧ + Enter ↵</strong> to add a line break
+                    <strong>Shift ⇧ + Entrée ↵</strong> pour un saut de ligne
                   </p>
                 </div>
               )}
@@ -437,9 +380,9 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
               <div style={{ marginTop: 24 }}>
                 <button className="q-ok" onClick={goNext}>
                   {step === total - 1
-                    ? 'Submit — We\'ll be in touch within 24 hours'
-                    : 'OK'}
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0A2622" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    ? 'Envoyer — réponse sous 24h'
+                    : 'Suivant'}
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </button>

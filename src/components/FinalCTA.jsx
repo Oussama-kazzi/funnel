@@ -28,52 +28,86 @@ export default function FinalCTA({ onCTA }) {
     }, 80)
   }
 
+  const perks = [
+    { title: 'Réponse rapide', sub: 'Sous 24h ouvrées' },
+    { title: 'Appel gratuit', sub: 'Sans engagement' },
+    { title: 'Solutions sur mesure', sub: 'Adaptées à vos objectifs' },
+  ]
+
   return (
     <section
       ref={sectionRef}
       id="cta"
       className="finalcta-section"
       style={{
-        padding: '96px 32px 80px',
+        padding: '100px 32px 96px',
         background: 'transparent',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Green radial glow */}
-      <div style={{
-        position: 'absolute', inset: 0, zIndex: 0,
-        background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(199,247,81,0.08), transparent 70%)',
-        pointerEvents: 'none',
-      }} />
-      {/* Grid */}
-      <div style={{
-        position: 'absolute', inset: 0, zIndex: 0,
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
-        backgroundSize: '72px 72px',
-      }} />
+      {/* CTA panel */}
+      <div
+        className="cta-panel"
+        style={{
+          maxWidth: 1040, margin: '0 auto', position: 'relative', zIndex: 1,
+          borderRadius: 32,
+          padding: 'clamp(48px, 6vw, 88px) clamp(24px, 5vw, 72px)',
+          overflow: 'hidden',
+          background: 'linear-gradient(165deg, rgba(139,92,246,0.10) 0%, rgba(12,10,24,0.6) 45%, rgba(8,6,15,0.7) 100%)',
+          border: '1px solid rgba(139,92,246,0.18)',
+          boxShadow: '0 40px 100px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)',
+          opacity: visible ? 1 : 0,
+          transform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,32px,0)',
+          transition: `opacity 1s ${EASE}, transform 1s ${EASE}`,
+        }}
+      >
+        {/* Ambient glows inside the panel */}
+        <div style={{
+          position: 'absolute', top: '-40%', left: '50%', transform: 'translateX(-50%)',
+          width: '80%', height: '90%',
+          background: 'radial-gradient(ellipse at 50% 30%, rgba(139,92,246,0.35), transparent 62%)',
+          filter: 'blur(20px)', pointerEvents: 'none', zIndex: 0,
+        }} />
+        <div style={{
+          position: 'absolute', inset: 0, zIndex: 0, opacity: 0.4,
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+          backgroundSize: '56px 56px',
+          maskImage: 'radial-gradient(ellipse 70% 70% at 50% 40%, #000 30%, transparent 75%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 70% 70% at 50% 40%, #000 30%, transparent 75%)',
+          pointerEvents: 'none',
+        }} />
 
-      {/* CTA content */}
-      <div style={{
-        maxWidth: 860, margin: '0 auto', position: 'relative', zIndex: 1,
-        opacity: visible ? 1 : 0,
-        transform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,28px,0)',
-        transition: `opacity 1.1s ${EASE}, transform 1.1s ${EASE}`,
-      }}>
-
+        <div style={{ position: 'relative', zIndex: 1 }}>
+        {/* Badge */}
+        {!showForm && (
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: 9,
+            padding: '7px 16px', marginBottom: 26,
+            background: 'rgba(139,92,246,0.12)',
+            border: '1px solid rgba(139,92,246,0.3)',
+            borderRadius: 100,
+            fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700,
+            letterSpacing: '0.14em', textTransform: 'uppercase',
+            color: '#C4B5FD',
+          }}>
+            <span className="cta-badge-dot" />
+            Prochaine étape
+          </div>
+        )}
 
         <h2 style={{
           fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontSize: 'clamp(36px, 6vw, 72px)',
+          fontSize: 'clamp(34px, 5vw, 60px)',
           fontWeight: 800, letterSpacing: '-0.04em',
-          color: '#FFFFFF', lineHeight: 1.02,
-          marginBottom: 24,
+          color: '#FFFFFF', lineHeight: 1.04,
+          marginBottom: 20,
         }}>
-          Ready to build <br /> something{' '}
-          <span style={{ color: '#C7F751', textShadow: '0 0 24px rgba(199,247,81,0.35)' }}>
+          Prêt à lancer votre{' '}
+          <span style={{ color: '#8B5CF6', textShadow: '0 0 24px rgba(139,92,246,0.4)' }}>
             <TextType
-              text={['that lasts?', 'that scales?', 'that converts?', 'that matters?']}
+              text={['projet ?', 'site web ?', 'landing page ?', 'croissance ?']}
               as="span"
               typingSpeed={70}
               deletingSpeed={40}
@@ -88,33 +122,33 @@ export default function FinalCTA({ onCTA }) {
 
         <p style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: 19, color: 'rgba(255,255,255,0.45)',
-          maxWidth: 500, margin: '0 auto 48px',
+          fontSize: 17, color: 'rgba(255,255,255,0.5)',
+          maxWidth: 540, margin: '0 auto 36px',
           lineHeight: 1.65,
         }}>
-          Book a 30-minute strategy call. We'll review your product, your goals, and tell you exactly how we'd approach it — before any agreement is signed.
+          Discutons de vos idées et transformons-les en un site web performant qui génère des résultats. Réponse sous 24h ouvrées, sans engagement.
         </p>
 
         {/* CTA button — changes state after form is shown */}
         {!showForm && (
           <div
             className="lime-cta"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 12 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 14, flexWrap: 'wrap', justifyContent: 'center' }}
           >
             <button
               onClick={handleOpen}
-              aria-label="Book a strategy call"
+              aria-label="Planifier un appel gratuit"
               className="lime-cta-circle"
               style={{
-                width: 64, height: 64, borderRadius: '50%',
-                background: '#C7F751', border: 'none', cursor: 'pointer',
+                width: 60, height: 60, borderRadius: '50%',
+                background: '#8B5CF6', border: 'none', cursor: 'pointer',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 transition: `transform 0.5s ${SPRING}, box-shadow 0.35s ease`,
-                boxShadow: '0 6px 28px rgba(199,247,81,0.5)',
+                boxShadow: '0 6px 28px rgba(139,92,246,0.5)',
                 flexShrink: 0,
               }}
             >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A2622" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="17" y1="7" x2="7" y2="17" />
                 <polyline points="17 17 7 17 7 7" />
               </svg>
@@ -123,18 +157,67 @@ export default function FinalCTA({ onCTA }) {
               onClick={handleOpen}
               className="lime-cta-pill"
               style={{
-                background: '#C7F751', color: '#0A2622',
+                background: '#8B5CF6', color: '#FFFFFF',
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontWeight: 700, fontSize: 18,
-                padding: '20px 44px',
+                fontWeight: 700, fontSize: 17,
+                padding: '18px 40px',
                 border: 'none', borderRadius: 100, cursor: 'pointer',
                 letterSpacing: '-0.005em',
                 transition: `transform 0.5s ${SPRING}, box-shadow 0.35s ease`,
-                boxShadow: '0 6px 36px rgba(199,247,81,0.5)',
+                boxShadow: '0 6px 36px rgba(139,92,246,0.5)',
               }}
             >
-              Start a project
+              Planifier un appel gratuit
             </button>
+            <a
+              href="https://wa.me/212600000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-whatsapp"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 9,
+                padding: '18px 30px',
+                background: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(255,255,255,0.14)',
+                borderRadius: 100, cursor: 'pointer', textDecoration: 'none',
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontWeight: 700, fontSize: 16, color: '#FFFFFF',
+                transition: 'background 0.25s ease, border-color 0.25s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1)',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.24)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.14)'; e.currentTarget.style.transform = 'translateY(0)' }}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true">
+                <path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-1.9-1.2 7.2 7.2 0 01-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4c0-.1-.5-1.3-.7-1.8s-.4-.4-.5-.4h-.5a1 1 0 00-.7.3A2.8 2.8 0 006 8.9c0 1.7 1.2 3.3 1.4 3.5s2.4 3.7 5.9 5.1c2.9 1.1 2.9.8 3.5.7a2.5 2.5 0 001.6-1.2 2 2 0 00.2-1.2c-.1-.1-.3-.2-.5-.3z"/>
+              </svg>
+              WhatsApp
+            </a>
+          </div>
+        )}
+
+        {/* Trust perks */}
+        {!showForm && (
+          <div className="cta-perks" style={{
+            display: 'flex', justifyContent: 'center', flexWrap: 'wrap',
+            gap: '16px 40px', marginTop: 44,
+          }}>
+            {perks.map((p) => (
+              <div key={p.title} style={{ display: 'flex', alignItems: 'center', gap: 12, textAlign: 'left' }}>
+                <span style={{
+                  width: 36, height: 36, borderRadius: 10, flexShrink: 0,
+                  background: 'rgba(139,92,246,0.12)', border: '1px solid rgba(139,92,246,0.28)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span>
+                  <span style={{ display: 'block', fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, fontWeight: 700, color: '#FFFFFF' }}>{p.title}</span>
+                  <span style={{ display: 'block', fontFamily: "'Inter', sans-serif", fontSize: 12.5, color: 'rgba(255,255,255,0.42)' }}>{p.sub}</span>
+                </span>
+              </div>
+            ))}
           </div>
         )}
 
@@ -155,16 +238,16 @@ export default function FinalCTA({ onCTA }) {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="18 15 12 9 6 15" />
             </svg>
-            Hide form
+Masquer le formulaire
           </button>
         )}
 
         <style>{`
-          .finalcta-cursor { color: #C7F751; font-weight: 300; }
+          .finalcta-cursor { color: #8B5CF6; font-weight: 300; }
         `}</style>
 
-
-      </div>
+        </div>{/* /z-index inner */}
+      </div>{/* /cta-panel */}
 
       {/* ── Inline form ── */}
       <div
@@ -181,10 +264,10 @@ export default function FinalCTA({ onCTA }) {
         {/* Card */}
         <div style={{
           background: 'rgba(255,255,255,0.03)',
-          border: '1px solid rgba(199,247,81,0.12)',
+          border: '1px solid rgba(139,92,246,0.12)',
           borderRadius: 20,
           overflow: 'hidden',
-          boxShadow: '0 0 0 1px rgba(199,247,81,0.04), 0 24px 60px rgba(0,0,0,0.45), 0 0 60px rgba(199,247,81,0.06)',
+          boxShadow: '0 0 0 1px rgba(139,92,246,0.04), 0 24px 60px rgba(0,0,0,0.45), 0 0 60px rgba(139,92,246,0.06)',
         }}>
           {/* Card header */}
           <div style={{
@@ -196,11 +279,11 @@ export default function FinalCTA({ onCTA }) {
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 10, fontWeight: 700,
                 textTransform: 'uppercase', letterSpacing: '0.2em',
-                color: '#C7F751', margin: '0 0 6px',
+                color: '#8B5CF6', margin: '0 0 6px',
                 display: 'flex', alignItems: 'center', gap: 8,
               }}>
-                <span style={{ width: 18, height: 1, background: '#C7F751', display: 'inline-block' }} />
-                Your first step
+                <span style={{ width: 18, height: 1, background: '#8B5CF6', display: 'inline-block' }} />
+                Première étape
               </p>
               <h3 style={{
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -208,7 +291,7 @@ export default function FinalCTA({ onCTA }) {
                 color: '#FFFFFF', letterSpacing: '-0.03em',
                 margin: 0,
               }}>
-                Enter Your Info
+Recevez une recommandation gratuite
               </h3>
             </div>
           </div>
@@ -225,12 +308,27 @@ export default function FinalCTA({ onCTA }) {
           from { opacity: 0; transform: translateY(28px); }
           to   { opacity: 1; transform: translateY(0); }
         }
+        .cta-badge-dot {
+          width: 6px; height: 6px; border-radius: 50%;
+          background: #8B5CF6; box-shadow: 0 0 10px rgba(139,92,246,0.9);
+          animation: ctaDotPulse 2.2s ease-in-out infinite;
+        }
+        @keyframes ctaDotPulse {
+          0%,100% { opacity: 1; transform: scale(1); }
+          50%     { opacity: 0.4; transform: scale(0.7); }
+        }
         @media (max-width: 768px) {
-          .finalcta-section { padding: 72px 20px 56px !important; }
-          .lime-cta { flex-direction: column; align-items: center; }
+          .finalcta-section { padding: 72px 20px 64px !important; }
+          .lime-cta { width: 100%; }
+          .cta-perks { gap: 16px 28px !important; }
+        }
+        @media (max-width: 560px) {
+          .lime-cta-circle { display: none !important; }
+          .lime-cta-pill, .cta-whatsapp { width: 100%; justify-content: center; }
+          .cta-perks { flex-direction: column; align-items: center; gap: 14px !important; }
         }
         @media (max-width: 480px) {
-          .finalcta-section { padding: 56px 16px 48px !important; }
+          .finalcta-section { padding: 56px 16px 52px !important; }
         }
       `}</style>
     </section>

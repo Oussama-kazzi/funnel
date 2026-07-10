@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Questionnaire from './Questionnaire'
 
 const EASE = 'cubic-bezier(0.16, 1, 0.3, 1)'
-const LIME = '#C7F751'
+const LIME = '#8B5CF6'
 
 export default function Modal({ open, onClose }) {
   const [formKey, setFormKey] = useState(0)
@@ -40,7 +40,7 @@ export default function Modal({ open, onClose }) {
           background: #070914;
           border: 1px solid rgba(255,255,255,0.09);
           border-radius: 24px;
-          box-shadow: 0 0 0 1px rgba(199,247,81,0.04), 0 32px 80px rgba(0,0,0,0.7), 0 0 80px rgba(199,247,81,0.05);
+          box-shadow: 0 0 0 1px rgba(139,92,246,0.04), 0 32px 80px rgba(0,0,0,0.7), 0 0 80px rgba(139,92,246,0.05);
           display: flex; flex-direction: column; overflow: hidden;
           transition: transform 0.45s ${EASE}, opacity 0.35s ${EASE};
         }
@@ -85,7 +85,7 @@ export default function Modal({ open, onClose }) {
               display: 'flex', alignItems: 'center', gap: 10,
             }}>
               <span style={{ width: 22, height: 1, background: LIME, display: 'inline-block' }} />
-              Your first step
+              Discutons de votre projet
             </p>
             <h2 style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -94,7 +94,7 @@ export default function Modal({ open, onClose }) {
               letterSpacing: '-0.03em', lineHeight: 1.1,
               margin: '0 0 20px',
             }}>
-              Enter Your Info
+              Recevez une recommandation gratuite
             </h2>
           </div>
 

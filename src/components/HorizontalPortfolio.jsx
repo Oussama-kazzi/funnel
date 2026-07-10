@@ -21,7 +21,7 @@ const projects = [
   {
     id: '01',
     name: 'Slava Logistics',
-    desc: 'Full Webflow build for a pan-European logistics operator — from brand system to live production site.',
+    desc: 'Site Webflow complet pour un opérateur logistique pan-européen — de l’identité de marque à la mise en ligne.',
     accent:    '#F59E0B',
     accentAlt: '#FCD34D',
     image: img1,
@@ -30,7 +30,7 @@ const projects = [
   {
     id: '02',
     name: 'Payplus',
-    desc: 'Next-generation mobile finance app — 10M+ projected users, 98% satisfaction, $250M in transactions.',
+    desc: 'Application mobile de finance nouvelle génération — plus de 10M d’utilisateurs projetés et 98% de satisfaction.',
     accent:    '#EC4899',
     accentAlt: '#F9A8D4',
     image: img2,
@@ -39,7 +39,7 @@ const projects = [
   {
     id: '03',
     name: 'Montagna',
-    desc: 'Ski school & outdoor adventure brand — Webflow build with booking, ecommerce, and motion design.',
+    desc: 'Marque d’aventure et école de ski — site Webflow avec réservation, e-commerce et animations.',
     accent:    '#10B981',
     accentAlt: '#6EE7B7',
     image: img3,
@@ -48,7 +48,7 @@ const projects = [
   {
     id: '04',
     name: 'Midlane',
-    desc: 'Premium Webflow site with clean UI, custom animations, and a conversion-focused layout.',
+    desc: 'Site Webflow premium au design épuré, animations sur mesure et structure orientée conversion.',
     accent:    '#06B6D4',
     accentAlt: '#67E8F9',
     image: img4,
@@ -57,7 +57,7 @@ const projects = [
   {
     id: '05',
     name: 'Sunsurf Maroc',
-    desc: 'Surf camp & adventure travel brand — full web presence with booking system and immersive visual design.',
+    desc: 'Surf camp et voyages d’aventure — présence web complète avec système de réservation et design immersif.',
     accent:    '#F97316',
     accentAlt: '#FDBA74',
     image: img5,
@@ -66,7 +66,7 @@ const projects = [
   {
     id: '06',
     name: 'Dar Surfana Morocco',
-    desc: 'Boutique surf lodge — room booking, gallery, and cultural storytelling in a bespoke Webflow build.',
+    desc: 'Lodge de surf boutique — réservation de chambres, galerie et storytelling dans un site Webflow sur mesure.',
     accent:    '#EAB308',
     accentAlt: '#FDE047',
     image: img6,
@@ -75,7 +75,7 @@ const projects = [
   {
     id: '07',
     name: 'Salt House Morocco',
-    desc: 'Coastal surf retreat — bespoke design, booking flows, and lifestyle photography integration.',
+    desc: 'Retraite de surf en bord de mer — design sur mesure, parcours de réservation et photographie lifestyle.',
     accent:    '#14B8A6',
     accentAlt: '#5EEAD4',
     image: img7,
@@ -84,7 +84,7 @@ const projects = [
   {
     id: '08',
     name: 'Souk2Surf',
-    desc: 'Surf travel platform blending Moroccan culture with wave hunting — tours, coaching, and immersive stays.',
+    desc: 'Plateforme de voyage surf mêlant culture marocaine et spots de vagues — séjours, coaching et expériences.',
     accent:    '#8B5CF6',
     accentAlt: '#C4B5FD',
     image: img8,
@@ -93,7 +93,7 @@ const projects = [
   {
     id: '09',
     name: 'Surfana Tours',
-    desc: 'Premium surf tour operator — multi-destination packages, guided experiences, and community-driven brand.',
+    desc: 'Tour-opérateur de surf premium — offres multi-destinations, expériences guidées et marque communautaire.',
     accent:    '#6366F1',
     accentAlt: '#A5B4FC',
     image: img9,
@@ -102,7 +102,7 @@ const projects = [
   {
     id: '10',
     name: 'Adsolution',
-    desc: 'Digital marketing agency — performance-first design with lead capture, case studies, and CMS.',
+    desc: 'Agence de marketing digital — design orienté performance avec capture de leads, études de cas et CMS.',
     accent:    '#A855F7',
     accentAlt: '#D8B4FE',
     image: img10,
@@ -246,7 +246,7 @@ function SectionHeading() {
           fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600,
           letterSpacing: '0.22em', textTransform: 'uppercase',
           color: 'rgba(255,255,255,0.28)',
-        }}>Featured Work</span>
+        }}>Nos réalisations</span>
         <span style={{
           fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600,
           letterSpacing: '0.22em', textTransform: 'uppercase',
@@ -257,7 +257,7 @@ function SectionHeading() {
         <span style={{
           fontFamily: "'Inter', sans-serif", fontSize: 11, color: 'rgba(255,255,255,0.2)',
           letterSpacing: '0.04em',
-        }}>{projects.length} projects</span>
+        }}>{projects.length} projets</span>
         <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
           <path d="M0 5h14M10 1l4 4-4 4" stroke="rgba(255,255,255,0.2)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
@@ -274,10 +274,10 @@ function MobileSnapScroll() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)' }}>※</span>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)' }}>Featured Work</span>
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)' }}>Nos réalisations</span>
             <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)' }}>※</span>
           </div>
-          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: 'rgba(255,255,255,0.2)' }}>{projects.length} projects</span>
+          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: 'rgba(255,255,255,0.2)' }}>{projects.length} projets</span>
         </div>
       </div>
       <div className="hp-snap-track">
@@ -423,7 +423,7 @@ export default function HorizontalPortfolio() {
         }}>
           <motion.div style={{
             height: '100%',
-            background: 'rgba(199,247,81,0.5)',
+            background: 'rgba(139,92,246,0.5)',
             transformOrigin: 'left',
             scaleX: scrollYProgress,
           }} />

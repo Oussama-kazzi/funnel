@@ -3,80 +3,102 @@ import { motion, useInView } from 'framer-motion'
 
 const stacks = [
   {
-    id: 'wordpress',
-    name: 'WordPress',
-    sub: 'The Veteran Heavyweight',
+    id: 'framer',
+    name: 'Framer',
+    sub: 'Rapide & animé',
     featured: false,
-    desc: 'Open-source CMS that powers ~43% of the web. Massive plugin ecosystem, infinite flexibility, and the only real option if you need WooCommerce, deep SEO control, or membership functionality at scale.',
+    desc: 'Idéal pour des landing pages modernes, rapides et animées, faciles à faire évoluer. Parfait quand la vitesse de lancement et le rendu visuel priment.',
     cost:    '$$',
-    speed:   'Med',
-    flex:    'High',
+    speed:   'Rapide',
+    flex:    'Moyen',
     pros: [
-      'Unmatched plugin ecosystem — anything you can imagine exists',
-      'Best-in-class for blogs, content sites, SEO',
-      'WooCommerce for serious e-commerce',
-      'You actually own everything — code, data, hosting',
+      'Animations et interactions haut de gamme sans code',
+      'Idéal pour les landing pages et sites courts',
+      'Mise en ligne et itérations très rapides',
+      'Édition simple du contenu par le client',
     ],
     cons: [
-      'Requires ongoing security updates and maintenance',
-      'Plugin conflicts can break things at midnight',
-      'Performance depends heavily on hosting + setup',
+      'Moins adapté aux très gros sites de contenu',
+      'E-commerce limité',
+      'Écosystème de plugins restreint',
     ],
-    bestFor: 'Content-heavy brands, blogs with serious SEO ambitions, membership sites, and e-commerce with 500+ SKUs.',
+    bestFor: 'Landing pages, sites de lancement, portfolios et marques qui veulent un rendu premium rapidement.',
+  },
+  {
+    id: 'wordpress',
+    name: 'WordPress',
+    sub: 'Flexible & riche en contenu',
+    featured: false,
+    desc: 'Le CMS le plus utilisé au monde. Idéal pour les sites vitrines, blogs, sites corporate et projets qui nécessitent une gestion de contenu simple et de la flexibilité.',
+    cost:    '$$',
+    speed:   'Moyen',
+    flex:    'Élevé',
+    pros: [
+      'Écosystème de plugins immense — presque tout est possible',
+      'Excellent pour le blog, le contenu et le SEO',
+      'WooCommerce pour un e-commerce sérieux',
+      'Vous possédez tout : code, données, hébergement',
+    ],
+    cons: [
+      'Nécessite des mises à jour de sécurité régulières',
+      'Les conflits de plugins peuvent casser des choses',
+      'La performance dépend beaucoup de l’hébergement',
+    ],
+    bestFor: 'Sites de contenu, blogs à forte ambition SEO, sites corporate et e-commerce avec beaucoup de produits.',
   },
   {
     id: 'webflow',
     name: 'Webflow',
-    sub: "The Visual Designer's CMS",
+    sub: 'Premium & sur mesure',
     featured: true,
-    desc: "Visual development platform with hosted infrastructure. Pixel-perfect design control without writing code, beautiful animations out of the box, and zero plugin maintenance. The fastest way to ship a premium-looking marketing site.",
+    desc: 'Plateforme de développement visuel avec hébergement intégré. Contrôle pixel-perfect sans écrire de code, animations soignées et zéro maintenance de plugins. La façon la plus rapide de lancer un site marketing premium.',
     cost:    '$$$',
-    speed:   'Fast',
-    flex:    'Med',
+    speed:   'Rapide',
+    flex:    'Moyen',
     pros: [
-      'Stunning animations and interactions without code',
-      'Fast, secure hosting baked in — no plugins to update',
-      'Clean code output, great Core Web Vitals',
-      'Your client can edit text without breaking anything',
-      'Built-in CMS perfect for case studies, blogs, careers',
+      'Animations et interactions superbes sans code',
+      'Hébergement rapide et sécurisé inclus',
+      'Code propre, excellents Core Web Vitals',
+      'Le client peut éditer sans rien casser',
+      'CMS intégré parfait pour blogs et réalisations',
     ],
     cons: [
-      "Monthly Webflow hosting fees (you don't own hosting)",
-      'E-commerce is limited compared to Shopify/Woo',
-      "No real plugin ecosystem — it's whatever Webflow ships",
+      'Frais d’hébergement Webflow mensuels',
+      'E-commerce plus limité que Shopify',
+      'Pas de véritable écosystème de plugins',
     ],
-    bestFor: 'Marketing sites, agencies, SaaS landing pages, premium personal brands, and design-led companies under 200 pages.',
+    bestFor: 'Sites marketing, agences, landing pages SaaS, marques haut de gamme et entreprises orientées design.',
   },
   {
     id: 'custom',
-    name: 'Custom code',
-    sub: 'Built From the Metal Up',
+    name: 'Développement sur mesure',
+    sub: 'Contrôle total',
     featured: false,
-    desc: 'React, Next.js, Astro — a hand-built application tailored to your exact requirements. Maximum performance, maximum flexibility, maximum control. Also: maximum investment and the longest timeline.',
+    desc: 'React, Next.js, code personnalisé — une application construite selon vos besoins exacts. Performance maximale, flexibilité maximale, contrôle maximal. Pour plateformes, dashboards, MVP, SaaS et intégrations API.',
     cost:    '$$$$',
-    speed:   'Slow',
+    speed:   'Lent',
     flex:    'Max',
     pros: [
-      'Perfect Lighthouse scores, sub-second load times',
-      'Complete control over every pixel, every interaction',
-      'Custom logic — calculators, dashboards, dynamic pricing',
-      'Scales to millions of users without re-architecture',
-      'No platform fees, no vendor lock-in, ever',
+      'Performances parfaites, temps de chargement minimal',
+      'Contrôle total sur chaque pixel et interaction',
+      'Logique sur mesure — calculateurs, dashboards, API',
+      'S’adapte à des millions d’utilisateurs sans refonte',
+      'Aucun frais de plateforme, aucun verrouillage',
     ],
     cons: [
-      'Highest upfront investment',
-      'Requires a developer to make changes',
-      'Longest timeline — typically 8–16 weeks',
+      'Investissement initial le plus élevé',
+      'Un développeur est requis pour les évolutions',
+      'Délai plus long selon la complexité',
     ],
-    bestFor: 'Funded SaaS products, ambitious e-commerce, high-traffic publishers, or anything with complex custom logic.',
+    bestFor: 'Plateformes SaaS, e-commerce ambitieux, portails clients ou tout projet à logique complexe.',
   },
 ]
 
 function PlusIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
-      <circle cx="7" cy="7" r="6.5" stroke="#C7F751" strokeWidth="1"/>
-      <path d="M7 4v6M4 7h6" stroke="#C7F751" strokeWidth="1.4" strokeLinecap="round"/>
+      <circle cx="7" cy="7" r="6.5" stroke="#8B5CF6" strokeWidth="1"/>
+      <path d="M7 4v6M4 7h6" stroke="#8B5CF6" strokeWidth="1.4" strokeLinecap="round"/>
     </svg>
   )
 }
@@ -96,7 +118,7 @@ function StatBlock({ value, label, highlight }) {
       <div style={{
         fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: 22, fontWeight: 800,
-        color: highlight ? '#C7F751' : '#FFFFFF',
+        color: highlight ? '#8B5CF6' : '#FFFFFF',
         letterSpacing: '-0.02em', lineHeight: 1,
         marginBottom: 4,
       }}>{value}</div>
@@ -122,15 +144,16 @@ function StackCard({ stack, index }) {
         background: stack.featured
           ? 'rgba(255,255,255,0.05)'
           : hovered ? 'rgba(255,255,255,0.025)' : 'rgba(255,255,255,0.015)',
-        border: `1px solid ${stack.featured ? 'rgba(199,247,81,0.18)' : 'rgba(255,255,255,0.07)'}`,
+        border: `1px solid ${stack.featured ? 'rgba(139,92,246,0.18)' : 'rgba(255,255,255,0.07)'}`,
         borderRadius: 16,
         padding: '36px 32px 28px',
         display: 'flex',
         flexDirection: 'column',
+        height: '100%',
         gap: 0,
         transition: 'background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
         boxShadow: stack.featured
-          ? '0 0 0 1px rgba(199,247,81,0.06), 0 24px 48px rgba(0,0,0,0.35)'
+          ? '0 0 0 1px rgba(139,92,246,0.06), 0 24px 48px rgba(0,0,0,0.35)'
           : hovered ? '0 16px 40px rgba(0,0,0,0.3)' : '0 4px 16px rgba(0,0,0,0.15)',
         opacity: 0,
         animation: `pr-fadein 0.55s ease forwards ${index * 0.13 + 0.15}s`,
@@ -141,7 +164,7 @@ function StackCard({ stack, index }) {
         <div style={{
           position: 'absolute', top: -1, left: '50%',
           transform: 'translateX(-50%)',
-          background: '#C7F751',
+          background: '#8B5CF6',
           color: '#0A0A0A',
           fontFamily: "'Inter', sans-serif",
           fontSize: 9, fontWeight: 800,
@@ -149,7 +172,7 @@ function StackCard({ stack, index }) {
           padding: '5px 14px',
           borderRadius: '0 0 8px 8px',
           whiteSpace: 'nowrap',
-        }}>Our pick for most</div>
+        }}>Recommandé</div>
       )}
 
       {/* Name */}
@@ -165,7 +188,7 @@ function StackCard({ stack, index }) {
       <div style={{
         fontFamily: "'Inter', sans-serif",
         fontSize: 10, fontWeight: 600,
-        color: stack.featured ? 'rgba(199,247,81,0.65)' : 'rgba(255,255,255,0.28)',
+        color: stack.featured ? 'rgba(139,92,246,0.65)' : 'rgba(255,255,255,0.28)',
         textTransform: 'uppercase', letterSpacing: '0.15em',
         marginBottom: 20,
       }}>{stack.sub}</div>
@@ -184,9 +207,9 @@ function StackCard({ stack, index }) {
         borderBottom: '1px solid rgba(255,255,255,0.07)',
         marginBottom: 24,
       }}>
-        <StatBlock value={stack.cost}  label="Cost"          highlight={true} />
-        <StatBlock value={stack.speed} label="Speed to ship" highlight={false} />
-        <StatBlock value={stack.flex}  label="Flexibility"   highlight={false} />
+        <StatBlock value={stack.cost}  label="Budget"        highlight={true} />
+        <StatBlock value={stack.speed} label="Rapidité"      highlight={false} />
+        <StatBlock value={stack.flex}  label="Flexibilité"   highlight={false} />
       </div>
 
       {/* Pros */}
@@ -219,17 +242,17 @@ function StackCard({ stack, index }) {
       <div style={{
         marginTop: 'auto',
         padding: '16px 18px',
-        background: stack.featured ? 'rgba(199,247,81,0.06)' : 'rgba(255,255,255,0.03)',
-        border: `1px solid ${stack.featured ? 'rgba(199,247,81,0.18)' : 'rgba(255,255,255,0.07)'}`,
+        background: stack.featured ? 'rgba(139,92,246,0.06)' : 'rgba(255,255,255,0.03)',
+        border: `1px solid ${stack.featured ? 'rgba(139,92,246,0.18)' : 'rgba(255,255,255,0.07)'}`,
         borderRadius: 10,
       }}>
         <div style={{
           fontFamily: "'Inter', sans-serif",
           fontSize: 9, fontWeight: 700,
-          color: stack.featured ? '#C7F751' : 'rgba(255,255,255,0.3)',
+          color: stack.featured ? '#8B5CF6' : 'rgba(255,255,255,0.3)',
           textTransform: 'uppercase', letterSpacing: '0.18em',
           marginBottom: 8,
-        }}>Best for</div>
+        }}>Idéal pour</div>
         <p style={{
           fontFamily: "'Inter', sans-serif",
           fontSize: 13, fontStyle: 'italic',
@@ -246,7 +269,7 @@ export default function Pricing({ onCTA }) {
   const inView = useInView(ref, { once: true, amount: 0.15 })
 
   return (
-    <section id="pricing" className="pricing-section" ref={ref} style={{ padding: '80px 32px' }}>
+    <section id="pricing" className="pricing-section" ref={ref} style={{ padding: '104px 32px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
         {/* ── Header ── */}
@@ -261,11 +284,11 @@ export default function Pricing({ onCTA }) {
             fontFamily: "'Inter', sans-serif",
             fontSize: 10, fontWeight: 700,
             textTransform: 'uppercase', letterSpacing: '0.2em',
-            color: '#C7F751', marginBottom: 20,
+            color: '#8B5CF6', marginBottom: 20,
             display: 'flex', alignItems: 'center', gap: 10,
           }}>
-            <span style={{ width: 28, height: 1, background: '#C7F751', display: 'inline-block' }} />
-            The Stack Question
+            <span style={{ width: 28, height: 1, background: '#8B5CF6', display: 'inline-block' }} />
+            La bonne technologie
           </p>
 
           <h2 style={{
@@ -277,15 +300,15 @@ export default function Pricing({ onCTA }) {
             lineHeight: 1.06,
             marginBottom: 28,
           }}>
-            WordPress, Webflow,{' '}
-            or custom code —{' '}
+            Framer, WordPress, Webflow{' '}
+            ou sur mesure —{' '}
             <em style={{
               fontStyle: 'italic',
-              color: '#C7F751',
+              color: '#8B5CF6',
               fontWeight: 700,
-              textShadow: '0 0 40px rgba(199,247,81,0.35)',
+              textShadow: '0 0 40px rgba(139,92,246,0.35)',
             }}>
-              which one is right for you?
+              lequel choisir ?
             </em>
           </h2>
 
@@ -294,16 +317,16 @@ export default function Pricing({ onCTA }) {
             fontSize: 16, color: 'rgba(255,255,255,0.45)',
             lineHeight: 1.75, margin: 0,
           }}>
-            Most agencies push you toward whatever they happen to build with. We've shipped on all three, and the honest answer depends entirely on what you sell, how fast you ship, and who maintains it after launch.
+            Nous ne forçons pas une seule solution. Nous avons livré sur les quatre, et le bon choix dépend de vos objectifs, de votre budget, de votre vitesse d’exécution et de qui gère le site après la mise en ligne.
           </p>
         </div>
 
         {/* ── Stack cards ── */}
-        <div style={{
+        <div className="pricing-cards" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridTemplateColumns: 'repeat(4, 1fr)',
           gap: 20,
-          alignItems: 'start',
+          alignItems: 'stretch',
         }}>
           {stacks.map((stack, i) => (
             <StackCard key={stack.id} stack={stack} index={i} />
@@ -317,10 +340,10 @@ export default function Pricing({ onCTA }) {
           from { opacity: 0; transform: translateY(18px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        @media (max-width: 900px) {
-          .pricing-section > div > div:last-child {
-            grid-template-columns: 1fr !important;
-            max-width: 520px !important;
+        @media (max-width: 1080px) {
+          .pricing-section .pricing-cards {
+            grid-template-columns: repeat(2, 1fr) !important;
+            max-width: 760px !important;
             margin: 0 auto !important;
           }
         }
@@ -328,6 +351,12 @@ export default function Pricing({ onCTA }) {
           .pricing-section { padding: 56px 20px 48px !important; }
           .pricing-section > div > div:first-child {
             margin-bottom: 40px !important;
+          }
+        }
+        @media (max-width: 560px) {
+          .pricing-section .pricing-cards {
+            grid-template-columns: 1fr !important;
+            max-width: 460px !important;
           }
         }
         @media (max-width: 480px) {

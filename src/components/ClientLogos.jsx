@@ -46,7 +46,7 @@ export default function ClientLogos() {
         style={{ opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateY(12px)' }}
       >
         <span className="cl-rule-line" />
-        <span className="cl-label-text">Trusted by</span>
+        <span className="cl-label-text">Ils nous font confiance</span>
         <span className="cl-rule-line" />
       </div>
 

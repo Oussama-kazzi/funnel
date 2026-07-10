@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(move digiweb-site\\\\* .)",
+      "Bash(npm install *)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\PC\\\\Desktop\\\\project\\\\funnel\\\\digiweb-site\\\\src\" -Recurse)",
+      "Bash(Select-Object FullName)",
+      "Bash(node -e \"const pkg = require\\('./node_modules/swiper/package.json'\\); const exp = pkg.exports; console.log\\(JSON.stringify\\(Object.keys\\(exp\\).filter\\(k => k.includes\\('css'\\)\\), null, 2\\)\\)\")",
+      "Bash(node -e ' *)"
+    ]
+  }
+}

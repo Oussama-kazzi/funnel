@@ -22,15 +22,15 @@ export default function Footer() {
           />
         </a>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(255,255,255,0.3)' }}>
-          © 2025 FUTURA Studio. Built with intention.
+          © 2025 FuturA Digital Studio. Agence digitale à Casablanca.
         </p>
         <a
-          href="mailto:hello@futura.studio"
+          href="mailto:contact@futura.ma"
           style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(255,255,255,0.3)', textDecoration: 'none', transition: 'color 0.15s' }}
           onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
           onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.3)'}
         >
-          hello@futura.studio
+          contact@futura.ma
         </a>
       </div>
     </footer>

@@ -44,49 +44,50 @@ const HotelIcon = () => (
 
 const industries = [
   {
-    icon: <CpuIcon />,
-    title: 'SaaS & AI Products',
-    desc: "Your product is complex. Your website needs to make it feel simple. We design trial flows that convert, pricing pages that don't confuse, and onboarding experiences that reduce churn from the first click.",
+    icon: <TrendingUpIcon />,
+    title: 'Startups & PME',
+    desc: "Vous avancez vite et chaque dirham doit travailler. Nous créons des sites qui rassurent, génèrent des demandes entrantes et évoluent avec votre activité.",
     bullets: [
-      'Landing pages that explain your product in 10 seconds',
-      'Pricing pages optimized for annual conversion',
-      'Demo request flows that filter qualified leads',
-      'Documentation and help center design',
+      'Sites vitrines et landing pages à forte conversion',
+      'MVP et sites de lancement rapides',
+      'Architecture prête à évoluer sans refonte',
+      'Tunnels de contact et prise de rendez-vous',
     ],
     featured: true,
   },
   {
-    icon: <TrendingUpIcon />,
-    title: 'Startups & Scaleups',
-    desc: "You're moving fast and every dollar has to work. We build websites that give investors confidence, generate inbound leads, and don't need rebuilding every 18 months.",
+    icon: <CpuIcon />,
+    title: 'E-commerce & SaaS',
+    desc: "Votre offre est spécifique. Votre site doit la rendre simple et désirable. Nous concevons des parcours qui convertissent, du premier clic à l’achat.",
     bullets: [
-      'Investor-grade brand identity and web presence',
-      'MVP marketing sites launched in under 4 weeks',
-      'Growth-ready architecture that scales without a rewrite',
-      'Launch sequences and waitlist funnels',
-    ],
-    featured: false,
-  },
-  {
-    icon: <ShieldCheckIcon />,
-    title: 'Fintech & Web3',
-    desc: 'Trust is your product. Your site needs to communicate credibility, compliance awareness, and security without being boring. We balance regulatory tone with conversion design.',
-    bullets: [
-      'Compliance-friendly copy architecture',
-      'KYC / onboarding flow design',
-      'Token launch pages and community portals',
+      'Boutiques en ligne rapides et faciles à gérer',
+      'Pages produits et tunnels d’achat optimisés',
+      'Landing pages SaaS et pages de tarifs claires',
+      'Automatisations et intégrations CRM',
     ],
     featured: false,
   },
   {
     icon: <HotelIcon />,
-    title: 'Hostels & Boutique Hotels',
-    desc: 'Direct bookings are your highest-margin revenue. We build sites that compete with OTAs on experience and win on personality — turning browsers into bookers without the commission.',
+    title: 'Restaurants, Cliniques & Écoles',
+    desc: 'Vos clients vous cherchent en ligne. Nous construisons des sites crédibles qui donnent confiance et transforment les visiteurs en rendez-vous et réservations.',
     bullets: [
-      'Direct booking engine integration (Cloudbeds, Beds24, Apaleo)',
-      'Experience-first storytelling and photography direction',
-      'Multi-property and multi-room inventory design',
-      'SEO-optimized destination content strategy',
+      'Prise de rendez-vous et réservation en ligne',
+      'Présentation claire des services et de l’équipe',
+      'SEO local pour être trouvé sur Google',
+      'Design premium et rassurant',
+    ],
+    featured: false,
+  },
+  {
+    icon: <ShieldCheckIcon />,
+    title: 'Agences, Cabinets & Entrepreneurs',
+    desc: 'Votre image est votre premier argument. Nous créons une présence digitale professionnelle qui reflète votre niveau et attire des clients qualifiés.',
+    bullets: [
+      'Identité et présence web haut de gamme',
+      'Marque personnelle et portfolios',
+      'Contenu et copywriting orientés conversion',
+      'Automatisation de l’acquisition et du suivi',
     ],
     featured: false,
   },
@@ -94,7 +95,7 @@ const industries = [
 
 function CheckIcon() {
   return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C7F751" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 2 }}>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 2 }}>
       <polyline points="20 6 9 17 4 12" />
     </svg>
   )
@@ -109,10 +110,10 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
       onMouseLeave={() => setHovered(false)}
       style={{
         background: hovered
-          ? 'rgba(199,247,81,0.05)'
-          : featured ? 'rgba(199,247,81,0.03)' : 'rgba(255,255,255,0.03)',
+          ? 'rgba(139,92,246,0.05)'
+          : featured ? 'rgba(139,92,246,0.03)' : 'rgba(255,255,255,0.03)',
         border: featured
-          ? '1px solid rgba(199,247,81,0.35)'
+          ? '1px solid rgba(139,92,246,0.35)'
           : `1px solid ${hovered ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.07)'}`,
         borderRadius: 18,
         padding: '36px 32px 32px',
@@ -122,7 +123,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
         transition: 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease, background 0.3s ease, border-color 0.3s ease',
         transform: hovered ? 'translateY(-5px)' : 'translateY(0)',
         boxShadow: hovered
-          ? '0 20px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(199,247,81,0.06)'
+          ? '0 20px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(139,92,246,0.06)'
           : '0 4px 16px rgba(0,0,0,0.15)',
         opacity: 0,
         animation: `ind-fadein 0.6s ease forwards ${index * 0.12 + 0.2}s`,
@@ -132,12 +133,12 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
       {featured && (
         <div style={{
           position: 'absolute', top: -12, left: 24,
-          background: '#C7F751', color: '#050816',
+          background: '#8B5CF6', color: '#FFFFFF',
           fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 700,
           letterSpacing: '0.1em', textTransform: 'uppercase',
           padding: '4px 12px', borderRadius: 100,
         }}>
-          Core focus
+          Priorité
         </div>
       )}
 
@@ -145,13 +146,13 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
       <div style={{
         width: 52, height: 52, borderRadius: 14,
         background: hovered
-          ? 'linear-gradient(135deg, rgba(199,247,81,0.18), rgba(168,216,48,0.1))'
-          : 'linear-gradient(135deg, rgba(199,247,81,0.1), rgba(168,216,48,0.05))',
-        border: '1px solid rgba(199,247,81,0.18)',
+          ? 'linear-gradient(135deg, rgba(139,92,246,0.18), rgba(99,102,241,0.1))'
+          : 'linear-gradient(135deg, rgba(139,92,246,0.1), rgba(99,102,241,0.05))',
+        border: '1px solid rgba(139,92,246,0.18)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        marginBottom: 24, color: '#C7F751',
+        marginBottom: 24, color: '#8B5CF6',
         transition: 'background 0.25s ease, box-shadow 0.25s ease',
-        boxShadow: hovered ? '0 0 20px rgba(199,247,81,0.15)' : 'none',
+        boxShadow: hovered ? '0 0 20px rgba(139,92,246,0.15)' : 'none',
       }}>
         {icon}
       </div>
@@ -178,7 +179,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
       {/* Divider */}
       <div style={{
         height: 1,
-        background: featured ? 'rgba(199,247,81,0.12)' : 'rgba(255,255,255,0.06)',
+        background: featured ? 'rgba(139,92,246,0.12)' : 'rgba(255,255,255,0.06)',
         marginBottom: 20,
       }} />
 
@@ -209,9 +210,7 @@ export default function Industries() {
 
   return (
     <section className="ind-section" style={{
-      padding: '80px 32px',
-      borderTop: '1px solid rgba(255,255,255,0.06)',
-      borderBottom: '1px solid rgba(255,255,255,0.06)',
+      padding: '104px 32px',
       overflow: 'hidden',
     }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
@@ -230,11 +229,11 @@ export default function Industries() {
             fontFamily: "'Inter', sans-serif",
             fontSize: 10, fontWeight: 700,
             textTransform: 'uppercase', letterSpacing: '0.2em',
-            color: '#C7F751', marginBottom: 20,
+            color: '#8B5CF6', marginBottom: 20,
             display: 'flex', alignItems: 'center', gap: 10,
           }}>
-            <span style={{ width: 28, height: 1, background: '#C7F751', display: 'inline-block' }} />
-            Who we build for
+            <span style={{ width: 28, height: 1, background: '#8B5CF6', display: 'inline-block' }} />
+            Pour qui travaillons-nous
           </p>
 
           <h2 style={{
@@ -244,9 +243,9 @@ export default function Industries() {
             color: '#FFFFFF', lineHeight: 1.05,
             margin: '0 0 20px',
           }}>
-            Built for teams shipping{' '}
-            <em style={{ fontStyle: 'italic', color: '#C7F751', fontWeight: 700, textShadow: '0 0 40px rgba(199,247,81,0.3)' }}>
-              ambitious products.
+            Nous accompagnons les entreprises{' '}
+            <em style={{ fontStyle: 'italic', color: '#8B5CF6', fontWeight: 700, textShadow: '0 0 40px rgba(139,92,246,0.3)' }}>
+              ambitieuses.
             </em>
           </h2>
 
@@ -255,7 +254,7 @@ export default function Industries() {
             fontSize: 17, color: 'rgba(255,255,255,0.42)',
             maxWidth: 560, lineHeight: 1.7, margin: 0,
           }}>
-            We don't do everything for everyone. We've gone deep in three verticals and we know exactly what makes a great website in each one.
+            Startups, PME, e-commerce, SaaS, restaurants, cliniques, écoles, agences ou entrepreneurs — nous construisons votre projet autour de vos objectifs réels.
           </p>
         </div>
 

@@ -15,11 +15,12 @@ export default function Navbar({ onCTA }) {
   }, [])
 
   const links = [
+    { label: 'Accueil', href: '#hero' },
     { label: 'Services', href: '#services' },
-    { label: 'Work', href: '#work' },
-    { label: 'Process', href: '#process' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'Réalisations', href: '#work' },
+    { label: 'À propos', href: '#industries' },
+    { label: 'Processus', href: '#process' },
+    { label: 'Contact', href: '#cta' },
   ]
 
   return (
@@ -95,7 +96,7 @@ export default function Navbar({ onCTA }) {
                   textDecoration: 'none',
                   padding: '8px 16px',
                   borderRadius: 100,
-                  background: isHovered ? 'rgba(199,247,81,0.08)' : 'transparent',
+                  background: isHovered ? 'rgba(139,92,246,0.08)' : 'transparent',
                   letterSpacing: '-0.005em',
                   transition: `color 0.3s ${EASE}, background 0.3s ${EASE}`,
                   display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -104,11 +105,11 @@ export default function Navbar({ onCTA }) {
                 <span
                   style={{
                     width: 4, height: 4, borderRadius: '50%',
-                    background: '#C7F751',
+                    background: '#8B5CF6',
                     opacity: isHovered ? 1 : 0,
                     transform: isHovered ? 'scale(1)' : 'scale(0)',
                     transition: `opacity 0.3s ${EASE}, transform 0.45s ${SPRING}`,
-                    boxShadow: isHovered ? '0 0 8px rgba(199,247,81,0.6)' : 'none',
+                    boxShadow: isHovered ? '0 0 8px rgba(139,92,246,0.6)' : 'none',
                   }}
                 />
                 {l.label}
@@ -123,8 +124,8 @@ export default function Navbar({ onCTA }) {
             onClick={onCTA}
             className="lime-cta-pill nav-cta"
             style={{
-              background: 'linear-gradient(135deg, #A8D830 0%, #C7F751 100%)',
-              color: '#050816',
+              background: 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)',
+              color: '#FFFFFF',
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontWeight: 700, fontSize: 13,
               padding: '10px 20px',
@@ -133,26 +134,29 @@ export default function Navbar({ onCTA }) {
               cursor: 'pointer',
               display: 'inline-flex', alignItems: 'center', gap: 6,
               letterSpacing: '-0.005em',
+              whiteSpace: 'nowrap',
               transition: `transform 0.5s ${SPRING}, box-shadow 0.4s ${EASE}`,
-              boxShadow: '0 2px 16px rgba(199,247,81,0.25)',
+              boxShadow: '0 2px 16px rgba(139,92,246,0.25)',
             }}
           >
-            Start a project
-            <span style={{
-              display: 'inline-block',
-              transition: `transform 0.4s ${SPRING}`,
-            }}>→</span>
+            <span className="nav-cta-full">Discutons de votre projet</span>
+            <span className="nav-cta-short">Discutons</span>
           </button>
         </div>
       </div>
 
       <style>{`
+        .nav-cta-short { display: none; }
         @media (max-width: 768px) {
           .hidden-mobile { display: none !important; }
         }
+        @media (max-width: 560px) {
+          .nav-cta-full { display: none; }
+          .nav-cta-short { display: inline; }
+        }
         @media (max-width: 480px) {
           .nav-logo { height: 48px !important; }
-          .nav-cta { font-size: 12px !important; padding: 8px 14px !important; }
+          .nav-cta { font-size: 12px !important; padding: 9px 16px !important; }
         }
       `}</style>
     </header>

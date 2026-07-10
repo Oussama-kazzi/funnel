@@ -4,57 +4,57 @@ import { motion } from 'framer-motion'
 const testimonials = [
   {
     stars: 5,
-    quote: "FUTURA didn't just redesign our product — they rethought how users move through it. The activation rate jumped by 280% in the first 60 days. That's not a UI refresh. That's a growth lever.",
-    initials: 'NB',
-    name: 'Nour B.',
-    role: 'CEO, Meridian AI',
-    metric: '+280%',
-    metricLabel: 'activation rate in 60 days',
+    quote: "FuturA a transformé notre présence en ligne. Le résultat dépasse nos attentes. Professionnels, réactifs et à l’écoute du début à la fin du projet.",
+    initials: 'YM',
+    name: 'Youssef El M.',
+    role: 'CEO, NextEra',
+    metric: '+65%',
+    metricLabel: 'de leads en quelques semaines',
   },
   {
     stars: 5,
-    quote: "Three agencies gave us mood boards. FUTURA gave us a product architecture and shipped it in six weeks. The difference was night and day — we went into our Series A with a product we were proud to demo.",
-    initials: 'JS',
-    name: 'James S.',
-    role: 'Co-founder, Vault Finance',
-    metric: '6 wks',
-    metricLabel: 'from kickoff to ship',
+    quote: "La landing page qu’ils ont créée nous a permis d’augmenter nos leads de 65% en seulement quelques semaines. Un vrai levier de croissance.",
+    initials: 'SK',
+    name: 'Sarah K.',
+    role: 'Marketing Manager, Bloomy',
+    metric: '×2',
+    metricLabel: 'taux de conversion',
   },
   {
     stars: 5,
-    quote: "Our design system from FUTURA became the foundation our engineering team actually uses. Clean, documented, and built to scale. We've onboarded five engineers since and the handoff was seamless.",
-    initials: 'LL',
-    name: 'Léa L.',
-    role: 'CPO, Forma Studio',
-    metric: '4.6×',
-    metricLabel: 'daily active usage post-launch',
+    quote: "Une équipe talentueuse, créative et très professionnelle. Notre site est rapide, moderne et facile à gérer au quotidien.",
+    initials: 'MT',
+    name: 'Mehdi T.',
+    role: 'Fondateur, Axelance',
+    metric: '100%',
+    metricLabel: 'satisfaction',
   },
   {
     stars: 5,
-    quote: "We'd tried two other agencies before FUTURA. Neither could hold both design quality and technical execution at the same time. FUTURA did both, and delivered faster than either of them.",
-    initials: 'AK',
-    name: 'Amir K.',
-    role: 'CTO, Orbit Protocol',
-    metric: '89%',
-    metricLabel: 'drop-off reduction at checkout',
+    quote: "Excellent accompagnement du début à la fin. Ils comprennent vraiment les besoins du client et proposent les bonnes solutions.",
+    initials: 'AB',
+    name: 'Dr. Amine B.',
+    role: 'Directeur, Medicare',
+    metric: '+40%',
+    metricLabel: 'de nouveaux patients',
   },
   {
     stars: 5,
-    quote: "I was skeptical about the six-week timeline. We hit it. The product they handed us was production-ready, well-documented, and something our team actually understood. Zero throwaway code.",
-    initials: 'SR',
-    name: 'Sofia R.',
-    role: 'Founder, Pulse Analytics',
-    metric: '$2.4M',
-    metricLabel: 'raised on the back of the design',
+    quote: "Livraison rapide et un design premium qui reflète parfaitement notre image de marque. Nous recommandons FuturA sans hésiter.",
+    initials: 'LK',
+    name: 'Lina K.',
+    role: 'Gérante, Studio Nour',
+    metric: '3 sem.',
+    metricLabel: 'du lancement à la mise en ligne',
   },
   {
     stars: 5,
-    quote: "FUTURA pushed back on two of our assumptions in week one. They were right both times. That kind of senior thinking — not just executing briefs — is exactly what we needed at this stage.",
-    initials: 'TM',
-    name: 'Thomas M.',
-    role: 'VP Product, Layer Labs',
-    metric: '3.1×',
-    metricLabel: 'onboarding completion rate',
+    quote: "Ils ont automatisé une grande partie de notre acquisition. Nous gagnons un temps précieux chaque semaine grâce à leurs solutions IA.",
+    initials: 'RB',
+    name: 'Reda B.',
+    role: 'Directeur, Optima Conseil',
+    metric: '−30%',
+    metricLabel: 'de temps sur les tâches répétitives',
   },
 ]
 
@@ -96,10 +96,10 @@ function TestimonialCard({ t, isActive }) {
   return (
     <div style={{
       background: isActive
-        ? 'linear-gradient(160deg, rgba(255,255,255,0.07) 0%, rgba(199,247,81,0.05) 100%)'
+        ? 'linear-gradient(160deg, rgba(255,255,255,0.07) 0%, rgba(139,92,246,0.05) 100%)'
         : 'linear-gradient(160deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 100%)',
       border: isActive
-        ? '1px solid rgba(199,247,81,0.22)'
+        ? '1px solid rgba(139,92,246,0.22)'
         : '1px solid rgba(255,255,255,0.07)',
       borderRadius: 20,
       padding: '32px 28px 26px',
@@ -113,14 +113,14 @@ function TestimonialCard({ t, isActive }) {
       overflow: 'hidden',
       transition: 'background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease',
       boxShadow: isActive
-        ? '0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(199,247,81,0.08), 0 0 60px rgba(199,247,81,0.06)'
+        ? '0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(139,92,246,0.08), 0 0 60px rgba(139,92,246,0.06)'
         : '0 8px 32px rgba(0,0,0,0.3)',
     }}>
       {/* Shimmer line on top edge (active only) */}
       <div style={{
         position: 'absolute', top: 0, left: '15%', right: '15%', height: 1,
         background: isActive
-          ? 'linear-gradient(90deg, transparent, rgba(199,247,81,0.45), transparent)'
+          ? 'linear-gradient(90deg, transparent, rgba(139,92,246,0.45), transparent)'
           : 'transparent',
         transition: 'background 0.4s ease',
         pointerEvents: 'none',
@@ -130,7 +130,7 @@ function TestimonialCard({ t, isActive }) {
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, height: '45%',
         background: isActive
-          ? 'radial-gradient(ellipse 70% 60% at 50% 0%, rgba(199,247,81,0.06), transparent 80%)'
+          ? 'radial-gradient(ellipse 70% 60% at 50% 0%, rgba(139,92,246,0.06), transparent 80%)'
           : 'transparent',
         transition: 'background 0.5s ease',
         pointerEvents: 'none',
@@ -146,8 +146,8 @@ function TestimonialCard({ t, isActive }) {
         <span style={{
           fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 34, fontWeight: 800,
-          color: '#C7F751', letterSpacing: '-0.04em', lineHeight: 1,
-          textShadow: isActive ? '0 0 28px rgba(199,247,81,0.4)' : 'none',
+          color: '#8B5CF6', letterSpacing: '-0.04em', lineHeight: 1,
+          textShadow: isActive ? '0 0 28px rgba(139,92,246,0.4)' : 'none',
           transition: 'text-shadow 0.4s ease',
         }}>
           {t.metric}
@@ -180,14 +180,14 @@ function TestimonialCard({ t, isActive }) {
       }}>
         <div style={{
           width: 40, height: 40, borderRadius: '50%',
-          background: 'linear-gradient(135deg, #A8D830, #C7F751)',
+          background: 'linear-gradient(135deg, #6366F1, #8B5CF6)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 12, fontWeight: 700, color: '#050816',
           flexShrink: 0,
           boxShadow: isActive
-            ? '0 0 0 3px rgba(199,247,81,0.18), 0 0 20px rgba(199,247,81,0.2)'
-            : '0 0 0 2px rgba(199,247,81,0.08)',
+            ? '0 0 0 3px rgba(139,92,246,0.18), 0 0 20px rgba(139,92,246,0.2)'
+            : '0 0 0 2px rgba(139,92,246,0.08)',
           transition: 'box-shadow 0.4s ease',
         }}>
           {t.initials}
@@ -255,8 +255,7 @@ export default function Testimonials() {
       ref={ref}
       className="testi-section"
       style={{
-        padding: '80px 0 64px',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
+        padding: '110px 0 96px',
         overflow: 'hidden',
         position: 'relative',
       }}
@@ -274,9 +273,9 @@ export default function Testimonials() {
           fontFamily: "'Inter', sans-serif",
           fontSize: 12, fontWeight: 600,
           textTransform: 'uppercase', letterSpacing: '0.14em',
-          color: '#C7F751', marginBottom: 16,
+          color: '#8B5CF6', marginBottom: 16,
         }}>
-          Client voices
+          Ils nous font confiance
         </p>
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20 }}>
           <h2 style={{
@@ -285,14 +284,14 @@ export default function Testimonials() {
             fontWeight: 800, letterSpacing: '-0.04em',
             color: '#FFFFFF', lineHeight: 1.05, margin: 0,
           }}>
-            What founders say.
+            Ce que nos clients disent de nous.
           </h2>
           <p style={{
             fontFamily: "'Inter', sans-serif",
             fontSize: 15, color: 'rgba(255,255,255,0.38)',
             maxWidth: 340, lineHeight: 1.65,
           }}>
-            Click any card — or use the arrows — to explore what clients share about working with us.
+            Cliquez sur une carte — ou utilisez les flèches — pour découvrir leurs retours.
           </p>
         </div>
       </div>
@@ -363,8 +362,8 @@ export default function Testimonials() {
             onClick={() => setActive(i)}
             animate={{
               width: i === active ? 26 : 8,
-              background: i === active ? '#C7F751' : 'rgba(199,247,81,0.22)',
-              boxShadow: i === active ? '0 0 10px rgba(199,247,81,0.45)' : '0 0 0px transparent',
+              background: i === active ? '#8B5CF6' : 'rgba(139,92,246,0.22)',
+              boxShadow: i === active ? '0 0 10px rgba(139,92,246,0.45)' : '0 0 0px transparent',
             }}
             transition={{ duration: 0.3 }}
             style={{

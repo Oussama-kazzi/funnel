@@ -4,168 +4,71 @@ import TextType from './TextType'
 const EASE = 'cubic-bezier(0.16, 1, 0.3, 1)'
 const SPRING = 'cubic-bezier(0.34, 1.56, 0.64, 1)'
 
-/* ---------------- Tool icons (inline SVG, premium app-tile style) ---------------- */
-const ToolIcons = {
-  WordPress: (
-    <svg viewBox="0 0 24 24" width="60%" height="60%" aria-hidden="true">
-      <circle cx="12" cy="12" r="10" fill="#21759B" />
-      <path
-        d="M3.5 12c0 3.4 2 6.3 4.8 7.7L4.2 9.3c-.4.9-.7 1.8-.7 2.7zm14.2-.4c0-1.1-.4-1.8-.7-2.4-.5-.7-.9-1.3-.9-2 0-.8.6-1.5 1.4-1.5h.1A8.46 8.46 0 0 0 12 3.5c-3 0-5.7 1.6-7.2 4l.5.1c1 0 2.4-.1 2.4-.1.5 0 .5.7.1.7 0 0-.5 0-1.1.1l3.4 10 2-6.1L10.7 8c-.5 0-1-.1-1-.1-.5 0-.4-.8.1-.7 0 0 1.5.1 2.3.1 1 0 2.4-.1 2.4-.1.5 0 .6.7.1.7 0 0-.5 0-1.1.1l3.4 10 .9-3.1c.4-1.2.7-2.2.7-3zm-5.5 1.2-2.8 8.2c.8.2 1.7.4 2.6.4 1.1 0 2.1-.2 3.1-.5v-.1l-2.9-8zm7.3-4.8c0 .3.1.7.1 1 0 1-.2 2.2-.8 3.6L15.3 20a8.49 8.49 0 0 0 4.2-7.4c0-1.7-.4-3.3-1.2-4.6z"
-        fill="#fff"
-      />
-    </svg>
-  ),
-  Figma: (
-    <svg viewBox="0 0 24 24" width="58%" height="58%" aria-hidden="true">
-      <path d="M8.5 1.5h3.5v7H8.5a3.5 3.5 0 0 1 0-7z" fill="#F24E1E" />
-      <path d="M12 1.5h3.5a3.5 3.5 0 0 1 0 7H12z" fill="#FF7262" />
-      <path d="M12 8.5h3.5a3.5 3.5 0 0 1 0 7H12z" fill="#A259FF" />
-      <path d="M8.5 8.5H12v7H8.5a3.5 3.5 0 0 1 0-7z" fill="#1ABCFE" />
-      <path d="M8.5 15.5H12V19a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 15.5z" fill="#0ACF83" />
-    </svg>
-  ),
-  React: (
-    <svg viewBox="0 0 24 24" width="62%" height="62%" aria-hidden="true">
-      <circle cx="12" cy="12" r="2" fill="#61DAFB" />
-      <g fill="none" stroke="#61DAFB" strokeWidth="1.1">
-        <ellipse cx="12" cy="12" rx="10" ry="3.8" />
-        <ellipse cx="12" cy="12" rx="10" ry="3.8" transform="rotate(60 12 12)" />
-        <ellipse cx="12" cy="12" rx="10" ry="3.8" transform="rotate(120 12 12)" />
-      </g>
-    </svg>
-  ),
-  Webflow: (
-    <svg viewBox="0 0 24 24" width="62%" height="62%" aria-hidden="true">
-      <path
-        d="M22 5l-5.3 14h-4.4l-2.4-7-2.4 7H3.1L2 5h4.2l1 8 2.5-8h3.7l2.4 8 1.1-8z"
-        fill="#4353FF"
-      />
-    </svg>
-  ),
-  Framer: (
-    <svg viewBox="0 0 24 24" width="58%" height="58%" aria-hidden="true">
-      <path d="M6 2h12v6h-6z" fill="#0099FF" />
-      <path d="M6 8h12l-6 6H6z" fill="#00B8FF" />
-      <path d="M6 14h6v6z" fill="#0055FF" />
-    </svg>
-  ),
-  NextJS: (
-    <svg viewBox="0 0 24 24" width="60%" height="60%" aria-hidden="true">
-      <circle cx="12" cy="12" r="10.5" fill="#000"/>
-      <path d="M7.5 17V7l9 10V7" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  ),
-  Tailwind: (
-    <svg viewBox="0 0 24 24" width="64%" height="64%" aria-hidden="true">
-      <path d="M12 6c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.31.74 1.91 1.35.98 1 2.09 2.15 4.59 2.15 2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.31-.74-1.91-1.35C15.61 7.15 14.5 6 12 6zM7 12c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.31.74 1.91 1.35C8.39 16.85 9.5 18 12 18c2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.31-.74-1.91-1.35C10.61 13.15 9.5 12 7 12z" fill="#38BDF8"/>
-    </svg>
-  ),
-  NodeJS: (
-    <svg viewBox="0 0 24 24" width="58%" height="58%" aria-hidden="true">
-      <path d="M12 2.5L3.5 7.5v9L12 21.5l8.5-5v-9L12 2.5z" fill="#539E43"/>
-      <path d="M8.5 17V7l7 10V7" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  ),
+/* ---------------- Device mockup visual (laptop + phone, pure CSS UI) ---------------- */
+function MiniSiteUI() {
+  return (
+    <div className="dv-site">
+      {/* top nav */}
+      <div className="dv-nav">
+        <span className="dv-logo">Futur<b>A</b></span>
+        <div className="dv-nav-links">
+          <i /><i /><i /><i />
+        </div>
+        <span className="dv-nav-cta" />
+      </div>
+      {/* hero copy + visual */}
+      <div className="dv-hero">
+        <div className="dv-hero-left">
+          <span className="dv-pill" />
+          <div className="dv-h1"><span /><span /><span className="dv-h1-accent" /></div>
+          <div className="dv-p"><span /><span /></div>
+          <div className="dv-btns"><span className="dv-btn-a" /><span className="dv-btn-b" /></div>
+        </div>
+        <div className="dv-hero-right">
+          <div className="dv-card dv-card-1"><span className="dv-dot" /><i /><i /></div>
+          <div className="dv-card dv-card-2"><span className="dv-dot dv-dot-v" /><i /><i /></div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
-/* ---------------- Orbit visual ---------------- */
-function OrbitVisual() {
-  /*
-    Each icon has:
-    - orbit: degrees rotation of the orbit ring it sits on
-    - r: orbit radius (% of container)
-    - delay: animation delay so the icons feel naturally staggered
-    The wrapper rotates clockwise; the inner counter-rotates so icons stay upright.
-  */
-  const icons = [
-    { key: 'Figma',     r: 30, angle:  20, dur: 38, size: 56, color: '#FF7262' },
-    { key: 'NextJS',    r: 42, angle:  65, dur: 44, size: 58, color: '#ffffff' },
-    { key: 'React',     r: 30, angle: 110, dur: 46, size: 56, color: '#61DAFB' },
-    { key: 'Tailwind',  r: 42, angle: 158, dur: 40, size: 56, color: '#38BDF8' },
-    { key: 'WordPress', r: 30, angle: 200, dur: 38, size: 56, color: '#21759B' },
-    { key: 'NodeJS',    r: 42, angle: 248, dur: 44, size: 58, color: '#539E43' },
-    { key: 'Webflow',   r: 30, angle: 290, dur: 38, size: 56, color: '#4353FF' },
-    { key: 'Framer',    r: 42, angle: 338, dur: 42, size: 56, color: '#0099FF' },
-  ]
-
+function DeviceMockup({ tilt }) {
+  const rx = (tilt?.y ?? 0) * -6
+  const ry = (tilt?.x ?? 0) * 8
   return (
-    <div className="orbit-wrap" aria-hidden="true">
-      {/* Outer atmospheric glow */}
-      <div className="orbit-atmos" />
+    <div className="dv-stage" aria-hidden="true">
+      {/* glow behind devices */}
+      <div className="dv-glow" />
 
-      {/* Concentric rings (static, glowing) */}
-      <svg className="orbit-rings" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <radialGradient id="ringFade" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"   stopColor="rgba(199,247,81,0.0)" />
-            <stop offset="60%"  stopColor="rgba(199,247,81,0.18)" />
-            <stop offset="100%" stopColor="rgba(199,247,81,0.0)" />
-          </radialGradient>
-          <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"   stopColor="rgba(199,247,81,0.55)" />
-            <stop offset="35%"  stopColor="rgba(167,139,250,0.18)" />
-            <stop offset="70%"  stopColor="rgba(99,102,241,0.06)" />
-            <stop offset="100%" stopColor="transparent" />
-          </radialGradient>
-        </defs>
+      <div
+        className="dv-float"
+        style={{ transform: 'perspective(1400px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)' }}
+      >
+        {/* Laptop */}
+        <div className="dv-laptop">
+          <div className="dv-laptop-screen">
+            <div className="dv-cam" />
+            <div className="dv-screen-inner"><MiniSiteUI /></div>
+          </div>
+          <div className="dv-laptop-base"><span className="dv-notch" /></div>
+        </div>
 
-        {/* Soft purple/blue atmosphere */}
-        <circle cx="50" cy="50" r="48" fill="url(#centerGlow)" />
-
-        {/* Concentric circles */}
-        <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(255,255,255,0.07)"  strokeWidth="0.15" />
-        <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.10)"  strokeWidth="0.18" />
-        <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,0.12)"  strokeWidth="0.20" />
-        <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(199,247,81,0.18)"   strokeWidth="0.22" />
-        <circle cx="50" cy="50" r="22" fill="none" stroke="rgba(199,247,81,0.12)"   strokeWidth="0.20" />
-      </svg>
-
-      {/* Center label */}
-      <div className="orbit-center">
-        <div className="orbit-center-num">8+</div>
-        <div className="orbit-center-label">Stacks We Master</div>
-      </div>
-
-      {/* Orbiting icons — each on its own rotating ring.
-          orbit-ring inset = 50% - r%, so the icon (placed at top:0/left:50%)
-          sits exactly r% from the container center. */}
-      {icons.map((it) => {
-        const inset = 50 - it.r
-        return (
-          <div
-            key={it.key}
-            className="orbit-ring"
-            style={{
-              inset: `${inset}%`,
-              animationDuration: `${it.dur}s`,
-              animationDelay: `${-it.dur * (it.angle / 360)}s`,
-            }}
-          >
-            <div
-              className="orbit-icon-anchor"
-              style={{ width: it.size, height: it.size }}
-            >
-              <div
-                className="orbit-icon"
-                style={{
-                  animationDuration: `${it.dur}s`,
-                  animationDelay: `${-it.dur * (it.angle / 360)}s`,
-                  '--icon-glow': it.color,
-                }}
-              >
-                <div className="orbit-icon-tile">
-                  {ToolIcons[it.key]}
-                </div>
-              </div>
+        {/* Phone (overlaps bottom-right) */}
+        <div className="dv-phone">
+          <div className="dv-phone-notch" />
+          <div className="dv-phone-inner">
+            <div className="dv-phone-top">
+              <span className="dv-logo dv-logo-sm">Futur<b>A</b></span>
+              <span className="dv-burger"><i /><i /><i /></span>
+            </div>
+            <div className="dv-phone-head"><span /><span /><span className="dv-h1-accent" /></div>
+            <div className="dv-phone-cardwrap">
+              <div className="dv-phone-card"><span className="dv-dot dv-dot-v" /><i /><i /></div>
+              <div className="dv-phone-card"><span className="dv-dot" /><i /><i /></div>
             </div>
           </div>
-        )
-      })}
-
-      {/* Tag bubble (decorative, like screenshot's "David") */}
-      <div className="orbit-tag">
-        <span className="orbit-tag-dot" />
-        Stack
+        </div>
       </div>
     </div>
   )
@@ -173,35 +76,45 @@ function OrbitVisual() {
 
 export default function Hero({ onCTA }) {
   const [visible, setVisible] = useState(false)
+  const [tilt, setTilt] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 80)
     return () => clearTimeout(t)
   }, [])
 
+  // Mouse parallax — normalised -0.5..0.5 relative to the section
+  const handleMove = (e) => {
+    const r = e.currentTarget.getBoundingClientRect()
+    setTilt({
+      x: (e.clientX - r.left) / r.width - 0.5,
+      y: (e.clientY - r.top) / r.height - 0.5,
+    })
+  }
+  const resetTilt = () => setTilt({ x: 0, y: 0 })
+
   return (
     <section
       id="hero"
+      onMouseMove={handleMove}
+      onMouseLeave={resetTilt}
       style={{
         display: 'flex',
         alignItems: 'center',
-        paddingTop: 48,
+        minHeight: '100svh',
+        paddingTop: 72,
         background: 'transparent',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Green radial glow */}
+      {/* Subtle tech grid — fades out toward center + edges so it reads as texture, not a box */}
       <div style={{
         position: 'absolute', inset: 0, zIndex: 0,
-        background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(199,247,81,0.08), transparent 70%)',
-        pointerEvents: 'none',
-      }} />
-      {/* Grid */}
-      <div style={{
-        position: 'absolute', inset: 0, zIndex: 0,
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
-        backgroundSize: '72px 72px',
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
+        backgroundSize: '80px 80px',
+        maskImage: 'radial-gradient(ellipse 100% 80% at 50% 0%, #000 20%, transparent 75%)',
+        WebkitMaskImage: 'radial-gradient(ellipse 100% 80% at 50% 0%, #000 20%, transparent 75%)',
         pointerEvents: 'none',
       }} />
 
@@ -209,31 +122,44 @@ export default function Hero({ onCTA }) {
       <div className="hero-grid">
         {/* LEFT — text content */}
         <div className="hero-text">
+          {/* Badge */}
+          <div
+            className="hero-badge"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateY(0)' : 'translateY(20px)',
+              transition: `opacity 0.7s ${EASE} 0.02s, transform 0.7s ${EASE} 0.02s`,
+            }}
+          >
+            <span className="hero-badge-dot" />
+            AGENCE DIGITALE À CASABLANCA
+          </div>
+
           {/* Headline */}
           <h1
             style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontSize: 'clamp(40px, 5.4vw, 76px)',
+              fontSize: 'clamp(32px, 3.6vw, 52px)',
               fontWeight: 800,
-              lineHeight: 1.05,
-              letterSpacing: '-0.04em',
+              lineHeight: 1.1,
+              letterSpacing: '-0.035em',
               color: '#FFFFFF',
-              marginBottom: 24,
+              marginBottom: 20,
               opacity: visible ? 1 : 0,
               transform: visible ? 'translateY(0)' : 'translateY(28px)',
-              transition: `opacity 1.1s ${EASE} 0.18s, transform 1.1s ${EASE} 0.18s`,
+              transition: `opacity 0.8s ${EASE} 0.1s, transform 0.8s ${EASE} 0.1s`,
               willChange: 'transform, opacity',
             }}
           >
-            <span style={{ display: 'block' }}>We design and build</span>
-
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 14, lineHeight: 1.1 }}>
-              <span style={{
-                color: '#C7F751',
-                textShadow: '0 0 60px rgba(199,247,81,0.5)',
+            <span className="hero-h1-line" style={{ display: 'block' }}>Des expériences digitales</span>
+            <span style={{ display: 'block' }}>
+              qui génèrent des{' '}
+              <br /><span style={{
+                color: '#8B5CF6',
+                textShadow: '0 0 60px rgba(139,92,246,0.5)',
               }}>
                 <TextType
-                  text={['digital products', 'SaaS platforms', 'AI experiences', 'design systems']}
+                  text={['résultats.', 'leads.', 'ventes.', 'clients.']}
                   as="span"
                   typingSpeed={65}
                   deletingSpeed={35}
@@ -245,29 +171,51 @@ export default function Hero({ onCTA }) {
                 />
               </span>
             </span>
-
-            <span style={{ display: 'block' }}>that scale.</span>
           </h1>
 
           {/* Subheading */}
           <p
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: 17, fontWeight: 400,
-              color: 'rgba(255,255,255,0.5)', lineHeight: 1.65,
-              maxWidth: 520, marginBottom: 40,
+              fontSize: 16.5, fontWeight: 400,
+              color: 'rgba(255,255,255,0.55)', lineHeight: 1.65,
+              maxWidth: 470, marginBottom: 30,
               opacity: visible ? 1 : 0,
               transform: visible ? 'translateY(0)' : 'translateY(28px)',
-              transition: `opacity 1.1s ${EASE} 0.32s, transform 1.1s ${EASE} 0.32s`,
+              transition: `opacity 0.8s ${EASE} 0.2s, transform 0.8s ${EASE} 0.2s`,
               willChange: 'transform, opacity',
             }}
           >
-            FUTURA is a{' '}
+            Chez{' '}
             <strong style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 500 }}>
-              product design & development studio
-            </strong>{' '}
-            for startups, SaaS companies, and AI teams. From first concept to production-ready system — strategy, design, and code, in-house.
+              FuturA
+            </strong>, nous concevons des sites web, landing pages et solutions digitales
+            qui attirent, engagent et convertissent vos visiteurs en clients.
           </p>
+
+          {/* Feature checklist row */}
+          <div
+            style={{
+              display: 'flex', flexWrap: 'wrap', gap: '12px 22px',
+              marginBottom: 36,
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateY(0)' : 'translateY(28px)',
+              transition: `opacity 0.8s ${EASE} 0.28s, transform 0.8s ${EASE} 0.28s`,
+            }}
+          >
+            {['Design premium', 'Développement sur mesure', 'Livraison rapide', 'Accompagnement'].map((f) => (
+              <span key={f} style={{
+                display: 'inline-flex', alignItems: 'center', gap: 8,
+                fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 500,
+                color: 'rgba(255,255,255,0.7)',
+              }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                {f}
+              </span>
+            ))}
+          </div>
 
           {/* CTA row */}
           <div
@@ -275,7 +223,7 @@ export default function Hero({ onCTA }) {
               display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap',
               opacity: visible ? 1 : 0,
               transform: visible ? 'translateY(0)' : 'translateY(28px)',
-              transition: `opacity 1.1s ${EASE} 0.46s, transform 1.1s ${EASE} 0.46s`,
+              transition: `opacity 0.8s ${EASE} 0.36s, transform 0.8s ${EASE} 0.36s`,
               willChange: 'transform, opacity',
             }}
           >
@@ -285,37 +233,19 @@ export default function Hero({ onCTA }) {
             >
               <button
                 onClick={onCTA}
-                aria-label="Start a project"
-                className="lime-cta-circle"
-                style={{
-                  width: 56, height: 56, borderRadius: '50%',
-                  background: '#C7F751', border: 'none', cursor: 'pointer',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  transition: `transform 0.5s ${SPRING}, box-shadow 0.35s ${EASE}`,
-                  boxShadow: '0 4px 22px rgba(199,247,81,0.5)',
-                  flexShrink: 0,
-                }}
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A2622" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="17" y1="7" x2="7" y2="17" />
-                  <polyline points="17 17 7 17 7 7" />
-                </svg>
-              </button>
-              <button
-                onClick={onCTA}
                 className="lime-cta-pill"
                 style={{
-                  background: '#C7F751', color: '#0A2622',
+                  background: '#8B5CF6', color: '#FFFFFF',
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontWeight: 700, fontSize: 16,
                   padding: '16px 36px',
                   border: 'none', borderRadius: 100, cursor: 'pointer',
                   letterSpacing: '-0.005em',
                   transition: `transform 0.5s ${SPRING}, box-shadow 0.35s ${EASE}`,
-                  boxShadow: '0 4px 28px rgba(199,247,81,0.5)',
+                  boxShadow: '0 4px 28px rgba(139,92,246,0.5)',
                 }}
               >
-                Start a project
+                Planifier un appel gratuit
               </button>
             </div>
 
@@ -331,30 +261,184 @@ export default function Hero({ onCTA }) {
               onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.9)'}
               onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
             >
-              See our work ↓
+              Voir nos réalisations
             </a>
           </div>
         </div>
 
-        {/* RIGHT — orbit visual */}
+        {/* RIGHT — device mockup visual */}
         <div
           className="hero-orbit"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? 'scale(1)' : 'scale(0.92)',
-            transition: `opacity 1.4s ${EASE} 0.4s, transform 1.4s ${EASE} 0.4s`,
+            transition: `opacity 1s ${EASE} 0.3s, transform 1s ${EASE} 0.3s`,
           }}
         >
-          <OrbitVisual />
+          <DeviceMockup tilt={tilt} />
         </div>
       </div>
 
       <style>{`
         .hero-cursor {
-          color: #C7F751;
+          color: #8B5CF6;
           opacity: 1;
           font-weight: 300;
         }
+
+        /* ---------- Badge ---------- */
+        .hero-badge {
+          display: inline-flex; align-items: center; gap: 9px;
+          padding: 7px 15px; margin-bottom: 22px;
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.09);
+          border-radius: 100px;
+          font-family: 'Inter', sans-serif;
+          font-size: 11px; font-weight: 600;
+          letter-spacing: 0.14em; text-transform: uppercase;
+          color: rgba(255,255,255,0.62);
+          backdrop-filter: blur(8px);
+        }
+        .hero-badge-dot {
+          width: 6px; height: 6px; border-radius: 50%;
+          background: #8B5CF6; box-shadow: 0 0 10px rgba(139,92,246,0.9);
+          animation: hero-pulse 2.2s ease-in-out infinite;
+        }
+        @keyframes hero-pulse {
+          0%,100% { opacity: 1; transform: scale(1); }
+          50%     { opacity: 0.4; transform: scale(0.7); }
+        }
+
+
+        /* ---------- Device mockup ---------- */
+        .dv-stage {
+          position: absolute; inset: 0;
+          display: flex; align-items: center; justify-content: center;
+        }
+        .dv-glow {
+          position: absolute; inset: -8%;
+          background:
+            radial-gradient(ellipse 55% 50% at 58% 38%, rgba(139,92,246,0.30), transparent 62%),
+            radial-gradient(ellipse 70% 30% at 50% 82%, rgba(99,102,241,0.20), transparent 70%);
+          filter: blur(38px); pointer-events: none;
+        }
+        .dv-float {
+          position: relative; width: 92%;
+          margin: 0 auto;
+          animation: dv-bob 6s ease-in-out infinite;
+          transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+          transform-style: preserve-3d;
+        }
+        @keyframes dv-bob {
+          0%,100% { translate: 0 0; }
+          50%     { translate: 0 -14px; }
+        }
+
+        /* Laptop */
+        .dv-laptop { position: relative; width: 100%; }
+        .dv-laptop-screen {
+          position: relative;
+          background: linear-gradient(150deg, #16131f, #0c0a14);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 14px 14px 4px 4px;
+          padding: 12px 12px 14px;
+          box-shadow: 0 40px 80px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.06);
+        }
+        .dv-cam {
+          position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+          width: 5px; height: 5px; border-radius: 50%;
+          background: rgba(255,255,255,0.18);
+        }
+        .dv-screen-inner {
+          border-radius: 6px; overflow: hidden;
+          aspect-ratio: 16 / 10; background: #0a0812;
+        }
+        .dv-laptop-base {
+          position: relative; height: 14px; margin: 0 -4%;
+          background: linear-gradient(180deg, #23202c, #100e16);
+          border-radius: 0 0 12px 12px;
+          box-shadow: 0 18px 30px rgba(0,0,0,0.5);
+        }
+        .dv-notch {
+          position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+          width: 22%; height: 5px;
+          background: rgba(0,0,0,0.4); border-radius: 0 0 6px 6px;
+        }
+
+        /* Phone */
+        .dv-phone {
+          position: absolute; right: -4%; bottom: -14%;
+          width: 26%; aspect-ratio: 9 / 19;
+          background: linear-gradient(150deg, #1a1622, #0c0a14);
+          border: 1px solid rgba(255,255,255,0.12);
+          border-radius: 22px; padding: 8px;
+          box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+          animation: dv-bob 6s ease-in-out infinite 0.4s;
+        }
+        .dv-phone-notch {
+          position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+          width: 34%; height: 6px; background: #000; border-radius: 100px; z-index: 2;
+        }
+        .dv-phone-inner {
+          height: 100%; border-radius: 15px; overflow: hidden;
+          background: linear-gradient(180deg, #0d0a16, #0a0812);
+          padding: 14px 9px 9px; display: flex; flex-direction: column; gap: 8px;
+        }
+        .dv-phone-top { display: flex; align-items: center; justify-content: space-between; }
+        .dv-burger { display: flex; flex-direction: column; gap: 2px; }
+        .dv-burger i { width: 10px; height: 1.5px; background: rgba(255,255,255,0.4); border-radius: 2px; }
+        .dv-phone-head { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+        .dv-phone-head span { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.16); }
+        .dv-phone-head span:nth-child(1) { width: 80%; }
+        .dv-phone-head span:nth-child(2) { width: 60%; }
+        .dv-phone-cardwrap { display: flex; flex-direction: column; gap: 6px; margin-top: auto; }
+        .dv-phone-card {
+          background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07);
+          border-radius: 8px; padding: 8px; display: flex; flex-direction: column; gap: 5px;
+        }
+        .dv-phone-card i { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.12); }
+        .dv-phone-card i:nth-child(2) { width: 70%; }
+        .dv-phone-card i:nth-child(3) { width: 45%; }
+
+        /* Mini-site UI (inside laptop) */
+        .dv-site {
+          height: 100%; background: linear-gradient(170deg, #0e0b18 0%, #0a0812 100%);
+          display: flex; flex-direction: column; padding: 10px 14px;
+          font-family: 'Inter', sans-serif;
+        }
+        .dv-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .dv-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 800; color: #fff; }
+        .dv-logo b { color: #8B5CF6; }
+        .dv-logo-sm { font-size: 10px; }
+        .dv-nav-links { display: flex; gap: 8px; }
+        .dv-nav-links i { width: 16px; height: 3px; border-radius: 2px; background: rgba(255,255,255,0.18); }
+        .dv-nav-cta { width: 34px; height: 12px; border-radius: 100px; background: #8B5CF6; box-shadow: 0 0 12px rgba(139,92,246,0.6); }
+        .dv-hero { display: flex; gap: 14px; flex: 1; align-items: center; }
+        .dv-hero-left { flex: 1.1; display: flex; flex-direction: column; gap: 7px; }
+        .dv-pill { width: 44px; height: 8px; border-radius: 100px; background: rgba(255,255,255,0.08); }
+        .dv-h1 { display: flex; flex-direction: column; gap: 5px; }
+        .dv-h1 span { height: 9px; border-radius: 3px; background: rgba(255,255,255,0.85); }
+        .dv-h1 span:nth-child(1) { width: 90%; }
+        .dv-h1 span:nth-child(2) { width: 78%; }
+        .dv-h1-accent { background: #8B5CF6 !important; width: 55% !important; box-shadow: 0 0 14px rgba(139,92,246,0.55); }
+        .dv-p { display: flex; flex-direction: column; gap: 4px; margin-top: 3px; }
+        .dv-p span { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.22); }
+        .dv-p span:nth-child(1) { width: 85%; }
+        .dv-p span:nth-child(2) { width: 65%; }
+        .dv-btns { display: flex; gap: 6px; margin-top: 6px; }
+        .dv-btn-a { width: 46px; height: 14px; border-radius: 100px; background: #8B5CF6; box-shadow: 0 0 10px rgba(139,92,246,0.5); }
+        .dv-btn-b { width: 36px; height: 14px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.2); }
+        .dv-hero-right { flex: 0.9; display: flex; flex-direction: column; gap: 8px; }
+        .dv-card {
+          background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 8px; padding: 8px; display: flex; flex-direction: column; gap: 5px;
+          position: relative;
+        }
+        .dv-card i { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.14); }
+        .dv-card i:nth-child(2) { width: 80%; }
+        .dv-card i:nth-child(3) { width: 55%; }
+        .dv-dot { width: 12px; height: 12px; border-radius: 4px; background: rgba(255,255,255,0.2); }
+        .dv-dot-v { background: rgba(139,92,246,0.35); box-shadow: 0 0 10px rgba(139,92,246,0.4); }
         /* Hover: flip lime → white pill + white circle with dark arrow */
         .lime-cta:hover .lime-cta-circle,
         .lime-cta .lime-cta-circle:hover {
@@ -386,193 +470,79 @@ export default function Hero({ onCTA }) {
         /* ----------- Two-column hero ----------- */
         .hero-grid {
           width: 100%;
-          max-width: 1280px;
+          max-width: 1240px;
           margin: 0 auto;
-          padding: 60px 48px 80px;
+          /* extra top offset clears the fixed navbar so content sits optically centered */
+          padding: 96px 48px 72px;
           position: relative;
           z-index: 1;
           display: grid;
-          grid-template-columns: 1.05fr 1fr;
+          grid-template-columns: 1.1fr 1fr;
           align-items: center;
-          gap: 48px;
+          gap: 56px;
         }
         .hero-text {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           text-align: left;
+          min-width: 0;
         }
+        .hero-text h1 { overflow-wrap: break-word; max-width: 100%; }
+        .hero-text p { overflow-wrap: break-word; }
 
-        /* ----------- Orbit ----------- */
+        /* ----------- Device visual ----------- */
         .hero-orbit {
           position: relative;
           width: 100%;
-          aspect-ratio: 1 / 1;
-          max-width: 560px;
+          height: 480px;
+          max-width: 660px;
+          min-width: 0;
           justify-self: center;
         }
-        .orbit-wrap {
-          position: absolute;
-          inset: 0;
-        }
-        .orbit-atmos {
-          position: absolute;
-          inset: -8%;
-          background:
-            radial-gradient(circle at 50% 50%, rgba(167,139,250,0.22) 0%, rgba(99,102,241,0.10) 28%, transparent 60%),
-            radial-gradient(circle at 35% 30%, rgba(199,247,81,0.10) 0%, transparent 45%);
-          filter: blur(20px);
-          pointer-events: none;
-        }
-        .orbit-rings {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          filter: drop-shadow(0 0 12px rgba(199,247,81,0.10));
-        }
 
-        /* Center label */
-        .orbit-center {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          text-align: center;
-          pointer-events: none;
-        }
-        .orbit-center-num {
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: clamp(36px, 4.4vw, 56px);
-          font-weight: 800;
-          letter-spacing: -0.04em;
-          color: #FFFFFF;
-          text-shadow: 0 0 30px rgba(199,247,81,0.35);
-          line-height: 1;
-        }
-        .orbit-center-label {
-          font-family: 'Inter', sans-serif;
-          font-size: 12px;
-          font-weight: 500;
-          color: rgba(255,255,255,0.55);
-          margin-top: 8px;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-        }
-
-        /* Each orbit ring is a rotating square whose top-center is the icon's anchor */
-        .orbit-ring {
-          position: absolute;
-          /* inset is set inline per-icon to control orbit radius */
-          animation: orbit-spin linear infinite;
-          will-change: transform;
-        }
-        .orbit-icon-anchor {
-          position: absolute;
-          top: 0;
-          left: 50%;
-          /* shift so the tile sits centered on the orbit circle */
-          transform: translate(-50%, -50%);
-        }
-        .orbit-icon {
-          width: 100%;
-          height: 100%;
-          animation: orbit-counter linear infinite;
-          will-change: transform;
-          filter: drop-shadow(0 0 6px var(--icon-glow, rgba(199,247,81,0.18)));
-        }
-        .orbit-icon-tile {
-          width: 100%;
-          height: 100%;
-          border-radius: 16px;
-          background: linear-gradient(135deg, #0E1020 0%, #0A0B16 100%);
-          border: 1px solid rgba(255,255,255,0.08);
-          box-shadow:
-            inset 0 1px 0 rgba(255,255,255,0.05),
-            0 4px 12px rgba(0,0,0,0.4);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-        }
-        .orbit-icon-tile::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: 16px;
-          background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.10), transparent 60%);
-          pointer-events: none;
-        }
-
-        /* Decorative tag */
-        .orbit-tag {
-          position: absolute;
-          bottom: 10%;
-          left: 12%;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          padding: 7px 14px;
-          background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);
-          color: #fff;
-          font-family: 'Inter', sans-serif;
-          font-size: 12px;
-          font-weight: 600;
-          border-radius: 100px;
-          box-shadow: 0 4px 14px rgba(139,92,246,0.25), 0 0 0 1px rgba(255,255,255,0.08);
-        }
-        .orbit-tag-dot {
-          width: 6px;
-          height: 6px;
-          background: #fff;
-          border-radius: 50%;
-          opacity: 0.9;
-        }
-
-        @keyframes orbit-spin {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(360deg); }
-        }
-        @keyframes orbit-counter {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(-360deg); }
-        }
+        /* Keep line 1 on one line only on wide screens */
+        .hero-h1-line { white-space: nowrap; }
 
         /* ----------- Responsive ----------- */
+        @media (max-width: 1080px) {
+          .hero-grid { grid-template-columns: 1fr 0.92fr; gap: 36px; }
+          #hero h1 { font-size: clamp(30px, 3.4vw, 46px) !important; }
+        }
         @media (max-width: 960px) {
           .hero-grid {
             grid-template-columns: 1fr;
-            gap: 32px;
+            gap: 44px;
             padding: 48px 24px 56px;
           }
           .hero-text {
             align-items: center;
             text-align: center;
           }
+          .hero-h1-line { white-space: normal; }
+          #hero h1 { font-size: clamp(32px, 6vw, 48px) !important; }
           .hero-text p { margin-left: auto; margin-right: auto; }
-          .hero-text > div:last-child { justify-content: center; }
-          .hero-orbit { max-width: 400px; }
+          .hero-orbit { max-width: 520px; order: 2; }
         }
         @media (max-width: 768px) {
           #hero { min-height: 0 !important; }
-          #hero h1 { font-size: clamp(34px, 9vw, 52px) !important; }
-          .hero-grid { padding: 40px 20px 40px !important; }
-          .hero-orbit { max-width: 340px !important; }
+          #hero h1 { font-size: clamp(30px, 8vw, 44px) !important; }
+          .hero-grid { padding: 40px 20px 44px !important; }
+          .hero-orbit { max-width: 420px !important; height: 380px; }
           .hero-see-work { display: none !important; }
         }
         @media (max-width: 480px) {
-          .hero-grid { padding: 32px 16px 36px !important; }
-          .hero-orbit { max-width: 300px !important; }
-          .orbit-tag { font-size: 11px; padding: 6px 12px; }
+          #hero h1 { font-size: 30px !important; }
+          .hero-grid { padding: 32px 16px 40px !important; }
+          .hero-badge { max-width: 100%; white-space: normal; text-align: center; font-size: 10px !important; letter-spacing: 0.1em !important; }
+          .hero-orbit { max-width: 300px !important; height: 300px; }
           .lime-cta-circle { display: none !important; }
-          .lime-cta { justify-content: center; }
+          .lime-cta { justify-content: center; width: 100%; }
           .lime-cta-pill {
             font-size: 15px !important;
-            padding: 14px 32px !important;
+            padding: 15px 30px !important;
           }
-          .hero-text > div:last-child { justify-content: center !important; }
-          .orbit-center-num { font-size: 30px !important; }
-          .orbit-center-label { font-size: 10px !important; }
+          .hero-text > div:nth-of-type(3) { justify-content: center !important; width: 100%; }
         }
       `}</style>
     </section>
