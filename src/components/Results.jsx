@@ -51,7 +51,7 @@ function StatCard({ num, label, desc }) {
         fontFamily: "'Mona Sans Variable', sans-serif",
         fontSize: 'clamp(36px, 4vw, 56px)',
         fontWeight: 800,
-        color: '#FED24B',
+        color: '#1A1526',
         letterSpacing: '-0.04em',
         lineHeight: 1,
         marginBottom: 14,
@@ -99,7 +99,7 @@ export default function Results() {
           variants={headerVariants}
           style={{ textAlign: 'center', marginBottom: 64 }}
         >
-          <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#FED24B', marginBottom: 16 }}>
+          <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#1A1526', marginBottom: 16 }}>
             Studio impact
           </p>
           <h2 style={{

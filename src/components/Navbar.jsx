@@ -125,8 +125,8 @@ export default function Navbar({ onCTA }) {
             onClick={onCTA}
             className="lime-cta-pill nav-cta"
             style={{
-              background: '#FED24B',
-              color: '#FFFFFF',
+              background: '#1A1526',
+              color: '#FED24B',
               fontFamily: "'Mona Sans Variable', sans-serif",
               fontWeight: 700, fontSize: 13,
               padding: '10px 20px',

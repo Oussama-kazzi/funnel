@@ -60,7 +60,7 @@ function TarifRow({ t, i, onCTA, inView }) {
 
       {/* Price + note */}
       <div className="tarif-price">
-        <span style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 16, fontWeight: 800, color: '#FED24B', letterSpacing: '-0.01em' }}>
+        <span style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 16, fontWeight: 800, color: '#1A1526', letterSpacing: '-0.01em' }}>
           {t.price}
         </span>
         <span style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12.5, color: 'rgba(20,16,25,0.42)' }}>
@@ -92,7 +92,7 @@ export default function Pricing({ onCTA }) {
           transform: inView ? 'translateY(0)' : 'translateY(24px)',
           transition: `opacity 0.8s ${EASE}, transform 0.8s ${EASE}`,
         }}>
-          <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#FED24B', marginBottom: 18 }}>
+          <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#1A1526', marginBottom: 18 }}>
             Nos tarifs
           </p>
           <h2 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 'clamp(30px, 4.5vw, 50px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#141019', lineHeight: 1.08, margin: '0 auto', maxWidth: 640 }}>
@@ -119,14 +119,18 @@ export default function Pricing({ onCTA }) {
 
       <style>{`
         #pricing.section-light {
-          background: linear-gradient(180deg, #F4F3F8 0%, #ECEAF4 100%);
+          background: linear-gradient(180deg,
+            rgba(240,235,222,0) 0%,
+            rgba(240,235,222,0.55) 18%,
+            rgba(240,235,222,0.55) 82%,
+            rgba(240,235,222,0) 100%);
         }
         .tarif-list {
           display: flex; flex-direction: column;
           border-radius: 20px; overflow: hidden;
           border: 1px solid rgba(15,12,30,0.08);
           background: #FFFFFF;
-          box-shadow: 0 12px 40px rgba(88,52,180,0.08);
+          box-shadow: 0 10px 32px rgba(20,16,25,0.05);
         }
         .tarif-row {
           display: grid;
@@ -149,7 +153,7 @@ export default function Pricing({ onCTA }) {
           white-space: nowrap;
           transition: background 0.25s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
         }
-        .tarif-btn:hover { background: #FED24B; transform: translateY(-2px); }
+        .tarif-btn:hover { background: #FED24B; color: #1A1526; transform: translateY(-2px); }
 
         .tarif-notes {
           display: flex; flex-wrap: wrap; gap: 12px 32px;

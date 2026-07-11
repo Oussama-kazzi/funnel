@@ -114,7 +114,7 @@ export default function FAQ() {
             fontFamily: "'Mona Sans Variable', sans-serif",
             fontSize: 10, fontWeight: 700,
             textTransform: 'uppercase', letterSpacing: '0.2em',
-            color: '#FED24B', marginBottom: 20,
+            color: '#1A1526', marginBottom: 20,
             display: 'flex', alignItems: 'center', gap: 10,
           }}>
             <span style={{ width: 28, height: 1, background: '#FED24B', display: 'inline-block' }} />
@@ -128,7 +128,7 @@ export default function FAQ() {
             color: '#1A1526', lineHeight: 1.05, margin: '0 0 20px',
           }}>
             Questions{' '}
-            <em style={{ fontStyle: 'italic', color: '#FED24B', fontWeight: 700, textShadow: '0 0 40px rgba(254,210,75,0.3)' }}>
+            <em style={{ fontStyle: 'italic', color: '#1A1526', fontWeight: 700 }}>
               fréquentes.
             </em>
           </h2>

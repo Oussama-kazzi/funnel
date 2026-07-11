@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useRef, useCallback } from 'react'
 import Lenis from 'lenis'
 import AmbientBackground from './components/AmbientBackground'
 import Navbar from './components/Navbar'
@@ -12,12 +12,10 @@ import Testimonials from './components/Testimonials'
 import Industries from './components/Industries'
 import Pricing from './components/Pricing'
 import FAQ from './components/FAQ'
-import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
-import Modal from './components/Modal'
 
 export default function App() {
-  const [modalOpen, setModalOpen] = useState(false)
+  const lenisRef = useRef(null)
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -26,6 +24,7 @@ export default function App() {
       smoothWheel: true,
       touchMultiplier: 2,
     })
+    lenisRef.current = lenis
 
     let rafId
     function raf(time) {
@@ -37,26 +36,34 @@ export default function App() {
     return () => {
       cancelAnimationFrame(rafId)
       lenis.destroy()
+      lenisRef.current = null
     }
+  }, [])
+
+  /* All CTAs scroll to the booking form in the footer. */
+  const scrollToForm = useCallback(() => {
+    const el = document.getElementById('booking')
+    if (!el) return
+    if (lenisRef.current) lenisRef.current.scrollTo(el, { offset: -80 })
+    else el.scrollIntoView({ behavior: 'smooth' })
   }, [])
 
   return (
     <>
       <AmbientBackground />
 
-      <Navbar onCTA={() => setModalOpen(true)} />
+      <Navbar onCTA={scrollToForm} />
       <main style={{ background: 'transparent' }}>
-        <Hero onCTA={() => setModalOpen(true)} />
+        <Hero onCTA={scrollToForm} />
         <ClientLogos />
         <Services />
         <Technologies />
-        <Process onCTA={() => setModalOpen(true)} />
+        <Process onCTA={scrollToForm} />
         <CaseStudies />
         <Testimonials />
         <Industries />
-        <Pricing onCTA={() => setModalOpen(true)} />
+        <Pricing onCTA={scrollToForm} />
         <FAQ />
-        <FinalCTA onCTA={() => setModalOpen(true)} />
 
         {/* Closing statement */}
         <section style={{ padding: '80px 32px 100px', textAlign: 'center', position: 'relative' }}>
@@ -68,13 +75,12 @@ export default function App() {
             maxWidth: 820, margin: '0 auto',
           }}>
             Vous avez l’idée, nous avons{' '}
-            <span style={{ color: '#FED24B', textShadow: '0 0 40px rgba(254,210,75,0.4)' }}>l’expertise.</span>
+            <span style={{ color: '#FED24B', textShadow: '0 0 32px rgba(254,210,75,0.25)' }}>l’expertise.</span>
             <br />Travaillons ensemble.
           </h2>
         </section>
       </main>
       <Footer />
-      <Modal open={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   )
 }

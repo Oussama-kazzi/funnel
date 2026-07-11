@@ -3,10 +3,9 @@ import { useScroll, useTransform, motion, useReducedMotion } from 'framer-motion
 /**
  * Fixed, full-viewport ambient field that sits behind all content.
  * Creates depth + continuity between sections:
- *  - two large violet auroras that slowly drift as you scroll (parallax)
- *  - a faint indigo counter-light
+ *  - two large gold auroras that slowly drift as you scroll (parallax)
  *  - a very subtle grain/noise texture
- *  - a soft vignette so edges settle into black
+ *  - a soft vignette so edges settle gently
  * Everything is GPU-cheap (transform/opacity only) and respects reduced-motion.
  */
 export default function AmbientBackground() {
@@ -26,7 +25,7 @@ export default function AmbientBackground() {
   return (
     <div
       aria-hidden="true"
-      style={{ position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none', overflow: 'hidden', background: '#FBFAFE' }}
+      style={{ position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none', overflow: 'hidden', background: '#FAF9F6' }}
     >
       {/* Aurora A — top right, pale violet */}
       <motion.div
@@ -40,13 +39,13 @@ export default function AmbientBackground() {
         }}
       />
 
-      {/* Aurora B — lower left, cool indigo wash */}
+      {/* Aurora B — lower left, warm gold wash */}
       <motion.div
         style={{
           position: 'absolute', bottom: '-16%', left: '-14%',
           width: '62vw', height: '72vh',
           borderRadius: '50%',
-          background: 'radial-gradient(circle at 40% 60%, rgba(254,210,75,0.10), rgba(79,70,229,0.04) 45%, transparent 70%)',
+          background: 'radial-gradient(circle at 40% 60%, rgba(254,210,75,0.10), rgba(254,210,75,0.04) 45%, transparent 70%)',
           filter: 'blur(80px)',
           ...staticB,
         }}
@@ -78,7 +77,7 @@ export default function AmbientBackground() {
       {/* Soft vignette — settles edges gently */}
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'radial-gradient(ellipse 92% 82% at 50% 40%, transparent 60%, rgba(230,226,244,0.5) 100%)',
+        background: 'radial-gradient(ellipse 92% 82% at 50% 40%, transparent 60%, rgba(234,228,214,0.5) 100%)',
       }} />
     </div>
   )

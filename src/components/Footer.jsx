@@ -1,9 +1,14 @@
+import BookingForm from './BookingForm'
+
 export default function Footer() {
   return (
     <footer style={{
       borderTop: '1px solid rgba(26,21,38,0.09)',
-      padding: '32px 32px',
     }}>
+      <div style={{ paddingTop: 72 }}>
+        <BookingForm />
+      </div>
+      <div style={{ borderTop: '1px solid rgba(26,21,38,0.09)', padding: '32px 32px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
         <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
           <img
@@ -32,6 +37,7 @@ export default function Footer() {
         >
           contact@futura.ma
         </a>
+      </div>
       </div>
     </footer>
   )

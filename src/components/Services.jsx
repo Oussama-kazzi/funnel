@@ -8,7 +8,7 @@ const services = [
   { title: 'Applications web', desc: 'Des plateformes web sur mesure pour simplifier vos processus métiers.', tag: 'Web App' },
   { title: 'UI / UX Design', desc: 'Des interfaces modernes, intuitives et centrées sur l’expérience utilisateur.', tag: 'Design' },
   { title: 'Refonte de site', desc: 'Nous transformons votre site actuel en une expérience moderne et performante.', tag: 'Refonte' },
-  { title: 'Automatisation IA', desc: 'Nous intégrons l’intelligence artificielle et l’automatisation pour gagner du temps.', tag: 'IA', span: 2 },
+  { title: 'Automatisation IA', desc: 'Nous intégrons l’intelligence artificielle et l’automatisation pour gagner du temps.', tag: 'IA' },
   { title: 'Maintenance', desc: 'Mises à jour, sécurité, optimisations et support continu pour votre site.', tag: 'Support' },
 ]
 
@@ -78,8 +78,8 @@ function ServiceCard({ title, desc, tag, span }) {
         gap: span === 2 ? 24 : 0,
         height: '100%',
         boxShadow: hovered
-          ? '0 20px 44px rgba(88,52,180,0.14), 0 2px 6px rgba(15,12,30,0.04)'
-          : '0 1px 3px rgba(15,12,30,0.05)',
+          ? '0 14px 36px rgba(20,16,25,0.08), 0 2px 6px rgba(15,12,30,0.03)'
+          : '0 1px 3px rgba(15,12,30,0.04)',
         transition: 'border-color 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1)',
         cursor: 'default',
         overflow: 'hidden',
@@ -134,7 +134,7 @@ export default function Services() {
             display: 'flex', flexDirection: 'column', alignItems: 'center',
           }}
         >
-          <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#FED24B', marginBottom: 18 }}>
+          <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#1A1526', marginBottom: 18 }}>
             Ce que nous faisons
           </p>
           <h2 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 'clamp(30px, 4.5vw, 50px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#141019', lineHeight: 1.08, margin: 0, maxWidth: 620 }}>
@@ -153,14 +153,20 @@ export default function Services() {
       </div>
 
       <style>{`
+        /* Soft-edged warm band — fades in/out so the section melts into the
+           ambient background instead of starting/ending on a hard seam. */
         #services.section-light {
-          background: linear-gradient(180deg, #F4F3F8 0%, #ECEAF4 100%);
+          background: linear-gradient(180deg,
+            rgba(240,235,222,0) 0%,
+            rgba(240,235,222,0.55) 18%,
+            rgba(240,235,222,0.55) 82%,
+            rgba(240,235,222,0) 100%);
         }
-        /* soft violet bloom top edge for continuity with the dark section above */
+        /* gentle gold bloom at the top edge for continuity with the hero */
         #services.section-light::before {
           content: '';
           position: absolute; top: 0; left: 0; right: 0; height: 180px;
-          background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(254,210,75,0.12), transparent 70%);
+          background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(254,210,75,0.08), transparent 70%);
           pointer-events: none;
         }
         @media (max-width: 1024px) {

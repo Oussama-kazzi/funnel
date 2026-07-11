@@ -89,7 +89,7 @@ export default function FinalCTA({ onCTA }) {
             borderRadius: 100,
             fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 11, fontWeight: 700,
             letterSpacing: '0.14em', textTransform: 'uppercase',
-            color: '#FED24B',
+            color: '#1A1526',
           }}>
             <span className="cta-badge-dot" />
             Prochaine étape
@@ -259,7 +259,7 @@ Masquer le formulaire
                 fontFamily: "'Mona Sans Variable', sans-serif",
                 fontSize: 10, fontWeight: 700,
                 textTransform: 'uppercase', letterSpacing: '0.2em',
-                color: '#FED24B', margin: '0 0 6px',
+                color: '#1A1526', margin: '0 0 6px',
                 display: 'flex', alignItems: 'center', gap: 8,
               }}>
                 <span style={{ width: 18, height: 1, background: '#FED24B', display: 'inline-block' }} />

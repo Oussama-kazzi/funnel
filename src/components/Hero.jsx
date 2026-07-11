@@ -86,7 +86,7 @@ export default function Hero({ onCTA }) {
         >
           <span className="hero-h1-static">Nous créons des sites qui</span>
           <span className="hero-accent-wrap">
-            <span style={{ color: '#FED24B', textShadow: '0 0 60px rgba(254,210,75,0.5)' }}>
+            <span style={{ color: '#1A1526' }}>
               <TextType
                 text={['réalisent vos objectifs', 'génèrent des résultats', 'convertissent vos visiteurs', 'font grandir votre marque']}
                 as="span"
@@ -158,7 +158,7 @@ export default function Hero({ onCTA }) {
       </div>
 
       <style>{`
-        .hero-cursor { color: #FED24B; opacity: 1; font-weight: 300; }
+        .hero-cursor { color: #1A1526; opacity: 1; font-weight: 300; }
 
         .hero-wrap {
           position: relative; z-index: 1;
@@ -214,7 +214,7 @@ export default function Hero({ onCTA }) {
           margin-bottom: 64px;
         }
         .hero-btn-primary {
-          background: #FED24B; color: #FFFFFF;
+          background: #1A1526; color: #FED24B;
           font-family: 'Mona Sans Variable', sans-serif;
           font-weight: 700; font-size: 16px;
           padding: 16px 34px;
@@ -224,7 +224,7 @@ export default function Hero({ onCTA }) {
         }
         .hero-btn-primary:hover {
           transform: translateY(-2px);
-          background: #FED24B;
+          background: #000000;
         }
         .hero-btn-ghost {
           font-family: 'Mona Sans Variable', sans-serif;

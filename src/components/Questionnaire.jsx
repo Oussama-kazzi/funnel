@@ -90,7 +90,7 @@ const css = `
     transition:background .18s ease, border-color .18s ease, color .18s ease;
   }
   .q-opt:hover { background:rgba(26,21,38,0.09); border-color:rgba(26,21,38,0.14); color:rgba(26,21,38,0.92); }
-  .q-opt.q-sel  { background:rgba(254,210,75,0.1); border-color:rgba(254,210,75,0.5); color:#FED24B; }
+  .q-opt.q-sel  { background:rgba(254,210,75,0.18); border-color:rgba(254,210,75,0.6); color:#1A1526; }
   .q-ltr {
     display:inline-flex; align-items:center; justify-content:center;
     width:24px; height:24px; min-width:24px;
@@ -118,7 +118,7 @@ const css = `
   .q-input-sm::placeholder { color:rgba(26,21,38,0.40); }
   .q-ok {
     display:inline-flex; align-items:center; gap:8px;
-    background:${LIME}; color:#FFFFFF; border:none; border-radius:100px;
+    background:${LIME}; color:#1A1526; border:none; border-radius:100px;
     padding:11px 26px; font-family:'Mona Sans Variable',sans-serif;
     font-size:15px; font-weight:800; cursor:pointer; letter-spacing:-0.01em;
     transition:transform .35s cubic-bezier(0.34,1.56,0.64,1);

@@ -150,7 +150,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
           : 'linear-gradient(135deg, rgba(254,210,75,0.1), rgba(254,210,75,0.05))',
         border: '1px solid rgba(254,210,75,0.18)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        marginBottom: 24, color: '#FED24B',
+        marginBottom: 24, color: '#1A1526',
         transition: 'background 0.25s ease, box-shadow 0.25s ease',
         boxShadow: hovered ? '0 0 20px rgba(254,210,75,0.15)' : 'none',
       }}>
@@ -229,7 +229,7 @@ export default function Industries() {
             fontFamily: "'Mona Sans Variable', sans-serif",
             fontSize: 10, fontWeight: 700,
             textTransform: 'uppercase', letterSpacing: '0.2em',
-            color: '#FED24B', marginBottom: 20,
+            color: '#1A1526', marginBottom: 20,
             display: 'flex', alignItems: 'center', gap: 10,
           }}>
             <span style={{ width: 28, height: 1, background: '#FED24B', display: 'inline-block' }} />
@@ -244,7 +244,7 @@ export default function Industries() {
             margin: '0 0 20px',
           }}>
             Nous accompagnons les entreprises{' '}
-            <em style={{ fontStyle: 'italic', color: '#FED24B', fontWeight: 700, textShadow: '0 0 40px rgba(254,210,75,0.3)' }}>
+            <em style={{ fontStyle: 'italic', color: '#1A1526', fontWeight: 700 }}>
               ambitieuses.
             </em>
           </h2>

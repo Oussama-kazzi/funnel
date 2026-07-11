@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 import img1  from '../assets/projet-3-webflow.png'
 import img2  from '../assets/projet-2-webflow.png'
@@ -85,7 +86,7 @@ const cases = [
     resultLabel: 'de réservations directes',
     tags: [
       { label: 'Webflow',     color: '#EAB308', bg: 'rgba(234,179,8,0.15)' },
-      { label: 'Hospitality', color: '#FED24B', bg: 'rgba(254,210,75,0.12)' },
+      { label: 'Hospitality', color: '#1A1526', bg: 'rgba(254,210,75,0.22)' },
     ],
     preview: { accent: '#EAB308', image: img6 },
     href: 'https://darsurfanamorocco.com/',
@@ -110,8 +111,8 @@ const cases = [
     result: '2.8×',
     resultLabel: 'de réservations de tours',
     tags: [
-      { label: 'WordPress', color: '#FED24B', bg: 'rgba(254,210,75,0.15)' },
-      { label: 'Travel',    color: '#FED24B', bg: 'rgba(196,181,253,0.12)' },
+      { label: 'WordPress', color: '#1A1526', bg: 'rgba(254,210,75,0.22)' },
+      { label: 'Travel',    color: '#1A1526', bg: 'rgba(254,210,75,0.22)' },
     ],
     preview: { accent: '#FED24B', image: img8 },
     href: 'https://souk2surf.com/',
@@ -123,7 +124,7 @@ const cases = [
     result: '+250%',
     resultLabel: 'de trafic organique',
     tags: [
-      { label: 'WordPress', color: '#FED24B', bg: 'rgba(254,210,75,0.15)' },
+      { label: 'WordPress', color: '#1A1526', bg: 'rgba(254,210,75,0.22)' },
       { label: 'Tourism',   color: '#A5B4FC', bg: 'rgba(165,180,252,0.12)' },
     ],
     preview: { accent: '#FED24B', image: img9 },
@@ -136,8 +137,8 @@ const cases = [
     result: '$1.2M',
     resultLabel: 'de revenus publicitaires suivis',
     tags: [
-      { label: 'Custom Code', color: '#FED24B', bg: 'rgba(254,210,75,0.15)' },
-      { label: 'Marketing',   color: '#D8B4FE', bg: 'rgba(216,180,254,0.12)' },
+      { label: 'Custom Code', color: '#1A1526', bg: 'rgba(254,210,75,0.22)' },
+      { label: 'Marketing',   color: '#B45309', bg: 'rgba(254,210,75,0.16)' },
     ],
     preview: { accent: '#FED24B', image: img10 },
     href: 'https://adsolution.ma/',
@@ -287,15 +288,20 @@ export default function CaseStudies() {
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
         {/* Header */}
-        <div style={{
-          display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between',
-          flexWrap: 'wrap', gap: 32, marginBottom: 44,
-        }}>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between',
+            flexWrap: 'wrap', gap: 32, marginBottom: 44,
+          }}>
           <div>
             <p style={{
               fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 11, fontWeight: 600,
               textTransform: 'uppercase', letterSpacing: '0.18em',
-              color: '#FED24B', marginBottom: 16,
+              color: '#1A1526', marginBottom: 16,
             }}>Réalisations récentes</p>
             <h2 style={{
               fontFamily: "'Mona Sans Variable', sans-serif",
@@ -312,7 +318,7 @@ export default function CaseStudies() {
           }}>
             Des entreprises qui nous ont fait confiance et ont lancé un site qui performe.
           </p>
-        </div>
+        </motion.div>
 
         {/* Filter tabs */}
         <div className="cs-filters" style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 32 }}>

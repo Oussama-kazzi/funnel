@@ -130,7 +130,7 @@ export default function Testimonials() {
       }}>
         <p style={{
           fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700,
-          textTransform: 'uppercase', letterSpacing: '0.16em', color: '#FED24B', marginBottom: 18,
+          textTransform: 'uppercase', letterSpacing: '0.16em', color: '#1A1526', marginBottom: 18,
         }}>
           Témoignages
         </p>
@@ -139,7 +139,7 @@ export default function Testimonials() {
           fontSize: 'clamp(28px, 4.5vw, 48px)', fontWeight: 800,
           letterSpacing: '-0.04em', color: '#1A1526', lineHeight: 1.1, margin: '0 auto', maxWidth: 720,
         }}>
-          Pour toutes les <span style={{ color: '#FED24B' }}>entreprises</span>, entrepreneurs et agences.
+          Pour toutes les <span style={{ color: '#1A1526' }}>entreprises</span>, entrepreneurs et agences.
         </h2>
         <p style={{
           fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 16, color: 'rgba(26,21,38,0.72)',
@@ -184,7 +184,7 @@ export default function Testimonials() {
         }
         .tm-metric-val {
           font-family: 'Mona Sans Variable', sans-serif; font-size: 30px; font-weight: 800;
-          color: #FED24B; letter-spacing: -0.04em; line-height: 1;
+          color: #1A1526; letter-spacing: -0.04em; line-height: 1;
           text-shadow: 0 0 24px rgba(254,210,75,0.35);
         }
         .tm-metric-label {

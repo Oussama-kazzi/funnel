@@ -54,7 +54,7 @@ export default function Technologies() {
           maxWidth: 1200, margin: '0 auto',
           background: '#FFFFFF',
           border: '1px solid rgba(26,21,38,0.08)',
-          boxShadow: '0 20px 60px rgba(88,52,180,0.08)',
+          boxShadow: '0 20px 60px rgba(20,16,25,0.08)',
           borderRadius: 24,
           padding: 'clamp(36px, 5vw, 64px)',
           position: 'relative',
@@ -78,7 +78,7 @@ export default function Technologies() {
           flexWrap: 'wrap', marginBottom: 48, position: 'relative', zIndex: 1,
         }}>
           <div style={{ maxWidth: 460 }}>
-            <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#FED24B', marginBottom: 18 }}>
+            <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#1A1526', marginBottom: 18 }}>
               Technologies
             </p>
             <h2 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 'clamp(24px, 5.5vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#1A1526', lineHeight: 1.12, margin: 0 }}>
