@@ -209,7 +209,7 @@ export default function Industries() {
   const inView = useInView(ref, { once: true, amount: 0.12 })
 
   return (
-    <section className="ind-section" style={{
+    <section id="industries" className="ind-section" style={{
       padding: '104px 32px',
       overflow: 'hidden',
     }}>

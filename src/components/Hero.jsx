@@ -237,8 +237,15 @@ export default function Hero({ onCTA }) {
           max-width: 20ch;
         }
         .hero-h1-static { display: block; }
-        .hero-accent-wrap { display: block; min-height: 1.1em; }
+        /* Reserve two lines so longer rotating phrases (which wrap) don't
+           shift layout or ghost over the static line above. */
+        .hero-accent-wrap {
+          display: block;
+          height: 2.2em;
+          overflow: hidden;
+        }
         .hero-accent-grad {
+          display: inline-block;
           background: linear-gradient(180deg, #FFE9A8 0%, #FED24B 55%, #F5B301 100%);
           -webkit-background-clip: text; background-clip: text;
           -webkit-text-fill-color: transparent; color: transparent;

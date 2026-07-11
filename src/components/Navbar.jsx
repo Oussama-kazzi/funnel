@@ -20,7 +20,7 @@ export default function Navbar({ onCTA }) {
     { label: 'Réalisations', href: '#work' },
     { label: 'À propos', href: '#industries' },
     { label: 'Processus', href: '#process' },
-    { label: 'Contact', href: '#cta' },
+    { label: 'Contact', href: '#booking' },
   ]
 
   return (

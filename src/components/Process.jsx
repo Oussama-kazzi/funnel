@@ -14,29 +14,31 @@ const steps = [
   { title: 'Formation', desc: 'Enfin, nous vous formons pour que vous puissiez gérer votre site en toute autonomie et sérénité.' },
 ]
 
-// Line-art glyphs (arc, dome, orbit, zig, check-arc, 4-point star) — like the reference.
-const GLYPHS = [
-  { dot: { cx: 34, cy: 8 }, paths: ['M6 34 A28 28 0 0 1 34 6'] },
-  { dot: { cx: 6, cy: 30 }, paths: ['M4 34 A16 16 0 0 1 36 34'] },
-  { dot: { cx: 26, cy: 12 }, paths: ['M20 6 C6 14 6 26 20 34 C34 26 34 14 20 6 Z', 'M8 12 C18 22 22 22 32 12', 'M8 28 C18 18 22 18 32 28'] },
-  { dot: { cx: 20, cy: 8 }, paths: ['M4 34 L14 16 L20 24 L26 10 L36 34'] },
-  { dot: { cx: 34, cy: 12 }, paths: ['M6 22 L15 30 L34 8'] },
-  { dot: { cx: 20, cy: 20 }, paths: ['M20 2 L23 17 L38 20 L23 23 L20 38 L17 23 L2 20 L17 17 Z'] },
+// Meaningful line icons — one per step (24x24 viewBox, stroked).
+const ICONS = [
+  // 1. Réservation d'un appel — calendar
+  <><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2.5" x2="8" y2="6.5"/><line x1="16" y1="2.5" x2="16" y2="6.5"/><circle cx="8.5" cy="13.5" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="13.5" r="1" fill="currentColor" stroke="none"/><circle cx="15.5" cy="13.5" r="1" fill="currentColor" stroke="none"/></>,
+  // 2. Confirmation — check badge
+  <><path d="M12 2.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 21.5l-2.6-1.9-3.2.1-1-3.1L2.6 14.7l1-3.1-1-3.1L5.2 6.6l1-3.1 3.2.1z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></>,
+  // 3. Discussion — chat bubbles
+  <><path d="M3 6.5a2 2 0 012-2h9a2 2 0 012 2v5a2 2 0 01-2 2H8l-4 3.5v-3.5H5a2 2 0 01-2-2z"/><path d="M8 8h6M8 10.5h4"/></>,
+  // 4. Développement — code brackets
+  <><polyline points="9 8 5 12 9 16"/><polyline points="15 8 19 12 15 16"/><line x1="13" y1="5.5" x2="11" y2="18.5"/></>,
+  // 5. Finalisation — rocket launch
+  <><path d="M12 2.5c3.5 2 5 5.5 5 9 0 1.6-.3 3-.8 4.2l-2.2-1.4h-4l-2.2 1.4C7.3 14.5 7 13.1 7 11.5c0-3.5 1.5-7 5-9z"/><circle cx="12" cy="9.5" r="1.8"/><path d="M9.8 18.5c-.5 1.5-.8 3-.8 3s1.8-.5 3-1.4M14.2 18.5c.5 1.5.8 3 .8 3s-1.8-.5-3-1.4"/></>,
+  // 6. Formation — graduation cap
+  <><path d="M12 4L2.5 8.5 12 13l9.5-4.5L12 4z"/><path d="M6 10.5v4.2c0 .9 2.7 2.3 6 2.3s6-1.4 6-2.3v-4.2"/><line x1="21.5" y1="8.5" x2="21.5" y2="13"/></>,
 ]
 
 function Glyph({ index, active }) {
-  const g = GLYPHS[index] || GLYPHS[0]
   return (
-    <svg width="52" height="52" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      {g.paths.map((d, i) => (
-        <path key={i} d={d} stroke="#1A1526" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round"
-          style={{ opacity: active ? 0.85 : 0.28, transition: 'opacity 0.5s ease' }}
-        />
-      ))}
-      <circle cx={g.dot.cx} cy={g.dot.cy} r="3" fill="#FED24B"
-        style={{ opacity: active ? 1 : 0.6, transition: 'opacity 0.4s ease' }}
-      />
-    </svg>
+    <div className={`step-icon-tile${active ? ' is-active' : ''}`}>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"
+        aria-hidden="true">
+        {ICONS[index] || ICONS[0]}
+      </svg>
+    </div>
   )
 }
 
@@ -198,7 +200,22 @@ export default function Process({ onCTA }) {
           border-color: rgba(254,210,75,0.45);
           box-shadow: 0 18px 44px rgba(20,16,25,0.10), 0 3px 10px rgba(20,16,25,0.04);
         }
-        .step-glyph { flex-shrink: 0; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; }
+        .step-glyph { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+        /* Icon sits in a soft gold rounded tile; brightens when the card is active. */
+        .step-icon-tile {
+          width: 48px; height: 48px; border-radius: 13px;
+          display: flex; align-items: center; justify-content: center;
+          background: linear-gradient(135deg, rgba(254,210,75,0.14), rgba(254,210,75,0.07));
+          border: 1px solid rgba(254,210,75,0.22);
+          color: rgba(20,16,25,0.55);
+          transition: color 0.4s ${EASE}, background 0.4s ${EASE}, border-color 0.4s ${EASE}, box-shadow 0.4s ${EASE};
+        }
+        .step-icon-tile.is-active {
+          background: linear-gradient(135deg, rgba(254,210,75,0.28), rgba(254,210,75,0.14));
+          border-color: rgba(254,210,75,0.5);
+          color: #1A1526;
+          box-shadow: 0 0 20px rgba(254,210,75,0.18);
+        }
         .step-body { flex: 1; min-width: 0; }
         .step-title {
           font-family: 'Mona Sans Variable', sans-serif;
@@ -222,7 +239,7 @@ export default function Process({ onCTA }) {
         @media (max-width: 768px) {
           #process { padding: 80px 20px 90px !important; }
           .step-card { padding: 20px 20px; gap: 16px; }
-          .step-glyph { width: 42px; height: 42px; }
+          .step-icon-tile { width: 42px; height: 42px; border-radius: 11px; }
           .step-title { font-size: 18px; }
         }
         @media (max-width: 480px) {

@@ -33,8 +33,23 @@ export default function App() {
     }
     rafId = requestAnimationFrame(raf)
 
+    /* Route any in-page #anchor click through Lenis with a navbar-height
+       offset, so nav links & anchor buttons scroll smoothly to the right spot. */
+    const onAnchorClick = (e) => {
+      const a = e.target.closest('a[href^="#"]')
+      if (!a) return
+      const hash = a.getAttribute('href')
+      if (!hash || hash === '#') return
+      const el = document.querySelector(hash)
+      if (!el) return
+      e.preventDefault()
+      lenis.scrollTo(el, { offset: -80 })
+    }
+    document.addEventListener('click', onAnchorClick)
+
     return () => {
       cancelAnimationFrame(rafId)
+      document.removeEventListener('click', onAnchorClick)
       lenis.destroy()
       lenisRef.current = null
     }
