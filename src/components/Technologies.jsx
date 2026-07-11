@@ -80,7 +80,7 @@ export default function Technologies() {
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#8B5CF6', marginBottom: 18 }}>
               Technologies
             </p>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(28px, 3.4vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#FFFFFF', lineHeight: 1.12, margin: 0 }}>
+            <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(24px, 5.5vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#FFFFFF', lineHeight: 1.12, margin: 0 }}>
               Nous utilisons les meilleures technologies pour votre projet.
             </h2>
           </div>
@@ -119,10 +119,12 @@ export default function Technologies() {
           .tech-item:nth-child(odd) { padding-left: 0 !important; }
         }
         @media (max-width: 768px) {
-          .tech-section { padding: 24px 20px 64px !important; }
+          .tech-section { padding: 24px 20px 72px !important; }
+          .tech-card { padding: 32px 24px !important; }
+          .tech-head { margin-bottom: 32px !important; gap: 16px !important; }
         }
         @media (max-width: 520px) {
-          .tech-grid { grid-template-columns: 1fr !important; }
+          .tech-grid { grid-template-columns: 1fr !important; gap: 26px 0 !important; }
           .tech-item { padding: 0 !important; }
         }
       `}</style>

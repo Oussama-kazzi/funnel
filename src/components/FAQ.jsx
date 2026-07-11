@@ -123,7 +123,7 @@ export default function FAQ() {
 
           <h2 style={{
             fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontSize: 'clamp(30px, 4vw, 52px)',
+            fontSize: 'clamp(26px, 6vw, 50px)',
             fontWeight: 800, letterSpacing: '-0.04em',
             color: '#FFFFFF', lineHeight: 1.05, margin: '0 0 20px',
           }}>

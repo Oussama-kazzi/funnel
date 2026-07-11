@@ -238,7 +238,7 @@ export default function Industries() {
 
           <h2 style={{
             fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontSize: 'clamp(32px, 4.5vw, 58px)',
+            fontSize: 'clamp(28px, 6.5vw, 56px)',
             fontWeight: 800, letterSpacing: '-0.04em',
             color: '#FFFFFF', lineHeight: 1.05,
             margin: '0 0 20px',

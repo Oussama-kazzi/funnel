@@ -299,7 +299,7 @@ export default function CaseStudies() {
             }}>Réalisations récentes</p>
             <h2 style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 800,
+              fontSize: 'clamp(28px, 6.5vw, 54px)', fontWeight: 800,
               letterSpacing: '-0.04em', color: '#FFFFFF',
               lineHeight: 1.05, margin: 0,
             }}>

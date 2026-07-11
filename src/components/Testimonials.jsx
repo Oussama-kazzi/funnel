@@ -58,28 +58,6 @@ const testimonials = [
   },
 ]
 
-const SPRING = { type: 'spring', stiffness: 180, damping: 24, mass: 1.3 }
-
-// Returns signed position offset: 0 = center, -1 = left, +1 = right
-function getOffset(index, active, total) {
-  const raw = (index - active + total) % total
-  return raw > total / 2 ? raw - total : raw
-}
-
-function getCardAnim(index, active, total, sideX) {
-  const offset = getOffset(index, active, total)
-  if (offset === 0) {
-    return { x: 0, scale: 1, rotateY: 0, opacity: 1, zIndex: 3 }
-  }
-  if (Math.abs(offset) === 1) {
-    const dir = Math.sign(offset)
-    return { x: dir * sideX, scale: 0.8, rotateY: dir * -24, opacity: 0.55, zIndex: 2 }
-  }
-  // Far / hidden cards
-  const dir = Math.sign(offset)
-  return { x: dir * sideX * 1.9, scale: 0.65, rotateY: dir * -42, opacity: 0, zIndex: 1 }
-}
-
 function Stars({ count }) {
   return (
     <div style={{ display: 'flex', gap: 3, marginBottom: 20 }}>
@@ -92,287 +70,149 @@ function Stars({ count }) {
   )
 }
 
-function TestimonialCard({ t, isActive }) {
+function MasonryCard({ t, i }) {
   return (
-    <div style={{
-      background: isActive
-        ? 'linear-gradient(160deg, rgba(255,255,255,0.07) 0%, rgba(139,92,246,0.05) 100%)'
-        : 'linear-gradient(160deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 100%)',
-      border: isActive
-        ? '1px solid rgba(139,92,246,0.22)'
-        : '1px solid rgba(255,255,255,0.07)',
-      borderRadius: 20,
-      padding: '32px 28px 26px',
-      display: 'flex',
-      flexDirection: 'column',
-      height: '100%',
-      boxSizing: 'border-box',
-      backdropFilter: 'blur(24px)',
-      WebkitBackdropFilter: 'blur(24px)',
-      position: 'relative',
-      overflow: 'hidden',
-      transition: 'background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease',
-      boxShadow: isActive
-        ? '0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(139,92,246,0.08), 0 0 60px rgba(139,92,246,0.06)'
-        : '0 8px 32px rgba(0,0,0,0.3)',
-    }}>
-      {/* Shimmer line on top edge (active only) */}
-      <div style={{
-        position: 'absolute', top: 0, left: '15%', right: '15%', height: 1,
-        background: isActive
-          ? 'linear-gradient(90deg, transparent, rgba(139,92,246,0.45), transparent)'
-          : 'transparent',
-        transition: 'background 0.4s ease',
-        pointerEvents: 'none',
-      }} />
-
-      {/* Inner glow (active only) */}
-      <div style={{
-        position: 'absolute', top: 0, left: 0, right: 0, height: '45%',
-        background: isActive
-          ? 'radial-gradient(ellipse 70% 60% at 50% 0%, rgba(139,92,246,0.06), transparent 80%)'
-          : 'transparent',
-        transition: 'background 0.5s ease',
-        pointerEvents: 'none',
-      }} />
-
-      {/* Metric */}
-      <div style={{
-        display: 'flex', alignItems: 'baseline', gap: 8,
-        marginBottom: 22,
-        paddingBottom: 18,
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
-      }}>
-        <span style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontSize: 34, fontWeight: 800,
-          color: '#8B5CF6', letterSpacing: '-0.04em', lineHeight: 1,
-          textShadow: isActive ? '0 0 28px rgba(139,92,246,0.4)' : 'none',
-          transition: 'text-shadow 0.4s ease',
-        }}>
-          {t.metric}
-        </span>
-        <span style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: 12, color: 'rgba(255,255,255,0.38)',
-          lineHeight: 1.35, maxWidth: 110,
-        }}>
-          {t.metricLabel}
-        </span>
+    <motion.div
+      className="tm-card"
+      initial={{ opacity: 0, y: 24, filter: 'blur(6px)' }}
+      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: (i % 3) * 0.08 }}
+      whileHover={{ y: -4 }}
+    >
+      {/* Metric chip */}
+      <div className="tm-metric">
+        <span className="tm-metric-val">{t.metric}</span>
+        <span className="tm-metric-label">{t.metricLabel}</span>
       </div>
 
       <Stars count={t.stars} />
 
-      <blockquote style={{
-        fontFamily: "'Inter', sans-serif",
-        fontSize: 14.5, color: 'rgba(255,255,255,0.58)',
-        lineHeight: 1.75, fontStyle: 'italic',
-        flex: 1, marginBottom: 24,
-      }}>
-        "{t.quote}"
-      </blockquote>
+      <blockquote className="tm-quote">“{t.quote}”</blockquote>
 
-      {/* Author */}
-      <div style={{
-        display: 'flex', alignItems: 'center', gap: 11,
-        paddingTop: 18,
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-      }}>
-        <div style={{
-          width: 40, height: 40, borderRadius: '50%',
-          background: 'linear-gradient(135deg, #6366F1, #8B5CF6)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontSize: 12, fontWeight: 700, color: '#050816',
-          flexShrink: 0,
-          boxShadow: isActive
-            ? '0 0 0 3px rgba(139,92,246,0.18), 0 0 20px rgba(139,92,246,0.2)'
-            : '0 0 0 2px rgba(139,92,246,0.08)',
-          transition: 'box-shadow 0.4s ease',
-        }}>
-          {t.initials}
-        </div>
+      <div className="tm-author">
+        <div className="tm-avatar">{t.initials}</div>
         <div>
-          <div style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontSize: 13, fontWeight: 600, color: '#FFFFFF',
-          }}>
-            {t.name}
-          </div>
-          <div style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 11, color: 'rgba(255,255,255,0.36)',
-          }}>
-            {t.role}
-          </div>
+          <div className="tm-name">{t.name}</div>
+          <div className="tm-role">{t.role}</div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
-
 export default function Testimonials() {
-  const [active, setActive] = useState(0)
   const [visible, setVisible] = useState(false)
-  const [windowWidth, setWindowWidth] = useState(1200)
   const ref = useRef(null)
-  const n = testimonials.length
-
-  useEffect(() => {
-    setWindowWidth(window.innerWidth)
-    const onResize = () => setWindowWidth(window.innerWidth)
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
-  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setVisible(true) },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     )
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
   }, [])
 
-  useEffect(() => {
-    const onKey = e => {
-      if (e.key === 'ArrowLeft')  setActive(a => (a - 1 + n) % n)
-      if (e.key === 'ArrowRight') setActive(a => (a + 1) % n)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [n])
-
-  const isMobile = windowWidth < 768
-  const cardWidth  = isMobile ? 300 : 420
-  const cardHeight = isMobile ? 520 : 460
-  const sideX      = isMobile ? 210 : 365
-  const stageH     = cardHeight + 40  // breathing room for scale
-
   return (
     <section
       ref={ref}
+      id="testimonials"
       className="testi-section"
-      style={{
-        padding: '110px 0 96px',
-        overflow: 'hidden',
-        position: 'relative',
-      }}
+      style={{ padding: '112px 32px 104px', position: 'relative', overflow: 'hidden' }}
     >
       {/* Header */}
-      <div style={{
-        maxWidth: 1200, margin: '0 auto',
-        padding: '0 32px',
-        marginBottom: 56,
+      <div className="testi-head" style={{
+        maxWidth: 900, margin: '0 auto 56px', textAlign: 'center',
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(24px)',
-        transition: 'opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1)',
+        transition: 'opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1)',
       }}>
         <p style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: 12, fontWeight: 600,
-          textTransform: 'uppercase', letterSpacing: '0.14em',
-          color: '#8B5CF6', marginBottom: 16,
+          fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700,
+          textTransform: 'uppercase', letterSpacing: '0.16em', color: '#8B5CF6', marginBottom: 18,
         }}>
-          Ils nous font confiance
+          Témoignages
         </p>
-        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20 }}>
-          <h2 style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontSize: 'clamp(32px, 4.5vw, 56px)',
-            fontWeight: 800, letterSpacing: '-0.04em',
-            color: '#FFFFFF', lineHeight: 1.05, margin: 0,
-          }}>
-            Ce que nos clients disent de nous.
-          </h2>
-          <p style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 15, color: 'rgba(255,255,255,0.38)',
-            maxWidth: 340, lineHeight: 1.65,
-          }}>
-            Cliquez sur une carte — ou utilisez les flèches — pour découvrir leurs retours.
-          </p>
-        </div>
+        <h2 style={{
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontSize: 'clamp(28px, 4.5vw, 48px)', fontWeight: 800,
+          letterSpacing: '-0.04em', color: '#FFFFFF', lineHeight: 1.1, margin: '0 auto', maxWidth: 720,
+        }}>
+          Pour toutes les <span style={{ color: '#8B5CF6' }}>entreprises</span>, entrepreneurs et agences.
+        </h2>
+        <p style={{
+          fontFamily: "'Inter', sans-serif", fontSize: 16, color: 'rgba(255,255,255,0.45)',
+          lineHeight: 1.65, margin: '18px auto 0', maxWidth: 520,
+        }}>
+          Ce que nos clients disent de nous après avoir travaillé avec FuturA.
+        </p>
       </div>
 
-      {/* Stage wrapper — holds cards + nav buttons */}
-      <div style={{
-        position: 'relative',
-        opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0)' : 'translateY(28px)',
-        transition: 'opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.18s, transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.18s',
-      }}>
-        {/* 3-D stage */}
-        <div style={{
-          position: 'relative',
-          height: stageH,
-          perspective: '1100px',
-          perspectiveOrigin: '50% 50%',
-        }}>
-          {testimonials.map((t, i) => {
-            const { x, scale, rotateY, opacity, zIndex } = getCardAnim(i, active, n, sideX)
-            return (
-              <motion.div
-                key={i}
-                onClick={() => setActive(i)}
-                style={{
-                  position: 'absolute',
-                  width: cardWidth,
-                  height: cardHeight,
-                  left: `calc(50% - ${cardWidth / 2}px)`,
-                  top: 20,
-                  zIndex,
-                  cursor: i === active ? 'default' : 'pointer',
-                  transformOrigin: 'center center',
-                }}
-                animate={{ x, scale, rotateY, opacity }}
-                transition={SPRING}
-              >
-                <TestimonialCard t={t} isActive={i === active} />
-              </motion.div>
-            )
-          })}
-        </div>
-
+      {/* Masonry grid */}
+      <div className="tm-masonry">
+        {testimonials.map((t, i) => (
+          <MasonryCard key={i} t={t} i={i} />
+        ))}
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          .testi-section { padding: 56px 0 48px !important; }
-          .testi-section > div:first-child { padding: 0 20px !important; margin-bottom: 36px !important; }
-          .testi-section > div:first-child p:last-child { display: none !important; }
+        .tm-masonry {
+          max-width: 1120px; margin: 0 auto;
+          columns: 3; column-gap: 20px;
         }
-        @media (max-width: 480px) {
-          .testi-section { padding: 48px 0 40px !important; }
-          .testi-section > div:first-child { padding: 0 16px !important; }
+        .tm-card {
+          break-inside: avoid;
+          margin-bottom: 20px;
+          background: linear-gradient(160deg, rgba(255,255,255,0.05) 0%, rgba(139,92,246,0.04) 100%);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 20px;
+          padding: 26px 24px 22px;
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+          transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-      `}</style>
+        .tm-card:hover {
+          border-color: rgba(139,92,246,0.3);
+          box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(139,92,246,0.06);
+        }
+        .tm-metric {
+          display: flex; align-items: baseline; gap: 8px;
+          margin-bottom: 18px; padding-bottom: 16px;
+          border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .tm-metric-val {
+          font-family: 'Plus Jakarta Sans', sans-serif; font-size: 30px; font-weight: 800;
+          color: #8B5CF6; letter-spacing: -0.04em; line-height: 1;
+          text-shadow: 0 0 24px rgba(139,92,246,0.35);
+        }
+        .tm-metric-label {
+          font-family: 'Inter', sans-serif; font-size: 12px;
+          color: rgba(255,255,255,0.4); line-height: 1.35;
+        }
+        .tm-quote {
+          font-family: 'Inter', sans-serif; font-size: 14.5px;
+          color: rgba(255,255,255,0.62); line-height: 1.7; font-style: italic;
+          margin: 16px 0 22px;
+        }
+        .tm-author { display: flex; align-items: center; gap: 11px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); }
+        .tm-avatar {
+          width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+          background: linear-gradient(135deg, #6366F1, #8B5CF6);
+          display: flex; align-items: center; justify-content: center;
+          font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700; color: #fff;
+          box-shadow: 0 0 0 2px rgba(139,92,246,0.12);
+        }
+        .tm-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 600; color: #FFFFFF; }
+        .tm-role { font-family: 'Inter', sans-serif; font-size: 11px; color: rgba(255,255,255,0.4); }
 
-      {/* Dot indicators */}
-      <div style={{
-        display: 'flex', justifyContent: 'center', gap: 8,
-        marginTop: isMobile ? 20 : 36,
-        opacity: visible ? 1 : 0,
-        transition: 'opacity 0.8s ease 0.3s',
-      }}>
-        {testimonials.map((_, i) => (
-          <motion.button
-            key={i}
-            onClick={() => setActive(i)}
-            animate={{
-              width: i === active ? 26 : 8,
-              background: i === active ? '#8B5CF6' : 'rgba(139,92,246,0.22)',
-              boxShadow: i === active ? '0 0 10px rgba(139,92,246,0.45)' : '0 0 0px transparent',
-            }}
-            transition={{ duration: 0.3 }}
-            style={{
-              height: 8, borderRadius: 4,
-              border: 'none', cursor: 'pointer', padding: 0,
-            }}
-          />
-        ))}
-      </div>
+        @media (max-width: 900px) { .tm-masonry { columns: 2; } }
+        @media (max-width: 768px) {
+          .testi-section { padding: 80px 20px 72px !important; }
+        }
+        @media (max-width: 560px) { .tm-masonry { columns: 1; } }
+      `}</style>
     </section>
   )
 }

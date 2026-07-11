@@ -2,14 +2,14 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 const services = [
-  { num: '01', title: 'Sites vitrines', desc: 'Des sites professionnels qui présentent votre entreprise et renforcent votre crédibilité.', tag: 'Vitrine' },
-  { num: '02', title: 'Landing pages', desc: 'Des pages à forte conversion conçues pour générer plus de leads et de ventes.', tag: 'Conversion' },
-  { num: '03', title: 'E-commerce', desc: 'Des boutiques en ligne performantes, sécurisées et faciles à gérer.', tag: 'Boutique' },
-  { num: '04', title: 'Applications web', desc: 'Des plateformes web sur mesure pour simplifier vos processus métiers.', tag: 'Web App' },
-  { num: '05', title: 'UI / UX Design', desc: 'Des interfaces modernes, intuitives et centrées sur l’expérience utilisateur.', tag: 'Design' },
-  { num: '06', title: 'Refonte de site', desc: 'Nous transformons votre site actuel en une expérience moderne et performante.', tag: 'Refonte' },
-  { num: '07', title: 'Automatisation IA', desc: 'Nous intégrons l’intelligence artificielle et l’automatisation pour gagner du temps.', tag: 'IA' },
-  { num: '08', title: 'Maintenance', desc: 'Mises à jour, sécurité, optimisations et support continu pour votre site.', tag: 'Support' },
+  { title: 'Sites vitrines', desc: 'Des sites professionnels qui présentent votre entreprise et renforcent votre crédibilité.', tag: 'Vitrine', span: 2 },
+  { title: 'Landing pages', desc: 'Des pages à forte conversion conçues pour générer plus de leads et de ventes.', tag: 'Conversion' },
+  { title: 'E-commerce', desc: 'Des boutiques en ligne performantes, sécurisées et faciles à gérer.', tag: 'Boutique' },
+  { title: 'Applications web', desc: 'Des plateformes web sur mesure pour simplifier vos processus métiers.', tag: 'Web App' },
+  { title: 'UI / UX Design', desc: 'Des interfaces modernes, intuitives et centrées sur l’expérience utilisateur.', tag: 'Design' },
+  { title: 'Refonte de site', desc: 'Nous transformons votre site actuel en une expérience moderne et performante.', tag: 'Refonte' },
+  { title: 'Automatisation IA', desc: 'Nous intégrons l’intelligence artificielle et l’automatisation pour gagner du temps.', tag: 'IA', span: 2 },
+  { title: 'Maintenance', desc: 'Mises à jour, sécurité, optimisations et support continu pour votre site.', tag: 'Support' },
 ]
 
 function Icon({ tag }) {
@@ -35,15 +35,6 @@ function Icon({ tag }) {
   }
 }
 
-function ArrowUpRight() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="4" y1="12" x2="18" y2="12"/>
-      <polyline points="13 7 18 12 13 17"/>
-    </svg>
-  )
-}
-
 const headerVariants = {
   offscreen: { y: 24, opacity: 0 },
   onscreen: {
@@ -61,77 +52,77 @@ const cardVariants = {
   },
 }
 
-function ServiceCard({ num, title, desc, tag }) {
+function ServiceCard({ title, desc, tag, span }) {
   const [hovered, setHovered] = useState(false)
 
   return (
     <motion.div
+      className="svc-card"
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.45 }}
+      viewport={{ once: true, amount: 0.4 }}
       variants={cardVariants}
       whileHover={{ y: -4, transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? 'rgba(139,92,246,0.05)' : 'rgba(255,255,255,0.025)',
-        border: `1px solid ${hovered ? 'rgba(139,92,246,0.35)' : 'rgba(255,255,255,0.08)'}`,
-        borderRadius: 16,
-        padding: '28px 26px 24px',
+        gridColumn: span === 2 ? 'span 2' : 'span 1',
+        background: '#FFFFFF',
+        border: `1px solid ${hovered ? 'rgba(139,92,246,0.35)' : 'rgba(15,12,30,0.08)'}`,
+        borderRadius: 20,
+        padding: '30px 28px 26px',
         position: 'relative',
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: span === 2 ? 'row' : 'column',
+        alignItems: span === 2 ? 'center' : 'flex-start',
+        gap: span === 2 ? 24 : 0,
         height: '100%',
-        boxShadow: hovered ? '0 18px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(139,92,246,0.08)' : '0 4px 16px rgba(0,0,0,0.15)',
-        transition: 'background 0.3s cubic-bezier(0.4,0,0.2,1), border-color 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1)',
+        boxShadow: hovered
+          ? '0 20px 44px rgba(88,52,180,0.14), 0 2px 6px rgba(15,12,30,0.04)'
+          : '0 1px 3px rgba(15,12,30,0.05)',
+        transition: 'border-color 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1)',
         cursor: 'default',
+        overflow: 'hidden',
       }}
     >
       {/* Icon tile */}
       <div style={{
-        width: 46, height: 46, borderRadius: 12,
-        background: hovered
-          ? 'linear-gradient(135deg, rgba(139,92,246,0.22), rgba(99,102,241,0.12))'
-          : 'linear-gradient(135deg, rgba(139,92,246,0.14), rgba(99,102,241,0.06))',
-        border: '1px solid rgba(139,92,246,0.2)',
+        width: 48, height: 48, borderRadius: 13,
+        background: 'linear-gradient(135deg, rgba(139,92,246,0.14), rgba(99,102,241,0.08))',
+        border: '1px solid rgba(139,92,246,0.18)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        marginBottom: 20,
-        boxShadow: hovered ? '0 0 20px rgba(139,92,246,0.18)' : 'none',
-        transition: 'background 0.3s ease, box-shadow 0.3s ease',
+        marginBottom: span === 2 ? 0 : 20, flexShrink: 0,
+        boxShadow: hovered ? '0 0 22px rgba(139,92,246,0.16)' : 'none',
+        transition: 'box-shadow 0.3s ease',
       }}>
         <Icon tag={tag} />
       </div>
 
-      {/* Title */}
-      <h3 style={{
-        fontFamily: "'Plus Jakarta Sans', sans-serif",
-        fontSize: 18, fontWeight: 700,
-        color: '#FFFFFF', letterSpacing: '-0.02em',
-        marginBottom: 10, lineHeight: 1.25,
-      }}>
-        {title}
-      </h3>
+      <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+        {/* Title */}
+        <h3 style={{
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontSize: 18, fontWeight: 700,
+          color: '#141019', letterSpacing: '-0.02em',
+          marginBottom: 8, lineHeight: 1.25,
+        }}>
+          {title}
+        </h3>
 
-      {/* Desc */}
-      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13.5, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6, marginBottom: 20, flex: 1 }}>
-        {desc}
-      </p>
-
-      {/* Arrow — always visible, slides on hover */}
-      <div style={{
-        transform: hovered ? 'translateX(4px)' : 'translateX(0)',
-        transition: 'transform 0.35s cubic-bezier(0.34,1.56,0.64,1)',
-      }}>
-        <ArrowUpRight />
+        {/* Desc */}
+        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13.5, color: 'rgba(20,16,25,0.55)', lineHeight: 1.6, margin: 0 }}>
+          {desc}
+        </p>
       </div>
+
     </motion.div>
   )
 }
 
 export default function Services() {
   return (
-    <section id="services" style={{ padding: '112px 32px 72px' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+    <section id="services" className="section-light" style={{ padding: '112px 32px 100px', position: 'relative' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', zIndex: 1 }}>
 
         <motion.div
           initial="offscreen"
@@ -143,32 +134,46 @@ export default function Services() {
             display: 'flex', flexDirection: 'column', alignItems: 'center',
           }}
         >
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#8B5CF6', marginBottom: 18 }}>
-            Nos services
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#7C3AED', marginBottom: 18 }}>
+            Ce que nous faisons
           </p>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(32px, 4.5vw, 52px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#FFFFFF', lineHeight: 1.08, margin: 0, maxWidth: 620 }}>
+          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(30px, 4.5vw, 50px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#141019', lineHeight: 1.08, margin: 0, maxWidth: 620 }}>
             Des solutions complètes pour accélérer votre croissance.
           </h2>
         </motion.div>
 
         <div className="services-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: 20,
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridAutoRows: '1fr',
+          gap: 18,
         }}>
           {services.map((s, i) => <ServiceCard key={i} {...s} />)}
         </div>
       </div>
 
       <style>{`
+        #services.section-light {
+          background: linear-gradient(180deg, #F4F3F8 0%, #ECEAF4 100%);
+        }
+        /* soft violet bloom top edge for continuity with the dark section above */
+        #services.section-light::before {
+          content: '';
+          position: absolute; top: 0; left: 0; right: 0; height: 180px;
+          background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(139,92,246,0.12), transparent 70%);
+          pointer-events: none;
+        }
         @media (max-width: 1024px) {
           #services .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          #services .svc-card { grid-column: span 1 !important; flex-direction: column !important; align-items: flex-start !important; }
         }
         @media (max-width: 768px) {
-          #services { padding: 72px 20px !important; }
+          #services { padding: 80px 20px 72px !important; }
+          #services > div > div:first-child { margin-bottom: 44px !important; }
         }
         @media (max-width: 560px) {
-          #services .services-grid { grid-template-columns: 1fr !important; }
+          #services .services-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+          #services .svc-card { padding: 24px 22px 22px !important; }
         }
       `}</style>
     </section>
