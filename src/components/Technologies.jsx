@@ -5,28 +5,28 @@ import { useInView } from 'framer-motion'
 const icons = {
   framer: (
     <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
-      <path d="M6 2h12v6h-6z" fill="#fff" />
-      <path d="M6 8h12l-6 6H6z" fill="#fff" />
-      <path d="M6 14h6v6z" fill="#fff" />
+      <path d="M6 2h12v6h-6z" fill="#1A1526" />
+      <path d="M6 8h12l-6 6H6z" fill="#1A1526" />
+      <path d="M6 14h6v6z" fill="#1A1526" />
     </svg>
   ),
   wordpress: (
-    <svg viewBox="0 0 24 24" width="32" height="32" fill="#fff" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="32" height="32" fill="#1A1526" aria-hidden="true">
       <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 1.4a8.6 8.6 0 016.9 3.5h-.2c-.8 0-1.4.7-1.4 1.5 0 .7.4 1.3.9 2 .4.6.7 1.3.7 2.4 0 .8-.3 1.8-.7 3l-.9 3.1-3.4-10c.6-.1 1.1-.1 1.1-.1.5 0 .5-.7-.1-.7 0 0-1.4.1-2.4.1-.8 0-2.3-.1-2.3-.1-.5-.1-.6.7-.1.7 0 0 .5 0 1 .1l1.5 4-2 6.1-3.4-10c.6 0 1.1-.1 1.1-.1.5 0 .4-.8-.1-.7 0 0-1.4.1-2.4.1l-.5-.1A8.6 8.6 0 0112 3.4zM3.9 9.3l4.1 11.2A8.6 8.6 0 013.9 9.3zm12.3 11a8.6 8.6 0 004.3-7.4c0-1-.2-1.9-.5-2.7l.1 1z"/>
     </svg>
   ),
   webflow: (
-    <svg viewBox="0 0 24 24" width="34" height="34" fill="#fff" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="34" height="34" fill="#1A1526" aria-hidden="true">
       <path d="M22 5l-5.3 14h-4.4l-2.4-7-2.4 7H3.1L2 5h4.2l1 8 2.5-8h3.7l2.4 8 1.1-8z"/>
     </svg>
   ),
   code: (
-    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#1A1526" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
     </svg>
   ),
   ai: (
-    <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#1A1526" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z"/>
       <circle cx="19" cy="19" r="2"/>
     </svg>
@@ -52,8 +52,9 @@ export default function Technologies() {
         className="tech-card"
         style={{
           maxWidth: 1200, margin: '0 auto',
-          background: 'linear-gradient(160deg, #0C0A18 0%, #08060F 100%)',
-          border: '1px solid rgba(255,255,255,0.08)',
+          background: '#FFFFFF',
+          border: '1px solid rgba(26,21,38,0.08)',
+          boxShadow: '0 20px 60px rgba(88,52,180,0.08)',
           borderRadius: 24,
           padding: 'clamp(36px, 5vw, 64px)',
           position: 'relative',
@@ -80,11 +81,11 @@ export default function Technologies() {
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#8B5CF6', marginBottom: 18 }}>
               Technologies
             </p>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(24px, 5.5vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#FFFFFF', lineHeight: 1.12, margin: 0 }}>
+            <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(24px, 5.5vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#1A1526', lineHeight: 1.12, margin: 0 }}>
               Nous utilisons les meilleures technologies pour votre projet.
             </h2>
           </div>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, maxWidth: 380, alignSelf: 'flex-end' }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: 'rgba(26,21,38,0.72)', lineHeight: 1.7, maxWidth: 380, alignSelf: 'flex-end' }}>
             Chaque projet est unique. Nous choisissons la technologie la plus adaptée à vos objectifs, votre budget et vos besoins.
           </p>
         </div>
@@ -98,13 +99,13 @@ export default function Technologies() {
           {techs.map((t, i) => (
             <div key={t.key} className="tech-item" style={{
               padding: '0 24px',
-              borderLeft: i === 0 ? 'none' : '1px solid rgba(255,255,255,0.08)',
+              borderLeft: i === 0 ? 'none' : '1px solid rgba(26,21,38,0.09)',
             }}>
               <div style={{ marginBottom: 20 }}>{icons[t.key]}</div>
-              <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 17, fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em', marginBottom: 12 }}>
+              <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 17, fontWeight: 700, color: '#1A1526', letterSpacing: '-0.02em', marginBottom: 12 }}>
                 {t.name}
               </h3>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6, margin: 0 }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(26,21,38,0.72)', lineHeight: 1.6, margin: 0 }}>
                 {t.desc}
               </p>
             </div>

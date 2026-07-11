@@ -111,10 +111,10 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
       style={{
         background: hovered
           ? 'rgba(139,92,246,0.05)'
-          : featured ? 'rgba(139,92,246,0.03)' : 'rgba(255,255,255,0.03)',
+          : featured ? 'rgba(139,92,246,0.03)' : 'rgba(26,21,38,0.05)',
         border: featured
           ? '1px solid rgba(139,92,246,0.35)'
-          : `1px solid ${hovered ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.07)'}`,
+          : `1px solid ${hovered ? 'rgba(26,21,38,0.14)' : 'rgba(26,21,38,0.09)'}`,
         borderRadius: 18,
         padding: '36px 32px 32px',
         position: 'relative',
@@ -133,7 +133,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
       {featured && (
         <div style={{
           position: 'absolute', top: -12, left: 24,
-          background: '#8B5CF6', color: '#FFFFFF',
+          background: '#8B5CF6', color: '#1A1526',
           fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 700,
           letterSpacing: '0.1em', textTransform: 'uppercase',
           padding: '4px 12px', borderRadius: 100,
@@ -161,7 +161,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
       <h3 style={{
         fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: 21, fontWeight: 700,
-        color: '#FFFFFF', letterSpacing: '-0.025em',
+        color: '#1A1526', letterSpacing: '-0.025em',
         marginBottom: 12,
       }}>
         {title}
@@ -170,7 +170,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
       {/* Desc */}
       <p style={{
         fontFamily: "'Inter', sans-serif",
-        fontSize: 14, color: 'rgba(255,255,255,0.42)',
+        fontSize: 14, color: 'rgba(26,21,38,0.55)',
         lineHeight: 1.68, marginBottom: 22,
       }}>
         {desc}
@@ -179,7 +179,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
       {/* Divider */}
       <div style={{
         height: 1,
-        background: featured ? 'rgba(139,92,246,0.12)' : 'rgba(255,255,255,0.06)',
+        background: featured ? 'rgba(139,92,246,0.12)' : 'rgba(26,21,38,0.09)',
         marginBottom: 20,
       }} />
 
@@ -193,7 +193,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
             <CheckIcon />
             <span style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: 13, color: 'rgba(255,255,255,0.55)', lineHeight: 1.5,
+              fontSize: 13, color: 'rgba(26,21,38,0.72)', lineHeight: 1.5,
             }}>
               {b}
             </span>
@@ -240,7 +240,7 @@ export default function Industries() {
             fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 'clamp(28px, 6.5vw, 56px)',
             fontWeight: 800, letterSpacing: '-0.04em',
-            color: '#FFFFFF', lineHeight: 1.05,
+            color: '#1A1526', lineHeight: 1.05,
             margin: '0 0 20px',
           }}>
             Nous accompagnons les entreprises{' '}
@@ -251,7 +251,7 @@ export default function Industries() {
 
           <p style={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: 17, color: 'rgba(255,255,255,0.42)',
+            fontSize: 17, color: 'rgba(26,21,38,0.55)',
             maxWidth: 560, lineHeight: 1.7, margin: 0,
           }}>
             Startups, PME, e-commerce, SaaS, restaurants, cliniques, écoles, agences ou entrepreneurs — nous construisons votre projet autour de vos objectifs réels.

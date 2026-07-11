@@ -26,59 +26,59 @@ export default function AmbientBackground() {
   return (
     <div
       aria-hidden="true"
-      style={{ position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none', overflow: 'hidden', background: '#050509' }}
+      style={{ position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none', overflow: 'hidden', background: '#FBFAFE' }}
     >
-      {/* Aurora A — top right, primary violet */}
+      {/* Aurora A — top right, pale violet */}
       <motion.div
         style={{
           position: 'absolute', top: '-18%', right: '-12%',
           width: '70vw', height: '80vh',
           borderRadius: '50%',
-          background: 'radial-gradient(circle at 60% 40%, rgba(139,92,246,0.34), rgba(124,58,237,0.14) 42%, transparent 68%)',
-          filter: 'blur(60px)',
+          background: 'radial-gradient(circle at 60% 40%, rgba(139,92,246,0.14), rgba(124,58,237,0.06) 42%, transparent 68%)',
+          filter: 'blur(70px)',
           ...staticA,
         }}
       />
 
-      {/* Aurora B — lower left, cooler indigo */}
+      {/* Aurora B — lower left, cool indigo wash */}
       <motion.div
         style={{
           position: 'absolute', bottom: '-16%', left: '-14%',
           width: '62vw', height: '72vh',
           borderRadius: '50%',
-          background: 'radial-gradient(circle at 40% 60%, rgba(99,102,241,0.24), rgba(79,70,229,0.10) 45%, transparent 70%)',
-          filter: 'blur(70px)',
+          background: 'radial-gradient(circle at 40% 60%, rgba(99,102,241,0.10), rgba(79,70,229,0.04) 45%, transparent 70%)',
+          filter: 'blur(80px)',
           ...staticB,
         }}
       />
 
-      {/* Center warm accent — subtle, breathes with scroll */}
+      {/* Center accent — very subtle, breathes with scroll */}
       <motion.div
         style={{
           position: 'absolute', top: '38%', left: '50%',
           width: '48vw', height: '40vh',
           transform: 'translate(-50%, -50%)',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(168,85,247,0.10), transparent 65%)',
-          filter: 'blur(80px)',
+          background: 'radial-gradient(circle, rgba(168,85,247,0.05), transparent 65%)',
+          filter: 'blur(90px)',
           opacity: reduce ? 0.5 : centerOpacity,
         }}
       />
 
-      {/* Fine grain / noise — breaks up banding, adds a tactile film */}
+      {/* Fine grain / noise — breaks up banding on the pale wash */}
       <div style={{
         position: 'absolute', inset: 0,
-        opacity: 0.045,
-        mixBlendMode: 'overlay',
+        opacity: 0.03,
+        mixBlendMode: 'multiply',
         backgroundImage:
           "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
         backgroundSize: '160px 160px',
       }} />
 
-      {/* Vignette — settles the edges into black so content floats */}
+      {/* Soft vignette — settles edges gently */}
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'radial-gradient(ellipse 90% 80% at 50% 40%, transparent 55%, rgba(5,5,9,0.55) 100%)',
+        background: 'radial-gradient(ellipse 92% 82% at 50% 40%, transparent 60%, rgba(230,226,244,0.5) 100%)',
       }} />
     </div>
   )

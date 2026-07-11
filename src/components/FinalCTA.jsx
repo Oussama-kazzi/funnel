@@ -55,9 +55,9 @@ export default function FinalCTA({ onCTA }) {
           borderRadius: 32,
           padding: 'clamp(48px, 6vw, 88px) clamp(24px, 5vw, 72px)',
           overflow: 'hidden',
-          background: 'linear-gradient(165deg, rgba(139,92,246,0.10) 0%, rgba(12,10,24,0.6) 45%, rgba(8,6,15,0.7) 100%)',
-          border: '1px solid rgba(139,92,246,0.18)',
-          boxShadow: '0 40px 100px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)',
+          background: 'linear-gradient(150deg, #7C3AED 0%, #6D28D9 55%, #5B21B6 100%)',
+          border: '1px solid rgba(139,92,246,0.4)',
+          boxShadow: '0 40px 100px rgba(109,40,217,0.35), inset 0 1px 0 rgba(255,255,255,0.12)',
           opacity: visible ? 1 : 0,
           transform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,32px,0)',
           transition: `opacity 1s ${EASE}, transform 1s ${EASE}`,
@@ -72,7 +72,7 @@ export default function FinalCTA({ onCTA }) {
         }} />
         <div style={{
           position: 'absolute', inset: 0, zIndex: 0, opacity: 0.4,
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(26,21,38,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(26,21,38,0.05) 1px, transparent 1px)',
           backgroundSize: '56px 56px',
           maskImage: 'radial-gradient(ellipse 70% 70% at 50% 40%, #000 30%, transparent 75%)',
           WebkitMaskImage: 'radial-gradient(ellipse 70% 70% at 50% 40%, #000 30%, transparent 75%)',
@@ -104,8 +104,8 @@ export default function FinalCTA({ onCTA }) {
           color: '#FFFFFF', lineHeight: 1.04,
           marginBottom: 20,
         }}>
-          Prêt à lancer votre{' '}
-          <span style={{ color: '#8B5CF6', textShadow: '0 0 24px rgba(139,92,246,0.4)' }}>
+          Prêt à lancer votre{' '} <br/>
+          <span style={{ color: '#E9D5FF', textShadow: '0 0 24px rgba(233,213,255,0.5)' }}>
             <TextType
               text={['projet ?', 'site web ?', 'landing page ?', 'croissance ?']}
               as="span"
@@ -122,7 +122,7 @@ export default function FinalCTA({ onCTA }) {
 
         <p style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: 17, color: 'rgba(255,255,255,0.5)',
+          fontSize: 17, color: 'rgba(255,255,255,0.8)',
           maxWidth: 540, margin: '0 auto 36px',
           lineHeight: 1.65,
         }}>
@@ -137,34 +137,16 @@ export default function FinalCTA({ onCTA }) {
           >
             <button
               onClick={handleOpen}
-              aria-label="Planifier un appel gratuit"
-              className="lime-cta-circle"
-              style={{
-                width: 60, height: 60, borderRadius: '50%',
-                background: '#8B5CF6', border: 'none', cursor: 'pointer',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: `transform 0.5s ${SPRING}, box-shadow 0.35s ease`,
-                boxShadow: '0 6px 28px rgba(139,92,246,0.5)',
-                flexShrink: 0,
-              }}
-            >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="17" y1="7" x2="7" y2="17" />
-                <polyline points="17 17 7 17 7 7" />
-              </svg>
-            </button>
-            <button
-              onClick={handleOpen}
               className="lime-cta-pill"
               style={{
-                background: '#8B5CF6', color: '#FFFFFF',
+                background: '#FFFFFF', color: '#6D28D9',
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontWeight: 700, fontSize: 17,
                 padding: '18px 40px',
                 border: 'none', borderRadius: 100, cursor: 'pointer',
                 letterSpacing: '-0.005em',
                 transition: `transform 0.5s ${SPRING}, box-shadow 0.35s ease`,
-                boxShadow: '0 6px 36px rgba(139,92,246,0.5)',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
               }}
             >
               Planifier un appel gratuit
@@ -177,15 +159,15 @@ export default function FinalCTA({ onCTA }) {
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 9,
                 padding: '18px 30px',
-                background: 'rgba(255,255,255,0.05)',
-                border: '1px solid rgba(255,255,255,0.14)',
+                background: 'rgba(255,255,255,0.12)',
+                border: '1px solid rgba(255,255,255,0.28)',
                 borderRadius: 100, cursor: 'pointer', textDecoration: 'none',
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontWeight: 700, fontSize: 16, color: '#FFFFFF',
                 transition: 'background 0.25s ease, border-color 0.25s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1)',
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.24)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.14)'; e.currentTarget.style.transform = 'translateY(0)' }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.45)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.28)'; e.currentTarget.style.transform = 'translateY(0)' }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true">
                 <path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-1.9-1.2 7.2 7.2 0 01-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4c0-.1-.5-1.3-.7-1.8s-.4-.4-.5-.4h-.5a1 1 0 00-.7.3A2.8 2.8 0 006 8.9c0 1.7 1.2 3.3 1.4 3.5s2.4 3.7 5.9 5.1c2.9 1.1 2.9.8 3.5.7a2.5 2.5 0 001.6-1.2 2 2 0 00.2-1.2c-.1-.1-.3-.2-.5-.3z"/>
@@ -205,16 +187,16 @@ export default function FinalCTA({ onCTA }) {
               <div key={p.title} style={{ display: 'flex', alignItems: 'center', gap: 12, textAlign: 'left' }}>
                 <span style={{
                   width: 36, height: 36, borderRadius: 10, flexShrink: 0,
-                  background: 'rgba(139,92,246,0.12)', border: '1px solid rgba(139,92,246,0.28)',
+                  background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.28)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </span>
                 <span>
                   <span style={{ display: 'block', fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, fontWeight: 700, color: '#FFFFFF' }}>{p.title}</span>
-                  <span style={{ display: 'block', fontFamily: "'Inter', sans-serif", fontSize: 12.5, color: 'rgba(255,255,255,0.42)' }}>{p.sub}</span>
+                  <span style={{ display: 'block', fontFamily: "'Inter', sans-serif", fontSize: 12.5, color: 'rgba(255,255,255,0.65)' }}>{p.sub}</span>
                 </span>
               </div>
             ))}
@@ -225,15 +207,15 @@ export default function FinalCTA({ onCTA }) {
           <button
             onClick={() => setShowForm(false)}
             style={{
-              background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)',
+              background: 'rgba(26,21,38,0.09)', border: '1px solid rgba(26,21,38,0.14)',
               borderRadius: 100, padding: '12px 24px',
               fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 500,
-              color: 'rgba(255,255,255,0.5)', cursor: 'pointer',
+              color: 'rgba(26,21,38,0.72)', cursor: 'pointer',
               display: 'inline-flex', alignItems: 'center', gap: 8,
               transition: 'background 0.2s ease, color 0.2s ease',
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'rgba(255,255,255,0.75)' }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(26,21,38,0.09)'; e.currentTarget.style.color = 'rgba(26,21,38,0.92)' }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(26,21,38,0.09)'; e.currentTarget.style.color = 'rgba(26,21,38,0.72)' }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="18 15 12 9 6 15" />
@@ -263,11 +245,11 @@ Masquer le formulaire
       >
         {/* Card */}
         <div style={{
-          background: 'rgba(255,255,255,0.03)',
-          border: '1px solid rgba(139,92,246,0.12)',
+          background: '#FFFFFF',
+          border: '1px solid rgba(26,21,38,0.08)',
           borderRadius: 20,
           overflow: 'hidden',
-          boxShadow: '0 0 0 1px rgba(139,92,246,0.04), 0 24px 60px rgba(0,0,0,0.45), 0 0 60px rgba(139,92,246,0.06)',
+          boxShadow: '0 24px 70px rgba(26,21,38,0.25)',
         }}>
           {/* Card header */}
           <div style={{
@@ -288,7 +270,7 @@ Masquer le formulaire
               <h3 style={{
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: 22, fontWeight: 800,
-                color: '#FFFFFF', letterSpacing: '-0.03em',
+                color: '#1A1526', letterSpacing: '-0.03em',
                 margin: 0,
               }}>
 Recevez une recommandation gratuite

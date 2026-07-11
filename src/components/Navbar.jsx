@@ -28,11 +28,11 @@ export default function Navbar({ onCTA }) {
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         transition: `background 0.5s ${EASE}, border-color 0.5s ${EASE}, box-shadow 0.5s ${EASE}, backdrop-filter 0.5s ${EASE}`,
-        background: scrolled ? 'rgba(5, 8, 22, 0.72)' : 'transparent',
-        borderBottom: `1px solid ${scrolled ? 'rgba(255,255,255,0.07)' : 'transparent'}`,
+        background: scrolled ? 'rgba(251, 250, 254, 0.78)' : 'transparent',
+        borderBottom: `1px solid ${scrolled ? 'rgba(26,21,38,0.08)' : 'transparent'}`,
         backdropFilter: scrolled ? 'blur(18px) saturate(160%)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(18px) saturate(160%)' : 'none',
-        boxShadow: scrolled ? '0 1px 40px rgba(0,0,0,0.35)' : 'none',
+        boxShadow: scrolled ? '0 4px 30px rgba(26,21,38,0.06)' : 'none',
       }}
     >
       <div style={{
@@ -61,6 +61,7 @@ export default function Navbar({ onCTA }) {
               height: scrolled ? 56 : 64,
               width: 'auto',
               display: 'block',
+              filter: 'invert(1) brightness(0.15)',
               transition: `height 0.45s ${EASE}`,
             }}
           />
@@ -72,8 +73,8 @@ export default function Navbar({ onCTA }) {
           style={{
             display: 'flex', alignItems: 'center',
             gap: 4,
-            background: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(255,255,255,0.06)',
+            background: 'rgba(26,21,38,0.05)',
+            border: '1px solid rgba(26,21,38,0.09)',
             borderRadius: 100,
             padding: '6px',
             backdropFilter: 'blur(12px)',
@@ -92,11 +93,11 @@ export default function Navbar({ onCTA }) {
                   position: 'relative',
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 13, fontWeight: 500,
-                  color: isHovered ? '#FFFFFF' : 'rgba(255,255,255,0.6)',
+                  color: isHovered ? '#7C3AED' : 'rgba(26,21,38,0.7)',
                   textDecoration: 'none',
                   padding: '8px 16px',
                   borderRadius: 100,
-                  background: isHovered ? 'rgba(139,92,246,0.08)' : 'transparent',
+                  background: isHovered ? 'rgba(139,92,246,0.1)' : 'transparent',
                   letterSpacing: '-0.005em',
                   transition: `color 0.3s ${EASE}, background 0.3s ${EASE}`,
                   display: 'inline-flex', alignItems: 'center', gap: 6,

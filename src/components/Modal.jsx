@@ -29,31 +29,31 @@ export default function Modal({ open, onClose }) {
       <style>{`
         .mo-overlay {
           position: fixed; inset: 0; z-index: 200;
-          background: rgba(4,6,18,0.88);
-          backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+          background: rgba(26,21,38,0.45);
+          backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
           display: flex; align-items: center; justify-content: center;
           padding: 20px;
           transition: opacity 0.35s ${EASE};
         }
         .mo-card {
           position: relative; width: 100%; max-width: 620px; max-height: 92vh;
-          background: #070914;
-          border: 1px solid rgba(255,255,255,0.09);
+          background: #FFFFFF;
+          border: 1px solid rgba(26,21,38,0.08);
           border-radius: 24px;
-          box-shadow: 0 0 0 1px rgba(139,92,246,0.04), 0 32px 80px rgba(0,0,0,0.7), 0 0 80px rgba(139,92,246,0.05);
+          box-shadow: 0 32px 90px rgba(26,21,38,0.28), 0 0 0 1px rgba(139,92,246,0.06);
           display: flex; flex-direction: column; overflow: hidden;
           transition: transform 0.45s ${EASE}, opacity 0.35s ${EASE};
         }
         .mo-close {
           position: absolute; top: 16px; right: 16px; z-index: 5;
           width: 34px; height: 34px; border-radius: 50%;
-          background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+          background: rgba(26,21,38,0.09); border: 1px solid rgba(26,21,38,0.09);
           display: flex; align-items: center; justify-content: center;
-          cursor: pointer; color: rgba(255,255,255,0.5);
+          cursor: pointer; color: rgba(26,21,38,0.72);
           font-size: 20px; line-height: 1;
           transition: background 0.2s ease, color 0.2s ease, transform 0.3s ${EASE};
         }
-        .mo-close:hover { background: rgba(255,255,255,0.13); color: rgba(255,255,255,0.9); transform: rotate(90deg); }
+        .mo-close:hover { background: rgba(26,21,38,0.14); color: rgba(26,21,38,0.92); transform: rotate(90deg); }
         @media (max-width: 560px) { .mo-card { border-radius: 18px; } }
       `}</style>
 
@@ -90,7 +90,7 @@ export default function Modal({ open, onClose }) {
             <h2 style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 'clamp(26px, 4vw, 36px)',
-              fontWeight: 800, color: '#FFFFFF',
+              fontWeight: 800, color: '#1A1526',
               letterSpacing: '-0.03em', lineHeight: 1.1,
               margin: '0 0 20px',
             }}>

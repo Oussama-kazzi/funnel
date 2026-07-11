@@ -154,8 +154,8 @@ function CaseCard({ item, index }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.025)',
-        border: `1px solid ${hovered ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.07)'}`,
+        background: hovered ? 'rgba(26,21,38,0.05)' : 'rgba(26,21,38,0.05)',
+        border: `1px solid ${hovered ? 'rgba(26,21,38,0.14)' : 'rgba(26,21,38,0.09)'}`,
         borderRadius: 16,
         overflow: 'hidden',
         display: 'flex',
@@ -194,7 +194,7 @@ function CaseCard({ item, index }) {
           background: 'rgba(0,0,0,0.6)',
           backdropFilter: 'blur(12px)',
           WebkitBackdropFilter: 'blur(12px)',
-          border: '1px solid rgba(255,255,255,0.12)',
+          border: '1px solid rgba(26,21,38,0.14)',
           borderRadius: 8, padding: '6px 12px',
           display: 'flex', flexDirection: 'column', alignItems: 'flex-end',
         }}>
@@ -205,7 +205,7 @@ function CaseCard({ item, index }) {
           }}>{item.result}</span>
           <span style={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: 9, color: 'rgba(255,255,255,0.45)',
+            fontSize: 9, color: 'rgba(26,21,38,0.72)',
             letterSpacing: '0.04em', marginTop: 2,
           }}>{item.resultLabel}</span>
         </div>
@@ -213,7 +213,7 @@ function CaseCard({ item, index }) {
         <div style={{
           position: 'absolute', bottom: 12, left: 14,
           fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.25)',
+          fontSize: 11, fontWeight: 700, color: 'rgba(26,21,38,0.40)',
           letterSpacing: '0.06em',
         }}>{item.num}</div>
       </div>
@@ -225,7 +225,7 @@ function CaseCard({ item, index }) {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
           <span style={{
             fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontSize: 17, fontWeight: 700, color: '#FFFFFF',
+            fontSize: 17, fontWeight: 700, color: '#1A1526',
             letterSpacing: '-0.02em',
           }}>{item.name}</span>
           <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
@@ -246,7 +246,7 @@ function CaseCard({ item, index }) {
         </div>
 
         {/* Divider */}
-        <div style={{ height: 1, background: 'rgba(255,255,255,0.06)' }} />
+        <div style={{ height: 1, background: 'rgba(26,21,38,0.09)' }} />
 
         {/* CTA button */}
         <a
@@ -256,14 +256,14 @@ function CaseCard({ item, index }) {
           style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
             padding: '12px 0',
-            border: `1px solid ${hovered ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.09)'}`,
+            border: `1px solid ${hovered ? 'rgba(26,21,38,0.14)' : 'rgba(26,21,38,0.09)'}`,
             borderRadius: 8,
             fontFamily: "'Inter', sans-serif",
             fontSize: 11, fontWeight: 600,
             letterSpacing: '0.12em', textTransform: 'uppercase',
-            color: hovered ? '#FFFFFF' : 'rgba(255,255,255,0.5)',
+            color: hovered ? '#FFFFFF' : 'rgba(26,21,38,0.72)',
             textDecoration: 'none',
-            background: hovered ? 'rgba(255,255,255,0.05)' : 'transparent',
+            background: hovered ? 'rgba(26,21,38,0.05)' : 'transparent',
             transition: 'color 0.25s ease, border-color 0.25s ease, background 0.25s ease',
           }}
         >
@@ -300,7 +300,7 @@ export default function CaseStudies() {
             <h2 style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 'clamp(28px, 6.5vw, 54px)', fontWeight: 800,
-              letterSpacing: '-0.04em', color: '#FFFFFF',
+              letterSpacing: '-0.04em', color: '#1A1526',
               lineHeight: 1.05, margin: 0,
             }}>
               Des projets dont<br />nous sommes fiers.
@@ -308,7 +308,7 @@ export default function CaseStudies() {
           </div>
           <p style={{
             fontFamily: "'Inter', sans-serif", fontSize: 16,
-            color: 'rgba(255,255,255,0.4)', maxWidth: 380, lineHeight: 1.7,
+            color: 'rgba(26,21,38,0.55)', maxWidth: 380, lineHeight: 1.7,
           }}>
             Des entreprises qui nous ont fait confiance et ont lancé un site qui performe.
           </p>
@@ -326,9 +326,9 @@ export default function CaseStudies() {
                 letterSpacing: '0.1em', textTransform: 'uppercase',
                 padding: '7px 16px',
                 borderRadius: 100,
-                border: `1px solid ${filter === f ? '#8B5CF6' : 'rgba(255,255,255,0.12)'}`,
-                background: filter === f ? 'rgba(139,92,246,0.1)' : 'rgba(255,255,255,0.03)',
-                color: filter === f ? '#8B5CF6' : 'rgba(255,255,255,0.45)',
+                border: `1px solid ${filter === f ? '#8B5CF6' : 'rgba(26,21,38,0.14)'}`,
+                background: filter === f ? 'rgba(139,92,246,0.1)' : 'rgba(26,21,38,0.05)',
+                color: filter === f ? '#8B5CF6' : 'rgba(26,21,38,0.72)',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
                 whiteSpace: 'nowrap',
@@ -357,8 +357,8 @@ export default function CaseStudies() {
           to   { opacity: 1; transform: translateY(0); }
         }
         .cs-filters button:hover {
-          border-color: rgba(255,255,255,0.22) !important;
-          color: rgba(255,255,255,0.7) !important;
+          border-color: rgba(26,21,38,0.40) !important;
+          color: rgba(26,21,38,0.92) !important;
         }
         @media (max-width: 768px) {
           .cs-section { padding: 56px 20px 48px !important; }

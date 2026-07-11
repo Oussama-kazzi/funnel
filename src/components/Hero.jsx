@@ -56,7 +56,7 @@ export default function Hero({ onCTA }) {
       {/* Subtle tech grid, fades toward center */}
       <div style={{
         position: 'absolute', inset: 0, zIndex: 0,
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
+        backgroundImage: 'linear-gradient(rgba(26,21,38,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(26,21,38,0.05) 1px, transparent 1px)',
         backgroundSize: '80px 80px',
         maskImage: 'radial-gradient(ellipse 90% 70% at 50% 0%, #000 15%, transparent 70%)',
         WebkitMaskImage: 'radial-gradient(ellipse 90% 70% at 50% 0%, #000 15%, transparent 70%)',
@@ -79,7 +79,7 @@ export default function Hero({ onCTA }) {
             fontWeight: 800,
             lineHeight: 1.06,
             letterSpacing: '-0.04em',
-            color: '#FFFFFF',
+            color: '#1A1526',
             margin: '0 0 20px',
             ...fade(0.1),
           }}
@@ -104,7 +104,7 @@ export default function Hero({ onCTA }) {
 
         {/* Subheading */}
         <p className="hero-sub" style={{ ...fade(0.2) }}>
-          Notre philosophie&nbsp;: <strong style={{ color: 'rgba(255,255,255,0.85)', fontWeight: 500 }}>payez seulement si vous êtes satisfait.</strong>{' '}
+          Notre philosophie&nbsp;: {' '}
           Nous concevons des sites web, landing pages et solutions digitales qui attirent, engagent et convertissent.
         </p>
 
@@ -175,13 +175,13 @@ export default function Hero({ onCTA }) {
         .hero-badge {
           display: inline-flex; align-items: center; gap: 9px;
           padding: 7px 15px; margin-bottom: 26px;
-          background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(255,255,255,0.09);
+          background: rgba(26,21,38,0.05);
+          border: 1px solid rgba(26,21,38,0.09);
           border-radius: 100px;
           font-family: 'Inter', sans-serif;
           font-size: 11px; font-weight: 600;
           letter-spacing: 0.14em; text-transform: uppercase;
-          color: rgba(255,255,255,0.62);
+          color: rgba(26,21,38,0.92);
           backdrop-filter: blur(8px);
         }
         .hero-badge-dot {
@@ -201,7 +201,7 @@ export default function Hero({ onCTA }) {
         .hero-sub {
           font-family: 'Inter', sans-serif;
           font-size: 17px; font-weight: 400;
-          color: rgba(255,255,255,0.55);
+          color: rgba(26,21,38,0.72);
           line-height: 1.65;
           max-width: 620px;
           margin: 0 auto 34px;
@@ -231,16 +231,16 @@ export default function Hero({ onCTA }) {
         .hero-btn-ghost {
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-weight: 600; font-size: 15px;
-          color: rgba(255,255,255,0.7); text-decoration: none;
+          color: rgba(26,21,38,0.92); text-decoration: none;
           padding: 15px 26px;
-          border: 1px solid rgba(255,255,255,0.14);
+          border: 1px solid rgba(26,21,38,0.14);
           border-radius: 100px;
           transition: color 0.3s ${EASE}, border-color 0.3s ${EASE}, background 0.3s ${EASE};
         }
         .hero-btn-ghost:hover {
           color: #FFFFFF;
-          border-color: rgba(255,255,255,0.28);
-          background: rgba(255,255,255,0.04);
+          border-color: rgba(26,21,38,0.40);
+          background: rgba(26,21,38,0.05);
         }
 
         /* Showcase card */
@@ -261,8 +261,8 @@ export default function Hero({ onCTA }) {
           position: relative; z-index: 1;
           border-radius: 20px;
           overflow: hidden;
-          border: 1px solid rgba(255,255,255,0.1);
-          box-shadow: 0 40px 100px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06);
+          border: 1px solid rgba(26,21,38,0.09);
+          box-shadow: 0 40px 100px rgba(0,0,0,0.6), inset 0 1px 0 rgba(26,21,38,0.09);
           background: #0c0a16;
           aspect-ratio: 16 / 8.5;
         }
@@ -281,11 +281,11 @@ export default function Hero({ onCTA }) {
           padding: 9px 16px;
           background: rgba(10,8,20,0.72);
           backdrop-filter: blur(14px);
-          border: 1px solid rgba(255,255,255,0.12);
+          border: 1px solid rgba(26,21,38,0.14);
           border-radius: 100px;
           font-family: 'Inter', sans-serif;
           font-size: 12.5px; font-weight: 600;
-          color: rgba(255,255,255,0.85);
+          color: rgba(26,21,38,0.92);
         }
         .hero-chip-dot {
           width: 7px; height: 7px; border-radius: 50%;
@@ -309,13 +309,13 @@ export default function Hero({ onCTA }) {
           padding: 8px 12px;
           background: rgba(10,8,20,0.55);
           backdrop-filter: blur(14px);
-          border: 1px solid rgba(255,255,255,0.1);
+          border: 1px solid rgba(26,21,38,0.09);
           border-radius: 100px;
         }
         .hero-dot {
           width: 8px; height: 8px; border-radius: 50%;
           border: none; padding: 0; cursor: pointer;
-          background: rgba(255,255,255,0.28);
+          background: rgba(26,21,38,0.40);
           transition: width 0.4s ${EASE}, background 0.4s ${EASE};
         }
         .hero-dot.active {

@@ -13,8 +13,8 @@ html {
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background: #050509;
-  color: #E7E7EF;
+  background: #FBFAFE;
+  color: #1A1526;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -26,8 +26,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::selection {
-  background: rgba(139, 92, 246, 0.35);
-  color: #fff;
+  background: rgba(139, 92, 246, 0.22);
+  color: #1A1526;
 }
 
 #root {

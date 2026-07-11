@@ -87,8 +87,8 @@ export default function ClientLogos() {
           background: linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,0.08) 20%,
-            rgba(255,255,255,0.08) 80%,
+            rgba(26,21,38,0.09) 20%,
+            rgba(26,21,38,0.09) 80%,
             transparent
           );
         }
@@ -108,14 +108,14 @@ export default function ClientLogos() {
           font-weight: 600;
           letter-spacing: 0.22em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.25);
+          color: rgba(26,21,38,0.40);
           white-space: nowrap;
         }
         .cl-rule-line {
           display: block;
           width: 40px;
           height: 1px;
-          background: rgba(255,255,255,0.10);
+          background: rgba(26,21,38,0.09);
         }
 
         /* ── marquee ── */
@@ -160,7 +160,7 @@ export default function ClientLogos() {
           justify-content: center;
           padding: 12px 40px;
           box-sizing: border-box;
-          border-right: 1px solid rgba(255,255,255,0.06);
+          border-right: 1px solid rgba(26,21,38,0.09);
           transition: filter 0.3s ease, opacity 0.3s ease;
           filter: brightness(1.15) contrast(1.08) saturate(1.1);
           opacity: 1;

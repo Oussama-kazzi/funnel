@@ -124,8 +124,8 @@ function PortfolioCard({ project }) {
         minWidth: CARD_W,
         height: CARD_H,
         borderRadius: 18,
-        border: `1px solid ${hovered ? `${accent}40` : 'rgba(255,255,255,0.08)'}`,
-        background: 'rgba(255,255,255,0.02)',
+        border: `1px solid ${hovered ? `${accent}40` : 'rgba(26,21,38,0.09)'}`,
+        background: 'rgba(26,21,38,0.05)',
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
@@ -180,7 +180,7 @@ function PortfolioCard({ project }) {
       }}>
         <div style={{
           fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontSize: 17, fontWeight: 800, color: '#FFFFFF',
+          fontSize: 17, fontWeight: 800, color: '#1A1526',
           letterSpacing: '-0.025em', lineHeight: 1.2,
           marginBottom: 8,
           flexShrink: 0,
@@ -190,7 +190,7 @@ function PortfolioCard({ project }) {
 
         <p style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: 12.5, color: 'rgba(255,255,255,0.38)',
+          fontSize: 12.5, color: 'rgba(26,21,38,0.55)',
           lineHeight: 1.65, margin: 0,
           flex: 1,
           display: '-webkit-box',
@@ -209,8 +209,8 @@ function PortfolioCard({ project }) {
             rel="noopener noreferrer"
             style={{
               width: 32, height: 32, borderRadius: '50%',
-              background: hovered ? accent : 'rgba(255,255,255,0.05)',
-              border: `1px solid ${hovered ? accent : 'rgba(255,255,255,0.1)'}`,
+              background: hovered ? accent : 'rgba(26,21,38,0.05)',
+              border: `1px solid ${hovered ? accent : 'rgba(26,21,38,0.09)'}`,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               textDecoration: 'none', flexShrink: 0,
               transition: 'background 0.25s ease, border-color 0.25s ease',
@@ -218,7 +218,7 @@ function PortfolioCard({ project }) {
           >
             <svg width="11" height="11" viewBox="0 0 13 13" fill="none">
               <path d="M2.5 10.5L10.5 2.5M10.5 2.5H5M10.5 2.5V8"
-                stroke={hovered ? '#000' : 'rgba(255,255,255,0.55)'}
+                stroke={hovered ? '#000' : 'rgba(26,21,38,0.72)'}
                 strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"
               />
             </svg>
@@ -240,26 +240,26 @@ function SectionHeading() {
         <span style={{
           fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600,
           letterSpacing: '0.22em', textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.25)',
+          color: 'rgba(26,21,38,0.40)',
         }}>※</span>
         <span style={{
           fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600,
           letterSpacing: '0.22em', textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.28)',
+          color: 'rgba(26,21,38,0.40)',
         }}>Nos réalisations</span>
         <span style={{
           fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600,
           letterSpacing: '0.22em', textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.25)',
+          color: 'rgba(26,21,38,0.40)',
         }}>※</span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
         <span style={{
-          fontFamily: "'Inter', sans-serif", fontSize: 11, color: 'rgba(255,255,255,0.2)',
+          fontFamily: "'Inter', sans-serif", fontSize: 11, color: 'rgba(26,21,38,0.40)',
           letterSpacing: '0.04em',
         }}>{projects.length} projets</span>
         <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
-          <path d="M0 5h14M10 1l4 4-4 4" stroke="rgba(255,255,255,0.2)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M0 5h14M10 1l4 4-4 4" stroke="rgba(26,21,38,0.40)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
     </div>
@@ -273,11 +273,11 @@ function MobileSnapScroll() {
       <div style={{ padding: '0 20px', marginBottom: 28 }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)' }}>※</span>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)' }}>Nos réalisations</span>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)' }}>※</span>
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(26,21,38,0.40)' }}>※</span>
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(26,21,38,0.40)' }}>Nos réalisations</span>
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(26,21,38,0.40)' }}>※</span>
           </div>
-          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: 'rgba(255,255,255,0.2)' }}>{projects.length} projets</span>
+          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: 'rgba(26,21,38,0.40)' }}>{projects.length} projets</span>
         </div>
       </div>
       <div className="hp-snap-track">
@@ -419,7 +419,7 @@ export default function HorizontalPortfolio() {
         {/* Progress bar */}
         <div style={{
           position: 'absolute', bottom: 32, left: 80, right: 80,
-          height: 1, background: 'rgba(255,255,255,0.06)',
+          height: 1, background: 'rgba(26,21,38,0.09)',
         }}>
           <motion.div style={{
             height: '100%',

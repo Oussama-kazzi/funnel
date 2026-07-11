@@ -38,7 +38,7 @@ function StatCard({ num, label, desc }) {
       onMouseLeave={() => setHovered(false)}
       style={{
         background: hovered ? 'rgba(139,92,246,0.04)' : '#0A0A0A',
-        border: `2px solid ${hovered ? 'rgba(139,92,246,0.3)' : 'rgba(255,255,255,0.08)'}`,
+        border: `2px solid ${hovered ? 'rgba(139,92,246,0.3)' : 'rgba(26,21,38,0.09)'}`,
         borderRadius: 8,
         padding: '44px 36px',
         position: 'relative',
@@ -61,14 +61,14 @@ function StatCard({ num, label, desc }) {
       <div style={{
         fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: 15, fontWeight: 700,
-        color: '#FFFFFF', marginBottom: 8,
+        color: '#1A1526', marginBottom: 8,
         textTransform: 'uppercase', letterSpacing: '-0.01em',
       }}>
         {label}
       </div>
       <div style={{
         fontFamily: "'Inter', sans-serif",
-        fontSize: 13, color: 'rgba(255,255,255,0.4)',
+        fontSize: 13, color: 'rgba(26,21,38,0.55)',
         lineHeight: 1.6,
       }}>
         {desc}
@@ -106,7 +106,7 @@ export default function Results() {
             fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 'clamp(32px, 4.5vw, 54px)',
             fontWeight: 800, letterSpacing: '-0.03em',
-            color: '#FFFFFF', lineHeight: 1.1, margin: 0,
+            color: '#1A1526', lineHeight: 1.1, margin: 0,
           }}>
             Built on outcomes, not aesthetics.
           </h2>

@@ -64,7 +64,7 @@ export default function App() {
             fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 'clamp(28px, 4.5vw, 52px)',
             fontWeight: 800, letterSpacing: '-0.04em',
-            color: '#FFFFFF', lineHeight: 1.1,
+            color: '#1A1526', lineHeight: 1.1,
             maxWidth: 820, margin: '0 auto',
           }}>
             Vous avez l’idée, nous avons{' '}

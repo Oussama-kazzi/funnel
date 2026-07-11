@@ -91,7 +91,7 @@ export default function VideoTicker() {
           height: 200px;
           border-radius: 16px;
           overflow: hidden;
-          border: 1px solid rgba(255,255,255,0.08);
+          border: 1px solid rgba(26,21,38,0.09);
           box-shadow: 0 20px 50px rgba(0,0,0,0.45);
           background: #0a0912;
         }

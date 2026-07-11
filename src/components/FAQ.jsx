@@ -35,7 +35,7 @@ const categories = [
 
 function FAQItem({ q, a, open, onToggle }) {
   return (
-    <div style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+    <div style={{ borderBottom: '1px solid rgba(26,21,38,0.09)' }}>
       <button
         onClick={onToggle}
         style={{
@@ -47,7 +47,7 @@ function FAQItem({ q, a, open, onToggle }) {
         <span style={{
           fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 17, fontWeight: 600,
-          color: open ? '#FFFFFF' : 'rgba(255,255,255,0.82)',
+          color: open ? '#FFFFFF' : 'rgba(26,21,38,0.92)',
           lineHeight: 1.35, letterSpacing: '-0.01em',
           transition: 'color 0.25s ease',
         }}>
@@ -55,8 +55,8 @@ function FAQItem({ q, a, open, onToggle }) {
         </span>
         <span style={{
           width: 30, height: 30, borderRadius: '50%', flexShrink: 0,
-          background: open ? '#8B5CF6' : 'rgba(255,255,255,0.06)',
-          border: `1px solid ${open ? '#8B5CF6' : 'rgba(255,255,255,0.1)'}`,
+          background: open ? '#8B5CF6' : 'rgba(26,21,38,0.09)',
+          border: `1px solid ${open ? '#8B5CF6' : 'rgba(26,21,38,0.09)'}`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           color: open ? '#FFFFFF' : '#FFFFFF',
           fontSize: 20, lineHeight: 1, fontWeight: 300,
@@ -73,7 +73,7 @@ function FAQItem({ q, a, open, onToggle }) {
       }}>
         <p style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: 15, color: 'rgba(255,255,255,0.48)',
+          fontSize: 15, color: 'rgba(26,21,38,0.72)',
           lineHeight: 1.75, paddingBottom: 26, margin: 0,
         }}>
           {a}
@@ -125,7 +125,7 @@ export default function FAQ() {
             fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 'clamp(26px, 6vw, 50px)',
             fontWeight: 800, letterSpacing: '-0.04em',
-            color: '#FFFFFF', lineHeight: 1.05, margin: '0 0 20px',
+            color: '#1A1526', lineHeight: 1.05, margin: '0 0 20px',
           }}>
             Questions{' '}
             <em style={{ fontStyle: 'italic', color: '#8B5CF6', fontWeight: 700, textShadow: '0 0 40px rgba(139,92,246,0.3)' }}>
@@ -135,7 +135,7 @@ export default function FAQ() {
 
           <p style={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: 16, color: 'rgba(255,255,255,0.4)',
+            fontSize: 16, color: 'rgba(26,21,38,0.55)',
             lineHeight: 1.7, maxWidth: 580, margin: 0,
           }}>
             Les questions qu’on nous pose le plus souvent — réponses claires et directes.
@@ -159,23 +159,23 @@ export default function FAQ() {
                   letterSpacing: '0.04em',
                   padding: '8px 16px',
                   borderRadius: 100,
-                  border: `1px solid ${active ? 'rgba(139,92,246,0.4)' : 'rgba(255,255,255,0.1)'}`,
-                  background: active ? 'rgba(139,92,246,0.1)' : 'rgba(255,255,255,0.04)',
-                  color: active ? '#8B5CF6' : 'rgba(255,255,255,0.45)',
+                  border: `1px solid ${active ? 'rgba(139,92,246,0.4)' : 'rgba(26,21,38,0.09)'}`,
+                  background: active ? 'rgba(139,92,246,0.1)' : 'rgba(26,21,38,0.05)',
+                  color: active ? '#8B5CF6' : 'rgba(26,21,38,0.72)',
                   cursor: 'pointer',
                   transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
                   whiteSpace: 'nowrap',
                 }}
                 onMouseEnter={e => {
                   if (!active) {
-                    e.currentTarget.style.background = 'rgba(255,255,255,0.07)'
-                    e.currentTarget.style.color = 'rgba(255,255,255,0.7)'
+                    e.currentTarget.style.background = 'rgba(26,21,38,0.09)'
+                    e.currentTarget.style.color = 'rgba(26,21,38,0.92)'
                   }
                 }}
                 onMouseLeave={e => {
                   if (!active) {
-                    e.currentTarget.style.background = 'rgba(255,255,255,0.04)'
-                    e.currentTarget.style.color = 'rgba(255,255,255,0.45)'
+                    e.currentTarget.style.background = 'rgba(26,21,38,0.05)'
+                    e.currentTarget.style.color = 'rgba(26,21,38,0.72)'
                   }
                 }}
               >
@@ -186,7 +186,7 @@ export default function FAQ() {
         </div>
 
         {/* Accordion */}
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+        <div style={{ borderTop: '1px solid rgba(26,21,38,0.09)' }}>
           {current.faqs.map((faq, i) => (
             <FAQItem
               key={`${activeTab}-${i}`}
@@ -200,7 +200,7 @@ export default function FAQ() {
         {/* Footer count */}
         <p style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: 12, color: 'rgba(255,255,255,0.2)',
+          fontSize: 12, color: 'rgba(26,21,38,0.40)',
           marginTop: 32, textAlign: 'right',
           letterSpacing: '0.06em',
         }}>

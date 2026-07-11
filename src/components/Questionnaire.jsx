@@ -74,48 +74,48 @@ export const questions = [
 
 /* ─── CSS shared by modal and inline variants ─────────────────────── */
 const css = `
-  .q-prog-track { height: 2px; background: rgba(255,255,255,0.07); }
+  .q-prog-track { height: 2px; background: rgba(26,21,38,0.09); }
   .q-prog-fill  { height: 100%; background: ${LIME}; transition: width 0.5s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 0 8px rgba(139,92,246,0.45); }
-  .q-body { overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.1) transparent; }
+  .q-body { overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(26,21,38,0.09) transparent; }
   .q-body::-webkit-scrollbar { width: 4px; }
-  .q-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+  .q-body::-webkit-scrollbar-thumb { background: rgba(26,21,38,0.09); border-radius: 4px; }
   .q-anim { animation: qIn 0.38s cubic-bezier(0.16,1,0.3,1) forwards; }
   @keyframes qIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
   .q-opt {
     display:flex; align-items:center; gap:12px; width:100%;
-    padding:13px 16px; background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.09); border-radius:10px; cursor:pointer;
+    padding:13px 16px; background:rgba(26,21,38,0.05);
+    border:1px solid rgba(26,21,38,0.09); border-radius:10px; cursor:pointer;
     font-family:'Inter',sans-serif; font-size:14px; font-weight:500;
-    color:rgba(255,255,255,0.7); text-align:left;
+    color:rgba(26,21,38,0.92); text-align:left;
     transition:background .18s ease, border-color .18s ease, color .18s ease;
   }
-  .q-opt:hover { background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.16); color:rgba(255,255,255,0.9); }
-  .q-opt.q-sel  { background:rgba(139,92,246,0.08); border-color:rgba(139,92,246,0.35); color:#FFF; }
+  .q-opt:hover { background:rgba(26,21,38,0.09); border-color:rgba(26,21,38,0.14); color:rgba(26,21,38,0.92); }
+  .q-opt.q-sel  { background:rgba(139,92,246,0.1); border-color:rgba(139,92,246,0.5); color:#6D28D9; }
   .q-ltr {
     display:inline-flex; align-items:center; justify-content:center;
     width:24px; height:24px; min-width:24px;
-    border:1px solid rgba(255,255,255,0.18); border-radius:5px;
+    border:1px solid rgba(26,21,38,0.14); border-radius:5px;
     font-family:'Inter',sans-serif; font-size:11px; font-weight:700;
-    color:rgba(255,255,255,0.45); background:rgba(255,255,255,0.05); flex-shrink:0;
+    color:rgba(26,21,38,0.72); background:rgba(26,21,38,0.05); flex-shrink:0;
     transition:all .18s ease;
   }
   .q-opt.q-sel .q-ltr { background:rgba(139,92,246,0.18); border-color:rgba(139,92,246,0.5); color:${LIME}; }
   .q-input {
     width:100%; background:transparent; border:none;
-    border-bottom:1.5px solid rgba(255,255,255,0.18); padding:10px 0;
-    font-family:'Inter',sans-serif; font-size:16px; color:#FFF;
+    border-bottom:1.5px solid rgba(26,21,38,0.14); padding:10px 0;
+    font-family:'Inter',sans-serif; font-size:16px; color:#1A1526;
     outline:none; resize:none; display:block; transition:border-color .2s ease;
   }
   .q-input:focus { border-bottom-color:rgba(139,92,246,0.65); }
-  .q-input::placeholder { color:rgba(255,255,255,0.22); }
+  .q-input::placeholder { color:rgba(26,21,38,0.40); }
   .q-input-sm {
     width:100%; background:transparent; border:none;
-    border-bottom:1.5px solid rgba(255,255,255,0.18); padding:8px 0;
-    font-family:'Inter',sans-serif; font-size:15px; color:#FFF;
+    border-bottom:1.5px solid rgba(26,21,38,0.14); padding:8px 0;
+    font-family:'Inter',sans-serif; font-size:15px; color:#1A1526;
     outline:none; display:block; transition:border-color .2s ease;
   }
   .q-input-sm:focus { border-bottom-color:rgba(139,92,246,0.65); }
-  .q-input-sm::placeholder { color:rgba(255,255,255,0.22); }
+  .q-input-sm::placeholder { color:rgba(26,21,38,0.40); }
   .q-ok {
     display:inline-flex; align-items:center; gap:8px;
     background:${LIME}; color:#FFFFFF; border:none; border-radius:100px;
@@ -132,7 +132,7 @@ const css = `
   }
   .q-nav.qon  { background:rgba(139,92,246,0.12); }
   .q-nav.qon:hover { background:rgba(139,92,246,0.2); transform:translateY(-1px); }
-  .q-nav.qoff { background:rgba(255,255,255,0.04); cursor:default; opacity:0.35; }
+  .q-nav.qoff { background:rgba(26,21,38,0.05); cursor:default; opacity:0.35; }
   .q-cond-enter { animation: qCondIn 0.3s cubic-bezier(0.16,1,0.3,1) forwards; }
   @keyframes qCondIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
   @media (max-width:560px) {
@@ -212,7 +212,7 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
       {/* Step counter + nav */}
       {!submitted && (
         <div style={{ padding: '12px 40px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.28)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, color: 'rgba(26,21,38,0.40)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
             {step + 1} / {total}
           </span>
           <div style={{ display: 'flex', gap: 4 }}>
@@ -227,7 +227,7 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
       )}
 
       {/* Divider */}
-      <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', margin: '12px 0 0' }} />
+      <div style={{ height: 1, background: 'rgba(26,21,38,0.09)', margin: '12px 0 0' }} />
 
       {/* Body */}
       <div className="q-body" ref={bodyRef} style={{ padding: bodyPadding }}>
@@ -245,13 +245,13 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
-            <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 24, fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.03em', marginBottom: 12 }}>
+            <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 24, fontWeight: 800, color: '#1A1526', letterSpacing: '-0.03em', marginBottom: 12 }}>
               Bien reçu. Nous vous répondons sous 24h.
             </h3>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, maxWidth: 380, margin: '0 auto' }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: 'rgba(26,21,38,0.72)', lineHeight: 1.7, maxWidth: 380, margin: '0 auto' }}>
               Nous lisons chaque demande personnellement. Si votre projet correspond, nous vous proposons un appel gratuit pour en discuter et vous recommander la meilleure approche.
             </p>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: 'rgba(255,255,255,0.25)', lineHeight: 1.6, maxWidth: 340, margin: '16px auto 0' }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: 'rgba(26,21,38,0.40)', lineHeight: 1.6, maxWidth: 340, margin: '16px auto 0' }}>
               Pas d’emails automatiques, pas de newsletter non sollicitée. Juste une vraie réponse.
             </p>
           </div>
@@ -272,23 +272,23 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
                   {current.id}
                 </span>
               </div>
-              <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(17px, 2vw, 21px)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.4, margin: 0 }}>
+              <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(17px, 2vw, 21px)', fontWeight: 700, color: '#1A1526', letterSpacing: '-0.02em', lineHeight: 1.4, margin: 0 }}>
                 {current.text}
                 {!current.optional && <span style={{ color: LIME }}> *</span>}
-                {current.optional && <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 400, color: 'rgba(255,255,255,0.3)', marginLeft: 8 }}>optionnel</span>}
+                {current.optional && <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 400, color: 'rgba(26,21,38,0.55)', marginLeft: 8 }}>optionnel</span>}
               </h3>
             </div>
 
             {/* Subtitle */}
             {current.subtitle && (
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(255,255,255,0.35)', margin: '0 0 18px 40px', lineHeight: 1.5 }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(26,21,38,0.55)', margin: '0 0 18px 40px', lineHeight: 1.5 }}>
                 {current.subtitle}
               </p>
             )}
 
             {/* Multi-select counter */}
             {current.type === 'multi' && current.max && (
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', color: multiCount >= current.max ? LIME : 'rgba(255,255,255,0.22)', margin: '0 0 12px 40px', transition: 'color 0.2s ease' }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', color: multiCount >= current.max ? LIME : 'rgba(26,21,38,0.40)', margin: '0 0 12px 40px', transition: 'color 0.2s ease' }}>
                 {multiCount} / {current.max} sélectionné(s)
               </p>
             )}
@@ -301,7 +301,7 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
                 <div className="q-pair-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
                   {current.fields.map(f => (
                     <div key={f.key} style={{ marginBottom: 8 }}>
-                      <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: 4 }}>
+                      <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, color: 'rgba(26,21,38,0.55)', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: 4 }}>
                         {f.label}
                       </label>
                       <input
@@ -331,7 +331,7 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
                       {current.conditional && isSel(opt) && opt === current.conditional.triggerValue && (
                         <div className="q-cond-enter" style={{ marginTop: 8, paddingLeft: 36 }}>
                           {current.conditional.label && (
-                            <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: 4 }}>
+                            <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, color: 'rgba(26,21,38,0.55)', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: 4 }}>
                               {current.conditional.label}
                             </label>
                           )}
@@ -360,7 +360,7 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
                     onChange={e => setAnswers(a => ({ ...a, [step]: e.target.value }))}
                     onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); goNext() } }}
                   />
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: 'rgba(255,255,255,0.25)', margin: '6px 0 0' }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: 'rgba(26,21,38,0.40)', margin: '6px 0 0' }}>
                     <strong>Shift ⇧ + Entrée ↵</strong> pour un saut de ligne
                   </p>
                 </div>
