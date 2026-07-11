@@ -61,8 +61,9 @@ export default function Navbar({ onCTA }) {
               height: scrolled ? 56 : 64,
               width: 'auto',
               display: 'block',
-              filter: 'invert(1) brightness(0.15)',
-              transition: `height 0.45s ${EASE}`,
+              /* dark logo on the light scrolled bar; white logo over the dark hero */
+              filter: scrolled ? 'invert(1) brightness(0.15)' : 'brightness(0) invert(1)',
+              transition: `height 0.45s ${EASE}, filter 0.5s ${EASE}`,
             }}
           />
         </a>
@@ -73,12 +74,13 @@ export default function Navbar({ onCTA }) {
           style={{
             display: 'flex', alignItems: 'center',
             gap: 4,
-            background: 'rgba(26,21,38,0.05)',
-            border: '1px solid rgba(26,21,38,0.09)',
+            background: scrolled ? 'rgba(26,21,38,0.05)' : 'rgba(255,255,255,0.06)',
+            border: `1px solid ${scrolled ? 'rgba(26,21,38,0.09)' : 'rgba(255,255,255,0.12)'}`,
             borderRadius: 100,
             padding: '6px',
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
+            transition: `background 0.5s ${EASE}, border-color 0.5s ${EASE}`,
           }}
         >
           {links.map(l => {
@@ -93,7 +95,7 @@ export default function Navbar({ onCTA }) {
                   position: 'relative',
                   fontFamily: "'Mona Sans Variable', sans-serif",
                   fontSize: 13, fontWeight: 500,
-                  color: isHovered ? '#FED24B' : 'rgba(26,21,38,0.7)',
+                  color: isHovered ? '#FED24B' : (scrolled ? 'rgba(26,21,38,0.7)' : 'rgba(255,255,255,0.75)'),
                   textDecoration: 'none',
                   padding: '8px 16px',
                   borderRadius: 100,
@@ -125,8 +127,8 @@ export default function Navbar({ onCTA }) {
             onClick={onCTA}
             className="lime-cta-pill nav-cta"
             style={{
-              background: '#1A1526',
-              color: '#FED24B',
+              background: scrolled ? '#1A1526' : '#FED24B',
+              color: scrolled ? '#FED24B' : '#1A1526',
               fontFamily: "'Mona Sans Variable', sans-serif",
               fontWeight: 700, fontSize: 13,
               padding: '10px 20px',
@@ -136,7 +138,7 @@ export default function Navbar({ onCTA }) {
               display: 'inline-flex', alignItems: 'center', gap: 6,
               letterSpacing: '-0.005em',
               whiteSpace: 'nowrap',
-              transition: `transform 0.5s ${SPRING}`,
+              transition: `transform 0.5s ${SPRING}, background 0.4s ${EASE}, color 0.4s ${EASE}`,
             }}
           >
             <span className="nav-cta-full">Discutons de votre projet</span>
