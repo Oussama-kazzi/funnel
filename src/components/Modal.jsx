@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Questionnaire from './Questionnaire'
 
 const EASE = 'cubic-bezier(0.16, 1, 0.3, 1)'
-const LIME = '#8B5CF6'
+const LIME = '#FED24B'
 
 export default function Modal({ open, onClose }) {
   const [formKey, setFormKey] = useState(0)
@@ -40,7 +40,7 @@ export default function Modal({ open, onClose }) {
           background: #FFFFFF;
           border: 1px solid rgba(26,21,38,0.08);
           border-radius: 24px;
-          box-shadow: 0 32px 90px rgba(26,21,38,0.28), 0 0 0 1px rgba(139,92,246,0.06);
+          box-shadow: 0 32px 90px rgba(26,21,38,0.28), 0 0 0 1px rgba(254,210,75,0.06);
           display: flex; flex-direction: column; overflow: hidden;
           transition: transform 0.45s ${EASE}, opacity 0.35s ${EASE};
         }
@@ -78,7 +78,7 @@ export default function Modal({ open, onClose }) {
           {/* Header */}
           <div style={{ padding: '32px 40px 0', flexShrink: 0 }}>
             <p style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: "'Mona Sans Variable', sans-serif",
               fontSize: 10, fontWeight: 700,
               textTransform: 'uppercase', letterSpacing: '0.2em',
               color: LIME, marginBottom: 10,
@@ -88,7 +88,7 @@ export default function Modal({ open, onClose }) {
               Discutons de votre projet
             </p>
             <h2 style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "'Mona Sans Variable', sans-serif",
               fontSize: 'clamp(26px, 4vw, 36px)',
               fontWeight: 800, color: '#1A1526',
               letterSpacing: '-0.03em', lineHeight: 1.1,

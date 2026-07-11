@@ -103,7 +103,7 @@ export default function ClientLogos() {
           transition: opacity 0.6s ease, transform 0.6s ease;
         }
         .cl-label-text {
-          font-family: 'Inter', sans-serif;
+          font-family: 'Mona Sans Variable', sans-serif;
           font-size: 10px;
           font-weight: 600;
           letter-spacing: 0.22em;

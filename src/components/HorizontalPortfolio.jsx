@@ -68,7 +68,7 @@ const projects = [
     name: 'Dar Surfana Morocco',
     desc: 'Lodge de surf boutique — réservation de chambres, galerie et storytelling dans un site Webflow sur mesure.',
     accent:    '#EAB308',
-    accentAlt: '#FDE047',
+    accentAlt: '#FED24B',
     image: img6,
     href: 'https://darsurfanamorocco.com/',
   },
@@ -85,8 +85,8 @@ const projects = [
     id: '08',
     name: 'Souk2Surf',
     desc: 'Plateforme de voyage surf mêlant culture marocaine et spots de vagues — séjours, coaching et expériences.',
-    accent:    '#8B5CF6',
-    accentAlt: '#C4B5FD',
+    accent:    '#FED24B',
+    accentAlt: '#FED24B',
     image: img8,
     href: 'https://souk2surf.com/',
   },
@@ -94,7 +94,7 @@ const projects = [
     id: '09',
     name: 'Surfana Tours',
     desc: 'Tour-opérateur de surf premium — offres multi-destinations, expériences guidées et marque communautaire.',
-    accent:    '#6366F1',
+    accent:    '#FED24B',
     accentAlt: '#A5B4FC',
     image: img9,
     href: 'https://surfanatours.com/',
@@ -103,7 +103,7 @@ const projects = [
     id: '10',
     name: 'Adsolution',
     desc: 'Agence de marketing digital — design orienté performance avec capture de leads, études de cas et CMS.',
-    accent:    '#A855F7',
+    accent:    '#FED24B',
     accentAlt: '#D8B4FE',
     image: img10,
     href: 'https://adsolution.ma/',
@@ -179,7 +179,7 @@ function PortfolioCard({ project }) {
         overflow: 'hidden',
       }}>
         <div style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: "'Mona Sans Variable', sans-serif",
           fontSize: 17, fontWeight: 800, color: '#1A1526',
           letterSpacing: '-0.025em', lineHeight: 1.2,
           marginBottom: 8,
@@ -189,7 +189,7 @@ function PortfolioCard({ project }) {
         </div>
 
         <p style={{
-          fontFamily: "'Inter', sans-serif",
+          fontFamily: "'Mona Sans Variable', sans-serif",
           fontSize: 12.5, color: 'rgba(26,21,38,0.55)',
           lineHeight: 1.65, margin: 0,
           flex: 1,
@@ -238,24 +238,24 @@ function SectionHeading() {
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
         <span style={{
-          fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600,
+          fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 10, fontWeight: 600,
           letterSpacing: '0.22em', textTransform: 'uppercase',
           color: 'rgba(26,21,38,0.40)',
         }}>※</span>
         <span style={{
-          fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600,
+          fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 10, fontWeight: 600,
           letterSpacing: '0.22em', textTransform: 'uppercase',
           color: 'rgba(26,21,38,0.40)',
         }}>Nos réalisations</span>
         <span style={{
-          fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600,
+          fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 10, fontWeight: 600,
           letterSpacing: '0.22em', textTransform: 'uppercase',
           color: 'rgba(26,21,38,0.40)',
         }}>※</span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
         <span style={{
-          fontFamily: "'Inter', sans-serif", fontSize: 11, color: 'rgba(26,21,38,0.40)',
+          fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 11, color: 'rgba(26,21,38,0.40)',
           letterSpacing: '0.04em',
         }}>{projects.length} projets</span>
         <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
@@ -273,11 +273,11 @@ function MobileSnapScroll() {
       <div style={{ padding: '0 20px', marginBottom: 28 }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(26,21,38,0.40)' }}>※</span>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(26,21,38,0.40)' }}>Nos réalisations</span>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(26,21,38,0.40)' }}>※</span>
+            <span style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(26,21,38,0.40)' }}>※</span>
+            <span style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(26,21,38,0.40)' }}>Nos réalisations</span>
+            <span style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(26,21,38,0.40)' }}>※</span>
           </div>
-          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: 'rgba(26,21,38,0.40)' }}>{projects.length} projets</span>
+          <span style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 11, color: 'rgba(26,21,38,0.40)' }}>{projects.length} projets</span>
         </div>
       </div>
       <div className="hp-snap-track">
@@ -423,7 +423,7 @@ export default function HorizontalPortfolio() {
         }}>
           <motion.div style={{
             height: '100%',
-            background: 'rgba(139,92,246,0.5)',
+            background: 'rgba(254,210,75,0.5)',
             transformOrigin: 'left',
             scaleX: scrollYProgress,
           }} />

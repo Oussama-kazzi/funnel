@@ -55,9 +55,8 @@ export default function FinalCTA({ onCTA }) {
           borderRadius: 32,
           padding: 'clamp(48px, 6vw, 88px) clamp(24px, 5vw, 72px)',
           overflow: 'hidden',
-          background: 'linear-gradient(150deg, #7C3AED 0%, #6D28D9 55%, #5B21B6 100%)',
-          border: '1px solid rgba(139,92,246,0.4)',
-          boxShadow: '0 40px 100px rgba(109,40,217,0.35), inset 0 1px 0 rgba(255,255,255,0.12)',
+          background: '#FED24B',
+          border: '1px solid rgba(254,210,75,0.4)',
           opacity: visible ? 1 : 0,
           transform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,32px,0)',
           transition: `opacity 1s ${EASE}, transform 1s ${EASE}`,
@@ -67,7 +66,7 @@ export default function FinalCTA({ onCTA }) {
         <div style={{
           position: 'absolute', top: '-40%', left: '50%', transform: 'translateX(-50%)',
           width: '80%', height: '90%',
-          background: 'radial-gradient(ellipse at 50% 30%, rgba(139,92,246,0.35), transparent 62%)',
+          background: 'radial-gradient(ellipse at 50% 30%, rgba(254,210,75,0.35), transparent 62%)',
           filter: 'blur(20px)', pointerEvents: 'none', zIndex: 0,
         }} />
         <div style={{
@@ -85,12 +84,12 @@ export default function FinalCTA({ onCTA }) {
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: 9,
             padding: '7px 16px', marginBottom: 26,
-            background: 'rgba(139,92,246,0.12)',
-            border: '1px solid rgba(139,92,246,0.3)',
+            background: 'rgba(26,21,38,0.08)',
+            border: '1px solid rgba(26,21,38,0.18)',
             borderRadius: 100,
-            fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700,
+            fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 11, fontWeight: 700,
             letterSpacing: '0.14em', textTransform: 'uppercase',
-            color: '#C4B5FD',
+            color: '#FED24B',
           }}>
             <span className="cta-badge-dot" />
             Prochaine étape
@@ -98,14 +97,14 @@ export default function FinalCTA({ onCTA }) {
         )}
 
         <h2 style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: "'Mona Sans Variable', sans-serif",
           fontSize: 'clamp(34px, 5vw, 60px)',
           fontWeight: 800, letterSpacing: '-0.04em',
-          color: '#FFFFFF', lineHeight: 1.04,
+          color: '#1A1526', lineHeight: 1.04,
           marginBottom: 20,
         }}>
           Prêt à lancer votre{' '} <br/>
-          <span style={{ color: '#E9D5FF', textShadow: '0 0 24px rgba(233,213,255,0.5)' }}>
+          <span style={{ color: '#FFFFFF', textShadow: '0 2px 12px rgba(26,21,38,0.25)' }}>
             <TextType
               text={['projet ?', 'site web ?', 'landing page ?', 'croissance ?']}
               as="span"
@@ -121,8 +120,8 @@ export default function FinalCTA({ onCTA }) {
         </h2>
 
         <p style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: 17, color: 'rgba(255,255,255,0.8)',
+          fontFamily: "'Mona Sans Variable', sans-serif",
+          fontSize: 17, color: 'rgba(26,21,38,0.72)',
           maxWidth: 540, margin: '0 auto 36px',
           lineHeight: 1.65,
         }}>
@@ -139,14 +138,13 @@ export default function FinalCTA({ onCTA }) {
               onClick={handleOpen}
               className="lime-cta-pill"
               style={{
-                background: '#FFFFFF', color: '#6D28D9',
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                background: '#1A1526', color: '#FFFFFF',
+                fontFamily: "'Mona Sans Variable', sans-serif",
                 fontWeight: 700, fontSize: 17,
                 padding: '18px 40px',
                 border: 'none', borderRadius: 100, cursor: 'pointer',
                 letterSpacing: '-0.005em',
-                transition: `transform 0.5s ${SPRING}, box-shadow 0.35s ease`,
-                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+                transition: `transform 0.5s ${SPRING}`,
               }}
             >
               Planifier un appel gratuit
@@ -159,15 +157,15 @@ export default function FinalCTA({ onCTA }) {
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 9,
                 padding: '18px 30px',
-                background: 'rgba(255,255,255,0.12)',
-                border: '1px solid rgba(255,255,255,0.28)',
+                background: 'rgba(26,21,38,0.08)',
+                border: '1px solid rgba(26,21,38,0.22)',
                 borderRadius: 100, cursor: 'pointer', textDecoration: 'none',
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontWeight: 700, fontSize: 16, color: '#FFFFFF',
+                fontFamily: "'Mona Sans Variable', sans-serif",
+                fontWeight: 700, fontSize: 16, color: '#1A1526',
                 transition: 'background 0.25s ease, border-color 0.25s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1)',
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.45)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.28)'; e.currentTarget.style.transform = 'translateY(0)' }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(26,21,38,0.14)'; e.currentTarget.style.borderColor = 'rgba(26,21,38,0.35)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(26,21,38,0.08)'; e.currentTarget.style.borderColor = 'rgba(26,21,38,0.22)'; e.currentTarget.style.transform = 'translateY(0)' }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true">
                 <path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-1.9-1.2 7.2 7.2 0 01-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4c0-.1-.5-1.3-.7-1.8s-.4-.4-.5-.4h-.5a1 1 0 00-.7.3A2.8 2.8 0 006 8.9c0 1.7 1.2 3.3 1.4 3.5s2.4 3.7 5.9 5.1c2.9 1.1 2.9.8 3.5.7a2.5 2.5 0 001.6-1.2 2 2 0 00.2-1.2c-.1-.1-.3-.2-.5-.3z"/>
@@ -187,16 +185,16 @@ export default function FinalCTA({ onCTA }) {
               <div key={p.title} style={{ display: 'flex', alignItems: 'center', gap: 12, textAlign: 'left' }}>
                 <span style={{
                   width: 36, height: 36, borderRadius: 10, flexShrink: 0,
-                  background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.28)',
+                  background: 'rgba(26,21,38,0.08)', border: '1px solid rgba(26,21,38,0.2)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1526" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </span>
                 <span>
-                  <span style={{ display: 'block', fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, fontWeight: 700, color: '#FFFFFF' }}>{p.title}</span>
-                  <span style={{ display: 'block', fontFamily: "'Inter', sans-serif", fontSize: 12.5, color: 'rgba(255,255,255,0.65)' }}>{p.sub}</span>
+                  <span style={{ display: 'block', fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 14, fontWeight: 700, color: '#1A1526' }}>{p.title}</span>
+                  <span style={{ display: 'block', fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12.5, color: 'rgba(26,21,38,0.6)' }}>{p.sub}</span>
                 </span>
               </div>
             ))}
@@ -209,7 +207,7 @@ export default function FinalCTA({ onCTA }) {
             style={{
               background: 'rgba(26,21,38,0.09)', border: '1px solid rgba(26,21,38,0.14)',
               borderRadius: 100, padding: '12px 24px',
-              fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 500,
+              fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 14, fontWeight: 500,
               color: 'rgba(26,21,38,0.72)', cursor: 'pointer',
               display: 'inline-flex', alignItems: 'center', gap: 8,
               transition: 'background 0.2s ease, color 0.2s ease',
@@ -225,7 +223,7 @@ Masquer le formulaire
         )}
 
         <style>{`
-          .finalcta-cursor { color: #8B5CF6; font-weight: 300; }
+          .finalcta-cursor { color: #FFFFFF; font-weight: 300; }
         `}</style>
 
         </div>{/* /z-index inner */}
@@ -258,17 +256,17 @@ Masquer le formulaire
           }}>
             <div>
               <p style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'Mona Sans Variable', sans-serif",
                 fontSize: 10, fontWeight: 700,
                 textTransform: 'uppercase', letterSpacing: '0.2em',
-                color: '#8B5CF6', margin: '0 0 6px',
+                color: '#FED24B', margin: '0 0 6px',
                 display: 'flex', alignItems: 'center', gap: 8,
               }}>
-                <span style={{ width: 18, height: 1, background: '#8B5CF6', display: 'inline-block' }} />
+                <span style={{ width: 18, height: 1, background: '#FED24B', display: 'inline-block' }} />
                 Première étape
               </p>
               <h3 style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "'Mona Sans Variable', sans-serif",
                 fontSize: 22, fontWeight: 800,
                 color: '#1A1526', letterSpacing: '-0.03em',
                 margin: 0,
@@ -292,7 +290,7 @@ Recevez une recommandation gratuite
         }
         .cta-badge-dot {
           width: 6px; height: 6px; border-radius: 50%;
-          background: #8B5CF6; box-shadow: 0 0 10px rgba(139,92,246,0.9);
+          background: #FED24B; box-shadow: 0 0 8px rgba(74,56,0,0.6);
           animation: ctaDotPulse 2.2s ease-in-out infinite;
         }
         @keyframes ctaDotPulse {

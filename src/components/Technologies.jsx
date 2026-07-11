@@ -68,7 +68,7 @@ export default function Technologies() {
         <div style={{
           position: 'absolute', top: '-30%', right: '-10%',
           width: '55%', height: '90%',
-          background: 'radial-gradient(ellipse at 70% 20%, rgba(139,92,246,0.18), transparent 65%)',
+          background: 'radial-gradient(ellipse at 70% 20%, rgba(254,210,75,0.18), transparent 65%)',
           pointerEvents: 'none',
         }} />
 
@@ -78,14 +78,14 @@ export default function Technologies() {
           flexWrap: 'wrap', marginBottom: 48, position: 'relative', zIndex: 1,
         }}>
           <div style={{ maxWidth: 460 }}>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#8B5CF6', marginBottom: 18 }}>
+            <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#FED24B', marginBottom: 18 }}>
               Technologies
             </p>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(24px, 5.5vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#1A1526', lineHeight: 1.12, margin: 0 }}>
+            <h2 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 'clamp(24px, 5.5vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#1A1526', lineHeight: 1.12, margin: 0 }}>
               Nous utilisons les meilleures technologies pour votre projet.
             </h2>
           </div>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: 'rgba(26,21,38,0.72)', lineHeight: 1.7, maxWidth: 380, alignSelf: 'flex-end' }}>
+          <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 15, color: 'rgba(26,21,38,0.72)', lineHeight: 1.7, maxWidth: 380, alignSelf: 'flex-end' }}>
             Chaque projet est unique. Nous choisissons la technologie la plus adaptée à vos objectifs, votre budget et vos besoins.
           </p>
         </div>
@@ -102,10 +102,10 @@ export default function Technologies() {
               borderLeft: i === 0 ? 'none' : '1px solid rgba(26,21,38,0.09)',
             }}>
               <div style={{ marginBottom: 20 }}>{icons[t.key]}</div>
-              <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 17, fontWeight: 700, color: '#1A1526', letterSpacing: '-0.02em', marginBottom: 12 }}>
+              <h3 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 17, fontWeight: 700, color: '#1A1526', letterSpacing: '-0.02em', marginBottom: 12 }}>
                 {t.name}
               </h3>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(26,21,38,0.72)', lineHeight: 1.6, margin: 0 }}>
+              <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 13, color: 'rgba(26,21,38,0.72)', lineHeight: 1.6, margin: 0 }}>
                 {t.desc}
               </p>
             </div>

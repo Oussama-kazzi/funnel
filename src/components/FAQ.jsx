@@ -45,7 +45,7 @@ function FAQItem({ q, a, open, onToggle }) {
         }}
       >
         <span style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: "'Mona Sans Variable', sans-serif",
           fontSize: 17, fontWeight: 600,
           color: open ? '#FFFFFF' : 'rgba(26,21,38,0.92)',
           lineHeight: 1.35, letterSpacing: '-0.01em',
@@ -55,8 +55,8 @@ function FAQItem({ q, a, open, onToggle }) {
         </span>
         <span style={{
           width: 30, height: 30, borderRadius: '50%', flexShrink: 0,
-          background: open ? '#8B5CF6' : 'rgba(26,21,38,0.09)',
-          border: `1px solid ${open ? '#8B5CF6' : 'rgba(26,21,38,0.09)'}`,
+          background: open ? '#FED24B' : 'rgba(26,21,38,0.09)',
+          border: `1px solid ${open ? '#FED24B' : 'rgba(26,21,38,0.09)'}`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           color: open ? '#FFFFFF' : '#FFFFFF',
           fontSize: 20, lineHeight: 1, fontWeight: 300,
@@ -72,7 +72,7 @@ function FAQItem({ q, a, open, onToggle }) {
         transition: 'max-height 0.55s cubic-bezier(0.16,1,0.3,1)',
       }}>
         <p style={{
-          fontFamily: "'Inter', sans-serif",
+          fontFamily: "'Mona Sans Variable', sans-serif",
           fontSize: 15, color: 'rgba(26,21,38,0.72)',
           lineHeight: 1.75, paddingBottom: 26, margin: 0,
         }}>
@@ -111,30 +111,30 @@ export default function FAQ() {
           }}
         >
           <p style={{
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "'Mona Sans Variable', sans-serif",
             fontSize: 10, fontWeight: 700,
             textTransform: 'uppercase', letterSpacing: '0.2em',
-            color: '#8B5CF6', marginBottom: 20,
+            color: '#FED24B', marginBottom: 20,
             display: 'flex', alignItems: 'center', gap: 10,
           }}>
-            <span style={{ width: 28, height: 1, background: '#8B5CF6', display: 'inline-block' }} />
+            <span style={{ width: 28, height: 1, background: '#FED24B', display: 'inline-block' }} />
             FAQ
           </p>
 
           <h2 style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "'Mona Sans Variable', sans-serif",
             fontSize: 'clamp(26px, 6vw, 50px)',
             fontWeight: 800, letterSpacing: '-0.04em',
             color: '#1A1526', lineHeight: 1.05, margin: '0 0 20px',
           }}>
             Questions{' '}
-            <em style={{ fontStyle: 'italic', color: '#8B5CF6', fontWeight: 700, textShadow: '0 0 40px rgba(139,92,246,0.3)' }}>
+            <em style={{ fontStyle: 'italic', color: '#FED24B', fontWeight: 700, textShadow: '0 0 40px rgba(254,210,75,0.3)' }}>
               fréquentes.
             </em>
           </h2>
 
           <p style={{
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "'Mona Sans Variable', sans-serif",
             fontSize: 16, color: 'rgba(26,21,38,0.55)',
             lineHeight: 1.7, maxWidth: 580, margin: 0,
           }}>
@@ -154,14 +154,14 @@ export default function FAQ() {
                 key={i}
                 onClick={() => handleTab(i)}
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: "'Mona Sans Variable', sans-serif",
                   fontSize: 12, fontWeight: 600,
                   letterSpacing: '0.04em',
                   padding: '8px 16px',
                   borderRadius: 100,
-                  border: `1px solid ${active ? 'rgba(139,92,246,0.4)' : 'rgba(26,21,38,0.09)'}`,
-                  background: active ? 'rgba(139,92,246,0.1)' : 'rgba(26,21,38,0.05)',
-                  color: active ? '#8B5CF6' : 'rgba(26,21,38,0.72)',
+                  border: `1px solid ${active ? 'rgba(254,210,75,0.4)' : 'rgba(26,21,38,0.09)'}`,
+                  background: active ? 'rgba(254,210,75,0.1)' : 'rgba(26,21,38,0.05)',
+                  color: active ? '#FED24B' : 'rgba(26,21,38,0.72)',
                   cursor: 'pointer',
                   transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
                   whiteSpace: 'nowrap',
@@ -199,7 +199,7 @@ export default function FAQ() {
 
         {/* Footer count */}
         <p style={{
-          fontFamily: "'Inter', sans-serif",
+          fontFamily: "'Mona Sans Variable', sans-serif",
           fontSize: 12, color: 'rgba(26,21,38,0.40)',
           marginTop: 32, textAlign: 'right',
           letterSpacing: '0.06em',

@@ -59,7 +59,7 @@ export default function VideoTicker() {
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
         background:
-          'linear-gradient(180deg, rgba(5,5,15,0.5) 0%, rgba(5,5,15,0.06) 45%, rgba(5,5,15,0.5) 100%), radial-gradient(ellipse 55% 65% at 50% 50%, rgba(139,92,246,0.10), transparent 70%)',
+          'linear-gradient(180deg, rgba(5,5,15,0.5) 0%, rgba(5,5,15,0.06) 45%, rgba(5,5,15,0.5) 100%), radial-gradient(ellipse 55% 65% at 50% 50%, rgba(254,210,75,0.10), transparent 70%)',
       }} />
 
       <style>{`

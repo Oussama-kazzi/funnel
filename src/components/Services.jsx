@@ -13,7 +13,7 @@ const services = [
 ]
 
 function Icon({ tag }) {
-  const shared = { width: 22, height: 22, fill: 'none', stroke: '#8B5CF6', strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round' }
+  const shared = { width: 22, height: 22, fill: 'none', stroke: '#FED24B', strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round' }
   switch (tag) {
     case 'Vitrine':
       return <svg viewBox="0 0 24 24" {...shared}><rect x="3" y="4" width="18" height="14" rx="2"/><line x1="3" y1="8" x2="21" y2="8"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="18" x2="12" y2="21"/></svg>
@@ -68,7 +68,7 @@ function ServiceCard({ title, desc, tag, span }) {
       style={{
         gridColumn: span === 2 ? 'span 2' : 'span 1',
         background: '#FFFFFF',
-        border: `1px solid ${hovered ? 'rgba(139,92,246,0.35)' : 'rgba(15,12,30,0.08)'}`,
+        border: `1px solid ${hovered ? 'rgba(254,210,75,0.35)' : 'rgba(15,12,30,0.08)'}`,
         borderRadius: 20,
         padding: '30px 28px 26px',
         position: 'relative',
@@ -88,11 +88,11 @@ function ServiceCard({ title, desc, tag, span }) {
       {/* Icon tile */}
       <div style={{
         width: 48, height: 48, borderRadius: 13,
-        background: 'linear-gradient(135deg, rgba(139,92,246,0.14), rgba(99,102,241,0.08))',
-        border: '1px solid rgba(139,92,246,0.18)',
+        background: 'linear-gradient(135deg, rgba(254,210,75,0.14), rgba(254,210,75,0.08))',
+        border: '1px solid rgba(254,210,75,0.18)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         marginBottom: span === 2 ? 0 : 20, flexShrink: 0,
-        boxShadow: hovered ? '0 0 22px rgba(139,92,246,0.16)' : 'none',
+        boxShadow: hovered ? '0 0 22px rgba(254,210,75,0.16)' : 'none',
         transition: 'box-shadow 0.3s ease',
       }}>
         <Icon tag={tag} />
@@ -101,7 +101,7 @@ function ServiceCard({ title, desc, tag, span }) {
       <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
         {/* Title */}
         <h3 style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: "'Mona Sans Variable', sans-serif",
           fontSize: 18, fontWeight: 700,
           color: '#141019', letterSpacing: '-0.02em',
           marginBottom: 8, lineHeight: 1.25,
@@ -110,7 +110,7 @@ function ServiceCard({ title, desc, tag, span }) {
         </h3>
 
         {/* Desc */}
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13.5, color: 'rgba(20,16,25,0.55)', lineHeight: 1.6, margin: 0 }}>
+        <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 13.5, color: 'rgba(20,16,25,0.55)', lineHeight: 1.6, margin: 0 }}>
           {desc}
         </p>
       </div>
@@ -134,10 +134,10 @@ export default function Services() {
             display: 'flex', flexDirection: 'column', alignItems: 'center',
           }}
         >
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#7C3AED', marginBottom: 18 }}>
+          <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#FED24B', marginBottom: 18 }}>
             Ce que nous faisons
           </p>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(30px, 4.5vw, 50px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#141019', lineHeight: 1.08, margin: 0, maxWidth: 620 }}>
+          <h2 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 'clamp(30px, 4.5vw, 50px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#141019', lineHeight: 1.08, margin: 0, maxWidth: 620 }}>
             Des solutions complètes pour accélérer votre croissance.
           </h2>
         </motion.div>
@@ -160,7 +160,7 @@ export default function Services() {
         #services.section-light::before {
           content: '';
           position: absolute; top: 0; left: 0; right: 0; height: 180px;
-          background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(139,92,246,0.12), transparent 70%);
+          background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(254,210,75,0.12), transparent 70%);
           pointer-events: none;
         }
         @media (max-width: 1024px) {

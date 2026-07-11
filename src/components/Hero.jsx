@@ -67,14 +67,14 @@ export default function Hero({ onCTA }) {
         {/* Badge */}
         <div className="hero-badge" style={fade(0.02)}>
           <span className="hero-badge-dot" />
-          AGENCE DIGITALE À CASABLANCA
+          AGENCE DIGITALE À AGADIR
         </div>
 
         {/* Headline */}
         <h1
           className="hero-h1"
           style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "'Mona Sans Variable', sans-serif",
             fontSize: 'clamp(34px, 5.4vw, 72px)',
             fontWeight: 800,
             lineHeight: 1.06,
@@ -86,7 +86,7 @@ export default function Hero({ onCTA }) {
         >
           <span className="hero-h1-static">Nous créons des sites qui</span>
           <span className="hero-accent-wrap">
-            <span style={{ color: '#8B5CF6', textShadow: '0 0 60px rgba(139,92,246,0.5)' }}>
+            <span style={{ color: '#FED24B', textShadow: '0 0 60px rgba(254,210,75,0.5)' }}>
               <TextType
                 text={['réalisent vos objectifs', 'génèrent des résultats', 'convertissent vos visiteurs', 'font grandir votre marque']}
                 as="span"
@@ -158,7 +158,7 @@ export default function Hero({ onCTA }) {
       </div>
 
       <style>{`
-        .hero-cursor { color: #8B5CF6; opacity: 1; font-weight: 300; }
+        .hero-cursor { color: #FED24B; opacity: 1; font-weight: 300; }
 
         .hero-wrap {
           position: relative; z-index: 1;
@@ -178,7 +178,7 @@ export default function Hero({ onCTA }) {
           background: rgba(26,21,38,0.05);
           border: 1px solid rgba(26,21,38,0.09);
           border-radius: 100px;
-          font-family: 'Inter', sans-serif;
+          font-family: 'Mona Sans Variable', sans-serif;
           font-size: 11px; font-weight: 600;
           letter-spacing: 0.14em; text-transform: uppercase;
           color: rgba(26,21,38,0.92);
@@ -186,7 +186,7 @@ export default function Hero({ onCTA }) {
         }
         .hero-badge-dot {
           width: 6px; height: 6px; border-radius: 50%;
-          background: #8B5CF6; box-shadow: 0 0 10px rgba(139,92,246,0.9);
+          background: #FED24B; box-shadow: 0 0 10px rgba(254,210,75,0.9);
           animation: hero-pulse 2.2s ease-in-out infinite;
         }
         @keyframes hero-pulse {
@@ -199,7 +199,7 @@ export default function Hero({ onCTA }) {
         .hero-accent-wrap { display: block; min-height: 1.1em; }
 
         .hero-sub {
-          font-family: 'Inter', sans-serif;
+          font-family: 'Mona Sans Variable', sans-serif;
           font-size: 17px; font-weight: 400;
           color: rgba(26,21,38,0.72);
           line-height: 1.65;
@@ -214,22 +214,20 @@ export default function Hero({ onCTA }) {
           margin-bottom: 64px;
         }
         .hero-btn-primary {
-          background: #8B5CF6; color: #FFFFFF;
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          background: #FED24B; color: #FFFFFF;
+          font-family: 'Mona Sans Variable', sans-serif;
           font-weight: 700; font-size: 16px;
           padding: 16px 34px;
           border: none; border-radius: 100px; cursor: pointer;
           letter-spacing: -0.005em;
-          box-shadow: 0 6px 30px rgba(139,92,246,0.45);
-          transition: transform 0.5s ${SPRING}, box-shadow 0.35s ${EASE}, background 0.3s ${EASE};
+          transition: transform 0.5s ${SPRING}, background 0.3s ${EASE};
         }
         .hero-btn-primary:hover {
           transform: translateY(-2px);
-          background: #7C4DF0;
-          box-shadow: 0 12px 40px rgba(139,92,246,0.6);
+          background: #FED24B;
         }
         .hero-btn-ghost {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: 'Mona Sans Variable', sans-serif;
           font-weight: 600; font-size: 15px;
           color: rgba(26,21,38,0.92); text-decoration: none;
           padding: 15px 26px;
@@ -253,7 +251,7 @@ export default function Hero({ onCTA }) {
           /* glow bloom behind the card */
           content: '';
           position: absolute; inset: -6% -4% -12%;
-          background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(139,92,246,0.35), transparent 65%);
+          background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(254,210,75,0.35), transparent 65%);
           filter: blur(50px);
           z-index: 0;
         }
@@ -283,13 +281,13 @@ export default function Hero({ onCTA }) {
           backdrop-filter: blur(14px);
           border: 1px solid rgba(26,21,38,0.14);
           border-radius: 100px;
-          font-family: 'Inter', sans-serif;
+          font-family: 'Mona Sans Variable', sans-serif;
           font-size: 12.5px; font-weight: 600;
           color: rgba(26,21,38,0.92);
         }
         .hero-chip-dot {
           width: 7px; height: 7px; border-radius: 50%;
-          background: #8B5CF6; box-shadow: 0 0 8px rgba(139,92,246,0.8);
+          background: #FED24B; box-shadow: 0 0 8px rgba(254,210,75,0.8);
           flex-shrink: 0;
         }
         .hero-chip-label {
@@ -320,7 +318,7 @@ export default function Hero({ onCTA }) {
         }
         .hero-dot.active {
           width: 22px; border-radius: 5px;
-          background: #8B5CF6; box-shadow: 0 0 10px rgba(139,92,246,0.6);
+          background: #FED24B;
         }
 
         @media (max-width: 768px) {

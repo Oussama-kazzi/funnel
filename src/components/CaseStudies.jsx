@@ -85,7 +85,7 @@ const cases = [
     resultLabel: 'de réservations directes',
     tags: [
       { label: 'Webflow',     color: '#EAB308', bg: 'rgba(234,179,8,0.15)' },
-      { label: 'Hospitality', color: '#FDE047', bg: 'rgba(253,224,71,0.12)' },
+      { label: 'Hospitality', color: '#FED24B', bg: 'rgba(254,210,75,0.12)' },
     ],
     preview: { accent: '#EAB308', image: img6 },
     href: 'https://darsurfanamorocco.com/',
@@ -110,10 +110,10 @@ const cases = [
     result: '2.8×',
     resultLabel: 'de réservations de tours',
     tags: [
-      { label: 'WordPress', color: '#8B5CF6', bg: 'rgba(139,92,246,0.15)' },
-      { label: 'Travel',    color: '#C4B5FD', bg: 'rgba(196,181,253,0.12)' },
+      { label: 'WordPress', color: '#FED24B', bg: 'rgba(254,210,75,0.15)' },
+      { label: 'Travel',    color: '#FED24B', bg: 'rgba(196,181,253,0.12)' },
     ],
-    preview: { accent: '#8B5CF6', image: img8 },
+    preview: { accent: '#FED24B', image: img8 },
     href: 'https://souk2surf.com/',
   },
   {
@@ -123,10 +123,10 @@ const cases = [
     result: '+250%',
     resultLabel: 'de trafic organique',
     tags: [
-      { label: 'WordPress', color: '#6366F1', bg: 'rgba(99,102,241,0.15)' },
+      { label: 'WordPress', color: '#FED24B', bg: 'rgba(254,210,75,0.15)' },
       { label: 'Tourism',   color: '#A5B4FC', bg: 'rgba(165,180,252,0.12)' },
     ],
-    preview: { accent: '#6366F1', image: img9 },
+    preview: { accent: '#FED24B', image: img9 },
     href: 'https://surfanatours.com/',
   },
   {
@@ -136,10 +136,10 @@ const cases = [
     result: '$1.2M',
     resultLabel: 'de revenus publicitaires suivis',
     tags: [
-      { label: 'Custom Code', color: '#A855F7', bg: 'rgba(168,85,247,0.15)' },
+      { label: 'Custom Code', color: '#FED24B', bg: 'rgba(254,210,75,0.15)' },
       { label: 'Marketing',   color: '#D8B4FE', bg: 'rgba(216,180,254,0.12)' },
     ],
-    preview: { accent: '#A855F7', image: img10 },
+    preview: { accent: '#FED24B', image: img10 },
     href: 'https://adsolution.ma/',
   },
 ]
@@ -199,12 +199,12 @@ function CaseCard({ item, index }) {
           display: 'flex', flexDirection: 'column', alignItems: 'flex-end',
         }}>
           <span style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "'Mona Sans Variable', sans-serif",
             fontSize: 18, fontWeight: 800, color: item.preview.accent,
             letterSpacing: '-0.03em', lineHeight: 1,
           }}>{item.result}</span>
           <span style={{
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "'Mona Sans Variable', sans-serif",
             fontSize: 9, color: 'rgba(26,21,38,0.72)',
             letterSpacing: '0.04em', marginTop: 2,
           }}>{item.resultLabel}</span>
@@ -212,7 +212,7 @@ function CaseCard({ item, index }) {
         {/* Number */}
         <div style={{
           position: 'absolute', bottom: 12, left: 14,
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: "'Mona Sans Variable', sans-serif",
           fontSize: 11, fontWeight: 700, color: 'rgba(26,21,38,0.40)',
           letterSpacing: '0.06em',
         }}>{item.num}</div>
@@ -224,14 +224,14 @@ function CaseCard({ item, index }) {
         {/* Name + tags row */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
           <span style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "'Mona Sans Variable', sans-serif",
             fontSize: 17, fontWeight: 700, color: '#1A1526',
             letterSpacing: '-0.02em',
           }}>{item.name}</span>
           <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
             {item.tags.map((tag, i) => (
               <span key={i} style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'Mona Sans Variable', sans-serif",
                 fontSize: 10, fontWeight: 600,
                 color: tag.color,
                 background: tag.bg,
@@ -258,7 +258,7 @@ function CaseCard({ item, index }) {
             padding: '12px 0',
             border: `1px solid ${hovered ? 'rgba(26,21,38,0.14)' : 'rgba(26,21,38,0.09)'}`,
             borderRadius: 8,
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "'Mona Sans Variable', sans-serif",
             fontSize: 11, fontWeight: 600,
             letterSpacing: '0.12em', textTransform: 'uppercase',
             color: hovered ? '#FFFFFF' : 'rgba(26,21,38,0.72)',
@@ -293,12 +293,12 @@ export default function CaseStudies() {
         }}>
           <div>
             <p style={{
-              fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600,
+              fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 11, fontWeight: 600,
               textTransform: 'uppercase', letterSpacing: '0.18em',
-              color: '#8B5CF6', marginBottom: 16,
+              color: '#FED24B', marginBottom: 16,
             }}>Réalisations récentes</p>
             <h2 style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "'Mona Sans Variable', sans-serif",
               fontSize: 'clamp(28px, 6.5vw, 54px)', fontWeight: 800,
               letterSpacing: '-0.04em', color: '#1A1526',
               lineHeight: 1.05, margin: 0,
@@ -307,7 +307,7 @@ export default function CaseStudies() {
             </h2>
           </div>
           <p style={{
-            fontFamily: "'Inter', sans-serif", fontSize: 16,
+            fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 16,
             color: 'rgba(26,21,38,0.55)', maxWidth: 380, lineHeight: 1.7,
           }}>
             Des entreprises qui nous ont fait confiance et ont lancé un site qui performe.
@@ -321,14 +321,14 @@ export default function CaseStudies() {
               key={f}
               onClick={() => setFilter(f)}
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'Mona Sans Variable', sans-serif",
                 fontSize: 11, fontWeight: 600,
                 letterSpacing: '0.1em', textTransform: 'uppercase',
                 padding: '7px 16px',
                 borderRadius: 100,
-                border: `1px solid ${filter === f ? '#8B5CF6' : 'rgba(26,21,38,0.14)'}`,
-                background: filter === f ? 'rgba(139,92,246,0.1)' : 'rgba(26,21,38,0.05)',
-                color: filter === f ? '#8B5CF6' : 'rgba(26,21,38,0.72)',
+                border: `1px solid ${filter === f ? '#FED24B' : 'rgba(26,21,38,0.14)'}`,
+                background: filter === f ? 'rgba(254,210,75,0.1)' : 'rgba(26,21,38,0.05)',
+                color: filter === f ? '#FED24B' : 'rgba(26,21,38,0.72)',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
                 whiteSpace: 'nowrap',

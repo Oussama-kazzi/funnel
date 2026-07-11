@@ -21,12 +21,12 @@ export default function Footer() {
             onMouseLeave={e => e.currentTarget.style.opacity = '0.8'}
           />
         </a>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(26,21,38,0.55)' }}>
+        <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 13, color: 'rgba(26,21,38,0.55)' }}>
           © 2025 FuturA Digital Studio. Agence digitale à Casablanca.
         </p>
         <a
           href="mailto:contact@futura.ma"
-          style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(26,21,38,0.55)', textDecoration: 'none', transition: 'color 0.15s' }}
+          style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 13, color: 'rgba(26,21,38,0.55)', textDecoration: 'none', transition: 'color 0.15s' }}
           onMouseEnter={e => e.currentTarget.style.color = 'rgba(26,21,38,0.92)'}
           onMouseLeave={e => e.currentTarget.style.color = 'rgba(26,21,38,0.55)'}
         >

@@ -91,13 +91,13 @@ export default function Navbar({ onCTA }) {
                 onMouseLeave={() => setHoveredLink(null)}
                 style={{
                   position: 'relative',
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: "'Mona Sans Variable', sans-serif",
                   fontSize: 13, fontWeight: 500,
-                  color: isHovered ? '#7C3AED' : 'rgba(26,21,38,0.7)',
+                  color: isHovered ? '#FED24B' : 'rgba(26,21,38,0.7)',
                   textDecoration: 'none',
                   padding: '8px 16px',
                   borderRadius: 100,
-                  background: isHovered ? 'rgba(139,92,246,0.1)' : 'transparent',
+                  background: isHovered ? 'rgba(254,210,75,0.1)' : 'transparent',
                   letterSpacing: '-0.005em',
                   transition: `color 0.3s ${EASE}, background 0.3s ${EASE}`,
                   display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -106,11 +106,11 @@ export default function Navbar({ onCTA }) {
                 <span
                   style={{
                     width: 4, height: 4, borderRadius: '50%',
-                    background: '#8B5CF6',
+                    background: '#FED24B',
                     opacity: isHovered ? 1 : 0,
                     transform: isHovered ? 'scale(1)' : 'scale(0)',
                     transition: `opacity 0.3s ${EASE}, transform 0.45s ${SPRING}`,
-                    boxShadow: isHovered ? '0 0 8px rgba(139,92,246,0.6)' : 'none',
+                    boxShadow: isHovered ? '0 0 8px rgba(254,210,75,0.6)' : 'none',
                   }}
                 />
                 {l.label}
@@ -125,9 +125,9 @@ export default function Navbar({ onCTA }) {
             onClick={onCTA}
             className="lime-cta-pill nav-cta"
             style={{
-              background: 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)',
+              background: '#FED24B',
               color: '#FFFFFF',
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "'Mona Sans Variable', sans-serif",
               fontWeight: 700, fontSize: 13,
               padding: '10px 20px',
               border: 'none',
@@ -136,8 +136,7 @@ export default function Navbar({ onCTA }) {
               display: 'inline-flex', alignItems: 'center', gap: 6,
               letterSpacing: '-0.005em',
               whiteSpace: 'nowrap',
-              transition: `transform 0.5s ${SPRING}, box-shadow 0.4s ${EASE}`,
-              boxShadow: '0 2px 16px rgba(139,92,246,0.25)',
+              transition: `transform 0.5s ${SPRING}`,
             }}
           >
             <span className="nav-cta-full">Discutons de votre projet</span>

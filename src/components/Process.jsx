@@ -33,11 +33,11 @@ function StepRow({ i, title, desc, visible }) {
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
         <div style={{
           width: 40, height: 40, borderRadius: '50%',
-          background: open ? '#8B5CF6' : 'rgba(139,92,246,0.1)',
-          border: `1px solid ${open ? '#8B5CF6' : 'rgba(139,92,246,0.25)'}`,
+          background: open ? '#FED24B' : 'rgba(254,210,75,0.1)',
+          border: `1px solid ${open ? '#FED24B' : 'rgba(254,210,75,0.25)'}`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 15, fontWeight: 800,
-          color: open ? '#FFFFFF' : '#8B5CF6',
+          fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 15, fontWeight: 800,
+          color: open ? '#FFFFFF' : '#FED24B',
           transition: 'background 0.3s ease, color 0.3s ease, border-color 0.3s ease',
         }}>
           {i + 1}
@@ -46,7 +46,7 @@ function StepRow({ i, title, desc, visible }) {
 
       <div style={{ flex: 1, minWidth: 0 }}>
         <h3 style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: "'Mona Sans Variable', sans-serif",
           fontSize: 18, fontWeight: 700, color: '#141019',
           letterSpacing: '-0.02em', margin: '8px 0 0',
         }}>
@@ -58,7 +58,7 @@ function StepRow({ i, title, desc, visible }) {
           transition: 'max-height 0.45s cubic-bezier(0.16,1,0.3,1)',
         }}>
           <p style={{
-            fontFamily: "'Inter', sans-serif", fontSize: 14,
+            fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 14,
             color: 'rgba(20,16,25,0.55)', lineHeight: 1.6,
             margin: '10px 0 0',
           }}>
@@ -92,14 +92,14 @@ export default function Process({ onCTA }) {
           transform: visible ? 'translateY(0)' : 'translateY(24px)',
           transition: `opacity 1s ${EASE}, transform 1s ${EASE}`,
         }}>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#7C3AED', marginBottom: 18 }}>
+          <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#FED24B', marginBottom: 18 }}>
             Notre processus
           </p>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(28px, 3.8vw, 46px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#141019', lineHeight: 1.1, margin: '0 0 20px' }}>
+          <h2 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 'clamp(28px, 3.8vw, 46px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#141019', lineHeight: 1.1, margin: '0 0 20px' }}>
             6 étapes simples pour{' '}
-            <span style={{ color: '#8B5CF6' }}>démarrer votre site.</span>
+            <span style={{ color: '#FED24B' }}>démarrer votre site.</span>
           </h2>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: 'rgba(20,16,25,0.55)', lineHeight: 1.65, maxWidth: 380, marginBottom: 28 }}>
+          <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 16, color: 'rgba(20,16,25,0.55)', lineHeight: 1.65, maxWidth: 380, marginBottom: 28 }}>
             Un processus clair et sans friction, de la première prise de contact jusqu’à la mise en ligne de votre projet.
           </p>
           <button onClick={onCTA} className="process-cta">
@@ -127,14 +127,13 @@ export default function Process({ onCTA }) {
         }
         .process-head { position: sticky; top: 110px; }
         .process-cta {
-          background: #8B5CF6; color: #FFFFFF;
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          background: #FED24B; color: #FFFFFF;
+          font-family: 'Mona Sans Variable', sans-serif;
           font-weight: 700; font-size: 15px;
           padding: 15px 30px; border: none; border-radius: 100px; cursor: pointer;
-          box-shadow: 0 6px 24px rgba(139,92,246,0.35);
-          transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease, background 0.3s ease;
+          transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), background 0.3s ease;
         }
-        .process-cta:hover { transform: translateY(-2px); background: #7C4DF0; box-shadow: 0 12px 32px rgba(139,92,246,0.5); }
+        .process-cta:hover { transform: translateY(-2px); background: #FED24B; }
 
         @media (max-width: 900px) {
           .process-wrap { grid-template-columns: 1fr; gap: 40px; }

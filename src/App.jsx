@@ -61,14 +61,14 @@ export default function App() {
         {/* Closing statement */}
         <section style={{ padding: '80px 32px 100px', textAlign: 'center', position: 'relative' }}>
           <h2 style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "'Mona Sans Variable', sans-serif",
             fontSize: 'clamp(28px, 4.5vw, 52px)',
             fontWeight: 800, letterSpacing: '-0.04em',
             color: '#1A1526', lineHeight: 1.1,
             maxWidth: 820, margin: '0 auto',
           }}>
             Vous avez l’idée, nous avons{' '}
-            <span style={{ color: '#8B5CF6', textShadow: '0 0 40px rgba(139,92,246,0.4)' }}>l’expertise.</span>
+            <span style={{ color: '#FED24B', textShadow: '0 0 40px rgba(254,210,75,0.4)' }}>l’expertise.</span>
             <br />Travaillons ensemble.
           </h2>
         </section>

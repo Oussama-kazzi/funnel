@@ -50,20 +50,20 @@ function TarifRow({ t, i, onCTA, inView }) {
     >
       {/* Name + audience */}
       <div className="tarif-name">
-        <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 20, fontWeight: 700, color: '#141019', letterSpacing: '-0.02em', margin: 0 }}>
+        <h3 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 20, fontWeight: 700, color: '#141019', letterSpacing: '-0.02em', margin: 0 }}>
           {t.name}
         </h3>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(20,16,25,0.5)', margin: '5px 0 0' }}>
+        <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 13, color: 'rgba(20,16,25,0.5)', margin: '5px 0 0' }}>
           {t.audience}
         </p>
       </div>
 
       {/* Price + note */}
       <div className="tarif-price">
-        <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 16, fontWeight: 800, color: '#7C3AED', letterSpacing: '-0.01em' }}>
+        <span style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 16, fontWeight: 800, color: '#FED24B', letterSpacing: '-0.01em' }}>
           {t.price}
         </span>
-        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12.5, color: 'rgba(20,16,25,0.42)' }}>
+        <span style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12.5, color: 'rgba(20,16,25,0.42)' }}>
           {t.note}
         </span>
       </div>
@@ -92,10 +92,10 @@ export default function Pricing({ onCTA }) {
           transform: inView ? 'translateY(0)' : 'translateY(24px)',
           transition: `opacity 0.8s ${EASE}, transform 0.8s ${EASE}`,
         }}>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#7C3AED', marginBottom: 18 }}>
+          <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#FED24B', marginBottom: 18 }}>
             Nos tarifs
           </p>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(30px, 4.5vw, 50px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#141019', lineHeight: 1.08, margin: '0 auto', maxWidth: 640 }}>
+          <h2 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 'clamp(30px, 4.5vw, 50px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#141019', lineHeight: 1.08, margin: '0 auto', maxWidth: 640 }}>
             Des tarifs clairs, adaptés à votre projet.
           </h2>
         </div>
@@ -138,18 +138,18 @@ export default function Pricing({ onCTA }) {
           transition: background 0.25s ease;
         }
         .tarif-row:last-child { border-bottom: none; }
-        .tarif-row:hover { background: rgba(139,92,246,0.035); }
+        .tarif-row:hover { background: rgba(254,210,75,0.035); }
         .tarif-price { display: flex; flex-direction: column; gap: 4px; }
         .tarif-btn {
           display: inline-flex; align-items: center; gap: 8px;
           background: #141019; color: #FFFFFF;
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: 'Mona Sans Variable', sans-serif;
           font-weight: 600; font-size: 13.5px;
           padding: 12px 20px; border: none; border-radius: 100px; cursor: pointer;
           white-space: nowrap;
           transition: background 0.25s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
         }
-        .tarif-btn:hover { background: #8B5CF6; transform: translateY(-2px); }
+        .tarif-btn:hover { background: #FED24B; transform: translateY(-2px); }
 
         .tarif-notes {
           display: flex; flex-wrap: wrap; gap: 12px 32px;
@@ -157,11 +157,11 @@ export default function Pricing({ onCTA }) {
         }
         .tarif-notes > span {
           display: inline-flex; align-items: center; gap: 9px;
-          font-family: 'Inter', sans-serif; font-size: 13.5px;
+          font-family: 'Mona Sans Variable', sans-serif; font-size: 13.5px;
           color: rgba(20,16,25,0.6);
         }
         .tarif-note-dot {
-          width: 6px; height: 6px; border-radius: 50%; background: #8B5CF6;
+          width: 6px; height: 6px; border-radius: 50%; background: #FED24B;
         }
 
         @media (max-width: 720px) {
