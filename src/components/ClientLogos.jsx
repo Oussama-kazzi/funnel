@@ -44,7 +44,9 @@ export default function ClientLogos() {
         style={{ opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateY(12px)' }}
       >
         <span className="cl-rule-line" />
+        <span className="cl-dot" />
         <span className="cl-label-text">Ils nous font confiance</span>
+        <span className="cl-dot" />
         <span className="cl-rule-line" />
       </div>
 
@@ -91,29 +93,39 @@ export default function ClientLogos() {
           );
         }
 
-        /* ── label ── */
+        /* ── label — matches the site's section-header style (bolder ink
+           label, gold accent dots + gold-tinted divider lines) ── */
         .cl-label-wrap {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 16px;
-          margin: 36px 0 32px;
+          gap: 12px;
+          margin: 40px 0 34px;
           transition: opacity 0.6s ease, transform 0.6s ease;
         }
         .cl-label-text {
           font-family: 'Mona Sans Variable', sans-serif;
-          font-size: 10px;
-          font-weight: 600;
-          letter-spacing: 0.22em;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
           text-transform: uppercase;
-          color: rgba(26,21,38,0.40);
+          color: #1A1526;
           white-space: nowrap;
+        }
+        .cl-dot {
+          width: 5px; height: 5px; border-radius: 50%;
+          background: #FED24B;
+          box-shadow: 0 0 8px rgba(254,210,75,0.6);
+          flex-shrink: 0;
         }
         .cl-rule-line {
           display: block;
-          width: 40px;
+          width: 44px;
           height: 1px;
-          background: rgba(26,21,38,0.09);
+          background: linear-gradient(90deg, transparent, rgba(254,210,75,0.55));
+        }
+        .cl-label-wrap .cl-rule-line:last-child {
+          background: linear-gradient(90deg, rgba(254,210,75,0.55), transparent);
         }
 
         /* ── marquee ── */
