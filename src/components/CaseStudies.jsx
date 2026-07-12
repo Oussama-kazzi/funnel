@@ -189,27 +189,6 @@ function CaseCard({ item, index }) {
           background: `radial-gradient(ellipse at center, ${item.preview.accent}30 0%, transparent 70%)`,
           pointerEvents: 'none',
         }} />
-        {/* Result badge */}
-        <div style={{
-          position: 'absolute', top: 12, right: 12,
-          background: 'rgba(0,0,0,0.6)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          border: '1px solid rgba(26,21,38,0.14)',
-          borderRadius: 8, padding: '6px 12px',
-          display: 'flex', flexDirection: 'column', alignItems: 'flex-end',
-        }}>
-          <span style={{
-            fontFamily: "'Mona Sans Variable', sans-serif",
-            fontSize: 18, fontWeight: 800, color: item.preview.accent,
-            letterSpacing: '-0.03em', lineHeight: 1,
-          }}>{item.result}</span>
-          <span style={{
-            fontFamily: "'Mona Sans Variable', sans-serif",
-            fontSize: 9, color: 'rgba(26,21,38,0.72)',
-            letterSpacing: '0.04em', marginTop: 2,
-          }}>{item.resultLabel}</span>
-        </div>
         {/* Number */}
         <div style={{
           position: 'absolute', bottom: 12, left: 14,
