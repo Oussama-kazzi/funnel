@@ -47,7 +47,7 @@ function FAQItem({ q, a, open, onToggle }) {
         <span style={{
           fontFamily: "'Mona Sans Variable', sans-serif",
           fontSize: 17, fontWeight: 600,
-          color: open ? '#FFFFFF' : 'rgba(26,21,38,0.92)',
+          color: open ? '#1A1526' : 'rgba(26,21,38,0.92)',
           lineHeight: 1.35, letterSpacing: '-0.01em',
           transition: 'color 0.25s ease',
         }}>
@@ -58,7 +58,7 @@ function FAQItem({ q, a, open, onToggle }) {
           background: open ? '#FED24B' : 'rgba(26,21,38,0.09)',
           border: `1px solid ${open ? '#FED24B' : 'rgba(26,21,38,0.09)'}`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          color: open ? '#FFFFFF' : '#FFFFFF',
+          color: open ? '#1A1526' : 'rgba(26,21,38,0.72)',
           fontSize: 20, lineHeight: 1, fontWeight: 300,
           transform: open ? 'rotate(45deg)' : 'none',
           transition: 'background 0.3s ease, border-color 0.3s ease, transform 0.45s cubic-bezier(0.34,1.56,0.64,1), color 0.3s ease',
