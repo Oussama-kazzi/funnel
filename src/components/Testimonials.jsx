@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const testimonials = [
   {
     stars: 5,
-    quote: "FuturA a transformé notre présence en ligne. Le résultat dépasse nos attentes. Professionnels, réactifs et à l’écoute du début à la fin du projet.",
+    quote: "Avant, notre ancien site ne générait quasiment aucun contact. On était présents en ligne mais invisibles, en gros. En quelques semaines après le nouveau site, on a commencé à recevoir des demandes sérieuses presque chaque jour. Franchement je ne m’attendais pas à un changement aussi rapide.",
     initials: 'YM',
     name: 'Youssef El M.',
     role: 'CEO, NextEra',
@@ -13,7 +13,7 @@ const testimonials = [
   },
   {
     stars: 5,
-    quote: "La landing page qu’ils ont créée nous a permis d’augmenter nos leads de 65% en seulement quelques semaines. Un vrai levier de croissance.",
+    quote: "On lançait une campagne pub mais la page d’avant convertissait super mal, on cramait du budget pour rien. Ils nous ont refait une landing propre et là ça a bougé : on a quasiment doublé le taux de conversion sur la même pub. Même budget, deux fois plus de leads.",
     initials: 'SK',
     name: 'Sarah K.',
     role: 'Marketing Manager, Bloomy',
@@ -22,7 +22,7 @@ const testimonials = [
   },
   {
     stars: 5,
-    quote: "Une équipe talentueuse, créative et très professionnelle. Notre site est rapide, moderne et facile à gérer au quotidien.",
+    quote: "Ce qui me stressait le plus c’était de dépendre d’un dev à chaque petite modif. Là je gère mes contenus moi-même, sans galérer, et le site charge vite même sur mobile. Ça paraît un détail mais au quotidien ça change tout pour moi.",
     initials: 'MT',
     name: 'Mehdi T.',
     role: 'Fondateur, Axelance',
@@ -31,7 +31,7 @@ const testimonials = [
   },
   {
     stars: 5,
-    quote: "Excellent accompagnement du début à la fin. Ils comprennent vraiment les besoins du client et proposent les bonnes solutions.",
+    quote: "Je suis dans le médical, pas du tout à l’aise avec le digital, donc j’avais un peu peur de me lancer. Ils ont pris le temps de tout m’expliquer simplement. Résultat, on reçoit environ 40% de nouveaux patients en plus qui nous trouvent directement en ligne. Je recommande.",
     initials: 'AB',
     name: 'Dr. Amine B.',
     role: 'Directeur, Medicare',
@@ -40,7 +40,7 @@ const testimonials = [
   },
   {
     stars: 5,
-    quote: "Livraison rapide et un design premium qui reflète parfaitement notre image de marque. Nous recommandons FuturA sans hésiter.",
+    quote: "J’avais déjà été déçue par un prestataire qui a traîné des mois sans rien livrer. Là, en 3 semaines c’était en ligne, et le rendu colle vraiment à l’image haut de gamme qu’on voulait pour le studio. Mes clientes me disent que le site fait « sérieux » — c’est exactement ça que je cherchais.",
     initials: 'LK',
     name: 'Lina K.',
     role: 'Gérante, Studio Nour',
@@ -49,7 +49,7 @@ const testimonials = [
   },
   {
     stars: 5,
-    quote: "Ils ont automatisé une grande partie de notre acquisition. Nous gagnons un temps précieux chaque semaine grâce à leurs solutions IA.",
+    quote: "On perdait un temps fou à relancer les prospects et remplir des tableaux à la main. Ils nous ont monté un système qui gère tout ça automatiquement. Aujourd’hui l’équipe passe presque 30% de temps en moins sur ces tâches et on se concentre enfin sur les vrais dossiers.",
     initials: 'RB',
     name: 'Reda B.',
     role: 'Directeur, Optima Conseil',
@@ -80,12 +80,6 @@ function MasonryCard({ t, i }) {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: (i % 3) * 0.08 }}
       whileHover={{ y: -4 }}
     >
-      {/* Metric chip */}
-      <div className="tm-metric">
-        <span className="tm-metric-val">{t.metric}</span>
-        <span className="tm-metric-label">{t.metricLabel}</span>
-      </div>
-
       <Stars count={t.stars} />
 
       <blockquote className="tm-quote">“{t.quote}”</blockquote>
@@ -170,12 +164,12 @@ export default function Testimonials() {
           padding: 26px 24px 22px;
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-          transition: border-color 0.3s ease, box-shadow 0.3s ease;
+          box-shadow: 0 10px 30px rgba(20,16,25,0.06), 0 2px 6px rgba(20,16,25,0.03);
+          transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
         }
         .tm-card:hover {
-          border-color: rgba(204,243,6,0.3);
-          box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(204,243,6,0.06);
+          border-color: rgba(204,243,6,0.55);
+          box-shadow: 0 20px 44px rgba(20,16,25,0.10), 0 0 0 1px rgba(204,243,6,0.2);
         }
         .tm-metric {
           display: flex; align-items: baseline; gap: 8px;
@@ -199,12 +193,12 @@ export default function Testimonials() {
         .tm-author { display: flex; align-items: center; gap: 11px; padding-top: 16px; border-top: 1px solid rgba(26,21,38,0.09); }
         .tm-avatar {
           width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
-          background: linear-gradient(135deg, #CCF306, #CCF306);
+          background: linear-gradient(135deg, #CCF306, #B4DA00);
           display: flex; align-items: center; justify-content: center;
-          font-family: 'Mona Sans Variable', sans-serif; font-size: 12px; font-weight: 700; color: #fff;
-          box-shadow: 0 0 0 2px rgba(204,243,6,0.12);
+          font-family: 'Mona Sans Variable', sans-serif; font-size: 12px; font-weight: 800; color: #1A1526;
+          box-shadow: 0 0 0 2px rgba(204,243,6,0.22);
         }
-        .tm-name { font-family: 'Mona Sans Variable', sans-serif; font-size: 13px; font-weight: 600; color: #FFFFFF; }
+        .tm-name { font-family: 'Mona Sans Variable', sans-serif; font-size: 13.5px; font-weight: 700; color: #1A1526; }
         .tm-role { font-family: 'Mona Sans Variable', sans-serif; font-size: 11px; color: rgba(26,21,38,0.55); }
 
         @media (max-width: 900px) { .tm-masonry { columns: 2; } }
