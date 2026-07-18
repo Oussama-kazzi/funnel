@@ -90,7 +90,7 @@ export default function App() {
             maxWidth: 820, margin: '0 auto',
           }}>
             Vous avez l’idée, nous avons{' '}
-            <span style={{ color: '#FED24B', textShadow: '0 0 32px rgba(254,210,75,0.25)' }}>l’expertise.</span>
+            <span style={{ color: '#CCF306', textShadow: '0 0 32px rgba(204,243,6,0.25)' }}>l’expertise.</span>
             <br />Travaillons ensemble.
           </h2>
         </section>

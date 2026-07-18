@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 
-const GOLD = '#FED24B'
+const GOLD = '#CCF306'
 
-const SERVICES = ['Site web', 'Application (web/mobile)', 'Autres']
+const SERVICES = ['Site web', 'Landing page', 'Application (web/mobile)', 'Autres']
 
 export default function BookingForm() {
   const [form, setForm] = useState({
@@ -167,7 +167,7 @@ const css = `
   .bf-input:focus {
     border-color: ${GOLD};
     background: #FFFFFF;
-    box-shadow: 0 0 0 3px rgba(254,210,75,0.18);
+    box-shadow: 0 0 0 3px rgba(204,243,6,0.18);
   }
   .bf-phone {
     display: flex; align-items: stretch; gap: 0;
@@ -179,7 +179,7 @@ const css = `
   }
   .bf-phone:focus-within {
     border-color: ${GOLD};
-    box-shadow: 0 0 0 3px rgba(254,210,75,0.18);
+    box-shadow: 0 0 0 3px rgba(204,243,6,0.18);
   }
   .bf-phone-code {
     display: flex; align-items: center; gap: 6px;
@@ -221,7 +221,7 @@ const css = `
     transform: rotate(-45deg) translateY(-1px);
   }
   .bf-check input:focus-visible + .bf-check-box {
-    box-shadow: 0 0 0 3px rgba(254,210,75,0.3);
+    box-shadow: 0 0 0 3px rgba(204,243,6,0.3);
   }
   .bf-check-label {
     font-size: 14.5px; color: #1A1526; font-weight: 500;
@@ -240,9 +240,9 @@ const css = `
   .bf-success { text-align: center; padding: 12px 0; }
   .bf-success-icon {
     width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 20px;
-    background: rgba(254,210,75,0.12); border: 1px solid rgba(254,210,75,0.3);
+    background: rgba(204,243,6,0.12); border: 1px solid rgba(204,243,6,0.3);
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 0 32px rgba(254,210,75,0.14);
+    box-shadow: 0 0 32px rgba(204,243,6,0.14);
   }
   .bf-success-title {
     font-family: 'Mona Sans Variable', sans-serif;

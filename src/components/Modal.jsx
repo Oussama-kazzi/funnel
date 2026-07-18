@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Questionnaire from './Questionnaire'
 
 const EASE = 'cubic-bezier(0.16, 1, 0.3, 1)'
-const LIME = '#FED24B'
+const LIME = '#CCF306'
 
 export default function Modal({ open, onClose }) {
   const [formKey, setFormKey] = useState(0)
@@ -40,7 +40,7 @@ export default function Modal({ open, onClose }) {
           background: #FFFFFF;
           border: 1px solid rgba(26,21,38,0.08);
           border-radius: 24px;
-          box-shadow: 0 32px 90px rgba(26,21,38,0.28), 0 0 0 1px rgba(254,210,75,0.06);
+          box-shadow: 0 32px 90px rgba(26,21,38,0.28), 0 0 0 1px rgba(204,243,6,0.06);
           display: flex; flex-direction: column; overflow: hidden;
           transition: transform 0.45s ${EASE}, opacity 0.35s ${EASE};
         }

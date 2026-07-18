@@ -93,7 +93,7 @@ export default function Footer() {
         .footer-bg-glow {
           position: absolute; bottom: -12%; left: 50%; transform: translateX(-50%);
           width: 60vw; height: 45vh;
-          background: radial-gradient(ellipse at center, rgba(254,210,75,0.12), transparent 68%);
+          background: radial-gradient(ellipse at center, rgba(204,243,6,0.12), transparent 68%);
           filter: blur(60px);
         }
         /* fade the light page above into the dark footer */

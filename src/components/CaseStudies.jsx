@@ -86,7 +86,7 @@ const cases = [
     resultLabel: 'de réservations directes',
     tags: [
       { label: 'Webflow',     color: '#EAB308', bg: 'rgba(234,179,8,0.15)' },
-      { label: 'Hospitality', color: '#1A1526', bg: 'rgba(254,210,75,0.22)' },
+      { label: 'Hospitality', color: '#1A1526', bg: 'rgba(204,243,6,0.22)' },
     ],
     preview: { accent: '#EAB308', image: img6 },
     href: 'https://darsurfanamorocco.com/',
@@ -111,10 +111,10 @@ const cases = [
     result: '2.8×',
     resultLabel: 'de réservations de tours',
     tags: [
-      { label: 'WordPress', color: '#1A1526', bg: 'rgba(254,210,75,0.22)' },
-      { label: 'Travel',    color: '#1A1526', bg: 'rgba(254,210,75,0.22)' },
+      { label: 'WordPress', color: '#1A1526', bg: 'rgba(204,243,6,0.22)' },
+      { label: 'Travel',    color: '#1A1526', bg: 'rgba(204,243,6,0.22)' },
     ],
-    preview: { accent: '#FED24B', image: img8 },
+    preview: { accent: '#CCF306', image: img8 },
     href: 'https://souk2surf.com/',
   },
   {
@@ -124,10 +124,10 @@ const cases = [
     result: '+250%',
     resultLabel: 'de trafic organique',
     tags: [
-      { label: 'WordPress', color: '#1A1526', bg: 'rgba(254,210,75,0.22)' },
+      { label: 'WordPress', color: '#1A1526', bg: 'rgba(204,243,6,0.22)' },
       { label: 'Tourism',   color: '#A5B4FC', bg: 'rgba(165,180,252,0.12)' },
     ],
-    preview: { accent: '#FED24B', image: img9 },
+    preview: { accent: '#CCF306', image: img9 },
     href: 'https://surfanatours.com/',
   },
   {
@@ -137,10 +137,10 @@ const cases = [
     result: '$1.2M',
     resultLabel: 'de revenus publicitaires suivis',
     tags: [
-      { label: 'Custom Code', color: '#1A1526', bg: 'rgba(254,210,75,0.22)' },
-      { label: 'Marketing',   color: '#B45309', bg: 'rgba(254,210,75,0.16)' },
+      { label: 'Custom Code', color: '#1A1526', bg: 'rgba(204,243,6,0.22)' },
+      { label: 'Marketing',   color: '#B45309', bg: 'rgba(204,243,6,0.16)' },
     ],
-    preview: { accent: '#FED24B', image: img10 },
+    preview: { accent: '#CCF306', image: img10 },
     href: 'https://adsolution.ma/',
   },
 ]
@@ -311,9 +311,9 @@ export default function CaseStudies() {
                 letterSpacing: '0.1em', textTransform: 'uppercase',
                 padding: '7px 16px',
                 borderRadius: 100,
-                border: `1px solid ${filter === f ? '#FED24B' : 'rgba(26,21,38,0.14)'}`,
-                background: filter === f ? 'rgba(254,210,75,0.1)' : 'rgba(26,21,38,0.05)',
-                color: filter === f ? '#FED24B' : 'rgba(26,21,38,0.72)',
+                border: `1px solid ${filter === f ? '#CCF306' : 'rgba(26,21,38,0.14)'}`,
+                background: filter === f ? 'rgba(204,243,6,0.1)' : 'rgba(26,21,38,0.05)',
+                color: filter === f ? '#CCF306' : 'rgba(26,21,38,0.72)',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
                 whiteSpace: 'nowrap',

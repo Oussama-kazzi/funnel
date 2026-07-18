@@ -55,8 +55,8 @@ function FAQItem({ q, a, open, onToggle }) {
         </span>
         <span style={{
           width: 30, height: 30, borderRadius: '50%', flexShrink: 0,
-          background: open ? '#FED24B' : 'rgba(26,21,38,0.09)',
-          border: `1px solid ${open ? '#FED24B' : 'rgba(26,21,38,0.09)'}`,
+          background: open ? '#CCF306' : 'rgba(26,21,38,0.09)',
+          border: `1px solid ${open ? '#CCF306' : 'rgba(26,21,38,0.09)'}`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           color: open ? '#1A1526' : 'rgba(26,21,38,0.72)',
           fontSize: 20, lineHeight: 1, fontWeight: 300,
@@ -117,7 +117,7 @@ export default function FAQ() {
             color: '#1A1526', marginBottom: 20,
             display: 'flex', alignItems: 'center', gap: 10,
           }}>
-            <span style={{ width: 28, height: 1, background: '#FED24B', display: 'inline-block' }} />
+            <span style={{ width: 28, height: 1, background: '#CCF306', display: 'inline-block' }} />
             FAQ
           </p>
 
@@ -159,9 +159,9 @@ export default function FAQ() {
                   letterSpacing: '0.04em',
                   padding: '8px 16px',
                   borderRadius: 100,
-                  border: `1px solid ${active ? 'rgba(254,210,75,0.4)' : 'rgba(26,21,38,0.09)'}`,
-                  background: active ? 'rgba(254,210,75,0.1)' : 'rgba(26,21,38,0.05)',
-                  color: active ? '#FED24B' : 'rgba(26,21,38,0.72)',
+                  border: `1px solid ${active ? 'rgba(204,243,6,0.4)' : 'rgba(26,21,38,0.09)'}`,
+                  background: active ? 'rgba(204,243,6,0.1)' : 'rgba(26,21,38,0.05)',
+                  color: active ? '#CCF306' : 'rgba(26,21,38,0.72)',
                   cursor: 'pointer',
                   transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
                   whiteSpace: 'nowrap',

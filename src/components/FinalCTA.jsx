@@ -55,8 +55,8 @@ export default function FinalCTA({ onCTA }) {
           borderRadius: 32,
           padding: 'clamp(48px, 6vw, 88px) clamp(24px, 5vw, 72px)',
           overflow: 'hidden',
-          background: '#FED24B',
-          border: '1px solid rgba(254,210,75,0.4)',
+          background: '#CCF306',
+          border: '1px solid rgba(204,243,6,0.4)',
           opacity: visible ? 1 : 0,
           transform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,32px,0)',
           transition: `opacity 1s ${EASE}, transform 1s ${EASE}`,
@@ -66,7 +66,7 @@ export default function FinalCTA({ onCTA }) {
         <div style={{
           position: 'absolute', top: '-40%', left: '50%', transform: 'translateX(-50%)',
           width: '80%', height: '90%',
-          background: 'radial-gradient(ellipse at 50% 30%, rgba(254,210,75,0.35), transparent 62%)',
+          background: 'radial-gradient(ellipse at 50% 30%, rgba(204,243,6,0.35), transparent 62%)',
           filter: 'blur(20px)', pointerEvents: 'none', zIndex: 0,
         }} />
         <div style={{
@@ -262,7 +262,7 @@ Masquer le formulaire
                 color: '#1A1526', margin: '0 0 6px',
                 display: 'flex', alignItems: 'center', gap: 8,
               }}>
-                <span style={{ width: 18, height: 1, background: '#FED24B', display: 'inline-block' }} />
+                <span style={{ width: 18, height: 1, background: '#CCF306', display: 'inline-block' }} />
                 Première étape
               </p>
               <h3 style={{
@@ -290,7 +290,7 @@ Recevez une recommandation gratuite
         }
         .cta-badge-dot {
           width: 6px; height: 6px; border-radius: 50%;
-          background: #FED24B; box-shadow: 0 0 8px rgba(74,56,0,0.6);
+          background: #CCF306; box-shadow: 0 0 8px rgba(74,56,0,0.6);
           animation: ctaDotPulse 2.2s ease-in-out infinite;
         }
         @keyframes ctaDotPulse {

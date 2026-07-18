@@ -95,11 +95,11 @@ export default function Navbar({ onCTA }) {
                   position: 'relative',
                   fontFamily: "'Mona Sans Variable', sans-serif",
                   fontSize: 13, fontWeight: 500,
-                  color: isHovered ? '#FED24B' : (scrolled ? 'rgba(26,21,38,0.7)' : 'rgba(255,255,255,0.75)'),
+                  color: isHovered ? '#CCF306' : (scrolled ? 'rgba(26,21,38,0.7)' : 'rgba(255,255,255,0.75)'),
                   textDecoration: 'none',
                   padding: '8px 16px',
                   borderRadius: 100,
-                  background: isHovered ? 'rgba(254,210,75,0.1)' : 'transparent',
+                  background: isHovered ? 'rgba(204,243,6,0.1)' : 'transparent',
                   letterSpacing: '-0.005em',
                   transition: `color 0.3s ${EASE}, background 0.3s ${EASE}`,
                   display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -108,11 +108,11 @@ export default function Navbar({ onCTA }) {
                 <span
                   style={{
                     width: 4, height: 4, borderRadius: '50%',
-                    background: '#FED24B',
+                    background: '#CCF306',
                     opacity: isHovered ? 1 : 0,
                     transform: isHovered ? 'scale(1)' : 'scale(0)',
                     transition: `opacity 0.3s ${EASE}, transform 0.45s ${SPRING}`,
-                    boxShadow: isHovered ? '0 0 8px rgba(254,210,75,0.6)' : 'none',
+                    boxShadow: isHovered ? '0 0 8px rgba(204,243,6,0.6)' : 'none',
                   }}
                 />
                 {l.label}
@@ -127,8 +127,8 @@ export default function Navbar({ onCTA }) {
             onClick={onCTA}
             className="lime-cta-pill nav-cta"
             style={{
-              background: scrolled ? '#1A1526' : '#FED24B',
-              color: scrolled ? '#FED24B' : '#1A1526',
+              background: scrolled ? '#1A1526' : '#CCF306',
+              color: scrolled ? '#CCF306' : '#1A1526',
               fontFamily: "'Mona Sans Variable', sans-serif",
               fontWeight: 700, fontSize: 13,
               padding: '10px 20px',

@@ -110,7 +110,7 @@ export default function Services() {
         #services.section-light::before {
           content: '';
           position: absolute; top: 0; left: 0; right: 0; height: 180px;
-          background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(254,210,75,0.08), transparent 70%);
+          background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(204,243,6,0.08), transparent 70%);
           pointer-events: none;
         }
 
@@ -128,7 +128,7 @@ export default function Services() {
           cursor: default; overflow: hidden;
         }
         .svc-card.is-hover {
-          border-color: rgba(254,210,75,0.4);
+          border-color: rgba(204,243,6,0.4);
           box-shadow: 0 14px 36px rgba(20,16,25,0.08), 0 2px 6px rgba(15,12,30,0.03);
         }
 
@@ -144,7 +144,7 @@ export default function Services() {
         .svc-underline {
           position: absolute; left: 0; bottom: 0; height: 2px;
           width: 34px; border-radius: 2px;
-          background: #FED24B;
+          background: #CCF306;
           transition: width 0.4s cubic-bezier(0.16,1,0.3,1);
         }
         .svc-card.is-hover .svc-underline { width: 100%; }
@@ -172,8 +172,8 @@ export default function Services() {
           transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
         }
         .svc-card.is-hover .svc-chip {
-          border-color: rgba(254,210,75,0.35);
-          background: rgba(254,210,75,0.07);
+          border-color: rgba(204,243,6,0.35);
+          background: rgba(204,243,6,0.07);
         }
 
         @media (max-width: 1024px) {

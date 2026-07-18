@@ -14,8 +14,8 @@ const icons = {
     </svg>
   ),
   webflow: (
-    <svg viewBox="0 0 24 24" width="32" height="32" fill="#146EF5" aria-hidden="true">
-      <path d="M22 5.5l-5.86 12.94a.5.5 0 01-.46.3h-2.86a.5.5 0 01-.47-.34l-1.9-5.66a.06.06 0 00-.12 0l-1.98 5.67a.5.5 0 01-.47.33H5.03a.5.5 0 01-.47-.33L2 5.5h2.98a.5.5 0 01.48.36l1.53 5.62a.06.06 0 00.12 0l1.86-5.64a.5.5 0 01.47-.34h2.28a.5.5 0 01.47.34l1.9 5.65a.06.06 0 00.11 0l1.6-5.63a.5.5 0 01.48-.36H22z"/>
+    <svg viewBox="0 0 129.9 81" width="34" height="34" fill="#146EF5" aria-hidden="true">
+      <path fillRule="evenodd" clipRule="evenodd" d="M129.9,0L88.4,81H49.5l17.3-33.6h-0.8C51.8,66,30.4,78.2,0,81V47.9c0,0,19.5-1.1,30.9-13.2H0V0h34.7v28.6l0.8,0L49.7,0h26.3v28.4l0.8,0L91.4,0H129.9z"/>
     </svg>
   ),
   code: (
@@ -66,7 +66,7 @@ export default function Technologies() {
         <div style={{
           position: 'absolute', top: '-30%', right: '-10%',
           width: '55%', height: '90%',
-          background: 'radial-gradient(ellipse at 70% 20%, rgba(254,210,75,0.18), transparent 65%)',
+          background: 'radial-gradient(ellipse at 70% 20%, rgba(204,243,6,0.18), transparent 65%)',
           pointerEvents: 'none',
         }} />
 

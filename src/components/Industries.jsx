@@ -95,7 +95,7 @@ const industries = [
 
 function CheckIcon() {
   return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FED24B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 2 }}>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#CCF306" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 2 }}>
       <polyline points="20 6 9 17 4 12" />
     </svg>
   )
@@ -110,10 +110,10 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
       onMouseLeave={() => setHovered(false)}
       style={{
         background: hovered
-          ? 'rgba(254,210,75,0.05)'
-          : featured ? 'rgba(254,210,75,0.03)' : 'rgba(26,21,38,0.05)',
+          ? 'rgba(204,243,6,0.05)'
+          : featured ? 'rgba(204,243,6,0.03)' : 'rgba(26,21,38,0.05)',
         border: featured
-          ? '1px solid rgba(254,210,75,0.35)'
+          ? '1px solid rgba(204,243,6,0.35)'
           : `1px solid ${hovered ? 'rgba(26,21,38,0.14)' : 'rgba(26,21,38,0.09)'}`,
         borderRadius: 18,
         padding: '36px 32px 32px',
@@ -123,7 +123,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
         transition: 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease, background 0.3s ease, border-color 0.3s ease',
         transform: hovered ? 'translateY(-5px)' : 'translateY(0)',
         boxShadow: hovered
-          ? '0 20px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(254,210,75,0.06)'
+          ? '0 20px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(204,243,6,0.06)'
           : '0 4px 16px rgba(0,0,0,0.15)',
         opacity: 0,
         animation: `ind-fadein 0.6s ease forwards ${index * 0.12 + 0.2}s`,
@@ -133,7 +133,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
       {featured && (
         <div style={{
           position: 'absolute', top: -12, left: 24,
-          background: '#FED24B', color: '#1A1526',
+          background: '#CCF306', color: '#1A1526',
           fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 10, fontWeight: 700,
           letterSpacing: '0.1em', textTransform: 'uppercase',
           padding: '4px 12px', borderRadius: 100,
@@ -146,13 +146,13 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
       <div style={{
         width: 52, height: 52, borderRadius: 14,
         background: hovered
-          ? 'linear-gradient(135deg, rgba(254,210,75,0.18), rgba(254,210,75,0.1))'
-          : 'linear-gradient(135deg, rgba(254,210,75,0.1), rgba(254,210,75,0.05))',
-        border: '1px solid rgba(254,210,75,0.18)',
+          ? 'linear-gradient(135deg, rgba(204,243,6,0.18), rgba(204,243,6,0.1))'
+          : 'linear-gradient(135deg, rgba(204,243,6,0.1), rgba(204,243,6,0.05))',
+        border: '1px solid rgba(204,243,6,0.18)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         marginBottom: 24, color: '#1A1526',
         transition: 'background 0.25s ease, box-shadow 0.25s ease',
-        boxShadow: hovered ? '0 0 20px rgba(254,210,75,0.15)' : 'none',
+        boxShadow: hovered ? '0 0 20px rgba(204,243,6,0.15)' : 'none',
       }}>
         {icon}
       </div>
@@ -179,7 +179,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
       {/* Divider */}
       <div style={{
         height: 1,
-        background: featured ? 'rgba(254,210,75,0.12)' : 'rgba(26,21,38,0.09)',
+        background: featured ? 'rgba(204,243,6,0.12)' : 'rgba(26,21,38,0.09)',
         marginBottom: 20,
       }} />
 
@@ -232,7 +232,7 @@ export default function Industries() {
             color: '#1A1526', marginBottom: 20,
             display: 'flex', alignItems: 'center', gap: 10,
           }}>
-            <span style={{ width: 28, height: 1, background: '#FED24B', display: 'inline-block' }} />
+            <span style={{ width: 28, height: 1, background: '#CCF306', display: 'inline-block' }} />
             Pour qui travaillons-nous
           </p>
 

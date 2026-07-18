@@ -75,12 +75,6 @@ export default function Hero({ onCTA }) {
       </div>
 
       <div className="hero-wrap">
-        {/* Badge */}
-        <div className="hero-badge" style={fade(0.02)}>
-          <span className="hero-badge-dot" />
-          AGENCE DIGITALE À AGADIR
-        </div>
-
         {/* Headline */}
         <h1 className="hero-h1" style={{ ...fade(0.1) }}>
           <span className="hero-h1-static">Nous créons des sites qui</span>
@@ -186,7 +180,7 @@ export default function Hero({ onCTA }) {
         .hero-bg-glow {
           position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
           width: 60vw; height: 45vh;
-          background: radial-gradient(ellipse at center, rgba(254,210,75,0.14), transparent 68%);
+          background: radial-gradient(ellipse at center, rgba(204,243,6,0.14), transparent 68%);
           filter: blur(60px);
         }
         /* Fades the dark backdrop into the page's light background near the bottom */
@@ -195,7 +189,7 @@ export default function Hero({ onCTA }) {
           background: linear-gradient(180deg, transparent 0%, #FAF9F6 92%);
         }
 
-        .hero-cursor { color: #FED24B; opacity: 1; font-weight: 300; }
+        .hero-cursor { color: #CCF306; opacity: 1; font-weight: 300; }
 
         .hero-wrap {
           position: relative; z-index: 1;
@@ -209,7 +203,7 @@ export default function Hero({ onCTA }) {
           display: inline-flex; align-items: center; gap: 9px;
           padding: 8px 18px; margin-bottom: 30px;
           background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(254,210,75,0.28);
+          border: 1px solid rgba(204,243,6,0.28);
           border-radius: 100px;
           font-family: 'Mona Sans Variable', sans-serif;
           font-size: 11px; font-weight: 600;
@@ -219,7 +213,7 @@ export default function Hero({ onCTA }) {
         }
         .hero-badge-dot {
           width: 6px; height: 6px; border-radius: 50%;
-          background: #FED24B; box-shadow: 0 0 10px rgba(254,210,75,0.9);
+          background: #CCF306; box-shadow: 0 0 10px rgba(204,243,6,0.9);
           animation: hero-pulse 2.2s ease-in-out infinite;
         }
         @keyframes hero-pulse {
@@ -246,7 +240,7 @@ export default function Hero({ onCTA }) {
         }
         .hero-accent-grad {
           display: inline-block;
-          background: linear-gradient(180deg, #FFE9A8 0%, #FED24B 55%, #F5B301 100%);
+          background: linear-gradient(180deg, #FFE9A8 0%, #CCF306 55%, #A6C900 100%);
           -webkit-background-clip: text; background-clip: text;
           -webkit-text-fill-color: transparent; color: transparent;
         }
@@ -265,18 +259,18 @@ export default function Hero({ onCTA }) {
           gap: 16px; flex-wrap: wrap; margin-bottom: 66px;
         }
         .hero-btn-primary {
-          background: #FED24B; color: #1A1526;
+          background: #CCF306; color: #1A1526;
           font-family: 'Mona Sans Variable', sans-serif;
           font-weight: 700; font-size: 16px;
           padding: 16px 34px;
           border: none; border-radius: 100px; cursor: pointer;
           letter-spacing: -0.005em;
-          box-shadow: 0 8px 30px rgba(254,210,75,0.25);
+          box-shadow: 0 8px 30px rgba(204,243,6,0.25);
           transition: transform 0.5s ${SPRING}, box-shadow 0.3s ${EASE}, background 0.3s ${EASE};
         }
         .hero-btn-primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 14px 40px rgba(254,210,75,0.35);
+          box-shadow: 0 14px 40px rgba(204,243,6,0.35);
         }
         .hero-btn-ghost {
           font-family: 'Mona Sans Variable', sans-serif;
@@ -289,7 +283,7 @@ export default function Hero({ onCTA }) {
         }
         .hero-btn-ghost:hover {
           color: #FFFFFF;
-          border-color: rgba(254,210,75,0.5);
+          border-color: rgba(204,243,6,0.5);
           background: rgba(255,255,255,0.04);
         }
 
@@ -298,7 +292,7 @@ export default function Hero({ onCTA }) {
         .hero-showcase::before {
           content: '';
           position: absolute; inset: -6% -4% -12%;
-          background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(254,210,75,0.28), transparent 65%);
+          background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(204,243,6,0.28), transparent 65%);
           filter: blur(55px); z-index: 0;
         }
         .hero-showcase-inner {
@@ -330,7 +324,7 @@ export default function Hero({ onCTA }) {
         }
         .hero-chip-dot {
           width: 7px; height: 7px; border-radius: 50%;
-          background: #FED24B; box-shadow: 0 0 8px rgba(254,210,75,0.8); flex-shrink: 0;
+          background: #CCF306; box-shadow: 0 0 8px rgba(204,243,6,0.8); flex-shrink: 0;
         }
         .hero-chip-label { display: inline-block; animation: chipIn 0.6s ${EASE}; white-space: nowrap; }
         @keyframes chipIn {
@@ -353,7 +347,7 @@ export default function Hero({ onCTA }) {
           background: rgba(255,255,255,0.32);
           transition: width 0.4s ${EASE}, background 0.4s ${EASE};
         }
-        .hero-dot.active { width: 22px; border-radius: 5px; background: #FED24B; }
+        .hero-dot.active { width: 22px; border-radius: 5px; background: #CCF306; }
 
         @media (max-width: 768px) {
           .hero-dark { padding-top: 120px !important; padding-bottom: 60px !important; }

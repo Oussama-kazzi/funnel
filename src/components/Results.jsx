@@ -37,12 +37,12 @@ function StatCard({ num, label, desc }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? 'rgba(254,210,75,0.04)' : '#0A0A0A',
-        border: `2px solid ${hovered ? 'rgba(254,210,75,0.3)' : 'rgba(26,21,38,0.09)'}`,
+        background: hovered ? 'rgba(204,243,6,0.04)' : '#0A0A0A',
+        border: `2px solid ${hovered ? 'rgba(204,243,6,0.3)' : 'rgba(26,21,38,0.09)'}`,
         borderRadius: 8,
         padding: '44px 36px',
         position: 'relative',
-        boxShadow: hovered ? 'none' : '6px 6px 0px 0px rgba(254,210,75,0.22)',
+        boxShadow: hovered ? 'none' : '6px 6px 0px 0px rgba(204,243,6,0.22)',
         transition: 'background 0.3s cubic-bezier(0.4,0,0.2,1), border-color 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1)',
         cursor: 'default',
       }}
@@ -78,7 +78,7 @@ function StatCard({ num, label, desc }) {
       <div style={{
         position: 'absolute', bottom: 16, right: 16,
         width: 8, height: 8, borderRadius: '50%',
-        background: '#FED24B',
+        background: '#CCF306',
         opacity: hovered ? 1 : 0,
         transform: hovered ? 'scale(1)' : 'scale(0)',
         transition: 'opacity 0.25s, transform 0.35s cubic-bezier(0.34,1.56,0.64,1)',

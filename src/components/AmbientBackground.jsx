@@ -33,7 +33,7 @@ export default function AmbientBackground() {
           position: 'absolute', top: '-18%', right: '-12%',
           width: '70vw', height: '80vh',
           borderRadius: '50%',
-          background: 'radial-gradient(circle at 60% 40%, rgba(254,210,75,0.14), rgba(254,210,75,0.06) 42%, transparent 68%)',
+          background: 'radial-gradient(circle at 60% 40%, rgba(204,243,6,0.14), rgba(204,243,6,0.06) 42%, transparent 68%)',
           filter: 'blur(70px)',
           ...staticA,
         }}
@@ -45,7 +45,7 @@ export default function AmbientBackground() {
           position: 'absolute', bottom: '-16%', left: '-14%',
           width: '62vw', height: '72vh',
           borderRadius: '50%',
-          background: 'radial-gradient(circle at 40% 60%, rgba(254,210,75,0.10), rgba(254,210,75,0.04) 45%, transparent 70%)',
+          background: 'radial-gradient(circle at 40% 60%, rgba(204,243,6,0.10), rgba(204,243,6,0.04) 45%, transparent 70%)',
           filter: 'blur(80px)',
           ...staticB,
         }}
@@ -58,7 +58,7 @@ export default function AmbientBackground() {
           width: '48vw', height: '40vh',
           transform: 'translate(-50%, -50%)',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(254,210,75,0.05), transparent 65%)',
+          background: 'radial-gradient(circle, rgba(204,243,6,0.05), transparent 65%)',
           filter: 'blur(90px)',
           opacity: reduce ? 0.5 : centerOpacity,
         }}

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 
-const LIME = '#FED24B'
+const LIME = '#CCF306'
 const LETTERS = 'ABCDEFG'
 
 export const questions = [
@@ -75,7 +75,7 @@ export const questions = [
 /* ─── CSS shared by modal and inline variants ─────────────────────── */
 const css = `
   .q-prog-track { height: 2px; background: rgba(26,21,38,0.09); }
-  .q-prog-fill  { height: 100%; background: ${LIME}; transition: width 0.5s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 0 8px rgba(254,210,75,0.45); }
+  .q-prog-fill  { height: 100%; background: ${LIME}; transition: width 0.5s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 0 8px rgba(204,243,6,0.45); }
   .q-body { overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(26,21,38,0.09) transparent; }
   .q-body::-webkit-scrollbar { width: 4px; }
   .q-body::-webkit-scrollbar-thumb { background: rgba(26,21,38,0.09); border-radius: 4px; }
@@ -90,7 +90,7 @@ const css = `
     transition:background .18s ease, border-color .18s ease, color .18s ease;
   }
   .q-opt:hover { background:rgba(26,21,38,0.09); border-color:rgba(26,21,38,0.14); color:rgba(26,21,38,0.92); }
-  .q-opt.q-sel  { background:rgba(254,210,75,0.18); border-color:rgba(254,210,75,0.6); color:#1A1526; }
+  .q-opt.q-sel  { background:rgba(204,243,6,0.18); border-color:rgba(204,243,6,0.6); color:#1A1526; }
   .q-ltr {
     display:inline-flex; align-items:center; justify-content:center;
     width:24px; height:24px; min-width:24px;
@@ -99,14 +99,14 @@ const css = `
     color:rgba(26,21,38,0.72); background:rgba(26,21,38,0.05); flex-shrink:0;
     transition:all .18s ease;
   }
-  .q-opt.q-sel .q-ltr { background:rgba(254,210,75,0.18); border-color:rgba(254,210,75,0.5); color:${LIME}; }
+  .q-opt.q-sel .q-ltr { background:rgba(204,243,6,0.18); border-color:rgba(204,243,6,0.5); color:${LIME}; }
   .q-input {
     width:100%; background:transparent; border:none;
     border-bottom:1.5px solid rgba(26,21,38,0.14); padding:10px 0;
     font-family:'Mona Sans Variable',sans-serif; font-size:16px; color:#1A1526;
     outline:none; resize:none; display:block; transition:border-color .2s ease;
   }
-  .q-input:focus { border-bottom-color:rgba(254,210,75,0.65); }
+  .q-input:focus { border-bottom-color:rgba(204,243,6,0.65); }
   .q-input::placeholder { color:rgba(26,21,38,0.40); }
   .q-input-sm {
     width:100%; background:transparent; border:none;
@@ -114,7 +114,7 @@ const css = `
     font-family:'Mona Sans Variable',sans-serif; font-size:15px; color:#1A1526;
     outline:none; display:block; transition:border-color .2s ease;
   }
-  .q-input-sm:focus { border-bottom-color:rgba(254,210,75,0.65); }
+  .q-input-sm:focus { border-bottom-color:rgba(204,243,6,0.65); }
   .q-input-sm::placeholder { color:rgba(26,21,38,0.40); }
   .q-ok {
     display:inline-flex; align-items:center; gap:8px;
@@ -129,8 +129,8 @@ const css = `
     width:38px; height:38px; border:none; border-radius:8px;
     cursor:pointer; transition:background .18s ease, transform .25s ease;
   }
-  .q-nav.qon  { background:rgba(254,210,75,0.12); }
-  .q-nav.qon:hover { background:rgba(254,210,75,0.2); transform:translateY(-1px); }
+  .q-nav.qon  { background:rgba(204,243,6,0.12); }
+  .q-nav.qon:hover { background:rgba(204,243,6,0.2); transform:translateY(-1px); }
   .q-nav.qoff { background:rgba(26,21,38,0.05); cursor:default; opacity:0.35; }
   .q-cond-enter { animation: qCondIn 0.3s cubic-bezier(0.16,1,0.3,1) forwards; }
   @keyframes qCondIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
@@ -236,9 +236,9 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
           <div style={{ textAlign: 'center', padding: '24px 0 8px' }}>
             <div style={{
               width: 60, height: 60, borderRadius: '50%',
-              background: 'rgba(254,210,75,0.12)', border: '1px solid rgba(254,210,75,0.3)',
+              background: 'rgba(204,243,6,0.12)', border: '1px solid rgba(204,243,6,0.3)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              margin: '0 auto 20px', boxShadow: '0 0 32px rgba(254,210,75,0.12)',
+              margin: '0 auto 20px', boxShadow: '0 0 32px rgba(204,243,6,0.12)',
             }}>
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={LIME} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="20 6 9 17 4 12" />
@@ -264,7 +264,7 @@ export default function Questionnaire({ onDone, bodyPadding = '32px 40px 36px' }
               <div style={{
                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                 width: 28, height: 28, borderRadius: 6,
-                background: 'rgba(254,210,75,0.12)', border: '1px solid rgba(254,210,75,0.25)',
+                background: 'rgba(204,243,6,0.12)', border: '1px solid rgba(204,243,6,0.25)',
                 flexShrink: 0, marginTop: 2,
               }}>
                 <span style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 800, color: LIME, lineHeight: 1 }}>

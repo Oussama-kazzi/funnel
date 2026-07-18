@@ -114,18 +114,18 @@ export default function ClientLogos() {
         }
         .cl-dot {
           width: 5px; height: 5px; border-radius: 50%;
-          background: #FED24B;
-          box-shadow: 0 0 8px rgba(254,210,75,0.6);
+          background: #CCF306;
+          box-shadow: 0 0 8px rgba(204,243,6,0.6);
           flex-shrink: 0;
         }
         .cl-rule-line {
           display: block;
           width: 44px;
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(254,210,75,0.55));
+          background: linear-gradient(90deg, transparent, rgba(204,243,6,0.55));
         }
         .cl-label-wrap .cl-rule-line:last-child {
-          background: linear-gradient(90deg, rgba(254,210,75,0.55), transparent);
+          background: linear-gradient(90deg, rgba(204,243,6,0.55), transparent);
         }
 
         /* ── marquee ── */

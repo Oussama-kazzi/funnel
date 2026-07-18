@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform, useSpring, useMotionValueEvent, useReducedMotion } from 'framer-motion'
+import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 'framer-motion'
 import { useState } from 'react'
 
 const EASE = 'cubic-bezier(0.16, 1, 0.3, 1)'
@@ -43,28 +43,29 @@ function Glyph({ index, active }) {
 }
 
 // Layout geometry (px).
-const SPREAD_GAP = 156    // spacing between cards in the "before" expanded list
-const TIGHT_GAP = 84      // spacing once compressed into the tight stack
+const SPREAD_GAP = 156    // spacing between cards in the initial vertical list
 
-// Cards keep the SAME shape the whole time (full card + description). Before
-// scroll they're a spread-out list; as progress → 1 they slide together into a
-// tight overlapping stack — nothing changes shape, they only move & overlap.
+// State A (progress 0): a spread-out vertical list, card i at y = i * SPREAD_GAP.
+// State B (progress 1): every card slides UP onto the base card (y = 0), so they
+// stack and only the last (front) card is visible. The FIRST card is already at
+// y = 0 in both states — it stays fixed in place, acting as the base of the pile.
+// Driven by scroll position, so scrolling back up reverses it into the list.
 function StepCard({ i, total, title, desc, progress, activeIndex }) {
-  const reduce = useReducedMotion()
   const active = activeIndex === i
 
-  const spreadY = i * SPREAD_GAP
-  const tightY = i * TIGHT_GAP
+  const spreadY = i * SPREAD_GAP   // resting spot in the vertical list
+  const stackY = 0                 // everyone folds onto the base card
 
-  const rawY = useTransform(progress, [0, 0.55], [spreadY, tightY], { clamp: true })
-  // Fast, responsive settle: high stiffness + low mass, damping kept
-  // high enough to stay wobble-free.
-  const y = useSpring(rawY, { stiffness: 420, damping: 40, mass: 0.4 })
+  // Stagger the fold a touch so cards collapse one after another (top card
+  // last) — the piling-up feel. Card 0 never moves (spreadY = stackY = 0).
+  const startFold = (i / total) * 0.4
+  const rawY = useTransform(progress, [startFold, 0.92], [spreadY, stackY], { clamp: true })
+  const y = useSpring(rawY, { stiffness: 480, damping: 42, mass: 0.35 })
 
   return (
     <motion.div
       className={`step-card${active ? ' is-active' : ''}`}
-      style={reduce ? { position: 'relative', marginBottom: 18 } : { y, zIndex: i + 1 }}
+      style={{ y, zIndex: i + 1 }}
     >
       <div className="step-glyph"><Glyph index={i} active={active} /></div>
       <div className="step-body">
@@ -84,10 +85,10 @@ function StackScroller() {
     offset: ['start start', 'end end'],
   })
 
-  // Highlight the front card of the formed stack once compressed.
+  // Once mostly collapsed, highlight the front (top) card of the pile.
   const [activeIndex, setActiveIndex] = useState(-1)
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
-    setActiveIndex(v > 0.5 ? steps.length - 1 : -1)
+    setActiveIndex(v > 0.75 ? steps.length - 1 : -1)
   })
 
   return (
@@ -158,7 +159,7 @@ export default function Process({ onCTA }) {
           display: flex; flex-direction: column; align-items: flex-start;
         }
         .process-cta {
-          background: #1A1526; color: #FED24B;
+          background: #1A1526; color: #CCF306;
           font-family: 'Mona Sans Variable', sans-serif;
           font-weight: 700; font-size: 15px;
           padding: 15px 32px; border: none; border-radius: 100px; cursor: pointer;
@@ -166,21 +167,20 @@ export default function Process({ onCTA }) {
         }
         .process-cta:hover { transform: translateY(-2px); background: #000000; }
 
-        /* Scroll track: tall so the whole card sequence has room to play out.
-           The sticky wrapper pins to the viewport (no visible frame — cards
-           look like a plain list, then rise up one on top of another as you
-           scroll). Cards are absolutely positioned inside the stage. */
-        .step-container { position: relative; height: ${steps.length * 38}vh; }
+        /* Scroll track drives the pinned stage. The frame stays pinned the
+           whole time so the base card holds its spot facing the heading and the
+           pile forms in place — nothing scrolls off the top. */
+        .step-container { position: relative; height: ${steps.length * 30}vh; }
         .step-frame {
           position: sticky;
-          top: 14vh;
+          top: 22vh;
         }
-        /* Clip the waiting cards parked just below the stage so they only
-           appear as they rise in. 'clip' + overflow-clip-margin lets the card
-           shadows bleed a little instead of being hard-cut at the edges. */
+        /* Anchor is ONE card tall so the base card stays pinned at 22vh (facing
+           the heading) and the whole pile forms right there. The spread-out
+           cards below simply extend past the stage via their transforms. */
         .step-stage {
           position: relative;
-          height: 560px;
+          height: 190px;
           width: 100%;
         }
         .step-card {
@@ -197,7 +197,7 @@ export default function Process({ onCTA }) {
           will-change: transform;
         }
         .step-card.is-active {
-          border-color: rgba(254,210,75,0.45);
+          border-color: rgba(204,243,6,0.45);
           box-shadow: 0 18px 44px rgba(20,16,25,0.10), 0 3px 10px rgba(20,16,25,0.04);
         }
         .step-glyph { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
@@ -205,16 +205,16 @@ export default function Process({ onCTA }) {
         .step-icon-tile {
           width: 48px; height: 48px; border-radius: 13px;
           display: flex; align-items: center; justify-content: center;
-          background: linear-gradient(135deg, rgba(254,210,75,0.14), rgba(254,210,75,0.07));
-          border: 1px solid rgba(254,210,75,0.22);
+          background: linear-gradient(135deg, rgba(204,243,6,0.14), rgba(204,243,6,0.07));
+          border: 1px solid rgba(204,243,6,0.22);
           color: rgba(20,16,25,0.55);
           transition: color 0.4s ${EASE}, background 0.4s ${EASE}, border-color 0.4s ${EASE}, box-shadow 0.4s ${EASE};
         }
         .step-icon-tile.is-active {
-          background: linear-gradient(135deg, rgba(254,210,75,0.28), rgba(254,210,75,0.14));
-          border-color: rgba(254,210,75,0.5);
+          background: linear-gradient(135deg, rgba(204,243,6,0.28), rgba(204,243,6,0.14));
+          border-color: rgba(204,243,6,0.5);
           color: #1A1526;
-          box-shadow: 0 0 20px rgba(254,210,75,0.18);
+          box-shadow: 0 0 20px rgba(204,243,6,0.18);
         }
         .step-body { flex: 1; min-width: 0; }
         .step-title {

@@ -164,7 +164,7 @@ export default function Testimonials() {
         .tm-card {
           break-inside: avoid;
           margin-bottom: 20px;
-          background: linear-gradient(160deg, rgba(26,21,38,0.05) 0%, rgba(254,210,75,0.04) 100%);
+          background: linear-gradient(160deg, rgba(26,21,38,0.05) 0%, rgba(204,243,6,0.04) 100%);
           border: 1px solid rgba(26,21,38,0.09);
           border-radius: 20px;
           padding: 26px 24px 22px;
@@ -174,8 +174,8 @@ export default function Testimonials() {
           transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .tm-card:hover {
-          border-color: rgba(254,210,75,0.3);
-          box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(254,210,75,0.06);
+          border-color: rgba(204,243,6,0.3);
+          box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(204,243,6,0.06);
         }
         .tm-metric {
           display: flex; align-items: baseline; gap: 8px;
@@ -185,7 +185,7 @@ export default function Testimonials() {
         .tm-metric-val {
           font-family: 'Mona Sans Variable', sans-serif; font-size: 30px; font-weight: 800;
           color: #1A1526; letter-spacing: -0.04em; line-height: 1;
-          text-shadow: 0 0 24px rgba(254,210,75,0.35);
+          text-shadow: 0 0 24px rgba(204,243,6,0.35);
         }
         .tm-metric-label {
           font-family: 'Mona Sans Variable', sans-serif; font-size: 12px;
@@ -199,10 +199,10 @@ export default function Testimonials() {
         .tm-author { display: flex; align-items: center; gap: 11px; padding-top: 16px; border-top: 1px solid rgba(26,21,38,0.09); }
         .tm-avatar {
           width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
-          background: linear-gradient(135deg, #FED24B, #FED24B);
+          background: linear-gradient(135deg, #CCF306, #CCF306);
           display: flex; align-items: center; justify-content: center;
           font-family: 'Mona Sans Variable', sans-serif; font-size: 12px; font-weight: 700; color: #fff;
-          box-shadow: 0 0 0 2px rgba(254,210,75,0.12);
+          box-shadow: 0 0 0 2px rgba(204,243,6,0.12);
         }
         .tm-name { font-family: 'Mona Sans Variable', sans-serif; font-size: 13px; font-weight: 600; color: #FFFFFF; }
         .tm-role { font-family: 'Mona Sans Variable', sans-serif; font-size: 11px; color: rgba(26,21,38,0.55); }

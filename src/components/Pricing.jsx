@@ -142,7 +142,7 @@ export default function Pricing({ onCTA }) {
           transition: background 0.25s ease;
         }
         .tarif-row:last-child { border-bottom: none; }
-        .tarif-row:hover { background: rgba(254,210,75,0.035); }
+        .tarif-row:hover { background: rgba(204,243,6,0.035); }
         .tarif-price { display: flex; flex-direction: column; gap: 4px; }
         .tarif-btn {
           display: inline-flex; align-items: center; gap: 8px;
@@ -153,7 +153,7 @@ export default function Pricing({ onCTA }) {
           white-space: nowrap;
           transition: background 0.25s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
         }
-        .tarif-btn:hover { background: #FED24B; color: #1A1526; transform: translateY(-2px); }
+        .tarif-btn:hover { background: #CCF306; color: #1A1526; transform: translateY(-2px); }
 
         .tarif-notes {
           display: flex; flex-wrap: wrap; gap: 12px 32px;
@@ -165,7 +165,7 @@ export default function Pricing({ onCTA }) {
           color: rgba(20,16,25,0.6);
         }
         .tarif-note-dot {
-          width: 6px; height: 6px; border-radius: 50%; background: #FED24B;
+          width: 6px; height: 6px; border-radius: 50%; background: #CCF306;
         }
 
         @media (max-width: 720px) {
