@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import TextType from './TextType'
 import BookingForm from './BookingForm'
+import { useLang } from '../i18n/context'
 import slide1 from '../assets/projet-3-webflow.png'
 import slide2 from '../assets/projet-2-webflow.png'
 import slide3 from '../assets/projet-4-webflow.png'
@@ -32,6 +33,7 @@ const SQUARES = [
 export default function Hero({ onCTA }) {
   const [visible, setVisible] = useState(false)
   const [slide, setSlide] = useState(0)
+  const { t, lang } = useLang()
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 80)
@@ -78,11 +80,17 @@ export default function Hero({ onCTA }) {
       <div className="hero-wrap">
         {/* Headline */}
         <h1 className="hero-h1" style={{ ...fade(0.1) }}>
-          <span className="hero-h1-static">Nous créons des sites qui</span>
+          <span className="hero-h1-static">{t('Nous créons des sites qui')}</span>
           <span className="hero-accent-wrap">
             <span className="hero-accent-grad">
               <TextType
-                text={['réalisent vos objectifs', 'génèrent des résultats', 'convertissent vos visiteurs', 'font grandir votre marque']}
+                key={lang}
+                text={[
+                  t('réalisent vos objectifs'),
+                  t('génèrent des résultats'),
+                  t('convertissent vos visiteurs'),
+                  t('font grandir votre marque'),
+                ]}
                 as="span"
                 typingSpeed={60}
                 deletingSpeed={30}
@@ -98,16 +106,16 @@ export default function Hero({ onCTA }) {
 
         {/* Subheading */}
         <p className="hero-sub" style={{ ...fade(0.2) }}>
-          Nous concevons des sites web, landing pages et solutions digitales sur mesure qui renforcent votre crédibilité, génèrent plus de demandes et accompagnent la croissance de votre entreprise.
+          {t('Nous concevons des sites web, landing pages et solutions digitales sur mesure qui renforcent votre crédibilité, génèrent plus de demandes et accompagnent la croissance de votre entreprise.')}
         </p>
 
         {/* CTAs */}
         <div className="hero-cta-row" style={{ ...fade(0.3) }}>
           <button onClick={onCTA} className="hero-btn-primary">
-            Planifier un appel gratuit
+            {t('Planifier un appel gratuit')}
           </button>
           <a href="#work" className="hero-btn-ghost">
-            Voir nos réalisations
+            {t('Voir nos réalisations')}
           </a>
         </div>
 
@@ -118,7 +126,7 @@ export default function Hero({ onCTA }) {
               <img
                 key={i}
                 src={s.img}
-                alt={s.label}
+                alt={t(s.label)}
                 className="hero-showcase-img"
                 style={{
                   opacity: i === slide ? 1 : 0,
@@ -130,7 +138,7 @@ export default function Hero({ onCTA }) {
 
             <div className="hero-showcase-chip">
               <span className="hero-chip-dot" />
-              <span key={slide} className="hero-chip-label">{SLIDES[slide].label}</span>
+              <span key={slide} className="hero-chip-label">{t(SLIDES[slide].label)}</span>
             </div>
 
             <div className="hero-showcase-dots">
@@ -167,8 +175,8 @@ export default function Hero({ onCTA }) {
         .hero-bg-grad {
           position: absolute; inset: 0;
           background:
-            radial-gradient(ellipse 80% 60% at 50% -10%, #241a52 0%, transparent 60%),
-            linear-gradient(180deg, #14102e 0%, #100c26 45%, #0c0a1e 100%);
+            radial-gradient(ellipse 80% 60% at 50% -10%, #2a2a2a 0%, transparent 60%),
+            linear-gradient(180deg, #161616 0%, #121212 45%, #0d0d0d 100%);
         }
         .hero-bg-grid {
           position: absolute; inset: 0;
@@ -317,7 +325,7 @@ export default function Hero({ onCTA }) {
           border-radius: 20px; overflow: hidden;
           border: 1px solid rgba(255,255,255,0.10);
           box-shadow: 0 40px 100px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.08);
-          background: #0c0a16;
+          background: #0d0d0d;
           aspect-ratio: 16 / 8.5;
         }
         .hero-showcase-img {

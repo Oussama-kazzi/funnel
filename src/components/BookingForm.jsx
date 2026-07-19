@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useLang } from '../i18n/context'
 
 const GOLD = '#CCF306'
 
 const SERVICES = ['Site web', 'Landing page', 'Application (web/mobile)', 'Autres']
 
 export default function BookingForm({ id = 'booking', className = '' }) {
+  const { t } = useLang()
   const [form, setForm] = useState({
     name: '', phone: '', email: '', company: '', domain: '',
   })
@@ -39,34 +41,34 @@ export default function BookingForm({ id = 'booking', className = '' }) {
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
-            <h3 className="bf-success-title">Bien reçu. Nous vous répondons sous 24h.</h3>
+            <h3 className="bf-success-title">{t('Bien reçu. Nous vous répondons sous 24h.')}</h3>
             <p className="bf-success-text">
-              Merci pour votre demande. Notre équipe vous recontacte très vite pour planifier votre appel gratuit.
+              {t('Merci pour votre demande. Notre équipe vous recontacte très vite pour planifier votre appel gratuit.')}
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
-            <h2 className="bf-title">Réservez un appel gratuit</h2>
+            <h2 className="bf-title">{t('Réservez un appel gratuit')}</h2>
 
             {/* Nom Complet */}
             <div className="bf-field">
-              <label className="bf-label">Nom Complet <span className="bf-req">*</span></label>
+              <label className="bf-label">{t('Nom Complet')} <span className="bf-req">*</span></label>
               <input
-                type="text" className="bf-input" placeholder="Nom Complet" required
+                type="text" className="bf-input" placeholder={t('Nom Complet')} required
                 value={form.name} onChange={e => set('name', e.target.value)}
               />
             </div>
 
             {/* Numéro whatsapp */}
             <div className="bf-field">
-              <label className="bf-label">Numéro whatsapp <span className="bf-req">*</span></label>
+              <label className="bf-label">{t('Numéro whatsapp')} <span className="bf-req">*</span></label>
               <div className="bf-phone">
                 <span className="bf-phone-code">
                   <span className="bf-flag" aria-hidden="true">🇲🇦</span>
                   <span>+212</span>
                 </span>
                 <input
-                  type="tel" className="bf-input bf-input-phone" placeholder="Votre Numéro" required
+                  type="tel" className="bf-input bf-input-phone" placeholder={t('Votre Numéro')} required
                   value={form.phone} onChange={e => set('phone', e.target.value)}
                 />
               </div>
@@ -74,16 +76,16 @@ export default function BookingForm({ id = 'booking', className = '' }) {
 
             {/* E-mail */}
             <div className="bf-field">
-              <label className="bf-label">E-mail <span className="bf-req">*</span></label>
+              <label className="bf-label">{t('E-mail')} <span className="bf-req">*</span></label>
               <input
-                type="email" className="bf-input" placeholder="Votre Email" required
+                type="email" className="bf-input" placeholder={t('Votre Email')} required
                 value={form.email} onChange={e => set('email', e.target.value)}
               />
             </div>
 
             {/* Nom d'entreprise */}
             <div className="bf-field">
-              <label className="bf-label">Nom d’entreprise ( Optionnel )</label>
+              <label className="bf-label">{t('Nom d’entreprise ( Optionnel )')}</label>
               <input
                 type="text" className="bf-input" placeholder=""
                 value={form.company} onChange={e => set('company', e.target.value)}
@@ -92,16 +94,16 @@ export default function BookingForm({ id = 'booking', className = '' }) {
 
             {/* Domaine d'activité */}
             <div className="bf-field">
-              <label className="bf-label">Domaine d’activité</label>
+              <label className="bf-label">{t('Domaine d’activité')}</label>
               <input
-                type="text" className="bf-input" placeholder="(eg. Commerce, BTP, Tourisme…)"
+                type="text" className="bf-input" placeholder={t('(eg. Commerce, BTP, Tourisme…)')}
                 value={form.domain} onChange={e => set('domain', e.target.value)}
               />
             </div>
 
             {/* Service souhaité */}
             <div className="bf-field">
-              <label className="bf-label">Service souhaité</label>
+              <label className="bf-label">{t('Service souhaité')}</label>
               <div className="bf-checks">
                 {SERVICES.map(s => (
                   <label key={s} className="bf-check">
@@ -111,13 +113,13 @@ export default function BookingForm({ id = 'booking', className = '' }) {
                       onChange={() => toggleService(s)}
                     />
                     <span className="bf-check-box" />
-                    <span className="bf-check-label">{s}</span>
+                    <span className="bf-check-label">{t(s)}</span>
                   </label>
                 ))}
               </div>
             </div>
 
-            <button type="submit" className="bf-submit">Suivant</button>
+            <button type="submit" className="bf-submit">{t('Suivant')}</button>
           </form>
         )}
       </motion.div>

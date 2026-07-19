@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { useInView } from 'framer-motion'
+import { useLang } from '../i18n/context'
 
 /* ── Brand / concept icons (official brand marks) ── */
 const icons = {
@@ -42,6 +43,7 @@ const techs = [
 export default function Technologies() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, amount: 0.15 })
+  const { t } = useLang()
 
   return (
     <section id="technologies" className="tech-section" style={{ padding: '40px 32px 96px' }}>
@@ -77,14 +79,14 @@ export default function Technologies() {
         }}>
           <div style={{ maxWidth: 460 }}>
             <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#1A1526', marginBottom: 18 }}>
-              Technologies
+              {t('Technologies')}
             </p>
             <h2 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 'clamp(24px, 5.5vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#1A1526', lineHeight: 1.12, margin: 0 }}>
-              Nous utilisons les meilleures technologies pour votre projet.
+              {t('Nous utilisons les meilleures technologies pour votre projet.')}
             </h2>
           </div>
           <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 15, color: 'rgba(26,21,38,0.72)', lineHeight: 1.7, maxWidth: 380, alignSelf: 'flex-end' }}>
-            Chaque projet est unique. Nous choisissons la technologie la plus adaptée à vos objectifs, votre budget et vos besoins.
+            {t('Chaque projet est unique. Nous choisissons la technologie la plus adaptée à vos objectifs, votre budget et vos besoins.')}
           </p>
         </div>
 
@@ -94,17 +96,17 @@ export default function Technologies() {
           gridTemplateColumns: 'repeat(5, 1fr)',
           gap: 0, position: 'relative', zIndex: 1,
         }}>
-          {techs.map((t, i) => (
-            <div key={t.key} className="tech-item" style={{
+          {techs.map((tech, i) => (
+            <div key={tech.key} className="tech-item" style={{
               padding: '0 24px',
               borderLeft: i === 0 ? 'none' : '1px solid rgba(26,21,38,0.09)',
             }}>
-              <div style={{ marginBottom: 20 }}>{icons[t.key]}</div>
+              <div style={{ marginBottom: 20 }}>{icons[tech.key]}</div>
               <h3 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 17, fontWeight: 700, color: '#1A1526', letterSpacing: '-0.02em', marginBottom: 12 }}>
-                {t.name}
+                {t(tech.name)}
               </h3>
               <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 13, color: 'rgba(26,21,38,0.72)', lineHeight: 1.6, margin: 0 }}>
-                {t.desc}
+                {t(tech.desc)}
               </p>
             </div>
           ))}

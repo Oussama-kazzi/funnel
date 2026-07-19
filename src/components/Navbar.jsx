@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useLang } from '../i18n/context'
 
 const EASE = 'cubic-bezier(0.16, 1, 0.3, 1)'
 const SPRING = 'cubic-bezier(0.34, 1.56, 0.64, 1)'
@@ -6,7 +7,7 @@ const SPRING = 'cubic-bezier(0.34, 1.56, 0.64, 1)'
 export default function Navbar({ onCTA }) {
   const [scrolled, setScrolled] = useState(false)
   const [hoveredLink, setHoveredLink] = useState(null)
-  const [ctaHovered, setCtaHovered] = useState(false)
+  const { t, lang, toggle } = useLang()
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20)
@@ -115,14 +116,52 @@ export default function Navbar({ onCTA }) {
                     boxShadow: isHovered ? '0 0 8px rgba(204,243,6,0.6)' : 'none',
                   }}
                 />
-                {l.label}
+                {t(l.label)}
               </a>
             )
           })}
         </nav>
 
-        {/* CTA */}
+        {/* CTA + language toggle */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          {/* FR / EN language toggle */}
+          <button
+            onClick={toggle}
+            className="nav-lang"
+            aria-label={lang === 'fr' ? 'Switch to English' : 'Passer en français'}
+            style={{
+              display: 'inline-flex', alignItems: 'center',
+              fontFamily: "'Mona Sans Variable', sans-serif",
+              fontWeight: 700, fontSize: 12,
+              padding: '7px 4px',
+              border: `1px solid ${scrolled ? 'rgba(26,21,38,0.14)' : 'rgba(255,255,255,0.18)'}`,
+              borderRadius: 100,
+              background: scrolled ? 'rgba(26,21,38,0.05)' : 'rgba(255,255,255,0.06)',
+              cursor: 'pointer',
+              overflow: 'hidden',
+              transition: `background 0.4s ${EASE}, border-color 0.4s ${EASE}`,
+            }}
+          >
+            {['fr', 'en'].map(code => {
+              const active = lang === code
+              return (
+                <span
+                  key={code}
+                  style={{
+                    padding: '3px 9px',
+                    borderRadius: 100,
+                    letterSpacing: '0.04em',
+                    background: active ? '#CCF306' : 'transparent',
+                    color: active ? '#1A1526' : (scrolled ? 'rgba(26,21,38,0.55)' : 'rgba(255,255,255,0.6)'),
+                    transition: `background 0.3s ${EASE}, color 0.3s ${EASE}`,
+                  }}
+                >
+                  {code.toUpperCase()}
+                </span>
+              )
+            })}
+          </button>
+
           <button
             onClick={onCTA}
             className="lime-cta-pill nav-cta"
@@ -141,8 +180,8 @@ export default function Navbar({ onCTA }) {
               transition: `transform 0.5s ${SPRING}, background 0.4s ${EASE}, color 0.4s ${EASE}`,
             }}
           >
-            <span className="nav-cta-full">Discutons de votre projet</span>
-            <span className="nav-cta-short">Discutons</span>
+            <span className="nav-cta-full">{t('Discutons de votre projet')}</span>
+            <span className="nav-cta-short">{t('Discutons')}</span>
           </button>
         </div>
       </div>
@@ -159,6 +198,7 @@ export default function Navbar({ onCTA }) {
         @media (max-width: 480px) {
           .nav-logo { height: 48px !important; }
           .nav-cta { font-size: 12px !important; padding: 9px 16px !important; }
+          .nav-lang span { padding: 3px 7px !important; }
         }
       `}</style>
     </header>

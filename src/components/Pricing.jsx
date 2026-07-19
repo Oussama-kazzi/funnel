@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { useInView } from 'framer-motion'
+import { useLang } from '../i18n/context'
 
 const EASE = 'cubic-bezier(0.16, 1, 0.3, 1)'
 
@@ -38,7 +39,8 @@ function ArrowRight() {
   )
 }
 
-function TarifRow({ t, i, onCTA, inView }) {
+function TarifRow({ item, i, onCTA, inView }) {
+  const { t } = useLang()
   return (
     <div
       className="tarif-row"
@@ -51,26 +53,26 @@ function TarifRow({ t, i, onCTA, inView }) {
       {/* Name + audience */}
       <div className="tarif-name">
         <h3 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 20, fontWeight: 700, color: '#141019', letterSpacing: '-0.02em', margin: 0 }}>
-          {t.name}
+          {t(item.name)}
         </h3>
         <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 13, color: 'rgba(20,16,25,0.5)', margin: '5px 0 0' }}>
-          {t.audience}
+          {t(item.audience)}
         </p>
       </div>
 
       {/* Price + note */}
       <div className="tarif-price">
         <span style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 16, fontWeight: 800, color: '#1A1526', letterSpacing: '-0.01em' }}>
-          {t.price}
+          {t(item.price)}
         </span>
         <span style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12.5, color: 'rgba(20,16,25,0.42)' }}>
-          {t.note}
+          {t(item.note)}
         </span>
       </div>
 
       {/* CTA */}
       <button onClick={onCTA} className="tarif-btn">
-        Discuter de mon projet
+        {t('Discuter de mon projet')}
         <ArrowRight />
       </button>
     </div>
@@ -80,6 +82,7 @@ function TarifRow({ t, i, onCTA, inView }) {
 export default function Pricing({ onCTA }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, amount: 0.15 })
+  const { t } = useLang()
 
   return (
     <section id="pricing" className="section-light pricing-section" ref={ref} style={{ padding: '104px 32px', position: 'relative' }}>
@@ -93,17 +96,17 @@ export default function Pricing({ onCTA }) {
           transition: `opacity 0.8s ${EASE}, transform 0.8s ${EASE}`,
         }}>
           <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#1A1526', marginBottom: 18 }}>
-            Nos tarifs
+            {t('Nos tarifs')}
           </p>
           <h2 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 'clamp(30px, 4.5vw, 50px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#141019', lineHeight: 1.08, margin: '0 auto', maxWidth: 640 }}>
-            Des tarifs clairs, adaptés à votre projet.
+            {t('Des tarifs clairs, adaptés à votre projet.')}
           </h2>
         </div>
 
         {/* Rows */}
         <div className="tarif-list">
-          {tarifs.map((t, i) => (
-            <TarifRow key={i} t={t} i={i} onCTA={onCTA} inView={inView} />
+          {tarifs.map((item, i) => (
+            <TarifRow key={i} item={item} i={i} onCTA={onCTA} inView={inView} />
           ))}
         </div>
 
@@ -112,8 +115,8 @@ export default function Pricing({ onCTA }) {
           opacity: inView ? 1 : 0,
           transition: `opacity 0.8s ${EASE} 0.5s`,
         }}>
-          <span><span className="tarif-note-dot" />Support client disponible 24h/24 et 7j/7</span>
-          <span><span className="tarif-note-dot" />Formation personnalisée pour maîtriser la gestion de votre site</span>
+          <span><span className="tarif-note-dot" />{t('Support client disponible 24h/24 et 7j/7')}</span>
+          <span><span className="tarif-note-dot" />{t('Formation personnalisée pour maîtriser la gestion de votre site')}</span>
         </div>
       </div>
 

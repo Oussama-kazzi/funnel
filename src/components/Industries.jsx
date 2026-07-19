@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { useInView } from 'framer-motion'
+import { useLang } from '../i18n/context'
 
 const CpuIcon = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -103,6 +104,7 @@ function CheckIcon() {
 
 function IndustryCard({ icon, title, desc, bullets, featured, index }) {
   const [hovered, setHovered] = useState(false)
+  const { t } = useLang()
 
   return (
     <div
@@ -138,7 +140,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
           letterSpacing: '0.1em', textTransform: 'uppercase',
           padding: '4px 12px', borderRadius: 100,
         }}>
-          Priorité
+          {t('Priorité')}
         </div>
       )}
 
@@ -164,7 +166,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
         color: '#1A1526', letterSpacing: '-0.025em',
         marginBottom: 12,
       }}>
-        {title}
+        {t(title)}
       </h3>
 
       {/* Desc */}
@@ -173,7 +175,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
         fontSize: 14, color: 'rgba(26,21,38,0.55)',
         lineHeight: 1.68, marginBottom: 22,
       }}>
-        {desc}
+        {t(desc)}
       </p>
 
       {/* Divider */}
@@ -195,7 +197,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
               fontFamily: "'Mona Sans Variable', sans-serif",
               fontSize: 13, color: 'rgba(26,21,38,0.72)', lineHeight: 1.5,
             }}>
-              {b}
+              {t(b)}
             </span>
           </li>
         ))}
@@ -207,6 +209,7 @@ function IndustryCard({ icon, title, desc, bullets, featured, index }) {
 export default function Industries() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, amount: 0.12 })
+  const { t } = useLang()
 
   return (
     <section id="industries" className="ind-section" style={{
@@ -233,7 +236,7 @@ export default function Industries() {
             display: 'flex', alignItems: 'center', gap: 10,
           }}>
             <span style={{ width: 28, height: 1, background: '#CCF306', display: 'inline-block' }} />
-            Pour qui travaillons-nous
+            {t('Pour qui travaillons-nous')}
           </p>
 
           <h2 style={{
@@ -243,9 +246,9 @@ export default function Industries() {
             color: '#1A1526', lineHeight: 1.05,
             margin: '0 0 20px',
           }}>
-            Nous accompagnons les entreprises{' '}
+            {t('Nous accompagnons les entreprises')}{' '}
             <em style={{ fontStyle: 'italic', color: '#1A1526', fontWeight: 700 }}>
-              ambitieuses.
+              {t('ambitieuses.')}
             </em>
           </h2>
 
@@ -254,7 +257,7 @@ export default function Industries() {
             fontSize: 17, color: 'rgba(26,21,38,0.55)',
             maxWidth: 560, lineHeight: 1.7, margin: 0,
           }}>
-            Startups, PME, e-commerce, SaaS, restaurants, cliniques, écoles, agences ou entrepreneurs — nous construisons votre projet autour de vos objectifs réels.
+            {t('Startups, PME, e-commerce, SaaS, restaurants, cliniques, écoles, agences ou entrepreneurs — nous construisons votre projet autour de vos objectifs réels.')}
           </p>
         </div>
 

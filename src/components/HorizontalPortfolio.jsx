@@ -163,7 +163,7 @@ function PortfolioCard({ project }) {
       <div style={{
         height: PREVIEW_H,
         flexShrink: 0,
-        background: '#0a0912',
+        background: '#101010',
         position: 'relative',
         overflow: 'hidden',
       }}>

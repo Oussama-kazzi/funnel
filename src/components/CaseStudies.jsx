@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useLang } from '../i18n/context'
 
 import img1  from '../assets/projet-3-webflow.png'
 import img2  from '../assets/projet-2-webflow.png'
@@ -179,6 +180,7 @@ const FILTERS = ['Tous', 'Webflow', 'WordPress', 'Custom Code']
 
 function CaseCard({ item, index }) {
   const [hovered, setHovered] = useState(false)
+  const { t } = useLang()
 
   return (
     <div
@@ -201,7 +203,7 @@ function CaseCard({ item, index }) {
       }}
     >
       {/* Preview area */}
-      <div style={{ position: 'relative', height: 220, flexShrink: 0, background: '#0a0912', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', height: 220, flexShrink: 0, background: '#101010', overflow: 'hidden' }}>
         <img
           src={item.preview.image}
           alt={item.name}
@@ -277,7 +279,7 @@ function CaseCard({ item, index }) {
             transition: 'color 0.25s ease, border-color 0.25s ease, background 0.25s ease',
           }}
         >
-          Visiter le site
+          {t('Visiter le site')}
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
             <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -289,6 +291,7 @@ function CaseCard({ item, index }) {
 
 export default function CaseStudies() {
   const [filter, setFilter] = useState('Tous')
+  const { t } = useLang()
 
   const visible = filter === 'Tous' ? cases : cases.filter(c => c.buildType === filter)
 
@@ -311,21 +314,21 @@ export default function CaseStudies() {
               fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 11, fontWeight: 600,
               textTransform: 'uppercase', letterSpacing: '0.18em',
               color: '#1A1526', marginBottom: 16,
-            }}>Réalisations récentes</p>
+            }}>{t('Réalisations récentes')}</p>
             <h2 style={{
               fontFamily: "'Mona Sans Variable', sans-serif",
               fontSize: 'clamp(28px, 6.5vw, 54px)', fontWeight: 800,
               letterSpacing: '-0.04em', color: '#1A1526',
               lineHeight: 1.05, margin: 0,
             }}>
-              Des projets dont<br />nous sommes fiers.
+              {t('Des projets dont')}<br />{t('nous sommes fiers.')}
             </h2>
           </div>
           <p style={{
             fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 16,
             color: 'rgba(26,21,38,0.55)', maxWidth: 380, lineHeight: 1.7,
           }}>
-            Des entreprises qui nous ont fait confiance et ont lancé un site qui performe.
+            {t('Des entreprises qui nous ont fait confiance et ont lancé un site qui performe.')}
           </p>
         </motion.div>
 
@@ -349,7 +352,7 @@ export default function CaseStudies() {
                 whiteSpace: 'nowrap',
               }}
             >
-              {f}
+              {t(f)}
             </button>
           ))}
         </div>

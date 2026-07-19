@@ -77,8 +77,8 @@ export default function Footer() {
         .footer-bg-grad {
           position: absolute; inset: 0;
           background:
-            radial-gradient(ellipse 80% 55% at 50% 110%, #241a52 0%, transparent 60%),
-            linear-gradient(180deg, #0c0a1e 0%, #100c26 55%, #14102e 100%);
+            radial-gradient(ellipse 80% 55% at 50% 110%, #2a2a2a 0%, transparent 60%),
+            linear-gradient(180deg, #0d0d0d 0%, #121212 55%, #161616 100%);
         }
         .footer-bg-grid {
           position: absolute; inset: 0;

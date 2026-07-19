@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useLang } from '../i18n/context'
 
 import logo1 from '../assets/logo1.png'
 import logo2 from '../assets/logo2.png'
@@ -22,6 +23,7 @@ const track = [...logos, ...logos, ...logos]
 export default function ClientLogos() {
   const [visible, setVisible] = useState(false)
   const ref = useRef(null)
+  const { t } = useLang()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -45,7 +47,7 @@ export default function ClientLogos() {
       >
         <span className="cl-rule-line" />
         <span className="cl-dot" />
-        <span className="cl-label-text">Ils nous font confiance</span>
+        <span className="cl-label-text">{t('Ils nous font confiance')}</span>
         <span className="cl-dot" />
         <span className="cl-rule-line" />
       </div>

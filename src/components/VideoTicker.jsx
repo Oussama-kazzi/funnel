@@ -37,7 +37,7 @@ export default function VideoTicker() {
         position: 'relative',
         width: '100%',
         overflow: 'hidden',
-        background: '#05050F',
+        background: '#0d0d0d',
         padding: '40px 0',
       }}
     >
@@ -93,7 +93,7 @@ export default function VideoTicker() {
           overflow: hidden;
           border: 1px solid rgba(26,21,38,0.09);
           box-shadow: 0 20px 50px rgba(0,0,0,0.45);
-          background: #0a0912;
+          background: #101010;
         }
         .ticker-card img {
           width: 100%;

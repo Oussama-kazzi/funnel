@@ -13,9 +13,12 @@ import Industries from './components/Industries'
 import Pricing from './components/Pricing'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
+import { useLang } from './i18n/context'
 
 export default function App() {
   const lenisRef = useRef(null)
+  const { t } = useLang()
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -63,6 +66,12 @@ export default function App() {
     else el.scrollIntoView({ behavior: 'smooth' })
   }, [])
 
+  /* Scroll-to-top button — smoothly returns to the hero at the top. */
+  const scrollToTop = useCallback(() => {
+    if (lenisRef.current) lenisRef.current.scrollTo(0)
+    else window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
+
   return (
     <>
       <AmbientBackground />
@@ -89,13 +98,14 @@ export default function App() {
             color: '#1A1526', lineHeight: 1.1,
             maxWidth: 820, margin: '0 auto',
           }}>
-            Vous avez l’idée, nous avons{' '}
-            <span style={{ color: '#CCF306', textShadow: '0 0 32px rgba(204,243,6,0.25)' }}>l’expertise.</span>
-            <br />Travaillons ensemble.
+            {t('Vous avez l’idée, nous avons')}{' '}
+            <span style={{ color: '#CCF306', textShadow: '0 0 32px rgba(204,243,6,0.25)' }}>{t('l’expertise.')}</span>
+            <br />{t('Travaillons ensemble.')}
           </h2>
         </section>
       </main>
       <Footer />
+      <ScrollToTop onClick={scrollToTop} />
     </>
   )
 }

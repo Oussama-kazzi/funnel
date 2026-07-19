@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { useInView } from 'framer-motion'
+import { useLang } from '../i18n/context'
 
 const categories = [
   {
@@ -34,6 +35,7 @@ const categories = [
 ]
 
 function FAQItem({ q, a, open, onToggle }) {
+  const { t } = useLang()
   return (
     <div style={{ borderBottom: '1px solid rgba(26,21,38,0.09)' }}>
       <button
@@ -51,7 +53,7 @@ function FAQItem({ q, a, open, onToggle }) {
           lineHeight: 1.35, letterSpacing: '-0.01em',
           transition: 'color 0.25s ease',
         }}>
-          {q}
+          {t(q)}
         </span>
         <span style={{
           width: 30, height: 30, borderRadius: '50%', flexShrink: 0,
@@ -76,7 +78,7 @@ function FAQItem({ q, a, open, onToggle }) {
           fontSize: 15, color: 'rgba(26,21,38,0.72)',
           lineHeight: 1.75, paddingBottom: 26, margin: 0,
         }}>
-          {a}
+          {t(a)}
         </p>
       </div>
     </div>
@@ -88,6 +90,7 @@ export default function FAQ() {
   const [openIdx, setOpenIdx] = useState(null)
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, amount: 0.1 })
+  const { t } = useLang()
 
   const handleTab = (i) => {
     setActiveTab(i)
@@ -127,9 +130,9 @@ export default function FAQ() {
             fontWeight: 800, letterSpacing: '-0.04em',
             color: '#1A1526', lineHeight: 1.05, margin: '0 0 20px',
           }}>
-            Questions{' '}
+            {t('Questions')}{' '}
             <em style={{ fontStyle: 'italic', color: '#1A1526', fontWeight: 700 }}>
-              fréquentes.
+              {t('fréquentes.')}
             </em>
           </h2>
 
@@ -138,7 +141,7 @@ export default function FAQ() {
             fontSize: 16, color: 'rgba(26,21,38,0.55)',
             lineHeight: 1.7, maxWidth: 580, margin: 0,
           }}>
-            Les questions qu’on nous pose le plus souvent — réponses claires et directes.
+            {t('Les questions qu’on nous pose le plus souvent — réponses claires et directes.')}
           </p>
         </div>
 
@@ -179,7 +182,7 @@ export default function FAQ() {
                   }
                 }}
               >
-                {cat.label}
+                {t(cat.label)}
               </button>
             )
           })}
@@ -204,7 +207,7 @@ export default function FAQ() {
           marginTop: 32, textAlign: 'right',
           letterSpacing: '0.06em',
         }}>
-          {current.faqs.length} questions · Une autre question ? Écrivez-nous.
+          {current.faqs.length} {t('questions · Une autre question ? Écrivez-nous.')}
         </p>
 
       </div>

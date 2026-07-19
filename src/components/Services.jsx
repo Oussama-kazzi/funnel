@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useLang } from '../i18n/context'
 
 const services = [
   { title: 'Sites vitrines', desc: 'Des sites professionnels qui présentent votre entreprise et renforcent votre crédibilité.', tag: 'Vitrine', span: 2, chips: ['Front-end', 'Développement', 'UX/UI'] },
@@ -29,8 +30,9 @@ const cardVariants = {
   },
 }
 
-function ServiceCard({ title, desc, tag, span, chips }) {
+function ServiceCard({ title, desc, span, chips }) {
   const [hovered, setHovered] = useState(false)
+  const { t } = useLang()
 
   return (
     <motion.div
@@ -46,17 +48,17 @@ function ServiceCard({ title, desc, tag, span, chips }) {
     >
       {/* Underlined heading */}
       <h3 className="svc-title">
-        {title}
+        {t(title)}
         <span className="svc-underline" />
       </h3>
 
       {/* Desc */}
-      <p className="svc-desc">{desc}</p>
+      <p className="svc-desc">{t(desc)}</p>
 
       {/* Tag chips (anchored to the bottom) */}
       <div className="svc-chips">
         {chips.map((c) => (
-          <span key={c} className="svc-chip">{c}</span>
+          <span key={c} className="svc-chip">{t(c)}</span>
         ))}
       </div>
     </motion.div>
@@ -64,6 +66,7 @@ function ServiceCard({ title, desc, tag, span, chips }) {
 }
 
 export default function Services() {
+  const { t } = useLang()
   return (
     <section id="services" className="section-light" style={{ padding: '112px 32px 100px', position: 'relative' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', zIndex: 1 }}>
@@ -79,10 +82,10 @@ export default function Services() {
           }}
         >
           <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#1A1526', marginBottom: 18 }}>
-            Ce que nous faisons
+            {t('Ce que nous faisons')}
           </p>
           <h2 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 'clamp(30px, 4.5vw, 50px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#141019', lineHeight: 1.08, margin: 0, maxWidth: 620 }}>
-            Des solutions complètes pour accélérer votre croissance.
+            {t('Des solutions complètes pour accélérer votre croissance.')}
           </h2>
         </motion.div>
 

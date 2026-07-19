@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import { useLang } from '../i18n/context'
 
 const testimonials = [
   {
@@ -70,7 +71,8 @@ function Stars({ count }) {
   )
 }
 
-function MasonryCard({ t, i }) {
+function MasonryCard({ item, i }) {
+  const { t } = useLang()
   return (
     <motion.div
       className="tm-card"
@@ -80,15 +82,15 @@ function MasonryCard({ t, i }) {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: (i % 3) * 0.08 }}
       whileHover={{ y: -4 }}
     >
-      <Stars count={t.stars} />
+      <Stars count={item.stars} />
 
-      <blockquote className="tm-quote">“{t.quote}”</blockquote>
+      <blockquote className="tm-quote">“{t(item.quote)}”</blockquote>
 
       <div className="tm-author">
-        <div className="tm-avatar">{t.initials}</div>
+        <div className="tm-avatar">{item.initials}</div>
         <div>
-          <div className="tm-name">{t.name}</div>
-          <div className="tm-role">{t.role}</div>
+          <div className="tm-name">{item.name}</div>
+          <div className="tm-role">{t(item.role)}</div>
         </div>
       </div>
     </motion.div>
@@ -98,6 +100,7 @@ function MasonryCard({ t, i }) {
 export default function Testimonials() {
   const [visible, setVisible] = useState(false)
   const ref = useRef(null)
+  const { t } = useLang()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -126,27 +129,27 @@ export default function Testimonials() {
           fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700,
           textTransform: 'uppercase', letterSpacing: '0.16em', color: '#1A1526', marginBottom: 18,
         }}>
-          Témoignages
+          {t('Témoignages')}
         </p>
         <h2 style={{
           fontFamily: "'Mona Sans Variable', sans-serif",
           fontSize: 'clamp(28px, 4.5vw, 48px)', fontWeight: 800,
           letterSpacing: '-0.04em', color: '#1A1526', lineHeight: 1.1, margin: '0 auto', maxWidth: 720,
         }}>
-          Pour toutes les <span style={{ color: '#1A1526' }}>entreprises</span>, entrepreneurs et agences.
+          {t('Pour toutes les')} <span style={{ color: '#1A1526' }}>{t('entreprises')}</span>{t(', entrepreneurs et agences.')}
         </h2>
         <p style={{
           fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 16, color: 'rgba(26,21,38,0.72)',
           lineHeight: 1.65, margin: '18px auto 0', maxWidth: 520,
         }}>
-          Ce que nos clients disent de nous après avoir travaillé avec FuturA.
+          {t('Ce que nos clients disent de nous après avoir travaillé avec FuturA.')}
         </p>
       </div>
 
       {/* Masonry grid */}
       <div className="tm-masonry">
-        {testimonials.map((t, i) => (
-          <MasonryCard key={i} t={t} i={i} />
+        {testimonials.map((item, i) => (
+          <MasonryCard key={i} item={item} i={i} />
         ))}
       </div>
 

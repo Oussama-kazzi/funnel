@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 'framer-motion'
+import { useLang } from '../i18n/context'
 
 const EASE = 'cubic-bezier(0.16, 1, 0.3, 1)'
 const EASE_ARR = [0.16, 1, 0.3, 1]
@@ -51,6 +52,7 @@ const SPREAD_GAP = 156    // spacing between cards in the initial vertical list
 // Driven by scroll position, so scrolling back up reverses it into the list.
 function StepCard({ i, total, title, desc, progress, activeIndex }) {
   const active = activeIndex === i
+  const { t } = useLang()
 
   const spreadY = i * SPREAD_GAP   // resting spot in the vertical list
   const stackY = 0                 // everyone folds onto the base card
@@ -85,9 +87,9 @@ function StepCard({ i, total, title, desc, progress, activeIndex }) {
     >
       <div className="step-glyph"><Glyph index={i} active={active} /></div>
       <div className="step-body">
-        <h3 className="step-title">{title}</h3>
+        <h3 className="step-title">{t(title)}</h3>
         <div className="step-desc-wrap">
-          <p className="step-desc">{desc}</p>
+          <p className="step-desc">{t(desc)}</p>
         </div>
       </div>
     </motion.div>
@@ -128,6 +130,7 @@ function StackScroller() {
 }
 
 export default function Process({ onCTA }) {
+  const { t } = useLang()
   return (
     <section id="process" className="section-light" style={{ padding: '104px 32px 120px', position: 'relative' }}>
       <div className="process-wrap">
@@ -140,16 +143,16 @@ export default function Process({ onCTA }) {
           transition={{ duration: 1, ease: EASE_ARR }}
         >
           <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#1A1526', marginBottom: 18 }}>
-            Notre processus
+            {t('Notre processus')}
           </p>
           <h2 style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 'clamp(30px, 3.6vw, 52px)', fontWeight: 800, letterSpacing: '-0.04em', color: '#141019', lineHeight: 1.08, margin: '0 0 22px' }}>
-            6 étapes simples pour<br /><span style={{ color: '#1A1526' }}>démarrer votre site</span>
+            {t('6 étapes simples pour')}<br /><span style={{ color: '#1A1526' }}>{t('démarrer votre site')}</span>
           </h2>
           <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 16, color: 'rgba(20,16,25,0.55)', lineHeight: 1.65, maxWidth: 380, marginBottom: 30 }}>
-            Un processus clair et sans friction, de la première prise de contact jusqu’à la mise en ligne de votre projet.
+            {t('Un processus clair et sans friction, de la première prise de contact jusqu’à la mise en ligne de votre projet.')}
           </p>
           <button onClick={onCTA} className="process-cta">
-            Réservez un appel gratuit
+            {t('Réservez un appel gratuit')}
           </button>
         </motion.div>
 
