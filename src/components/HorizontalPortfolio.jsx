@@ -11,6 +11,8 @@ import img7  from '../assets/projet-7-webflow.png'
 import img8  from '../assets/projet-1-wordpress.png'
 import img9  from '../assets/projet-2-wordpress.png'
 import img10 from '../assets/projet-1-code.png'
+import imgSolyra from '../assets/solyra.png'
+import imgParaHealthy from '../assets/pure.png'
 
 const CARD_W    = 320
 const CARD_H    = 400
@@ -18,53 +20,27 @@ const PREVIEW_H = 200
 const CARD_GAP  = 20
 
 const projects = [
+  // ── Projets liés au surf en premier ──
   {
     id: '01',
-    name: 'Slava Logistics',
-    desc: 'Site Webflow complet pour un opérateur logistique pan-européen — de l’identité de marque à la mise en ligne.',
-    accent:    '#F59E0B',
-    accentAlt: '#FCD34D',
-    image: img1,
-    href: 'https://slavalogistics.webflow.io/',
+    name: 'Solyra Surf Morocco',
+    desc: 'Camp de surf à Tamraght — site WordPress complet avec réservation de séjours, packages et design lifestyle immersif.',
+    accent:    '#14B8A6',
+    accentAlt: '#5EEAD4',
+    image: imgSolyra,
+    href: 'https://solyrasurfmorocco.com/',
   },
   {
     id: '02',
-    name: 'Payplus',
-    desc: 'Application mobile de finance nouvelle génération — plus de 10M d’utilisateurs projetés et 98% de satisfaction.',
-    accent:    '#EC4899',
-    accentAlt: '#F9A8D4',
-    image: img2,
-    href: 'https://payplus.webflow.io/',
-  },
-  {
-    id: '03',
-    name: 'Montagna',
-    desc: 'Marque d’aventure et école de ski — site Webflow avec réservation, e-commerce et animations.',
-    accent:    '#10B981',
-    accentAlt: '#6EE7B7',
-    image: img3,
-    href: 'https://montagna.webflow.io/',
-  },
-  {
-    id: '04',
-    name: 'Midlane',
-    desc: 'Site Webflow premium au design épuré, animations sur mesure et structure orientée conversion.',
-    accent:    '#06B6D4',
-    accentAlt: '#67E8F9',
-    image: img4,
-    href: 'https://www.midlane.com/',
-  },
-  {
-    id: '05',
     name: 'Sunsurf Maroc',
     desc: 'Surf camp et voyages d’aventure — présence web complète avec système de réservation et design immersif.',
     accent:    '#F97316',
     accentAlt: '#FDBA74',
     image: img5,
-    href: 'https://sunsurfmaroc.com/',
+    href: 'https://surfsunstay.com/',
   },
   {
-    id: '06',
+    id: '03',
     name: 'Dar Surfana Morocco',
     desc: 'Lodge de surf boutique — réservation de chambres, galerie et storytelling dans un site Webflow sur mesure.',
     accent:    '#EAB308',
@@ -73,7 +49,7 @@ const projects = [
     href: 'https://darsurfanamorocco.com/',
   },
   {
-    id: '07',
+    id: '04',
     name: 'Salt House Morocco',
     desc: 'Retraite de surf en bord de mer — design sur mesure, parcours de réservation et photographie lifestyle.',
     accent:    '#14B8A6',
@@ -82,7 +58,7 @@ const projects = [
     href: 'https://salthousemorocco.com/',
   },
   {
-    id: '08',
+    id: '05',
     name: 'Souk2Surf',
     desc: 'Plateforme de voyage surf mêlant culture marocaine et spots de vagues — séjours, coaching et expériences.',
     accent:    '#CCF306',
@@ -91,7 +67,7 @@ const projects = [
     href: 'https://souk2surf.com/',
   },
   {
-    id: '09',
+    id: '06',
     name: 'Surfana Tours',
     desc: 'Tour-opérateur de surf premium — offres multi-destinations, expériences guidées et marque communautaire.',
     accent:    '#CCF306',
@@ -99,8 +75,54 @@ const projects = [
     image: img9,
     href: 'https://surfanatours.com/',
   },
+  // ── Autres projets ──
+  {
+    id: '07',
+    name: 'Slava Logistics',
+    desc: 'Site Webflow complet pour un opérateur logistique pan-européen — de l’identité de marque à la mise en ligne.',
+    accent:    '#F59E0B',
+    accentAlt: '#FCD34D',
+    image: img1,
+    href: 'https://slavalogistics.webflow.io/',
+  },
+  {
+    id: '08',
+    name: 'Payplus',
+    desc: 'Application mobile de finance nouvelle génération — plus de 10M d’utilisateurs projetés et 98% de satisfaction.',
+    accent:    '#EC4899',
+    accentAlt: '#F9A8D4',
+    image: img2,
+    href: 'https://payplus.webflow.io/',
+  },
+  {
+    id: '09',
+    name: 'Montagna',
+    desc: 'Marque d’aventure et école de ski — site Webflow avec réservation, e-commerce et animations.',
+    accent:    '#10B981',
+    accentAlt: '#6EE7B7',
+    image: img3,
+    href: 'https://montagna.webflow.io/',
+  },
   {
     id: '10',
+    name: 'Midlane',
+    desc: 'Site Webflow premium au design épuré, animations sur mesure et structure orientée conversion.',
+    accent:    '#06B6D4',
+    accentAlt: '#67E8F9',
+    image: img4,
+    href: 'https://www.midlane.com/',
+  },
+  {
+    id: '11',
+    name: 'Para Healthy Shop',
+    desc: 'Boutique e-commerce WordPress de produits de santé et de soin — catalogue, paiement à la livraison et parcours d’achat optimisé.',
+    accent:    '#10B981',
+    accentAlt: '#6EE7B7',
+    image: imgParaHealthy,
+    href: 'https://parahealthyshop.com/',
+  },
+  {
+    id: '12',
     name: 'Adsolution',
     desc: 'Agence de marketing digital — design orienté performance avec capture de leads, études de cas et CMS.',
     accent:    '#CCF306',

@@ -11,62 +11,26 @@ import img7  from '../assets/projet-7-webflow.png'
 import img8  from '../assets/projet-1-wordpress.png'
 import img9  from '../assets/projet-2-wordpress.png'
 import img10 from '../assets/projet-1-code.png'
+import imgSolyra from '../assets/solyra.png'
+import imgParaHealthy from '../assets/pure.png'
 
 const cases = [
+  // ── Projets liés au surf en premier ──
   {
     num: '01',
-    name: 'Montagna',
-    buildType: 'Webflow',
-    result: '+180%',
-    resultLabel: 'de réservations',
+    name: 'Solyra Surf Morocco',
+    buildType: 'WordPress',
+    result: '+300%',
+    resultLabel: 'de réservations directes',
     tags: [
-      { label: 'Webflow', color: '#10B981', bg: 'rgba(16,185,129,0.15)' },
-      { label: 'Outdoor', color: '#6EE7B7', bg: 'rgba(110,231,183,0.12)' },
+      { label: 'WordPress', color: '#1A1526', bg: 'rgba(204,243,6,0.22)' },
+      { label: 'Surf',      color: '#14B8A6', bg: 'rgba(20,184,166,0.15)' },
     ],
-    preview: { accent: '#10B981', image: img3 },
-    href: 'https://montagna.webflow.io/',
+    preview: { accent: '#14B8A6', image: imgSolyra },
+    href: 'https://solyrasurfmorocco.com/',
   },
   {
     num: '02',
-    name: 'Payplus',
-    buildType: 'Webflow',
-    result: '10M+',
-    resultLabel: 'utilisateurs projetés',
-    tags: [
-      { label: 'Webflow', color: '#EC4899', bg: 'rgba(236,72,153,0.15)' },
-      { label: 'Fintech',  color: '#F9A8D4', bg: 'rgba(249,168,212,0.12)' },
-    ],
-    preview: { accent: '#EC4899', image: img2 },
-    href: 'https://payplus.webflow.io/',
-  },
-  {
-    num: '03',
-    name: 'Slava Logistics',
-    buildType: 'Webflow',
-    result: '+240%',
-    resultLabel: 'de portée organique',
-    tags: [
-      { label: 'Webflow',   color: '#F59E0B', bg: 'rgba(245,158,11,0.15)' },
-      { label: 'Logistics', color: '#FCD34D', bg: 'rgba(252,211,77,0.12)' },
-    ],
-    preview: { accent: '#F59E0B', image: img1 },
-    href: 'https://slavalogistics.webflow.io/',
-  },
-  {
-    num: '04',
-    name: 'Midlane',
-    buildType: 'Webflow',
-    result: '3.2×',
-    resultLabel: 'de conversion',
-    tags: [
-      { label: 'Webflow', color: '#06B6D4', bg: 'rgba(6,182,212,0.15)' },
-      { label: 'Brand',   color: '#67E8F9', bg: 'rgba(103,232,249,0.12)' },
-    ],
-    preview: { accent: '#06B6D4', image: img4 },
-    href: 'https://www.midlane.com/',
-  },
-  {
-    num: '05',
     name: 'Sunsurf Maroc',
     buildType: 'Webflow',
     result: '+320%',
@@ -76,10 +40,10 @@ const cases = [
       { label: 'Travel',  color: '#FDBA74', bg: 'rgba(253,186,116,0.12)' },
     ],
     preview: { accent: '#F97316', image: img5 },
-    href: 'https://sunsurfmaroc.com/',
+    href: 'https://surfsunstay.com/',
   },
   {
-    num: '06',
+    num: '03',
     name: 'Dar Surfana Morocco',
     buildType: 'Webflow',
     result: '4.1×',
@@ -92,7 +56,7 @@ const cases = [
     href: 'https://darsurfanamorocco.com/',
   },
   {
-    num: '07',
+    num: '04',
     name: 'Salt House Morocco',
     buildType: 'Webflow',
     result: '+290%',
@@ -105,7 +69,7 @@ const cases = [
     href: 'https://salthousemorocco.com/',
   },
   {
-    num: '08',
+    num: '05',
     name: 'Souk2Surf',
     buildType: 'WordPress',
     result: '2.8×',
@@ -118,7 +82,7 @@ const cases = [
     href: 'https://souk2surf.com/',
   },
   {
-    num: '09',
+    num: '06',
     name: 'Surfana Tours',
     buildType: 'WordPress',
     result: '+250%',
@@ -130,8 +94,74 @@ const cases = [
     preview: { accent: '#CCF306', image: img9 },
     href: 'https://surfanatours.com/',
   },
+  // ── Autres projets ──
+  {
+    num: '07',
+    name: 'Montagna',
+    buildType: 'Webflow',
+    result: '+180%',
+    resultLabel: 'de réservations',
+    tags: [
+      { label: 'Webflow', color: '#10B981', bg: 'rgba(16,185,129,0.15)' },
+      { label: 'Outdoor', color: '#6EE7B7', bg: 'rgba(110,231,183,0.12)' },
+    ],
+    preview: { accent: '#10B981', image: img3 },
+    href: 'https://montagna.webflow.io/',
+  },
+  {
+    num: '08',
+    name: 'Payplus',
+    buildType: 'Webflow',
+    result: '10M+',
+    resultLabel: 'utilisateurs projetés',
+    tags: [
+      { label: 'Webflow', color: '#EC4899', bg: 'rgba(236,72,153,0.15)' },
+      { label: 'Fintech',  color: '#F9A8D4', bg: 'rgba(249,168,212,0.12)' },
+    ],
+    preview: { accent: '#EC4899', image: img2 },
+    href: 'https://payplus.webflow.io/',
+  },
+  {
+    num: '09',
+    name: 'Slava Logistics',
+    buildType: 'Webflow',
+    result: '+240%',
+    resultLabel: 'de portée organique',
+    tags: [
+      { label: 'Webflow',   color: '#F59E0B', bg: 'rgba(245,158,11,0.15)' },
+      { label: 'Logistics', color: '#FCD34D', bg: 'rgba(252,211,77,0.12)' },
+    ],
+    preview: { accent: '#F59E0B', image: img1 },
+    href: 'https://slavalogistics.webflow.io/',
+  },
   {
     num: '10',
+    name: 'Midlane',
+    buildType: 'Webflow',
+    result: '3.2×',
+    resultLabel: 'de conversion',
+    tags: [
+      { label: 'Webflow', color: '#06B6D4', bg: 'rgba(6,182,212,0.15)' },
+      { label: 'Brand',   color: '#67E8F9', bg: 'rgba(103,232,249,0.12)' },
+    ],
+    preview: { accent: '#06B6D4', image: img4 },
+    href: 'https://www.midlane.com/',
+  },
+  {
+    num: '11',
+    name: 'Para Healthy Shop',
+    buildType: 'WordPress',
+    result: '+210%',
+    resultLabel: 'de ventes en ligne',
+    tags: [
+      { label: 'WordPress',   color: '#1A1526', bg: 'rgba(204,243,6,0.22)' },
+      { label: 'E-commerce',  color: '#10B981', bg: 'rgba(16,185,129,0.15)' },
+    ],
+    preview: { accent: '#10B981', image: imgParaHealthy },
+    href: 'https://parahealthyshop.com/',
+  },
+  {
+    num: '12',
     name: 'Adsolution',
     buildType: 'Custom Code',
     result: '$1.2M',

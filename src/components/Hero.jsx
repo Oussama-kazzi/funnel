@@ -98,8 +98,7 @@ export default function Hero({ onCTA }) {
 
         {/* Subheading */}
         <p className="hero-sub" style={{ ...fade(0.2) }}>
-          Notre philosophie&nbsp;: {' '}
-          Nous concevons des sites web, landing pages et solutions digitales qui attirent, engagent et convertissent.
+          Nous concevons des sites web, landing pages et solutions digitales sur mesure qui renforcent votre crédibilité, génèrent plus de demandes et accompagnent la croissance de votre entreprise.
         </p>
 
         {/* CTAs */}
@@ -296,8 +295,14 @@ export default function Hero({ onCTA }) {
 
         /* Booking form injected in the hero — only shown on mobile, hidden on
            desktop where the project slider takes its place. */
-        .hero-form-mobile { display: none; width: 100%; margin-top: 8px; }
+        .hero-form-mobile { display: none; width: 100%; margin-top: 8px; text-align: left; }
         .hero-form-mobile .bf-wrap { padding: 0 !important; }
+        /* The hero centers its content — force the form back to left-aligned
+           (labels, checkboxes, texts) so it matches the desktop layout. */
+        .hero-form-mobile .bf-card { text-align: left; }
+        .hero-form-mobile .bf-success { text-align: left; }
+        .hero-form-mobile .bf-success-icon { margin-left: 0; }
+        .hero-form-mobile .bf-success-text { margin-left: 0; }
 
         /* Showcase card */
         .hero-showcase { position: relative; width: 100%; max-width: 1080px; }

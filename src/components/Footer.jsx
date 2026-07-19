@@ -51,7 +51,7 @@ export default function Footer() {
             />
           </a>
           <p style={{ fontFamily: "'Mona Sans Variable', sans-serif", fontSize: 13, color: 'rgba(255,255,255,0.5)' }}>
-            © 2025 FuturA Digital Studio. Agence digitale à Casablanca.
+            © 2025 FuturA Digital Studio.
           </p>
           <a
             href="mailto:contact@futura.ma"
