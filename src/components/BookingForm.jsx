@@ -5,7 +5,7 @@ const GOLD = '#CCF306'
 
 const SERVICES = ['Site web', 'Landing page', 'Application (web/mobile)', 'Autres']
 
-export default function BookingForm() {
+export default function BookingForm({ id = 'booking', className = '' }) {
   const [form, setForm] = useState({
     name: '', phone: '', email: '', company: '', domain: '',
   })
@@ -22,7 +22,7 @@ export default function BookingForm() {
   }
 
   return (
-    <div className="bf-wrap" id="booking">
+    <div className={`bf-wrap ${className}`} {...(id ? { id } : {})}>
       <style>{css}</style>
 
       <motion.div

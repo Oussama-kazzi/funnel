@@ -1,6 +1,5 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 'framer-motion'
-import { useState } from 'react'
 
 const EASE = 'cubic-bezier(0.16, 1, 0.3, 1)'
 const EASE_ARR = [0.16, 1, 0.3, 1]
@@ -62,9 +61,26 @@ function StepCard({ i, total, title, desc, progress, activeIndex }) {
   const rawY = useTransform(progress, [startFold, 0.92], [spreadY, stackY], { clamp: true })
   const y = useSpring(rawY, { stiffness: 480, damping: 42, mass: 0.35 })
 
+  // Mobile-only entrance: reveal each card as it scrolls into view. Drives an
+  // `in-view` class picked up by the mobile CSS (fade + slide up). Ignored on
+  // desktop, where the scroll-pinned stacking animation runs instead.
+  const cardRef = useRef(null)
+  const [inView, setInView] = useState(false)
+  useEffect(() => {
+    const el = cardRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect() } },
+      { threshold: 0.25, rootMargin: '0px 0px -8% 0px' },
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
   return (
     <motion.div
-      className={`step-card${active ? ' is-active' : ''}`}
+      ref={cardRef}
+      className={`step-card${active ? ' is-active' : ''}${inView ? ' in-view' : ''}`}
       style={{ y, zIndex: i + 1 }}
     >
       <div className="step-glyph"><Glyph index={i} active={active} /></div>
@@ -232,18 +248,44 @@ export default function Process({ onCTA }) {
         }
 
         @media (max-width: 900px) {
-          .process-wrap { grid-template-columns: 1fr; gap: 36px; }
+          .process-wrap { grid-template-columns: 1fr; gap: 32px; }
           .process-head { position: static; align-items: center; text-align: center; }
           .process-head h2, .process-head p { margin-left: auto; margin-right: auto; }
+
+          /* On mobile: drop the scroll-pinned stacking (janky on touch) and show
+             a clean, smooth vertical list where each card animates in as it
+             enters the viewport. Neutralise the JS-driven transforms and the
+             tall scroll track so there's no big empty space. */
+          .step-container { height: auto !important; }
+          .step-frame { position: static !important; top: auto !important; }
+          .step-stage {
+            height: auto !important;
+            display: flex; flex-direction: column; gap: 14px;
+          }
+          .step-card {
+            position: relative !important;
+            top: auto !important;
+            transform: none !important;
+            z-index: auto !important;
+            /* Entrance start state — animate via translate/opacity so we don't
+               clash with framer-motion's inline transform. */
+            opacity: 0;
+            translate: 0 26px;
+            transition: opacity 0.6s ${EASE}, translate 0.6s ${EASE};
+          }
+          .step-card.in-view {
+            opacity: 1;
+            translate: 0 0;
+          }
         }
         @media (max-width: 768px) {
-          #process { padding: 80px 20px 90px !important; }
+          #process { padding: 72px 20px 80px !important; }
           .step-card { padding: 20px 20px; gap: 16px; }
           .step-icon-tile { width: 42px; height: 42px; border-radius: 11px; }
           .step-title { font-size: 18px; }
         }
         @media (max-width: 480px) {
-          #process { padding: 64px 16px 72px !important; }
+          #process { padding: 56px 16px 64px !important; }
           .step-card { padding: 18px 16px; gap: 14px; border-radius: 18px; }
         }
       `}</style>

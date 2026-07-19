@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import TextType from './TextType'
+import BookingForm from './BookingForm'
 import slide1 from '../assets/projet-3-webflow.png'
 import slide2 from '../assets/projet-2-webflow.png'
 import slide3 from '../assets/projet-4-webflow.png'
@@ -145,6 +146,12 @@ export default function Hero({ onCTA }) {
             </div>
           </div>
         </div>
+
+        {/* Mobile only — booking form shown here in place of the slider.
+            No id: the footer form keeps id="booking" as the CTA scroll target. */}
+        <div className="hero-form-mobile" style={{ ...fade(0.42) }}>
+          <BookingForm id={null} />
+        </div>
       </div>
 
       <style>{`
@@ -287,6 +294,11 @@ export default function Hero({ onCTA }) {
           background: rgba(255,255,255,0.04);
         }
 
+        /* Booking form injected in the hero — only shown on mobile, hidden on
+           desktop where the project slider takes its place. */
+        .hero-form-mobile { display: none; width: 100%; margin-top: 8px; }
+        .hero-form-mobile .bf-wrap { padding: 0 !important; }
+
         /* Showcase card */
         .hero-showcase { position: relative; width: 100%; max-width: 1080px; }
         .hero-showcase::before {
@@ -353,11 +365,11 @@ export default function Hero({ onCTA }) {
           .hero-dark { padding-top: 120px !important; padding-bottom: 60px !important; }
           .hero-wrap { padding: 0 20px; }
           .hero-sub { font-size: 15.5px; }
-          .hero-cta-row { margin-bottom: 46px; gap: 12px; }
+          .hero-cta-row { margin-bottom: 40px; gap: 12px; }
           .hero-btn-primary, .hero-btn-ghost { width: 100%; text-align: center; }
-          .hero-showcase-inner { aspect-ratio: 16 / 11; border-radius: 16px; }
-          .hero-showcase-chip { font-size: 11px; padding: 7px 12px; left: 12px; bottom: 12px; }
-          .hero-showcase-dots { right: 12px; bottom: 12px; padding: 6px 10px; gap: 6px; }
+          /* On mobile, swap the project slider for the booking form. */
+          .hero-showcase { display: none; }
+          .hero-form-mobile { display: block; }
         }
         @media (max-width: 480px) {
           .hero-dark { padding-top: 104px !important; }
